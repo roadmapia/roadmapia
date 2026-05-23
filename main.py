@@ -317,7 +317,9 @@ async def enviar_soporte(request: Request, db: Session = Depends(get_db)):
         msg["To"]      = support_email
         msg["Reply-To"] = email
 
-        html = f"""
+        import html as html_module
+    mensaje_safe = html_module.escape(mensaje)
+    html = f"""
         <div style="font-family:Arial,sans-serif;max-width:600px;padding:24px;background:#f9f9f9;border-radius:8px">
           <h2 style="color:#7c6fff;margin-bottom:4px">Nueva consulta de soporte</h2>
           <p style="color:#888;font-size:13px;margin-top:0">RoadmapIA — Widget de soporte</p>
@@ -326,7 +328,7 @@ async def enviar_soporte(request: Request, db: Session = Depends(get_db)):
           <p><strong>Email:</strong> <a href="mailto:{email}">{email}</a></p>
           <p><strong>Consulta:</strong></p>
           <div style="background:#fff;border-left:4px solid #7c6fff;padding:12px 16px;border-radius:4px;margin-top:8px">
-            {mensaje.replace(chr(10), '<br>')}
+            {mensaje_safe.replace('\n', '<br>')}
           </div>
           <hr style="border:1px solid #eee;margin:16px 0">
           <p style="color:#aaa;font-size:12px">Responde a este email para contestar directamente al usuario.</p>
@@ -344,9 +346,20 @@ async def enviar_soporte(request: Request, db: Session = Depends(get_db)):
         return JSONResponse({"ok": False, "error": str(e)}, status_code=500)
 
 
+BLOG_SLUGS_VALIDOS = {
+    "como-aprender-python-desde-cero",
+    "aprender-con-ia-vs-cursos-tradicionales",
+    "roadmap-de-aprendizaje-que-es-y-por-que-necesitas-uno",
+}
+
 @app.get("/blog/{slug}", response_class=HTMLResponse)
 async def blog_post(slug: str, request: Request):
+    import re
     from core.auth import get_current_user_from_token
+    # Validar slug contra whitelist y patrón seguro
+    if slug not in BLOG_SLUGS_VALIDOS or not re.match(r"^[a-z0-9-]+$", slug):
+        from fastapi import HTTPException
+        raise HTTPException(status_code=404, detail="Artículo no encontrado")
     db = next(get_db())
     token = request.cookies.get("access_token")
     user = get_current_user_from_token(token, db) if token else None

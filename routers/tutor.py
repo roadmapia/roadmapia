@@ -118,19 +118,19 @@ async def enviar_mensaje(
                 contexto_roadmap={"tema": roadmap.tema, "nivel": roadmap.nivel},
                 idioma=idioma_roadmap
             )
+            # Guardar en cache
+            db.add(TutorQuestionCache(
+                pregunta_normalizada=pregunta_norm,
+                pregunta_original=mensaje,
+                respuesta=respuesta,
+                tema=roadmap.tema,
+                nivel=roadmap.nivel,
+                idioma=idioma_roadmap
+            ))
+            print(f"💬 DeepSeek nueva pregunta guardada en cache: '{mensaje[:60]}'")
         except Exception as e:
-            raise HTTPException(status_code=500, detail=f"Error del tutor: {str(e)}")
-
-        # Guardar en cache
-        db.add(TutorQuestionCache(
-            pregunta_normalizada=pregunta_norm,
-            pregunta_original=mensaje,
-            respuesta=respuesta,
-            tema=roadmap.tema,
-            nivel=roadmap.nivel,
-            idioma=idioma_roadmap
-        ))
-        print(f"💬 DeepSeek nueva pregunta guardada en cache: '{mensaje[:60]}'")
+            print(f"❌ Error tutor IA: {e}")
+            raise HTTPException(status_code=500, detail="Error interno del tutor. Por favor inténtalo de nuevo.")
 
     # Guardar mensajes
     db.add(ChatMessage(

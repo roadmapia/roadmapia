@@ -6,16 +6,23 @@ from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 from typing import Optional
 import os
+import secrets
 from dotenv import load_dotenv
 
 load_dotenv()
 
-SECRET_KEY = os.getenv("SECRET_KEY", "clave_secreta_por_defecto_cambiar")
+SECRET_KEY = os.getenv("SECRET_KEY")
+if not SECRET_KEY:
+    raise RuntimeError("❌ SECRET_KEY no configurada en .env — la aplicación no puede arrancar sin ella.")
+
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_DAYS = 30
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login", auto_error=False)
+
+# Hash dummy para timing-safe login (evita enumeración de usuarios)
+_DUMMY_HASH = pwd_context.hash("dummy_password_for_timing")
 
 
 def hash_password(password: str) -> str:
@@ -23,6 +30,14 @@ def hash_password(password: str) -> str:
 
 
 def verify_password(plain: str, hashed: str) -> bool:
+    return pwd_context.verify(plain, hashed)
+
+
+def verify_password_safe(plain: str, hashed: Optional[str]) -> bool:
+    """Siempre ejecuta bcrypt aunque el usuario no exista (anti timing-attack)."""
+    if not hashed:
+        pwd_context.verify(plain, _DUMMY_HASH)
+        return False
     return pwd_context.verify(plain, hashed)
 
 

@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 
 from database.database import get_db
 from database.models import User, PasswordResetToken
-from core.auth import hash_password, verify_password, create_access_token, get_current_user_from_token
+from core.auth import hash_password, verify_password, verify_password_safe, create_access_token, get_current_user_from_token
 from core.email import send_email, reset_password_email
 from typing import Optional
 
@@ -119,7 +119,7 @@ async def register(
 
     token = create_access_token({"sub": str(user.id)})
     response = RedirectResponse(url="/dashboard", status_code=status.HTTP_302_FOUND)
-    response.set_cookie("access_token", token, httponly=True, max_age=60 * 60 * 24 * 30)
+    response.set_cookie("access_token", token, httponly=True, secure=True, samesite="lax", max_age=60*60*24*30)
     return response
 
 
@@ -151,7 +151,9 @@ async def login(
         })
 
     user = db.query(User).filter(User.email == email, User.activo == True).first()
-    if not user or not verify_password(password, user.password_hash):
+    # verify_password_safe siempre ejecuta bcrypt aunque el usuario no exista (anti timing-attack)
+    pwd_ok = verify_password_safe(password, user.password_hash if user else None)
+    if not user or not pwd_ok:
         return error("Email o contraseña incorrectos.")
 
     # Generar código referido si no tiene
@@ -162,7 +164,7 @@ async def login(
     token = create_access_token({"sub": str(user.id)})
     response = RedirectResponse(url="/dashboard", status_code=status.HTTP_302_FOUND)
     max_age = 60 * 60 * 24 * 30 if recordarme else None  # 30 días o sesión
-    response.set_cookie("access_token", token, httponly=True, max_age=max_age)
+    response.set_cookie("access_token", token, httponly=True, secure=True, samesite="lax", max_age=max_age)
     return response
 
 
@@ -292,10 +294,13 @@ async def reset_password(
 #  GOOGLE OAUTH
 # ─────────────────────────────────────────
 @router.get("/google")
-async def google_login():
+async def google_login(request: Request):
     if not GOOGLE_CLIENT_ID:
         raise HTTPException(status_code=400, detail="Google OAuth no configurado")
     from urllib.parse import urlencode
+    # Generar state anti-CSRF
+    state = secrets.token_urlsafe(16)
+    request.session["oauth_state"] = state if hasattr(request, "session") else state
     params = {
         "client_id": GOOGLE_CLIENT_ID,
         "redirect_uri": GOOGLE_REDIRECT_URI,
@@ -303,14 +308,21 @@ async def google_login():
         "scope": "openid email profile",
         "access_type": "offline",
         "prompt": "select_account",
+        "state": state,
     }
-    return RedirectResponse("https://accounts.google.com/o/oauth2/v2/auth?" + urlencode(params))
+    response = RedirectResponse("https://accounts.google.com/o/oauth2/v2/auth?" + urlencode(params))
+    response.set_cookie("oauth_state", state, httponly=True, secure=True, samesite="lax", max_age=300)
+    return response
 
 
 @router.get("/google/callback")
-async def google_callback(request: Request, code: str = None, error: str = None, db: Session = Depends(get_db)):
+async def google_callback(request: Request, code: str = None, error: str = None, state: str = None, db: Session = Depends(get_db)):
     if error or not code:
         return RedirectResponse(url="/auth/login?error=google_cancel")
+    # Verificar state anti-CSRF
+    expected_state = request.cookies.get("oauth_state")
+    if not expected_state or expected_state != state:
+        return RedirectResponse(url="/auth/login?error=oauth_state_invalid")
 
     try:
         async with httpx.AsyncClient() as client:
@@ -372,7 +384,7 @@ async def google_callback(request: Request, code: str = None, error: str = None,
 
         jwt_token = create_access_token({"sub": str(user.id)})
         response = RedirectResponse(url="/dashboard", status_code=status.HTTP_302_FOUND)
-        response.set_cookie("access_token", jwt_token, httponly=True, max_age=60 * 60 * 24 * 30)
+        response.set_cookie("access_token", jwt_token, httponly=True, secure=True, samesite="lax", max_age=60*60*24*30)
         return response
 
     except Exception as e:

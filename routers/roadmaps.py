@@ -85,6 +85,10 @@ async def nuevo_roadmap_page(request: Request, db: Session = Depends(get_db)):
     })
 
 
+NIVELES_VALIDOS = {"principiante", "intermedio", "avanzado"}
+IDIOMAS_VALIDOS = {"es", "en"}
+
+
 @router.post("/roadmaps/nuevo")
 async def crear_roadmap(
     request: Request,
@@ -97,6 +101,12 @@ async def crear_roadmap(
     user = get_user(request, db)
     if not user:
         return RedirectResponse(url="/auth/login")
+
+    # Validar valores permitidos (anti prompt injection)
+    if nivel not in NIVELES_VALIDOS:
+        nivel = "principiante"
+    if idioma not in IDIOMAS_VALIDOS:
+        idioma = "es"
 
     puede, mensaje = can_create_roadmap(user, db)
     if not puede:

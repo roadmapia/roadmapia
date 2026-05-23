@@ -13,6 +13,9 @@ load_dotenv()
 
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY", "")
 STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET", "")
+if not STRIPE_WEBHOOK_SECRET or STRIPE_WEBHOOK_SECRET in ("whsec_test", "whsec_..."):
+    import sys
+    print("⚠️  STRIPE_WEBHOOK_SECRET no configurado — webhook desactivado en producción")
 STRIPE_PRICE_BASIC = os.getenv("STRIPE_PRICE_BASIC", "")
 STRIPE_PRICE_PRO = os.getenv("STRIPE_PRICE_PRO", "")
 BASE_URL = os.getenv("BASE_URL", "http://localhost:8000")
@@ -75,8 +78,12 @@ async def stripe_webhook(request: Request, db: Session = Depends(get_db)):
     payload = await request.body()
     sig_header = request.headers.get("stripe-signature", "")
 
+    if not STRIPE_WEBHOOK_SECRET or STRIPE_WEBHOOK_SECRET in ("whsec_test", "whsec_..."):
+        raise HTTPException(status_code=400, detail="Webhook no configurado")
     try:
         event = stripe.Webhook.construct_event(payload, sig_header, STRIPE_WEBHOOK_SECRET)
+    except stripe.error.SignatureVerificationError:
+        raise HTTPException(status_code=400, detail="Firma de webhook inválida")
     except Exception:
         raise HTTPException(status_code=400, detail="Webhook inválido")
 
