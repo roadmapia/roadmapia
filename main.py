@@ -318,8 +318,8 @@ async def enviar_soporte(request: Request, db: Session = Depends(get_db)):
         msg["Reply-To"] = email
 
         import html as html_module
-    mensaje_safe = html_module.escape(mensaje)
-    html = f"""
+        mensaje_safe = html_module.escape(mensaje)
+        html = f"""
         <div style="font-family:Arial,sans-serif;max-width:600px;padding:24px;background:#f9f9f9;border-radius:8px">
           <h2 style="color:#7c6fff;margin-bottom:4px">Nueva consulta de soporte</h2>
           <p style="color:#888;font-size:13px;margin-top:0">RoadmapIA — Widget de soporte</p>
