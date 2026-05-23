@@ -1791,3 +1791,165 @@ select.form-control option { background: var(--surface2); }
 .review-modal-bonus strong { display: block; font-size: 0.9rem; color: var(--green); margin-bottom: 0.15rem; }
 .review-modal-bonus span { font-size: 0.78rem; color: var(--muted); }
 .review-modal-sub { font-size: 0.78rem; color: var(--dim); margin-bottom: 0.25rem !important; }
+
+/* =========================================================
+   CORRECCIONES MOBILE COMPLETAS
+   ========================================================= */
+@media(max-width:768px){
+
+  /* NAVBAR */
+  .navbar {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    padding: 0 1rem !important;
+    position: relative !important;
+  }
+  .navbar-brand { grid-column: 1; }
+  .hamburger { grid-column: 2; display: flex !important; }
+  .navbar-links {
+    display: none !important;
+    position: absolute; top: 60px; left: 0; right: 0; z-index: 9000;
+    background: rgba(9,9,19,0.98) !important;
+    backdrop-filter: blur(20px);
+    flex-direction: column !important;
+    padding: 1rem !important;
+    border-bottom: 1px solid var(--border);
+    gap: 0.25rem !important;
+    grid-column: unset !important;
+    justify-content: flex-start !important;
+  }
+  .navbar-links.open { display: flex !important; }
+  .navbar-links a { width: 100%; padding: 0.6rem 0.75rem; }
+  .navbar-right {
+    display: none !important;
+    grid-column: unset;
+  }
+  .navbar-links.open ~ .navbar-right,
+  .navbar-links.open + * .navbar-right { display: flex !important; }
+
+  /* Cuando el menú está abierto, mostrar también los botones auth al final */
+  .navbar-links.open {
+    padding-bottom: 1.25rem !important;
+  }
+
+  /* HERO */
+  .hero { padding: 40px 1rem 32px !important; }
+  .hero-2col { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .hero-visual { display: none !important; }
+  .hero-text { text-align: center !important; }
+  .hero-text h1 { font-size: clamp(1.8rem, 7vw, 2.8rem) !important; }
+  .hero-text p { max-width: 100% !important; font-size: 0.95rem !important; }
+  .hero-btns { justify-content: center !important; flex-wrap: wrap !important; }
+  .hero-numbers { justify-content: center !important; gap: 1.5rem !important; }
+  .hero-chip { font-size: 0.65rem !important; }
+
+  /* STATS BANNER */
+  .stats-banner-inner {
+    gap: 0.75rem !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+  .stat-pill-sep { display: none !important; }
+  .stat-pill { flex-direction: column !important; align-items: center !important; gap: 0.1rem !important; }
+  .stat-pill-num { font-size: 1.1rem !important; }
+  .stat-pill-lbl { font-size: 0.65rem !important; }
+
+  /* SECCIONES */
+  .section { padding: 40px 1rem !important; }
+  .section-title { font-size: clamp(1.4rem, 5vw, 2rem) !important; }
+
+  /* STEPS */
+  .steps { grid-template-columns: 1fr !important; }
+
+  /* PLANS GRID */
+  .plans-grid { grid-template-columns: 1fr !important; }
+
+  /* FEATURES */
+  .features-grid { grid-template-columns: 1fr !important; }
+
+  /* COMPARATIVA */
+  .comp-table-wrap { overflow-x: auto; }
+  .comp-table { min-width: 500px; font-size: 0.72rem !important; }
+  .comp-table th, .comp-table td { padding: 0.5rem 0.6rem !important; }
+
+  /* FEATURES ALTERNADAS */
+  .feat-alt-row { grid-template-columns: 1fr !important; gap: 2rem !important; direction: ltr !important; }
+  .feat-alt-rev { direction: ltr !important; }
+  .feat-alt-text h3 { font-size: 1.3rem !important; }
+
+  /* WHY */
+  .why-vs { grid-template-columns: 1fr !important; }
+  .why-old { border-right: none !important; border-bottom: 1px solid var(--border) !important; }
+
+  /* TESTIMONIALS */
+  .testimonials { grid-template-columns: 1fr !important; }
+
+  /* FAQ */
+  .faq-grid { grid-template-columns: 1fr !important; }
+
+  /* ABOUT */
+  .about-card { grid-template-columns: 1fr !important; gap: 1.5rem !important; padding: 1.5rem !important; }
+  .about-stat-grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* CTA */
+  .cta-inner { padding: 2rem 1.25rem !important; }
+  .cta-inner h2 { font-size: 1.4rem !important; }
+  .cta-trust { flex-direction: column !important; gap: 0.4rem !important; align-items: center !important; }
+
+  /* PLANS PREVIEW */
+  .plans-preview { grid-template-columns: 1fr !important; }
+
+  /* FOOTER */
+  .footer-main { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .footer-links-group { gap: 2rem !important; }
+
+  /* DASHBOARD */
+  .page-wrap { padding: 1rem !important; }
+  .stats-bar { grid-template-columns: 1fr 1fr !important; }
+  .rm-grid { grid-template-columns: 1fr !important; }
+  .page-top { flex-direction: column !important; align-items: flex-start !important; }
+
+  /* LESSON */
+  .lesson-wrap { grid-template-columns: 1fr !important; padding: 0.75rem 1rem 2rem !important; }
+  .chat-wrap { height: 450px !important; }
+
+  /* AUTH */
+  .auth-split { grid-template-columns: 1fr !important; }
+  .auth-split-panel { display: none !important; }
+  .auth-box { padding: 1.5rem !important; }
+
+  /* ROADMAP */
+  .rm-page { padding: 1rem 1rem 3rem !important; }
+  .rm-header { padding: 1.25rem !important; }
+  .rm-meta { flex-wrap: wrap !important; }
+
+  /* PRICING */
+  .pricing-wrap { padding: 2rem 1rem 3rem !important; }
+
+  /* SOPORTE */
+  .soporte-grid { grid-template-columns: 1fr !important; }
+
+  /* CUENTA */
+  .referral-link-row { flex-direction: column !important; }
+  .plan-actual-row { flex-direction: column !important; }
+
+  /* BOTONES */
+  .btn-lg { padding: 0.65rem 1.25rem !important; font-size: 0.875rem !important; }
+
+  /* SUPPORT WIDGET */
+  .support-panel { width: 290px !important; }
+
+  /* CERTIFICATE */
+  .cert-body { padding: 2rem 1.5rem !important; }
+  .cert-title { font-size: 1.75rem !important; }
+  .cert-name { font-size: 1.75rem !important; }
+  .cert-seal { width: 70px !important; height: 70px !important; bottom: 2rem !important; right: 1.5rem !important; }
+  .cert-footer { flex-direction: column !important; align-items: flex-start !important; gap: 1rem !important; }
+}
+
+/* EXTRA SMALL (iPhone SE, etc.) */
+@media(max-width:375px){
+  .hero-text h1 { font-size: 1.6rem !important; }
+  .comp-table { min-width: 420px; }
+  .navbar-brand { font-size: 1rem !important; }
+}

@@ -312,10 +312,23 @@ function toggleFaqItem(item) {
 // ===== MOBILE MENU =====
 function toggleMobileMenu() {
   const links = document.getElementById('navbar-links');
+  const right = document.getElementById('navbar-right');
   const btn = document.getElementById('hamburger');
   if (!links) return;
-  links.classList.toggle('open');
+  const isOpen = links.classList.toggle('open');
   btn.classList.toggle('open');
+  // En móvil mostrar/ocultar también los botones de auth
+  if (right) {
+    if (isOpen) {
+      right.style.cssText = 'display:flex!important;flex-direction:column;gap:0.5rem;padding:0 1rem 0.5rem;';
+      // Mover navbar-right dentro del menú desplegable
+      links.appendChild(right);
+    } else {
+      right.style.cssText = '';
+      // Restaurar posición original
+      links.parentElement.appendChild(right);
+    }
+  }
 }
 
 // ===== SCROLL REVEAL =====
