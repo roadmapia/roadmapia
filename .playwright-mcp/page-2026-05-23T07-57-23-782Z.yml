@@ -1,0 +1,81 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "🧠 RoadmapIA" [ref=e3] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e4]:
+      - link "Dashboard" [ref=e5] [cursor=pointer]:
+        - /url: /dashboard
+      - link "Cuenta" [ref=e6] [cursor=pointer]:
+        - /url: /cuenta
+      - link "Certificaciones" [ref=e7] [cursor=pointer]:
+        - /url: /certificaciones
+    - generic [ref=e8]:
+      - generic [ref=e9]: Pro
+      - link "Salir" [ref=e10] [cursor=pointer]:
+        - /url: /auth/logout
+  - generic [ref=e11]:
+    - generic [ref=e13]:
+      - heading "Mi cuenta" [level=1] [ref=e14]
+      - paragraph [ref=e15]: Gestiona tus datos, seguridad y plan
+    - generic [ref=e16]:
+      - generic [ref=e17]: 👤 Datos personales
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - generic [ref=e21]: Nombre completo
+          - textbox [ref=e22]: prueba
+          - text: Se usa en tus certificados de finalización
+        - generic [ref=e23]:
+          - generic [ref=e24]: Email
+          - textbox [disabled] [ref=e25]: prueba@gmail.com
+          - text: El email no se puede cambiar por seguridad
+        - button "Guardar cambios" [ref=e26] [cursor=pointer]
+    - generic [ref=e27]:
+      - generic [ref=e28]: 🔒 Cambiar contraseña
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - generic [ref=e32]: Contraseña actual
+          - textbox "Tu contraseña actual" [ref=e33]
+        - generic [ref=e34]:
+          - generic [ref=e35]: Nueva contraseña
+          - textbox "Mínimo 6 caracteres" [ref=e36]
+        - generic [ref=e37]:
+          - generic [ref=e38]: Repetir nueva contraseña
+          - textbox "Repite la nueva contraseña" [ref=e39]
+        - button "Cambiar contraseña" [ref=e40] [cursor=pointer]
+    - generic [ref=e41]:
+      - generic [ref=e42]: 💳 Mi plan
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - generic [ref=e45]:
+            - generic [ref=e47]: Pro
+            - paragraph [ref=e49]: Roadmaps ilimitados · Mensajes ilimitados · Sin anuncios · Certificados
+          - button "Cancelar suscripción" [ref=e51] [cursor=pointer]
+        - generic [ref=e52]: Al cancelar, tu plan seguirá activo hasta el fin del período pagado. Tus roadmaps nunca se borran.
+    - generic [ref=e53]:
+      - generic [ref=e54]: ⚠️ Zona de peligro
+      - generic [ref=e55]:
+        - paragraph [ref=e56]: Si eliminas tu cuenta, todos tus roadmaps, progreso y datos se borrarán permanentemente.
+        - button "Eliminar mi cuenta" [ref=e57] [cursor=pointer]
+  - contentinfo [ref=e58]:
+    - generic [ref=e59]:
+      - generic [ref=e60]: 🧠 RoadmapIA
+      - paragraph [ref=e61]:
+        - text: Aprende cualquier cosa con un roadmap personalizado de IA.
+        - text: Tutor experto incluido · Vídeos de YouTube reales · Progreso medible.
+      - generic [ref=e62]:
+        - link "✨ Powered by Claude AI" [ref=e63] [cursor=pointer]:
+          - /url: https://claude.ai
+        - link "Built with Anthropic" [ref=e64] [cursor=pointer]:
+          - /url: https://anthropic.com
+          - text: Built with
+          - strong [ref=e65]: Anthropic
+      - generic [ref=e66]:
+        - text: © 2025 RoadmapIA — Todos los derechos reservados ·
+        - link "Privacidad" [ref=e67] [cursor=pointer]:
+          - /url: "#"
+        - text: ·
+        - link "Términos" [ref=e68] [cursor=pointer]:
+          - /url: "#"
+  - button "Soporte" [ref=e70] [cursor=pointer]:
+    - generic [ref=e71]: 💬
+    - generic [ref=e72]: "1"

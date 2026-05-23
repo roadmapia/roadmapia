@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+{% block title %}Nuevo roadmap — RoadmapIA{% endblock %}
+{% block content %}
+<div class="form-page">
+  <a href="/dashboard" class="back">← Volver</a>
+  <h1>Nuevo roadmap</h1>
+  <p class="sub">Cuéntanos qué quieres aprender y la IA diseñará tu plan en segundos.</p>
+
+  {% if not puede_crear %}
+  <div class="alert alert-warning">⚠️ {{ mensaje_limite }} <a href="/pricing">Ver planes →</a></div>
+  {% else %}
+  {% if error %}<div class="alert alert-error">❌ {{ error }}</div>{% endif %}
+
+  <div id="form-container">
+    <div class="card">
+      <form id="form-nuevo-roadmap" method="post" action="/roadmaps/nuevo">
+
+        <!-- Idioma -->
+        <div class="form-group">
+          <label id="label-idioma">Idioma del roadmap</label>
+          <input type="hidden" name="idioma" id="idioma-val" value="es" />
+          <div style="display:flex;gap:0.6rem">
+            <button type="button" id="btn-es" onclick="selectLang('es')"
+              style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.55rem 1.1rem;border-radius:9px;background:rgba(124,111,255,0.12);border:1px solid var(--accent);color:var(--text);font-size:0.875rem;font-weight:700;cursor:pointer;transition:all 0.15s;box-shadow:0 0 0 3px rgba(124,111,255,0.1);font-family:inherit">🇪🇸 Español</button>
+            <button type="button" id="btn-en" onclick="selectLang('en')"
+              style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.55rem 1.1rem;border-radius:9px;background:var(--surface2);border:1px solid var(--border);color:var(--muted);font-size:0.875rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:inherit">🇬🇧 English</button>
+          </div>
+        </div>
+
+        <!-- Tema -->
+        <div class="form-group">
+          <label for="tema" id="label-tema">¿Qué quieres aprender?</label>
+          <input type="text" id="tema" name="tema" class="form-control"
+            placeholder="Python, photography, guitar, marketing…" required autofocus maxlength="200" />
+        </div>
+
+        <!-- Nivel -->
+        <div class="form-group">
+          <label for="nivel" id="label-nivel">Nivel actual</label>
+          <select id="nivel" name="nivel" class="form-control" required>
+            <option value="principiante">🌱 Principiante — no sé nada del tema</option>
+            <option value="intermedio">⚡ Intermedio — tengo conocimientos básicos</option>
+            <option value="avanzado">🔥 Avanzado — quiero profundizar</option>
+          </select>
+        </div>
+
+        <!-- Tiempo disponible -->
+        <div class="form-group">
+          <label id="label-tiempo">Tiempo disponible a la semana</label>
+          <div style="display:flex;align-items:center;gap:0.5rem">
+            <div style="display:flex;flex-direction:column;gap:0.3rem">
+              <label id="label-horas" style="font-size:0.68rem;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:0.05em">Horas</label>
+              <input type="text" id="horas_input" name="horas_input"
+                class="form-control" style="width:110px"
+                value="5" inputmode="numeric" pattern="[0-9]*"
+                placeholder="ej: 5" autocomplete="off" />
+            </div>
+            <div style="font-size:1.2rem;font-weight:700;color:var(--muted);padding-top:1.4rem">:</div>
+            <div style="display:flex;flex-direction:column;gap:0.3rem">
+              <label id="label-minutos" style="font-size:0.68rem;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:0.05em">Minutos</label>
+              <select id="minutos_input" name="minutos_input" class="form-control" style="width:110px">
+                <option value="0" selected>00 min</option>
+                <option value="15">15 min</option>
+                <option value="30">30 min</option>
+                <option value="45">45 min</option>
+              </select>
+            </div>
+            <input type="hidden" id="horas_semana" name="horas_semana" value="5" />
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%;margin-top:0.5rem" id="btn-generar">
+          ✨ Generar mi plan de aprendizaje
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div id="spinner-container" class="spinner-box">
+    <div class="spinner-ring"></div>
+    <h2 id="spinner-title">Generando tu roadmap…</h2>
+    <p id="spinner-sub">La IA está diseñando tu plan personalizado</p>
+    <div class="spin-steps">
+      <div class="spin-step"><div class="spin-dot"></div><span id="step1">Analizando el tema y tu nivel</span></div>
+      <div class="spin-step"><div class="spin-dot"></div><span id="step2">Diseñando fases y lecciones</span></div>
+      <div class="spin-step"><div class="spin-dot"></div><span id="step3">Buscando vídeos en YouTube</span></div>
+      <div class="spin-step"><div class="spin-dot"></div><span id="step4">Preparando tu tutor IA</span></div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Traducciones
+const i18n = {
+  es: {
+    labelIdioma:  'Idioma del roadmap',
+    labelTema:    '¿Qué quieres aprender?',
+    placeholder:  'Python, fotografía, guitarra, marketing…',
+    labelNivel:   'Nivel actual',
+    labelTiempo:  'Tiempo disponible a la semana',
+    labelHoras:   'Horas',
+    labelMinutos: 'Minutos',
+    btnGenerar:   '✨ Generar mi plan de aprendizaje',
+    opt1: '🌱 Principiante — no sé nada del tema',
+    opt2: '⚡ Intermedio — tengo conocimientos básicos',
+    opt3: '🔥 Avanzado — quiero profundizar',
+    spinnerTitle: 'Generando tu roadmap…',
+    spinnerSub:   'La IA está diseñando tu plan personalizado',
+    step1: 'Analizando el tema y tu nivel',
+    step2: 'Diseñando fases y lecciones',
+    step3: 'Buscando vídeos en YouTube',
+    step4: 'Preparando tu tutor IA',
+  },
+  en: {
+    labelIdioma:  'Roadmap language',
+    labelTema:    'What do you want to learn?',
+    placeholder:  'Python, photography, guitar, marketing…',
+    labelNivel:   'Current level',
+    labelTiempo:  'Available time per week',
+    labelHoras:   'Hours',
+    labelMinutos: 'Minutes',
+    btnGenerar:   '✨ Generate my learning plan',
+    opt1: '🌱 Beginner — I know nothing about this',
+    opt2: '⚡ Intermediate — I have basic knowledge',
+    opt3: '🔥 Advanced — I want to go deeper',
+    spinnerTitle: 'Generating your roadmap…',
+    spinnerSub:   'The AI is designing your personalized plan',
+    step1: 'Analyzing the topic and your level',
+    step2: 'Designing phases and lessons',
+    step3: 'Searching YouTube videos',
+    step4: 'Preparing your AI tutor',
+  }
+};
+
+const ACTIVE_BTN  = 'display:inline-flex;align-items:center;gap:0.4rem;padding:0.55rem 1.1rem;border-radius:9px;background:rgba(124,111,255,0.12);border:2px solid #7c6fff;color:#f0f0f8;font-size:0.875rem;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 0 0 3px rgba(124,111,255,0.15)';
+const INACTIVE_BTN = 'display:inline-flex;align-items:center;gap:0.4rem;padding:0.55rem 1.1rem;border-radius:9px;background:#16162e;border:1px solid rgba(255,255,255,0.08);color:#6b6b8a;font-size:0.875rem;font-weight:600;cursor:pointer;font-family:inherit';
+
+function selectLang(lang) {
+  document.getElementById('idioma-val').value = lang;
+  document.getElementById('btn-es').setAttribute('style', lang === 'es' ? ACTIVE_BTN : INACTIVE_BTN);
+  document.getElementById('btn-en').setAttribute('style', lang === 'en' ? ACTIVE_BTN : INACTIVE_BTN);
+  // Traducir toda la interfaz
+  const t = i18n[lang];
+  document.getElementById('label-idioma').textContent  = t.labelIdioma;
+  document.getElementById('label-tema').textContent    = t.labelTema;
+  document.getElementById('tema').placeholder          = t.placeholder;
+  document.getElementById('label-nivel').textContent   = t.labelNivel;
+  document.getElementById('label-tiempo').textContent  = t.labelTiempo;
+  document.getElementById('label-horas').textContent   = t.labelHoras;
+  document.getElementById('label-minutos').textContent = t.labelMinutos;
+  document.getElementById('btn-generar').textContent   = t.btnGenerar;
+  document.getElementById('spinner-title').textContent = t.spinnerTitle;
+  document.getElementById('spinner-sub').textContent   = t.spinnerSub;
+  document.getElementById('step1').textContent = t.step1;
+  document.getElementById('step2').textContent = t.step2;
+  document.getElementById('step3').textContent = t.step3;
+  document.getElementById('step4').textContent = t.step4;
+  const nivel = document.getElementById('nivel');
+  nivel.options[0].text = t.opt1;
+  nivel.options[1].text = t.opt2;
+  nivel.options[2].text = t.opt3;
+}
+
+// Calcular horas_semana al enviar
+document.getElementById('form-nuevo-roadmap').addEventListener('submit', function() {
+  const h = parseFloat(document.getElementById('horas_input').value) || 0;
+  const m = parseFloat(document.getElementById('minutos_input').value) || 0;
+  const total = h + m / 60;
+  document.getElementById('horas_semana').value = total.toFixed(2);
+});
+</script>
+{% endblock %}

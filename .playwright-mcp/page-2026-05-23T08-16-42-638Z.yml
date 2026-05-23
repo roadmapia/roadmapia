@@ -1,0 +1,104 @@
+- generic [ref=e1]:
+  - navigation [ref=e2]:
+    - link "🧠 RoadmapIA" [ref=e3] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e4]:
+      - link "Dashboard" [ref=e5] [cursor=pointer]:
+        - /url: /dashboard
+      - link "Cuenta" [ref=e6] [cursor=pointer]:
+        - /url: /cuenta
+      - link "Certificaciones" [ref=e7] [cursor=pointer]:
+        - /url: /certificaciones
+    - generic [ref=e8]:
+      - generic [ref=e9]: Pro
+      - link "Salir" [ref=e10] [cursor=pointer]:
+        - /url: /auth/logout
+  - generic [ref=e11]:
+    - link "← Dashboard" [ref=e12] [cursor=pointer]:
+      - /url: /dashboard
+    - heading "Nuevo roadmap" [level=1] [ref=e13]
+    - paragraph [ref=e14]: Cuéntanos qué quieres aprender y la IA diseñará tu plan en segundos.
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - generic [ref=e19]: Idioma del roadmap
+        - generic [ref=e20]:
+          - generic [ref=e22] [cursor=pointer]: 🇪🇸 Español
+          - generic [ref=e24] [cursor=pointer]: 🇬🇧 English
+      - generic [ref=e25]:
+        - generic [ref=e26]: ¿Qué quieres aprender?
+        - textbox "¿Qué quieres aprender?" [active] [ref=e27]:
+          - /placeholder: Python, photography, guitar, marketing…
+      - generic [ref=e28]:
+        - generic [ref=e29]: Nivel actual
+        - combobox "Nivel actual" [ref=e30]:
+          - option "🌱 Principiante — no sé nada del tema" [selected]
+          - option "⚡ Intermedio — tengo conocimientos básicos"
+          - option "🔥 Avanzado — quiero profundizar"
+      - generic [ref=e31]:
+        - generic [ref=e32]: Tiempo disponible a la semana
+        - generic [ref=e33]:
+          - generic [ref=e34]:
+            - generic [ref=e35]: Horas
+            - combobox [ref=e36]:
+              - option "1h"
+              - option "2h"
+              - option "3h"
+              - option "4h"
+              - option "5h" [selected]
+              - option "6h"
+              - option "7h"
+              - option "8h"
+              - option "9h"
+              - option "10h"
+              - option "11h"
+              - option "12h"
+              - option "13h"
+              - option "14h"
+              - option "15h"
+              - option "16h"
+              - option "17h"
+              - option "18h"
+              - option "19h"
+              - option "20h"
+              - option "21h"
+              - option "22h"
+              - option "23h"
+              - option "24h"
+              - option "25h"
+              - option "26h"
+              - option "27h"
+              - option "28h"
+              - option "29h"
+              - option "30h"
+          - generic [ref=e37]: ":"
+          - generic [ref=e38]:
+            - generic [ref=e39]: Minutos
+            - combobox [ref=e40]:
+              - option "00 min" [selected]
+              - option "15 min"
+              - option "30 min"
+              - option "45 min"
+      - button "✨ Generar mi plan de aprendizaje" [ref=e41] [cursor=pointer]
+  - contentinfo [ref=e42]:
+    - generic [ref=e43]:
+      - generic [ref=e44]: 🧠 RoadmapIA
+      - paragraph [ref=e45]:
+        - text: Aprende cualquier cosa con un roadmap personalizado de IA.
+        - text: Tutor experto incluido · Vídeos de YouTube reales · Progreso medible.
+      - generic [ref=e46]:
+        - link "✨ Powered by Claude AI" [ref=e47] [cursor=pointer]:
+          - /url: https://claude.ai
+        - link "Built with Anthropic" [ref=e48] [cursor=pointer]:
+          - /url: https://anthropic.com
+          - text: Built with
+          - strong [ref=e49]: Anthropic
+      - generic [ref=e50]:
+        - text: © 2025 RoadmapIA — Todos los derechos reservados ·
+        - link "Privacidad" [ref=e51] [cursor=pointer]:
+          - /url: "#"
+        - text: ·
+        - link "Términos" [ref=e52] [cursor=pointer]:
+          - /url: "#"
+  - button "Soporte" [ref=e54] [cursor=pointer]:
+    - generic [ref=e55]: 💬
+    - generic [ref=e56]: "1"

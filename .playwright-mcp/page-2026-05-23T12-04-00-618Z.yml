@@ -1,0 +1,121 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "🧠 RoadmapIA" [ref=e3] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e4]:
+      - link "Dashboard" [ref=e5] [cursor=pointer]:
+        - /url: /dashboard
+      - link "Cuenta" [ref=e6] [cursor=pointer]:
+        - /url: /cuenta
+      - link "Certificaciones" [ref=e7] [cursor=pointer]:
+        - /url: /certificaciones
+    - generic [ref=e8]:
+      - generic [ref=e9]: Pro
+      - link "Salir" [ref=e10] [cursor=pointer]:
+        - /url: /auth/logout
+  - generic [ref=e11]:
+    - generic [ref=e12]: Precios
+    - heading "Elige tu plan" [level=1] [ref=e13]
+    - paragraph [ref=e14]: Gratis con anuncios · Sin tarjeta de crédito · Cancela cuando quieras
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - generic [ref=e17]: Gratuito
+        - generic [ref=e18]: 0€/mes
+        - paragraph [ref=e19]: Para probar la plataforma
+        - list [ref=e21]:
+          - listitem [ref=e22]:
+            - generic [ref=e23]: ✓
+            - text: 1 roadmap por mes
+          - listitem [ref=e24]:
+            - generic [ref=e25]: ✓
+            - text: 10 mensajes tutor/día
+          - listitem [ref=e26]:
+            - generic [ref=e27]: ✓
+            - text: Todos los temas
+          - listitem [ref=e28]:
+            - generic [ref=e29]: ✗
+            - text: Sin anuncios
+          - listitem [ref=e30]:
+            - generic [ref=e31]: ✗
+            - text: Certificado de finalización
+        - button "Plan inferior" [disabled] [ref=e32]
+      - generic [ref=e33]:
+        - generic [ref=e34]: ⭐ Más popular
+        - generic [ref=e35]: Básico
+        - generic [ref=e36]: 7€/mes
+        - paragraph [ref=e37]: Para aprendices comprometidos
+        - list [ref=e39]:
+          - listitem [ref=e40]:
+            - generic [ref=e41]: ✓
+            - text: 5 roadmaps por mes
+          - listitem [ref=e42]:
+            - generic [ref=e43]: ✓
+            - text: 50 mensajes tutor/día
+          - listitem [ref=e44]:
+            - generic [ref=e45]: ✓
+            - text: Sin anuncios
+          - listitem [ref=e46]:
+            - generic [ref=e47]: ✓
+            - text: Todos los temas
+          - listitem [ref=e48]:
+            - generic [ref=e49]: ✗
+            - text: Certificado de finalización
+        - button "Suscribirse · 7€/mes" [ref=e50] [cursor=pointer]
+      - generic [ref=e51]:
+        - generic [ref=e52]: Pro
+        - generic [ref=e53]: 17€/mes
+        - paragraph [ref=e54]: Para los más ambiciosos
+        - list [ref=e56]:
+          - listitem [ref=e57]:
+            - generic [ref=e58]: ✓
+            - text: Roadmaps ilimitados
+          - listitem [ref=e59]:
+            - generic [ref=e60]: ✓
+            - text: Mensajes ilimitados
+          - listitem [ref=e61]:
+            - generic [ref=e62]: ✓
+            - text: Sin anuncios
+          - listitem [ref=e63]:
+            - generic [ref=e64]: ✓
+            - text: Certificado de finalización
+          - listitem [ref=e65]:
+            - generic [ref=e66]: ✓
+            - text: Soporte prioritario
+        - button "Plan actual" [disabled] [ref=e67]
+    - generic [ref=e68]:
+      - heading "Preguntas frecuentes" [level=2] [ref=e69]
+      - generic [ref=e70]:
+        - strong [ref=e71]: ¿Puedo cancelar cuando quiera?
+        - paragraph [ref=e72]: Sí, sin permanencia ni penalizaciones. Cancelas y el plan sigue activo hasta fin del período pagado.
+      - generic [ref=e73]:
+        - strong [ref=e74]: ¿Mis roadmaps se borran si cancelo?
+        - paragraph [ref=e75]: No. Tus roadmaps existentes permanecen accesibles siempre, independientemente del plan.
+      - generic [ref=e76]:
+        - strong [ref=e77]: ¿Se resetean los contadores cada mes?
+        - paragraph [ref=e78]: Sí. El límite de roadmaps se resetea el día 1 y el de mensajes del tutor cada día a medianoche.
+      - generic [ref=e79]:
+        - strong [ref=e80]: ¿Qué métodos de pago aceptáis?
+        - paragraph [ref=e81]: Todas las tarjetas de crédito y débito a través de Stripe, el procesador más seguro del mercado.
+  - contentinfo [ref=e82]:
+    - generic [ref=e83]:
+      - generic [ref=e84]: 🧠 RoadmapIA
+      - paragraph [ref=e85]:
+        - text: Aprende cualquier cosa con un roadmap personalizado de IA.
+        - text: Tutor experto incluido · Vídeos de YouTube reales · Progreso medible.
+      - generic [ref=e86]:
+        - link "✨ Powered by Claude AI" [ref=e87] [cursor=pointer]:
+          - /url: https://claude.ai
+        - link "Built with Anthropic" [ref=e88] [cursor=pointer]:
+          - /url: https://anthropic.com
+          - text: Built with
+          - strong [ref=e89]: Anthropic
+      - generic [ref=e90]:
+        - text: © 2025 RoadmapIA — Todos los derechos reservados ·
+        - link "Privacidad" [ref=e91] [cursor=pointer]:
+          - /url: "#"
+        - text: ·
+        - link "Términos" [ref=e92] [cursor=pointer]:
+          - /url: "#"
+  - button "Soporte" [ref=e94] [cursor=pointer]:
+    - generic [ref=e95]: 💬
+    - generic [ref=e96]: "1"

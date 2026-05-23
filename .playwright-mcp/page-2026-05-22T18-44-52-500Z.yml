@@ -1,0 +1,456 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "🧠 RoadmapIA" [ref=e3] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e4]:
+      - link "Inicio" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - link "Planes" [ref=e6] [cursor=pointer]:
+        - /url: /pricing
+      - link "Blog" [ref=e7] [cursor=pointer]:
+        - /url: /blog
+      - link "Iniciar sesión" [ref=e8] [cursor=pointer]:
+        - /url: /auth/login
+      - link "🚀 Empieza gratis" [ref=e9] [cursor=pointer]:
+        - /url: /auth/register
+  - generic [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e13]: ✨ Powered by Claude AI
+      - heading "Aprende cualquier cosa con un roadmap personalizado de IA" [level=1] [ref=e14]:
+        - text: Aprende cualquier cosa con un
+        - emphasis [ref=e15]: roadmap personalizado de IA
+      - paragraph [ref=e16]: Dinos qué quieres aprender y generamos tu plan completo con fases, lecciones, vídeos de YouTube y un tutor IA disponible 24/7.
+      - generic [ref=e17]:
+        - link "🚀 Empieza gratis" [ref=e18] [cursor=pointer]:
+          - /url: /auth/register
+        - link "Ver planes" [ref=e19] [cursor=pointer]:
+          - /url: /pricing
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - generic [ref=e22]: ∞
+          - generic [ref=e23]: Temas
+        - generic [ref=e24]:
+          - generic [ref=e25]: 24/7
+          - generic [ref=e26]: Tutor IA
+        - generic [ref=e27]:
+          - generic [ref=e28]: 0€
+          - generic [ref=e29]: Para empezar
+    - generic [ref=e31]:
+      - generic [ref=e37]: roadmapia.com/dashboard
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - text: 👋 Hola,
+          - strong [ref=e40]: Carlos
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - generic [ref=e43]:
+              - generic [ref=e44]: 🐍 Python desde cero
+              - generic [ref=e45]: 65%
+            - generic [ref=e48]: 4/6 fases · 12 lecciones completadas
+          - generic [ref=e49]:
+            - generic [ref=e50]:
+              - generic [ref=e51]: 📸 Fotografía avanzada
+              - generic [ref=e52]: 28%
+            - generic [ref=e55]: 2/7 fases · 5 lecciones completadas
+        - generic [ref=e56]:
+          - generic [ref=e57]: 💬 ¿Qué es un decorador en Python?
+          - generic [ref=e58]: 🤖 ¡Buena pregunta! Un decorador es una función que envuelve otra función para extender su comportamiento sin modificar su código.
+  - generic [ref=e60]:
+    - generic [ref=e61]:
+      - generic [ref=e62]: —
+      - generic [ref=e63]: usuarios registrados
+    - generic [ref=e64]: ·
+    - generic [ref=e65]:
+      - generic [ref=e66]: —
+      - generic [ref=e67]: roadmaps generados
+    - generic [ref=e68]: ·
+    - generic [ref=e69]:
+      - generic [ref=e70]: ∞
+      - generic [ref=e71]: temas disponibles
+    - generic [ref=e72]: ·
+    - generic [ref=e73]:
+      - generic [ref=e74]: < 3s
+      - generic [ref=e75]: respuesta del tutor
+  - generic [ref=e76]:
+    - generic [ref=e77]:
+      - generic [ref=e78]: Características
+      - heading "Todo lo que necesitas para aprender de verdad" [level=2] [ref=e79]
+      - paragraph [ref=e80]: No es otro curso. Es tu sistema de aprendizaje personal, con IA.
+    - generic [ref=e81]:
+      - generic [ref=e82]:
+        - generic [ref=e83]: ✦ Roadmap con IA
+        - heading "Tu plan completo en 30 segundos" [level=3] [ref=e84]
+        - paragraph [ref=e85]: "La IA analiza tu nivel actual, el tema que quieres aprender y las horas que tienes disponibles. El resultado: un plan estructurado con fases, lecciones y recursos reales."
+        - list [ref=e86]:
+          - listitem [ref=e87]: ✓ Fases progresivas adaptadas a tu nivel
+          - listitem [ref=e88]: ✓ Lecciones con objetivos claros
+          - listitem [ref=e89]: ✓ Duración estimada realista
+          - listitem [ref=e90]: ✓ Cualquier tema imaginable
+      - generic [ref=e92]:
+        - generic [ref=e93]:
+          - generic [ref=e94]: 🐍 Aprende Python desde cero
+          - generic [ref=e95]:
+            - generic [ref=e96]: Progreso
+            - strong [ref=e97]: 42%
+        - generic [ref=e100]:
+          - generic [ref=e101]:
+            - generic [ref=e102]: ✓
+            - generic [ref=e103]:
+              - generic [ref=e104]: Fase 1 — Fundamentos
+              - generic [ref=e105]: Semanas 1-2 · 4 lecciones
+          - generic [ref=e106]:
+            - generic [ref=e107]: "2"
+            - generic [ref=e108]:
+              - generic [ref=e109]: Fase 2 — POO y funciones
+              - generic [ref=e110]: Semanas 3-4 · 5 lecciones
+          - generic [ref=e111]:
+            - generic [ref=e112]: "3"
+            - generic [ref=e113]:
+              - generic [ref=e114]: Fase 3 — Proyectos reales
+              - generic [ref=e115]: Semanas 5-8 · 6 lecciones
+    - generic [ref=e116]:
+      - generic [ref=e117]:
+        - generic [ref=e118]: ✦ Tutor IA
+        - heading "Un experto que responde en segundos" [level=3] [ref=e119]
+        - paragraph [ref=e120]: Cada lección tiene integrado un tutor IA especializado. Pregunta lo que quieras, cuando quieras. Sin esperar. Sin horarios. Sin vergüenza de preguntar "tonterías".
+        - list [ref=e121]:
+          - listitem [ref=e122]: ✓ Respuestas contextualizadas a tu lección
+          - listitem [ref=e123]: ✓ Explicaciones paso a paso
+          - listitem [ref=e124]: ✓ Siempre en español
+          - listitem [ref=e125]: ✓ Disponible 24 horas al día
+      - generic [ref=e127]:
+        - generic [ref=e130]: Tutor IA · Python
+        - generic [ref=e131]:
+          - generic [ref=e132]: ¿Cuándo usar una lista vs un diccionario?
+          - generic [ref=e133]:
+            - text: Usa una
+            - strong [ref=e134]: lista
+            - text: cuando el orden importa y accedes por posición. Usa un
+            - strong [ref=e135]: diccionario
+            - text: "cuando necesitas buscar por nombre clave. Por ejemplo: lista para pasos de un proceso, diccionario para datos de un usuario."
+          - generic [ref=e136]: ¿Y los sets?
+          - generic [ref=e137]:
+            - text: Los
+            - strong [ref=e138]: sets
+            - text: son ideales para eliminar duplicados y hacer operaciones de conjuntos (unión, intersección). Son como listas sin orden y sin repetición.
+        - generic [ref=e139]: Escribe tu pregunta…
+    - generic [ref=e140]:
+      - generic [ref=e141]:
+        - generic [ref=e142]: ✦ Seguimiento
+        - heading "Progreso visible que motiva a continuar" [level=3] [ref=e143]
+        - paragraph [ref=e144]: Checklists por lección, barras de progreso por fase y estadísticas globales. Siempre sabes exactamente dónde estás, qué has conseguido y qué te queda.
+        - list [ref=e145]:
+          - listitem [ref=e146]: ✓ Checklist de objetivos por lección
+          - listitem [ref=e147]: ✓ Porcentaje de completado en tiempo real
+          - listitem [ref=e148]: ✓ Certificado de finalización (plan Pro)
+          - listitem [ref=e149]: ✓ Historial de aprendizaje permanente
+      - generic [ref=e151]:
+        - generic [ref=e152]: Tu progreso esta semana
+        - generic [ref=e153]:
+          - generic [ref=e154]:
+            - generic [ref=e155]: Python
+            - generic [ref=e158]: 65%
+          - generic [ref=e159]:
+            - generic [ref=e160]: Fotografía
+            - generic [ref=e163]: 28%
+          - generic [ref=e164]:
+            - generic [ref=e165]: Marketing
+            - generic [ref=e168]: 10%
+        - generic [ref=e169]:
+          - generic [ref=e170]:
+            - generic [ref=e171]: "18"
+            - generic [ref=e172]: lecciones
+          - generic [ref=e173]:
+            - generic [ref=e174]: "3"
+            - generic [ref=e175]: roadmaps
+          - generic [ref=e176]:
+            - generic [ref=e177]: 42h
+            - generic [ref=e178]: aprendidas
+  - generic [ref=e179]:
+    - generic [ref=e180]:
+      - generic [ref=e181]: Comparativa
+      - heading "¿Por qué RoadmapIA y no otras opciones?" [level=2] [ref=e182]
+      - paragraph [ref=e183]: Comparado con las alternativas más populares
+    - table [ref=e185]:
+      - rowgroup [ref=e186]:
+        - row "Característica 🧠 RoadmapIA roadmap.sh Coursera YouTube solo" [ref=e187]:
+          - columnheader "Característica" [ref=e188]
+          - columnheader "🧠 RoadmapIA" [ref=e189]
+          - columnheader "roadmap.sh" [ref=e190]
+          - columnheader "Coursera" [ref=e191]
+          - columnheader "YouTube solo" [ref=e192]
+      - rowgroup [ref=e193]:
+        - row "Plan personalizado a tu nivel ✓ ✗ Parcial ✗" [ref=e194]:
+          - cell "Plan personalizado a tu nivel" [ref=e195]
+          - cell "✓" [ref=e196]
+          - cell "✗" [ref=e197]
+          - cell "Parcial" [ref=e198]
+          - cell "✗" [ref=e199]
+        - row "Tutor IA disponible 24/7 ✓ ✗ ✗ ✗" [ref=e200]:
+          - cell "Tutor IA disponible 24/7" [ref=e201]
+          - cell "✓" [ref=e202]
+          - cell "✗" [ref=e203]
+          - cell "✗" [ref=e204]
+          - cell "✗" [ref=e205]
+        - row "Listo en menos de 1 minuto ✓ ✗ ✗ ✗" [ref=e206]:
+          - cell "Listo en menos de 1 minuto" [ref=e207]
+          - cell "✓" [ref=e208]
+          - cell "✗" [ref=e209]
+          - cell "✗" [ref=e210]
+          - cell "✗" [ref=e211]
+        - row "Vídeos de YouTube integrados ✓ ✗ ✗ ✓" [ref=e212]:
+          - cell "Vídeos de YouTube integrados" [ref=e213]
+          - cell "✓" [ref=e214]
+          - cell "✗" [ref=e215]
+          - cell "✗" [ref=e216]
+          - cell "✓" [ref=e217]
+        - row "Cualquier tema imaginable ✓ Solo devs Catálogo fijo ✓" [ref=e218]:
+          - cell "Cualquier tema imaginable" [ref=e219]
+          - cell "✓" [ref=e220]
+          - cell "Solo devs" [ref=e221]
+          - cell "Catálogo fijo" [ref=e222]
+          - cell "✓" [ref=e223]
+        - row "Seguimiento de progreso ✓ ✗ ✓ ✗" [ref=e224]:
+          - cell "Seguimiento de progreso" [ref=e225]
+          - cell "✓" [ref=e226]
+          - cell "✗" [ref=e227]
+          - cell "✓" [ref=e228]
+          - cell "✗" [ref=e229]
+        - row "Certificado de finalización ✓ Pro ✗ ✓ (caro) ✗" [ref=e230]:
+          - cell "Certificado de finalización" [ref=e231]
+          - cell "✓ Pro" [ref=e232]
+          - cell "✗" [ref=e233]
+          - cell "✓ (caro)" [ref=e234]
+          - cell "✗" [ref=e235]
+        - row "Precio para empezar 0€ gratis Gratis ~40€/mes Gratis" [ref=e236]:
+          - cell "Precio para empezar" [ref=e237]
+          - cell "0€ gratis" [ref=e238]
+          - cell "Gratis" [ref=e239]
+          - cell "~40€/mes" [ref=e240]
+          - cell "Gratis" [ref=e241]
+  - generic [ref=e242]:
+    - generic [ref=e243]:
+      - generic [ref=e244]: Por qué elegirnos
+      - heading "El aprendizaje que siempre quisiste, por fin posible" [level=2] [ref=e245]
+      - paragraph [ref=e246]: RoadmapIA no es otro curso. Es tu plan de aprendizaje personal, generado por IA en segundos.
+    - generic [ref=e249]:
+      - generic [ref=e250]:
+        - generic [ref=e251]: ❌ Aprendizaje tradicional
+        - list [ref=e252]:
+          - listitem [ref=e253]: ✗ Cursos genéricos que no se adaptan a ti
+          - listitem [ref=e254]: ✗ Sin tutor disponible cuando tienes dudas
+          - listitem [ref=e255]: ✗ Pagas caro por contenido desactualizado
+          - listitem [ref=e256]: ✗ Sin estructura ni progresión clara
+          - listitem [ref=e257]: ✗ Fácil de abandonar sin seguimiento
+      - generic [ref=e258]:
+        - generic [ref=e259]: ✅ Con RoadmapIA
+        - list [ref=e260]:
+          - listitem [ref=e261]: ✓ Roadmap 100% personalizado a tu nivel y tiempo
+          - listitem [ref=e262]: ✓ Tutor IA que responde en segundos, 24/7
+          - listitem [ref=e263]: ✓ Vídeos de YouTube reales y actualizados
+          - listitem [ref=e264]: ✓ Fases, lecciones y checklists estructurados
+          - listitem [ref=e265]: ✓ Progreso visual y motivación continua
+    - generic [ref=e266]:
+      - generic [ref=e267]:
+        - generic [ref=e268]: ⚡
+        - heading "Listo en 30 segundos" [level=3] [ref=e269]
+        - paragraph [ref=e270]: Escribe el tema y la IA genera tu plan completo al instante. Sin esperas, sin configuraciones complejas.
+      - generic [ref=e271]:
+        - generic [ref=e272]: 🎯
+        - heading "Adaptado a ti" [level=3] [ref=e273]
+        - paragraph [ref=e274]: La IA tiene en cuenta tu nivel actual, las horas que puedes dedicar y genera un plan realista y alcanzable.
+      - generic [ref=e275]:
+        - generic [ref=e276]: 🧠
+        - heading "Tutor experto siempre activo" [level=3] [ref=e277]
+        - paragraph [ref=e278]: Cada lección incluye un tutor IA especializado en el tema. Pregunta lo que quieras, cuando quieras.
+      - generic [ref=e279]:
+        - generic [ref=e280]: 📺
+        - heading "Vídeos reales de YouTube" [level=3] [ref=e281]
+        - paragraph [ref=e282]: Sin contenido genérico. La IA busca y selecciona automáticamente los mejores vídeos para cada lección.
+      - generic [ref=e283]:
+        - generic [ref=e284]: 📊
+        - heading "Progreso visible" [level=3] [ref=e285]
+        - paragraph [ref=e286]: Checklists por lección, barra de progreso y estadísticas para que siempre sepas dónde estás y qué te queda.
+      - generic [ref=e287]:
+        - generic [ref=e288]: 🔓
+        - heading "Gratis para empezar" [level=3] [ref=e289]
+        - paragraph [ref=e290]: 1 roadmap completo gratis al mes. Sin tarjeta de crédito. Actualiza solo si quieres más.
+  - generic [ref=e291]:
+    - generic [ref=e292]:
+      - generic [ref=e293]: Cómo funciona
+      - heading "Tu plan en 3 pasos" [level=2] [ref=e294]
+      - paragraph [ref=e295]: De cero a experto con un plan diseñado para ti
+    - generic [ref=e296]:
+      - generic [ref=e297]:
+        - generic [ref=e298]: ✍️
+        - heading "Dinos qué quieres aprender" [level=3] [ref=e299]
+        - paragraph [ref=e300]: Escribe el tema, tu nivel y las horas disponibles. Python, fotografía, guitarra… lo que sea.
+      - generic [ref=e301]:
+        - generic [ref=e302]: 🤖
+        - heading "La IA genera tu plan" [level=3] [ref=e303]
+        - paragraph [ref=e304]: En segundos recibes un roadmap con fases, lecciones y vídeos de YouTube reales seleccionados para ti.
+      - generic [ref=e305]:
+        - generic [ref=e306]: 💬
+        - heading "Aprende con tu tutor IA" [level=3] [ref=e307]
+        - paragraph [ref=e308]: Cada lección tiene un tutor experto que resuelve tus dudas al instante en español.
+  - generic [ref=e309]:
+    - generic [ref=e310]:
+      - generic [ref=e311]: Precios
+      - heading "Un plan para cada necesidad" [level=2] [ref=e312]
+      - paragraph [ref=e313]: Empieza gratis. Cancela cuando quieras.
+    - generic [ref=e314]:
+      - generic [ref=e315]:
+        - generic [ref=e316]: Gratuito
+        - generic [ref=e317]: 0€/mes
+        - generic [ref=e318]: 1 roadmap · 10 mensajes/día
+      - generic [ref=e319]:
+        - generic [ref=e320]: Básico
+        - generic [ref=e321]: 7€/mes
+        - generic [ref=e322]: 5 roadmaps · 50 mensajes · Sin anuncios
+      - generic [ref=e323]:
+        - generic [ref=e324]: Pro
+        - generic [ref=e325]: 17€/mes
+        - generic [ref=e326]: Ilimitado · Sin anuncios · Certificados
+    - link "Ver comparativa completa →" [ref=e328] [cursor=pointer]:
+      - /url: /pricing
+  - generic [ref=e329]:
+    - generic [ref=e330]:
+      - generic [ref=e331]: Testimonios
+      - heading "Lo que dicen nuestros usuarios" [level=2] [ref=e332]
+      - paragraph [ref=e333]: Miles de personas aprendiendo con IA
+    - generic [ref=e334]:
+      - generic [ref=e335]:
+        - generic [ref=e336]: ★★★★★
+        - paragraph [ref=e337]: "\"Aprendí Python desde cero en 2 meses siguiendo el roadmap. El tutor IA fue clave, me explicaba cada duda al momento."
+        - generic [ref=e338]:
+          - generic [ref=e339]: CM
+          - generic [ref=e340]:
+            - strong [ref=e341]: Carlos M.
+            - text: Desarrollador Web · Madrid
+      - generic [ref=e342]:
+        - generic [ref=e343]: ★★★★★
+        - paragraph [ref=e344]: "\"Nunca había podido mantener constancia aprendiendo idiomas. Con RoadmapIA tengo un plan claro y sé exactamente qué estudiar cada día."
+        - generic [ref=e345]:
+          - generic [ref=e346]: LG
+          - generic [ref=e347]:
+            - strong [ref=e348]: Laura G.
+            - text: Profesora · Barcelona
+      - generic [ref=e349]:
+        - generic [ref=e350]: ★★★★★
+        - paragraph [ref=e351]: "\"El roadmap de fotografía fue mejor que cualquier curso que había comprado antes. Lo mejor es que se adapta a mis horas disponibles."
+        - generic [ref=e352]:
+          - generic [ref=e353]: AP
+          - generic [ref=e354]:
+            - strong [ref=e355]: Andrés P.
+            - text: Fotógrafo · Valencia
+  - generic [ref=e356]:
+    - generic [ref=e357]:
+      - generic [ref=e358]: FAQ
+      - heading "Preguntas frecuentes" [level=2] [ref=e359]
+      - paragraph [ref=e360]: Todo lo que necesitas saber antes de empezar
+    - generic [ref=e361]:
+      - generic [ref=e363] [cursor=pointer]:
+        - generic [ref=e364]: ¿Qué incluye el plan gratuito?
+        - generic [ref=e365]: ▾
+      - generic [ref=e367] [cursor=pointer]:
+        - generic [ref=e368]: ¿Cómo genera la IA mi roadmap?
+        - generic [ref=e369]: ▾
+      - generic [ref=e371] [cursor=pointer]:
+        - generic [ref=e372]: ¿Puedo cancelar en cualquier momento?
+        - generic [ref=e373]: ▾
+      - generic [ref=e375] [cursor=pointer]:
+        - generic [ref=e376]: ¿Los vídeos son realmente de YouTube?
+        - generic [ref=e377]: ▾
+      - generic [ref=e379] [cursor=pointer]:
+        - generic [ref=e380]: ¿Cuántos temas puedo aprender?
+        - generic [ref=e381]: ▾
+      - generic [ref=e383] [cursor=pointer]:
+        - generic [ref=e384]: ¿Qué diferencia hay entre los planes?
+        - generic [ref=e385]: ▾
+  - generic [ref=e387]:
+    - generic [ref=e388]:
+      - generic [ref=e389]: Sobre nosotros
+      - heading "Construido por alguien que también aprendió solo" [level=2] [ref=e390]
+      - paragraph [ref=e391]: Sabemos lo frustrante que es intentar aprender algo nuevo sin saber por dónde empezar. Horas buscando en YouTube, sin estructura, sin guía, abandonando a mitad de camino.
+      - paragraph [ref=e392]: "Por eso creamos RoadmapIA: para que en 30 segundos tengas el mismo plan de aprendizaje que tiene un estudiante con un tutor privado, pero accesible para todos."
+      - paragraph [ref=e393]: Usamos la IA más avanzada del mundo (Claude, de Anthropic) para garantizar que cada roadmap sea útil, estructurado y realista.
+      - generic [ref=e394]:
+        - generic [ref=e395]:
+          - generic [ref=e396]: 🎯
+          - text: Aprendizaje que funciona
+        - generic [ref=e397]:
+          - generic [ref=e398]: 💡
+          - text: IA al servicio del estudiante
+        - generic [ref=e399]:
+          - generic [ref=e400]: 🌍
+          - text: Accesible para todos
+    - generic [ref=e401]:
+      - generic [ref=e402]:
+        - generic [ref=e403]:
+          - generic [ref=e404]: "+50"
+          - generic [ref=e405]: Temas disponibles
+        - generic [ref=e406]:
+          - generic [ref=e407]: 24/7
+          - generic [ref=e408]: Tutor disponible
+        - generic [ref=e409]:
+          - generic [ref=e410]: 30s
+          - generic [ref=e411]: Para tener tu plan
+        - generic [ref=e412]:
+          - generic [ref=e413]: 0€
+          - generic [ref=e414]: Para empezar
+      - generic [ref=e415]:
+        - generic [ref=e416]: Tecnología que usamos
+        - generic [ref=e417]:
+          - generic [ref=e418]: 🧠 Claude AI
+          - generic [ref=e419]: 📺 YouTube API
+          - generic [ref=e420]: ⚡ FastAPI
+          - generic [ref=e421]: 🔒 Stripe
+  - generic [ref=e423]:
+    - generic [ref=e424]: 🎯 Comienza hoy
+    - heading "Tu próximo gran aprendizaje empieza aquí" [level=2] [ref=e425]
+    - paragraph [ref=e426]: Únete a miles de personas que ya aprenden con IA. Tu primer roadmap es gratis.
+    - generic [ref=e427]:
+      - link "🚀 Crear mi roadmap gratis" [ref=e428] [cursor=pointer]:
+        - /url: /auth/register
+      - link "Ver planes" [ref=e429] [cursor=pointer]:
+        - /url: /pricing
+    - generic [ref=e430]:
+      - generic [ref=e431]: ✓ Sin tarjeta de crédito
+      - generic [ref=e432]: ✓ Cancela cuando quieras
+      - generic [ref=e433]: ✓ 1 roadmap gratis para siempre
+  - contentinfo [ref=e434]:
+    - generic [ref=e435]:
+      - generic [ref=e436]:
+        - generic [ref=e437]: 🧠 RoadmapIA
+        - paragraph [ref=e438]: Aprende cualquier cosa con un roadmap personalizado de IA. Tutor incluido.
+        - generic [ref=e439]: ✨ Powered by Claude AI
+      - generic [ref=e440]:
+        - generic [ref=e441]:
+          - generic [ref=e442]: Producto
+          - link "Inicio" [ref=e443] [cursor=pointer]:
+            - /url: /
+          - link "Precios" [ref=e444] [cursor=pointer]:
+            - /url: /pricing
+          - link "Blog" [ref=e445] [cursor=pointer]:
+            - /url: /blog
+          - link "Empezar gratis" [ref=e446] [cursor=pointer]:
+            - /url: /auth/register
+        - generic [ref=e447]:
+          - generic [ref=e448]: Cuenta
+          - link "Iniciar sesión" [ref=e449] [cursor=pointer]:
+            - /url: /auth/login
+          - link "Crear cuenta" [ref=e450] [cursor=pointer]:
+            - /url: /auth/register
+          - link "Dashboard" [ref=e451] [cursor=pointer]:
+            - /url: /dashboard
+    - generic [ref=e452]:
+      - generic [ref=e453]: © 2025 RoadmapIA — Todos los derechos reservados
+      - generic [ref=e454]:
+        - link "Privacidad" [ref=e455] [cursor=pointer]:
+          - /url: "#"
+        - text: ·
+        - link "Términos" [ref=e456] [cursor=pointer]:
+          - /url: "#"
+  - button "Soporte" [ref=e458] [cursor=pointer]:
+    - generic [ref=e459]: 💬
+    - generic [ref=e460]: "1"

@@ -1,0 +1,500 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - generic [ref=e9]:
+        - generic [ref=e10]:
+          - img [ref=e11]
+          - generic [ref=e13]:
+            - generic [ref=e14]: Cookie Consent
+            - generic [ref=e15]: This website uses cookies to enhance the user experience and analyze site traffic. By clicking "Accept," you consent to our use of cookies.
+        - button "Accept" [ref=e16] [cursor=pointer]
+      - navigation [ref=e17]:
+        - link "Learniverse Learniverse" [ref=e18] [cursor=pointer]:
+          - /url: /
+          - img "Learniverse" [ref=e19]
+          - img "Learniverse" [ref=e20]
+        - generic [ref=e21]:
+          - link "Features" [ref=e22] [cursor=pointer]:
+            - /url: /#features
+          - link "Docs" [ref=e23] [cursor=pointer]:
+            - /url: /docs/get-started/introduction
+          - link "Pricing" [ref=e24] [cursor=pointer]:
+            - /url: /#pricing
+          - link "Blog" [ref=e25] [cursor=pointer]:
+            - /url: /blog
+          - link "Affiliate" [ref=e26] [cursor=pointer]:
+            - /url: /affiliate
+          - generic [ref=e27]:
+            - img "Discord" [ref=e28]
+            - link "Community" [ref=e29] [cursor=pointer]:
+              - /url: /community
+        - generic [ref=e30]:
+          - link "Sign in" [ref=e31] [cursor=pointer]:
+            - /url: /signin
+            - button "Sign in" [ref=e32]
+          - link "Get Started" [ref=e33] [cursor=pointer]:
+            - /url: /signup
+            - button "Get Started" [ref=e36]: Get Started
+      - generic [ref=e38]:
+        - img "Green star" [ref=e40]
+        - img "Purple lightning" [ref=e42]
+        - generic [ref=e43]:
+          - heading "The Zero-Effort Training Platform for Busy Teams." [level=1] [ref=e44]
+          - paragraph [ref=e45]: Stop juggling Google Docs and videos. Our AI turns your scattered knowledge into a complete, automated training hub in minutes—no design or setup required.
+          - generic [ref=e47]:
+            - textbox "Enter your work email" [ref=e48]
+            - button "Start Free Trial" [ref=e49]
+          - paragraph [ref=e50]: Fast Setup • Easy Cancellation • 7 Day Free Trial
+          - generic [ref=e52]:
+            - generic [ref=e53]:
+              - img "User testimonial" [ref=e54]
+              - img "User testimonial" [ref=e55]
+              - img "User testimonial" [ref=e56]
+              - img "User testimonial" [ref=e57]
+            - generic [ref=e58]:
+              - generic [ref=e59]:
+                - img [ref=e60]
+                - img [ref=e62]
+                - img [ref=e64]
+                - img [ref=e66]
+                - generic [ref=e68]:
+                  - img [ref=e69]
+                  - img [ref=e71]
+              - generic [ref=e73]: Join 3k+ Training Managers
+      - generic [ref=e74]:
+        - button "Play video" [ref=e78] [cursor=pointer]:
+          - img "Learniverse Demo Video" [ref=e79]
+          - img [ref=e82]
+        - generic [ref=e85]:
+          - generic [ref=e86]:
+            - img "Hours saved" [ref=e89]
+            - generic [ref=e90]: "0"
+            - generic [ref=e91]: Hours saved
+          - generic [ref=e92]:
+            - img "Hours saved" [ref=e94]
+            - generic [ref=e95]: "0"
+            - generic [ref=e96]: Courses generated
+          - generic [ref=e97]:
+            - img "Hours saved" [ref=e100]
+            - generic [ref=e101]: 0+
+            - generic [ref=e102]: Academies Launched
+      - generic [ref=e103]:
+        - heading "Go from scattered docs to a finished course — in minutes" [level=2] [ref=e106]
+        - generic [ref=e107]:
+          - generic [ref=e109]:
+            - img "Before - Frustrated person" [ref=e111]
+            - generic [ref=e112]:
+              - heading "BEFORE" [level=3] [ref=e113]
+              - generic [ref=e114]:
+                - generic [ref=e115]:
+                  - img "Before - Frustrated person" [ref=e116]
+                  - paragraph [ref=e117]: Endless hours wasted on manual training
+                - generic [ref=e118]:
+                  - img "Before - Frustrated person" [ref=e119]
+                  - paragraph [ref=e120]: Juggling scattered knowledge (Docs, videos, SOPs)
+                - generic [ref=e121]:
+                  - img "Before - Frustrated person" [ref=e122]
+                  - paragraph [ref=e123]: Inconsistent, outdated training no one completes
+                - generic [ref=e124]:
+                  - img "Before - Frustrated person" [ref=e125]
+                  - paragraph [ref=e126]: Overloaded managers with zero time to train
+          - generic [ref=e128]:
+            - generic [ref=e129]:
+              - heading "AFTER" [level=3] [ref=e130]
+              - generic [ref=e131]:
+                - generic [ref=e132]:
+                  - img "After - Success and satisfaction" [ref=e133]
+                  - paragraph [ref=e134]: Training built by AI in minutes, not weeks
+                - generic [ref=e135]:
+                  - img "After - Success and satisfaction" [ref=e136]
+                  - paragraph [ref=e137]: One platform to automate your entire training hub
+                - generic [ref=e138]:
+                  - img "After - Success and satisfaction" [ref=e139]
+                  - paragraph [ref=e140]: Engaging, consistent training that actually works
+                - generic [ref=e141]:
+                  - img "After - Success and satisfaction" [ref=e142]
+                  - paragraph [ref=e143]: Your team is free to focus on their real jobs
+            - img "After - Success and satisfaction" [ref=e145]
+      - generic [ref=e147]:
+        - generic [ref=e149]:
+          - heading "How we make magic happen" [level=2] [ref=e150]
+          - img "Down arrow" [ref=e151]
+        - generic [ref=e152]:
+          - generic [ref=e153]:
+            - generic:
+              - img "Upload Your Stuff"
+            - generic [ref=e154]:
+              - generic [ref=e155]: STEP 01
+              - heading "Upload Your Stuff" [level=3] [ref=e156]
+              - paragraph [ref=e157]: Drop in any PDF, video, recording, or manual you already have
+          - generic [ref=e158]:
+            - generic:
+              - img "AI Builds Your Course"
+            - generic [ref=e159]:
+              - generic [ref=e160]: STEP 02
+              - heading "AI Builds Your Course" [level=3] [ref=e161]
+              - paragraph [ref=e162]: Watch as your content becomes interactive lessons with quizzes and progress tracking
+          - generic [ref=e163]:
+            - generic:
+              - img "Launch Your Academy"
+            - generic [ref=e164]:
+              - generic [ref=e165]: STEP 03
+              - heading "Launch Your Academy" [level=3] [ref=e166]
+              - paragraph [ref=e167]: Send your team a link to their new branded training portal
+      - generic [ref=e170]:
+        - img "Training course funnel visualization showing document transformation" [ref=e173]
+        - generic [ref=e174]:
+          - heading "Stop losing sleep over training chaos" [level=2] [ref=e175]
+          - paragraph [ref=e177]: Think of Learniverse as your training assistant that never sleeps. You know how you keep rewriting the same processes for different people? We take that pile of documents sitting on your desktop and turn them into courses your team will actually complete.
+          - paragraph [ref=e179]: No more hunting through Slack for "that one document." No more watching new hires fumble through processes because the training is scattered across ten different places.
+      - generic [ref=e182]:
+        - generic [ref=e183]:
+          - heading "Turn knowledge into courses with your AI assistant" [level=2] [ref=e184]
+          - paragraph [ref=e186]: Chat with your training assistant to build courses on the fly. Need to add a new module about your updated process? Just describe what you want. Need to turn last week's all-hands recording into training? Drop it in and ask your Al to build lessons around the key points.
+          - paragraph [ref=e188]: Your Al assistant handles the heavy lifting while you focus on what matters-getting your team up to speed fast.
+        - img "Training course funnel visualization showing document transformation" [ref=e191]
+      - generic [ref=e194]:
+        - img "Training course funnel visualization showing document transformation" [ref=e197]
+        - generic [ref=e198]:
+          - heading "Deploy your branded academy in minutes" [level=2] [ref=e199]
+          - paragraph [ref=e201]: Your training doesn't have to look like it came from 2005. Launch a professional training portal with your colors, logo, and domain. Your team sees a polished experience that matches your brand, not some generic platform that screams "we cheaped out on training."
+      - generic [ref=e204]:
+        - generic [ref=e205]:
+          - heading "Track progress without spreadsheet nightmares" [level=2] [ref=e207]
+          - generic [ref=e209]:
+            - button "Progress" [ref=e210]
+            - button "Engagement" [ref=e211]
+            - button "Assessment" [ref=e212]
+            - button "Impact" [ref=e213]
+          - generic [ref=e214]:
+            - img "Learner progress" [ref=e216]
+            - generic [ref=e217]:
+              - heading "Progress" [level=3] [ref=e218]
+              - paragraph [ref=e219]: See who's completed what, where people get stuck, and what's overdue—across teams, departments, or the whole company.
+        - generic [ref=e222]:
+          - generic:
+            - img "Progress"
+      - generic [ref=e227]:
+        - img "helo" [ref=e228]
+        - img "helo" [ref=e229]
+        - generic [ref=e230]:
+          - img "Helo" [ref=e231]
+          - img "Helo" [ref=e232]
+          - img "Helo" [ref=e233]
+          - img "Helo" [ref=e234]
+          - img "Helo" [ref=e235]
+          - img "Helo" [ref=e236]
+          - img [ref=e239]
+          - heading "Works with the tools you already use" [level=1] [ref=e245]
+          - paragraph [ref=e246]: "Coming Soon: Slack & WhatsApp Integration"
+          - paragraph [ref=e247]: Build courses and update training right from your team chat. No more switching between apps or remembering to log into another platform.
+          - link "Get Started" [ref=e249] [cursor=pointer]:
+            - /url: /signup
+            - button "Get Started" [ref=e252]: Get Started
+        - img
+      - generic [ref=e254]:
+        - generic [ref=e255]:
+          - generic [ref=e256]:
+            - img "Quote" [ref=e258]
+            - heading "Trusted by 0+ training managers who switched from the headache" [level=2] [ref=e259]:
+              - text: Trusted by
+              - generic [ref=e260]: 0+
+              - text: training managers who switched from the headache
+            - paragraph [ref=e261]: Because you shouldn't have to compromise between slow, expensive platforms and cheap, unprofessional tools.
+          - generic [ref=e262]:
+            - generic [ref=e263]:
+              - img [ref=e264]
+              - img [ref=e266]
+              - img [ref=e268]
+              - img [ref=e270]
+              - generic [ref=e272]:
+                - img [ref=e273]
+                - img [ref=e275]
+            - paragraph [ref=e277]:
+              - text: 4.7 stars based on
+              - generic [ref=e278]:
+                - generic [ref=e279]: "0"
+                - text: user reviews
+        - region [ref=e281]:
+          - generic [ref=e283]:
+            - group [ref=e284]:
+              - generic [ref=e286]:
+                - img [ref=e290]
+                - generic [ref=e292]:
+                  - generic [ref=e293]:
+                    - img [ref=e294]
+                    - img [ref=e296]
+                    - img [ref=e298]
+                    - img [ref=e300]
+                    - img [ref=e302]
+                  - paragraph [ref=e304]:
+                    - generic [ref=e305]: I knew this tool was a game-changer the second I saw how effortlessly it transformed my dense automotive training manuals into bite-sized, engaging modules with quizzes and videos ready in minutes
+                    - text: . Learniverse's intuitive workflow lets me upload a PDF and have polished, mobile-ready training for dealerships before my coffee gets cold.
+                  - generic [ref=e306]:
+                    - img "Mark Rodriguez" [ref=e307]
+                    - generic [ref=e308]:
+                      - heading "Mark Rodriguez" [level=4] [ref=e309]
+                      - paragraph [ref=e310]: President, Auto Client Care Inc.
+            - group [ref=e311]:
+              - generic [ref=e313]:
+                - img [ref=e317]
+                - generic [ref=e319]:
+                  - generic [ref=e320]:
+                    - img [ref=e321]
+                    - img [ref=e323]
+                    - img [ref=e325]
+                    - img [ref=e327]
+                    - img [ref=e329]
+                  - paragraph [ref=e331]:
+                    - generic [ref=e332]: Learniverse's streamlined AI-based workflow is remarkable—quickly transforming PDFs and URLs into comprehensive, mobile-optimized learning materials. For professionals tasked with converting technical content into effective learning experiences, this tool will become an essential resource in your digital training toolkit
+                    - text: .
+                  - generic [ref=e333]:
+                    - img "Jack Armstrong" [ref=e334]
+                    - generic [ref=e335]:
+                      - heading "Jack Armstrong" [level=4] [ref=e336]
+                      - paragraph [ref=e337]: Founder, Air Pixels
+            - group [ref=e338]:
+              - generic [ref=e340]:
+                - img [ref=e344]
+                - generic [ref=e346]:
+                  - generic [ref=e347]:
+                    - img [ref=e348]
+                    - img [ref=e350]
+                    - img [ref=e352]
+                    - img [ref=e354]
+                    - img [ref=e356]
+                  - paragraph [ref=e358]:
+                    - generic [ref=e359]: I was thoroughly impressed with the onboarding process and the initial course generation through a PDF. The user interface is exceptional—responsive, swift, and modern. The quality of the courses, along with the navigation and overall user experience, is remarkable.
+                  - generic [ref=e360]:
+                    - img "Kunal Jain" [ref=e361]
+                    - generic [ref=e362]:
+                      - heading "Kunal Jain" [level=4] [ref=e363]
+                      - paragraph [ref=e364]: Founder & Coach at Veg Diet Coaching Inc.
+            - group [ref=e365]:
+              - generic [ref=e367]:
+                - img [ref=e371]
+                - generic [ref=e373]:
+                  - generic [ref=e374]:
+                    - img [ref=e375]
+                    - img [ref=e377]
+                    - img [ref=e379]
+                    - img [ref=e381]
+                    - img [ref=e383]
+                  - paragraph [ref=e385]:
+                    - generic [ref=e386]: I love this app! I use it to create training courses for my company and I appreciate the ease of use and professionalism
+                    - text: . My clients also find it easy to navigate. Great job!
+                  - generic [ref=e387]:
+                    - img "Tim Robertson" [ref=e388]
+                    - generic [ref=e389]:
+                      - heading "Tim Robertson" [level=4] [ref=e390]
+                      - paragraph [ref=e391]: Founder, Transformation Defense
+          - generic [ref=e393]:
+            - button "Previous slide" [ref=e394] [cursor=pointer]:
+              - img
+              - generic [ref=e395]: Previous slide
+            - generic [ref=e396]:
+              - button [ref=e397]
+              - button [ref=e398]
+              - button [ref=e399]
+              - button [ref=e400]
+            - button "Next slide" [ref=e401] [cursor=pointer]:
+              - img
+              - generic [ref=e402]: Next slide
+      - generic [ref=e408]:
+        - generic [ref=e413]:
+          - heading "Ready to launch your training portal" [level=1] [ref=e414]
+          - heading "in minutes?" [level=1] [ref=e415]
+          - paragraph [ref=e416]: See if Learniverse fits your training needs in just 3 days—completely free.
+        - generic [ref=e417]:
+          - link "Start Free Trial" [ref=e418] [cursor=pointer]:
+            - /url: /signup
+            - button "Start Free Trial" [ref=e421]: Start Free Trial
+          - link "Book Quick Demo" [ref=e423] [cursor=pointer]:
+            - /url: https://cal.com/zachary-hangoc/demo
+            - button "Book Quick Demo" [ref=e424]
+      - generic [ref=e425]:
+        - generic [ref=e427]:
+          - generic [ref=e429]:
+            - heading "Pricing" [level=2] [ref=e430]
+            - paragraph [ref=e431]: Choose the plan that's right for you
+            - generic [ref=e433]:
+              - button "Monthly" [ref=e434]: Monthly
+              - button "Yearly Save 20%" [ref=e436]:
+                - generic [ref=e437]: Yearly
+                - generic [ref=e438]: Save 20%
+          - generic [ref=e439]:
+            - generic [ref=e440]:
+              - generic [ref=e442]:
+                - generic [ref=e443]:
+                  - generic [ref=e444]:
+                    - img "Diamond" [ref=e446]
+                    - heading "TEAM" [level=3] [ref=e447]
+                  - generic [ref=e448]: Recommended
+                - generic [ref=e449]:
+                  - generic [ref=e451]:
+                    - generic [ref=e452]: $99
+                    - generic [ref=e453]: /mo
+                  - paragraph [ref=e454]: Standardize your single location. Best for a single clinic, boutique firm, or local agency.
+              - list [ref=e456]:
+                - listitem [ref=e457]:
+                  - img [ref=e458]
+                  - generic [ref=e461]:
+                    - strong [ref=e462]: "1"
+                    - text: Dedicated Training Portal
+                - listitem [ref=e463]:
+                  - img [ref=e464]
+                  - generic [ref=e469]:
+                    - strong [ref=e470]: "25"
+                    - text: Learners Included
+                - listitem [ref=e471]:
+                  - img [ref=e472]
+                  - generic [ref=e475]:
+                    - strong [ref=e476]: Unlimited
+                    - text: AI Creation (trainings, quizzes, lessons)
+                - listitem [ref=e477]:
+                  - img [ref=e478]
+                  - generic [ref=e481]:
+                    - strong [ref=e482]: Unlimited
+                    - text: Document Storage (PDFs, documents, URLs)
+                - listitem [ref=e483]:
+                  - img [ref=e484]
+                  - generic [ref=e486]:
+                    - strong [ref=e487]: Analytics & tracking
+                    - text: (progress, scores, top performers, gaps)
+                - listitem [ref=e488]:
+                  - img [ref=e489]
+                  - generic [ref=e494]:
+                    - strong [ref=e495]: Smart Assignments
+                    - text: (automated reminders, schedule trainings, etc.)
+              - button "Get Started Free" [ref=e497] [cursor=pointer]
+              - generic [ref=e498]:
+                - paragraph [ref=e499]: +$2/mo per additional learner
+                - paragraph [ref=e500]: Start your free account today
+            - generic [ref=e501]:
+              - generic [ref=e502]:
+                - generic [ref=e504]:
+                  - img "Star" [ref=e506]
+                  - heading "ENTERPRISE" [level=3] [ref=e507]
+                - generic [ref=e508]:
+                  - generic [ref=e510]: Custom
+                  - paragraph [ref=e511]: Perfect for scaled groups and multi-location operators that need total standardization.
+              - list [ref=e513]:
+                - listitem [ref=e514]:
+                  - img [ref=e515]
+                  - generic [ref=e517]: Unlimited limits
+                - listitem [ref=e518]:
+                  - img [ref=e519]
+                  - generic [ref=e522]: Enterprise-only features
+                - listitem [ref=e523]:
+                  - img [ref=e524]
+                  - generic [ref=e527]: Dedicated support
+                - listitem [ref=e528]:
+                  - img [ref=e529]
+                  - generic [ref=e531]: Custom integrations
+                - listitem [ref=e532]:
+                  - img [ref=e533]
+                  - generic [ref=e535]:
+                    - strong [ref=e536]: Unified dashboard
+                    - text: (all locations combined)
+                - listitem [ref=e537]:
+                  - img [ref=e538]
+                  - strong [ref=e542]: SCORM export
+                - listitem [ref=e543]:
+                  - img [ref=e544]
+                  - strong [ref=e548]: Remove Powered by Learniverse + full white label
+                - listitem [ref=e549]:
+                  - img [ref=e550]
+                  - generic [ref=e555]:
+                    - strong [ref=e556]: White-Glove Setup
+                    - text: "& Migration Service"
+              - generic [ref=e557]:
+                - link "Contact Us" [ref=e558] [cursor=pointer]:
+                  - /url: mailto:support@learniverse.app?subject=Interest%20Enterprise%20Tier
+                  - img
+                  - text: Contact Us
+                - paragraph [ref=e559]: Billed annually. Minimum 5 locations.
+          - generic [ref=e561]:
+            - generic [ref=e562]:
+              - heading "Credit packs" [level=3] [ref=e563]
+              - paragraph [ref=e564]: Need more credits in a busy month? Top up without changing plans.
+            - generic [ref=e565]:
+              - generic [ref=e566]: $9 / 100
+              - generic [ref=e567]: $29 / 400
+              - generic [ref=e568]: $79 / 1500
+              - link "Buy credits" [ref=e569] [cursor=pointer]:
+                - /url: /signin
+          - generic [ref=e571]:
+            - img [ref=e572]
+            - generic [ref=e574]: All plans include SSL security, automated daily backups, and support (plus AI language support for 12+ languages).
+        - generic [ref=e576]:
+          - heading "Frequently asked questions" [level=2] [ref=e578]
+          - generic [ref=e579]:
+            - generic [ref=e581]:
+              - generic [ref=e582]:
+                - heading "I don't have time to build courses. How much work do I actually have to do?" [level=3] [ref=e583] [cursor=pointer]
+                - button [ref=e584]:
+                  - img [ref=e586]
+              - paragraph [ref=e591]: Almost none. That’s why we built Learniverse. You simply upload your existing documents (PDFs, Word docs) or paste a link to your website/Notion pages. Our AI acts as your instructional designer, instantly structuring that raw info into interactive lessons, quizzes, and summaries. You review it, click "Publish," and you're done.
+            - generic [ref=e593]:
+              - generic [ref=e594]:
+                - heading "My team's knowledge is scattered across Google Docs, Teams, and Powerpoints. Can I use that?" [level=3] [ref=e595] [cursor=pointer]
+                - button [ref=e596]:
+                  - img [ref=e598]
+              - paragraph [ref=e600]: Absolutely. This is exactly what Learniverse is for. We turn your "messy" folders into a structured, automated training hub. You can upload documents directly, or embed your Loom/YouTube videos. The AI will watch your videos and read your docs to generate the training content for you.
+            - generic [ref=e602]:
+              - generic [ref=e603]:
+                - heading "Will the AI generate generic content, or is it specific to my business?" [level=3] [ref=e604] [cursor=pointer]
+                - button [ref=e605]:
+                  - img [ref=e607]
+              - paragraph [ref=e609]: It is 100% specific to your business. Unlike generic AI tools like ChatGPT that "hallucinate," Learniverse is grounded in your source material. It uses your uploaded documents and context to build the training, ensuring your team learns exactly your SOPs and your brand voice.
+            - generic [ref=e611]:
+              - generic [ref=e612]:
+                - heading "Are there limits on how many courses I can build?" [level=3] [ref=e613] [cursor=pointer]
+                - button [ref=e614]:
+                  - img [ref=e616]
+              - paragraph [ref=e618]: No. On the Team plan, you get Unlimited AI Course Generation. We don't believe in punishing you for training your team. Whether you need 5 courses or 50, you can build as much as you need without worrying about "credits" or limits.
+            - generic [ref=e620]:
+              - generic [ref=e621]:
+                - heading "How long does it take to get my team onboarded?" [level=3] [ref=e622] [cursor=pointer]
+                - button [ref=e623]:
+                  - img [ref=e625]
+              - paragraph [ref=e627]: Minutes. Once your training hub is ready (which takes just a few clicks), you can invite your team members via email. They get instant access to their assigned learning paths on their own dashboard. You can track their progress and completion rates immediately.
+            - generic [ref=e629]:
+              - generic [ref=e630]:
+                - heading "I’m an agency/consultant. Can I use this to train my clients?" [level=3] [ref=e631] [cursor=pointer]
+                - button [ref=e632]:
+                  - img [ref=e634]
+              - paragraph [ref=e636]: Yes! Many of our customers are agencies who use Learniverse to "productize" their services. You can create a branded training portal specifically for your clients to onboard them faster. If you need to manage multiple distinct client groups, contact us about our Enterprise plan.
+      - contentinfo [ref=e637]:
+        - img "Footer Background" [ref=e639]
+        - generic [ref=e640]:
+          - generic [ref=e641]:
+            - img "Learniverse Logo Mark" [ref=e645]
+            - generic [ref=e646]:
+              - generic [ref=e647]:
+                - link "Blog" [ref=e648] [cursor=pointer]:
+                  - /url: /blog
+                - link "Contact" [ref=e649] [cursor=pointer]:
+                  - /url: mailto:support@learniverse.app?subject=Learniverse%20Support
+                - link "Docs" [ref=e650] [cursor=pointer]:
+                  - /url: /docs/get-started/introduction
+                - link "Community" [ref=e651] [cursor=pointer]:
+                  - /url: /community
+              - generic [ref=e652]:
+                - link "Affiliate (Earn 50%)" [ref=e653] [cursor=pointer]:
+                  - /url: /affiliate
+                - link "Privacy Policy" [ref=e654] [cursor=pointer]:
+                  - /url: /privacy
+                - link "Terms of Service" [ref=e655] [cursor=pointer]:
+                  - /url: /terms
+          - generic [ref=e656]:
+            - generic [ref=e657]:
+              - link "Twitter/X" [ref=e658] [cursor=pointer]:
+                - /url: https://x.com/learniverseai
+                - img "Twitter/X" [ref=e659]
+              - link "LinkedIn" [ref=e660] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/learniverse-ai/
+                - img "LinkedIn" [ref=e661]
+            - paragraph [ref=e663]: © 2026 Learniverse - Einspace Inc. All rights reserved.
+    - region "Notifications alt+T"
+  - alert [ref=e664]

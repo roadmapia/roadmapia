@@ -1,0 +1,102 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "LearnAI" [ref=e3] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e4]:
+      - link "Planes" [ref=e5] [cursor=pointer]:
+        - /url: /pricing
+      - link "Iniciar sesión" [ref=e6] [cursor=pointer]:
+        - /url: /auth/login
+      - link "Empezar gratis" [ref=e7] [cursor=pointer]:
+        - /url: /auth/register
+  - generic [ref=e8]:
+    - generic [ref=e9]: Precios
+    - heading "Elige tu plan" [level=1] [ref=e10]
+    - paragraph [ref=e11]: Empieza gratis. Sin permanencia. Cancela cuando quieras.
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]: Gratuito
+        - generic [ref=e15]: 0€/mes
+        - paragraph [ref=e16]: Para probar la plataforma
+        - list [ref=e18]:
+          - listitem [ref=e19]:
+            - generic [ref=e20]: ✓
+            - text: 1 roadmap por mes
+          - listitem [ref=e21]:
+            - generic [ref=e22]: ✓
+            - text: 10 mensajes tutor/día
+          - listitem [ref=e23]:
+            - generic [ref=e24]: ✓
+            - text: Todos los temas
+          - listitem [ref=e25]:
+            - generic [ref=e26]: ✗
+            - text: Sin anuncios
+          - listitem [ref=e27]:
+            - generic [ref=e28]: ✗
+            - text: Exportar PDF
+        - link "Empezar gratis" [ref=e29] [cursor=pointer]:
+          - /url: /auth/register
+      - generic [ref=e30]:
+        - generic [ref=e31]: ⭐ Más popular
+        - generic [ref=e32]: Básico
+        - generic [ref=e33]: 7€/mes
+        - paragraph [ref=e34]: Para aprendices comprometidos
+        - list [ref=e36]:
+          - listitem [ref=e37]:
+            - generic [ref=e38]: ✓
+            - text: 5 roadmaps por mes
+          - listitem [ref=e39]:
+            - generic [ref=e40]: ✓
+            - text: 50 mensajes tutor/día
+          - listitem [ref=e41]:
+            - generic [ref=e42]: ✓
+            - text: Sin anuncios
+          - listitem [ref=e43]:
+            - generic [ref=e44]: ✓
+            - text: Todos los temas
+          - listitem [ref=e45]:
+            - generic [ref=e46]: ✗
+            - text: Exportar PDF
+        - link "Empezar →" [ref=e47] [cursor=pointer]:
+          - /url: /auth/register
+      - generic [ref=e48]:
+        - generic [ref=e49]: Pro
+        - generic [ref=e50]: 17€/mes
+        - paragraph [ref=e51]: Para los más ambiciosos
+        - list [ref=e53]:
+          - listitem [ref=e54]:
+            - generic [ref=e55]: ✓
+            - text: Roadmaps ilimitados
+          - listitem [ref=e56]:
+            - generic [ref=e57]: ✓
+            - text: Mensajes ilimitados
+          - listitem [ref=e58]:
+            - generic [ref=e59]: ✓
+            - text: Sin anuncios
+          - listitem [ref=e60]:
+            - generic [ref=e61]: ✓
+            - text: Exportar a PDF
+          - listitem [ref=e62]:
+            - generic [ref=e63]: ✓
+            - text: Soporte prioritario
+        - link "Empezar →" [ref=e64] [cursor=pointer]:
+          - /url: /auth/register
+    - generic [ref=e65]:
+      - heading "Preguntas frecuentes" [level=2] [ref=e66]
+      - generic [ref=e67]:
+        - strong [ref=e68]: ¿Puedo cancelar cuando quiera?
+        - paragraph [ref=e69]: Sí, sin permanencia ni penalizaciones. Cancelas y el plan sigue activo hasta fin del período pagado.
+      - generic [ref=e70]:
+        - strong [ref=e71]: ¿Mis roadmaps se borran si cancelo?
+        - paragraph [ref=e72]: No. Tus roadmaps existentes permanecen accesibles siempre, independientemente del plan.
+      - generic [ref=e73]:
+        - strong [ref=e74]: ¿Se resetean los contadores cada mes?
+        - paragraph [ref=e75]: Sí. El límite de roadmaps se resetea el día 1 y el de mensajes del tutor cada día a medianoche.
+      - generic [ref=e76]:
+        - strong [ref=e77]: ¿Qué métodos de pago aceptáis?
+        - paragraph [ref=e78]: Todas las tarjetas de crédito y débito a través de Stripe, el procesador más seguro del mercado.
+  - contentinfo [ref=e79]:
+    - paragraph [ref=e80]:
+      - text: © 2025 LearnAI · Aprende cualquier cosa con IA ·
+      - link "Ver planes" [ref=e81] [cursor=pointer]:
+        - /url: /pricing

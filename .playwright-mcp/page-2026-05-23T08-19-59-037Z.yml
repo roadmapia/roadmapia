@@ -1,0 +1,104 @@
+- generic [ref=e1]:
+  - navigation [ref=e2]:
+    - link "🧠 RoadmapIA" [ref=e3] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e4]:
+      - link "Dashboard" [ref=e5] [cursor=pointer]:
+        - /url: /dashboard
+      - link "Cuenta" [ref=e6] [cursor=pointer]:
+        - /url: /cuenta
+      - link "Certificaciones" [ref=e7] [cursor=pointer]:
+        - /url: /certificaciones
+    - generic [ref=e8]:
+      - generic [ref=e9]: Pro
+      - link "Salir" [ref=e10] [cursor=pointer]:
+        - /url: /auth/logout
+  - generic [ref=e11]:
+    - link "← Dashboard" [ref=e12] [cursor=pointer]:
+      - /url: /dashboard
+    - heading "Nuevo roadmap" [level=1] [ref=e13]
+    - paragraph [ref=e14]: Cuéntanos qué quieres aprender y la IA diseñará tu plan en segundos.
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - generic [ref=e19]: Idioma del roadmap
+        - generic [ref=e20]:
+          - generic [ref=e22] [cursor=pointer]: 🇪🇸 Español
+          - generic [ref=e24] [cursor=pointer]: 🇬🇧 English
+      - generic [ref=e25]:
+        - generic [ref=e26]: ¿Qué quieres aprender?
+        - textbox "¿Qué quieres aprender?" [active] [ref=e27]:
+          - /placeholder: Python, photography, guitar, marketing…
+      - generic [ref=e28]:
+        - generic [ref=e29]: Nivel actual
+        - combobox "Nivel actual" [ref=e30]:
+          - option "🌱 Principiante — no sé nada del tema" [selected]
+          - option "⚡ Intermedio — tengo conocimientos básicos"
+          - option "🔥 Avanzado — quiero profundizar"
+      - generic [ref=e31]:
+        - generic [ref=e32]: Tiempo disponible a la semana
+        - generic [ref=e33]:
+          - generic [ref=e34]:
+            - generic [ref=e35]: Horas
+            - listbox [ref=e36]:
+              - option "1h" [ref=e37]
+              - option "2h" [ref=e38]
+              - option "3h" [ref=e39]
+              - option "4h" [ref=e40]
+              - option "5h" [selected] [ref=e41]
+              - option "6h" [ref=e42]
+              - option "7h" [ref=e43]
+              - option "8h" [ref=e44]
+              - option "9h" [ref=e45]
+              - option "10h" [ref=e46]
+              - option "11h" [ref=e47]
+              - option "12h" [ref=e48]
+              - option "13h" [ref=e49]
+              - option "14h" [ref=e50]
+              - option "15h" [ref=e51]
+              - option "16h" [ref=e52]
+              - option "17h" [ref=e53]
+              - option "18h" [ref=e54]
+              - option "19h" [ref=e55]
+              - option "20h" [ref=e56]
+              - option "21h" [ref=e57]
+              - option "22h" [ref=e58]
+              - option "23h" [ref=e59]
+              - option "24h" [ref=e60]
+              - option "25h" [ref=e61]
+              - option "26h" [ref=e62]
+              - option "27h" [ref=e63]
+              - option "28h" [ref=e64]
+              - option "29h" [ref=e65]
+              - option "30h" [ref=e66]
+          - generic [ref=e67]: ":"
+          - generic [ref=e68]:
+            - generic [ref=e69]: Minutos
+            - listbox [ref=e70]:
+              - option "00 min" [selected] [ref=e71]
+              - option "15 min" [ref=e72]
+              - option "30 min" [ref=e73]
+              - option "45 min" [ref=e74]
+      - button "✨ Generar mi plan de aprendizaje" [ref=e75] [cursor=pointer]
+  - contentinfo [ref=e76]:
+    - generic [ref=e77]:
+      - generic [ref=e78]: 🧠 RoadmapIA
+      - paragraph [ref=e79]:
+        - text: Aprende cualquier cosa con un roadmap personalizado de IA.
+        - text: Tutor experto incluido · Vídeos de YouTube reales · Progreso medible.
+      - generic [ref=e80]:
+        - link "✨ Powered by Claude AI" [ref=e81] [cursor=pointer]:
+          - /url: https://claude.ai
+        - link "Built with Anthropic" [ref=e82] [cursor=pointer]:
+          - /url: https://anthropic.com
+          - text: Built with
+          - strong [ref=e83]: Anthropic
+      - generic [ref=e84]:
+        - text: © 2025 RoadmapIA — Todos los derechos reservados ·
+        - link "Privacidad" [ref=e85] [cursor=pointer]:
+          - /url: "#"
+        - text: ·
+        - link "Términos" [ref=e86] [cursor=pointer]:
+          - /url: "#"
+  - button "Soporte" [ref=e88] [cursor=pointer]:
+    - generic [ref=e89]: 💬
+    - generic [ref=e90]: "1"

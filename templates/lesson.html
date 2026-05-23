@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block title %}{{ leccion.titulo }} — RoadmapIA{% endblock %}
+{% block content %}
+<div class="lesson-wrap">
+
+  <!-- MAIN -->
+  <div class="lesson-body">
+    <div class="l-breadcrumb">
+      <a href="/roadmaps/{{ roadmap.id }}">← Volver al roadmap</a>
+    </div>
+    <h1 class="l-title">{{ leccion.titulo }}</h1>
+    <p class="l-desc">{{ leccion.descripcion }}</p>
+
+    <!-- RECURSOS -->
+    <div class="l-block">
+      <div class="l-block-title">📺 Recursos recomendados</div>
+      {% for recurso in leccion.recursos %}
+      <div class="resource">
+        <div class="resource-hdr">
+          <span>{{ recurso.texto }}</span>
+          <a href="{{ recurso.url }}" target="_blank" rel="noopener">Abrir en YouTube ↗</a>
+        </div>
+        {% if recurso.embed %}
+        <div class="video-frame">
+          <iframe src="{{ recurso.embed }}"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+        {% else %}
+        <a href="{{ recurso.url }}" target="_blank" rel="noopener" class="video-link">▶ Ver en YouTube</a>
+        {% endif %}
+      </div>
+      {% if not loop.last %}<hr style="border-color:var(--border);margin:1rem 0">{% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- CHECKLIST -->
+    <div class="l-block">
+      <div class="l-block-title">✅ Checklist</div>
+      {% for item in leccion.checklist %}
+      {% set checked = checklist_estado[loop.index0] if loop.index0 < checklist_estado|length else False %}
+      <div class="check-item {% if checked %}checked{% endif %}">
+        <input type="checkbox" id="chk{{ loop.index0 }}" data-index="{{ loop.index0 }}" {% if checked %}checked{% endif %} />
+        <label for="chk{{ loop.index0 }}">{{ item }}</label>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- EJERCICIO -->
+    <div class="l-block">
+      <div class="l-block-title">🎯 Ejercicio práctico</div>
+      <div class="exercise-box">{{ leccion.ejercicio }}</div>
+    </div>
+
+    {% if user.plan == "free" %}
+    <div class="ad-banner">📢 Publicidad · <a href="/pricing">Elimina los anuncios →</a></div>
+    {% endif %}
+
+    {% if progreso and progreso.completada %}
+    <div class="alert alert-success">✅ Lección completada. ¡Buen trabajo!</div>
+    {% else %}
+    <button id="btn-completar" class="btn btn-success btn-lg" style="width:100%"
+            onclick="completarLeccion({{ roadmap.id }}, '{{ leccion.id }}')" disabled>
+      Completar lección — marca todo el checklist primero
+    </button>
+    {% endif %}
+  </div>
+
+  <!-- CHAT -->
+  <div class="chat-wrap">
+    <div class="chat-top">
+      <div class="chat-avatar">🤖</div>
+      <div class="chat-info">
+        <div class="chat-name">Tutor IA</div>
+        <div class="chat-status">Online</div>
+      </div>
+      <div class="chat-count">
+        {% if plan_info.mensajes_tutor_dia == -1 %}
+          ∞ {% if contenido.idioma == 'en' %}messages{% else %}mensajes{% endif %}
+        {% else %}
+          {{ user.mensajes_hoy }}/{{ plan_info.mensajes_tutor_dia }} {% if contenido.idioma == 'en' %}today{% else %}hoy{% endif %}
+        {% endif %}
+      </div>
+    </div>
+    <div class="chat-msgs" id="chat-messages">
+      <div class="msg assistant">
+        {% if contenido.idioma == 'en' %}Ask me anything about this lesson 💬{% else %}Pregúntame lo que necesites sobre esta lección 💬{% endif %}
+      </div>
+    </div>
+    {% if plan_info.mensajes_tutor_dia != -1 and user.mensajes_hoy >= plan_info.mensajes_tutor_dia %}
+    <div class="chat-limit">⚠️ Límite diario. <a href="/pricing">Actualiza →</a></div>
+    {% else %}
+    <form class="chat-form" id="chat-form">
+      <textarea id="chat-input" class="chat-input" rows="2" placeholder="{% if contenido.idioma == 'en' %}Type your question…{% else %}Escribe tu pregunta…{% endif %}"></textarea>
+      <button type="submit" id="chat-send" class="chat-btn">➤</button>
+    </form>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+{% endblock %}
+{% block scripts %}
+<script>
+  // Configurar marked
+  marked.setOptions({ breaks: true, gfm: true });
+  initChecklist({{ roadmap.id }}, '{{ leccion.id }}');
+  initChat({{ roadmap.id }}, '{{ leccion.id }}');
+</script>
+{% endblock %}

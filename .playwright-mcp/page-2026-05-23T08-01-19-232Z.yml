@@ -1,0 +1,137 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "🧠 RoadmapIA" [ref=e3] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e4]:
+      - link "Dashboard" [ref=e5] [cursor=pointer]:
+        - /url: /dashboard
+      - link "Cuenta" [ref=e6] [cursor=pointer]:
+        - /url: /cuenta
+      - link "Certificaciones" [ref=e7] [cursor=pointer]:
+        - /url: /certificaciones
+    - generic [ref=e8]:
+      - generic [ref=e9]: Pro
+      - link "Salir" [ref=e10] [cursor=pointer]:
+        - /url: /auth/logout
+  - generic [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - heading "Hola, prueba 👋" [level=1] [ref=e14]
+        - paragraph [ref=e15]:
+          - text: "Plan:"
+          - generic [ref=e16]: Pro
+      - link "+ Nuevo roadmap" [ref=e17] [cursor=pointer]:
+        - /url: /roadmaps/nuevo
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e20]: 📚
+        - generic [ref=e21]:
+          - generic [ref=e22]: "4"
+          - generic [ref=e23]: Roadmaps totales
+      - generic [ref=e24]:
+        - generic [ref=e25]: 📅
+        - generic [ref=e26]:
+          - generic [ref=e27]: 3/∞
+          - generic [ref=e28]: Este mes
+      - generic [ref=e29]:
+        - generic [ref=e30]: ✅
+        - generic [ref=e31]:
+          - generic [ref=e32]: "0"
+          - generic [ref=e33]: Completados
+      - generic [ref=e34]:
+        - generic [ref=e35]: 💬
+        - generic [ref=e36]:
+          - generic [ref=e37]: 1/∞
+          - generic [ref=e38]: Mensajes hoy
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - generic [ref=e41]:
+          - generic [ref=e42]: 🤖
+          - generic [ref=e43]:
+            - heading "Miniaturas de youtube" [level=3] [ref=e44]
+            - generic [ref=e45]: ○ Sin empezar
+        - generic [ref=e46]:
+          - generic [ref=e47]: Principiante
+          - generic [ref=e48]: ⏱ 2h/sem
+          - generic [ref=e49]: 22/05/26
+        - generic [ref=e51]:
+          - generic [ref=e52]: Progreso
+          - strong [ref=e53]: 0% · 0/12 lecc.
+        - generic [ref=e55]:
+          - link "▶ Empezar" [ref=e56] [cursor=pointer]:
+            - /url: /roadmaps/4
+          - button "🗑" [ref=e57] [cursor=pointer]
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e60]: 🎬
+          - generic [ref=e61]:
+            - heading "Edicion de video con Davinci Resolve" [level=3] [ref=e62]
+            - generic [ref=e63]: ○ Sin empezar
+        - generic [ref=e64]:
+          - generic [ref=e65]: Principiante
+          - generic [ref=e66]: ⏱ 2h/sem
+          - generic [ref=e67]: 22/05/26
+        - generic [ref=e69]:
+          - generic [ref=e70]: Progreso
+          - strong [ref=e71]: 0% · 0/12 lecc.
+        - generic [ref=e73]:
+          - link "▶ Empezar" [ref=e74] [cursor=pointer]:
+            - /url: /roadmaps/3
+          - button "🗑" [ref=e75] [cursor=pointer]
+      - generic [ref=e76]:
+        - generic [ref=e77]:
+          - generic [ref=e78]: 📸
+          - generic [ref=e79]:
+            - heading "Fotografia" [level=3] [ref=e80]
+            - generic [ref=e81]: ● En progreso
+        - generic [ref=e82]:
+          - generic [ref=e83]: Principiante
+          - generic [ref=e84]: ⏱ 5h/sem
+          - generic [ref=e85]: 22/05/26
+        - generic [ref=e87]:
+          - generic [ref=e88]: Progreso
+          - strong [ref=e89]: 6% · 1/15 lecc.
+        - generic [ref=e92]:
+          - link "▶ Continuar" [ref=e93] [cursor=pointer]:
+            - /url: /roadmaps/2
+          - button "🗑" [ref=e94] [cursor=pointer]
+      - generic [ref=e95]:
+        - generic [ref=e96]:
+          - generic [ref=e97]: 🐍
+          - generic [ref=e98]:
+            - heading "Python" [level=3] [ref=e99]
+            - generic [ref=e100]: ○ Sin empezar
+        - generic [ref=e101]:
+          - generic [ref=e102]: Principiante
+          - generic [ref=e103]: ⏱ 5h/sem
+          - generic [ref=e104]: 22/05/26
+        - generic [ref=e106]:
+          - generic [ref=e107]: Progreso
+          - strong [ref=e108]: 0% · 0/14 lecc.
+        - generic [ref=e110]:
+          - link "▶ Empezar" [ref=e111] [cursor=pointer]:
+            - /url: /roadmaps/1
+          - button "🗑" [ref=e112] [cursor=pointer]
+  - contentinfo [ref=e113]:
+    - generic [ref=e114]:
+      - generic [ref=e115]: 🧠 RoadmapIA
+      - paragraph [ref=e116]:
+        - text: Aprende cualquier cosa con un roadmap personalizado de IA.
+        - text: Tutor experto incluido · Vídeos de YouTube reales · Progreso medible.
+      - generic [ref=e117]:
+        - link "✨ Powered by Claude AI" [ref=e118] [cursor=pointer]:
+          - /url: https://claude.ai
+        - link "Built with Anthropic" [ref=e119] [cursor=pointer]:
+          - /url: https://anthropic.com
+          - text: Built with
+          - strong [ref=e120]: Anthropic
+      - generic [ref=e121]:
+        - text: © 2025 RoadmapIA — Todos los derechos reservados ·
+        - link "Privacidad" [ref=e122] [cursor=pointer]:
+          - /url: "#"
+        - text: ·
+        - link "Términos" [ref=e123] [cursor=pointer]:
+          - /url: "#"
+  - button "Soporte" [ref=e125] [cursor=pointer]:
+    - generic [ref=e126]: 💬
+    - generic [ref=e127]: "1"

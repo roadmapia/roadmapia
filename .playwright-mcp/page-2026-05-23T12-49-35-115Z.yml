@@ -1,0 +1,215 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "🧠 RoadmapIA" [ref=e3] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e4]:
+      - link "Dashboard" [ref=e5] [cursor=pointer]:
+        - /url: /dashboard
+      - link "Cuenta" [ref=e6] [cursor=pointer]:
+        - /url: /cuenta
+      - link "Certificaciones" [ref=e7] [cursor=pointer]:
+        - /url: /certificaciones
+    - generic [ref=e8]:
+      - generic [ref=e9]: Pro
+      - link "Salir" [ref=e10] [cursor=pointer]:
+        - /url: /auth/logout
+  - generic [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e13]: Legal
+      - heading "Política de Privacidad" [level=1] [ref=e14]
+      - paragraph [ref=e15]: "Última actualización: mayo de 2025"
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - heading "1. Responsable del tratamiento" [level=2] [ref=e18]
+        - paragraph [ref=e19]:
+          - text: El responsable del tratamiento de tus datos personales es
+          - strong [ref=e20]: RoadmapIA
+          - text: ", con dominio"
+          - strong [ref=e21]: roadmapia.com
+          - text: y correo de contacto
+          - strong [ref=e22]: soporte@roadmapia.com
+          - text: .
+      - generic [ref=e23]:
+        - heading "2. Datos que recopilamos" [level=2] [ref=e24]
+        - paragraph [ref=e25]: "Recopilamos los siguientes datos cuando usas RoadmapIA:"
+        - list [ref=e26]:
+          - listitem [ref=e27]:
+            - text: ·
+            - strong [ref=e28]: "Datos de registro:"
+            - text: nombre, dirección de correo electrónico y contraseña (cifrada).
+          - listitem [ref=e29]:
+            - text: ·
+            - strong [ref=e30]: "Datos de uso:"
+            - text: roadmaps creados, lecciones completadas, mensajes enviados al tutor IA y progreso de aprendizaje.
+          - listitem [ref=e31]:
+            - text: ·
+            - strong [ref=e32]: "Datos de pago:"
+            - text: gestionados íntegramente por Stripe. RoadmapIA no almacena datos de tarjetas de crédito.
+          - listitem [ref=e33]:
+            - text: ·
+            - strong [ref=e34]: "Datos de Google (si usas \"Iniciar sesión con Google\"):"
+            - text: nombre, correo electrónico e identificador de Google proporcionados por Google OAuth.
+          - listitem [ref=e35]:
+            - text: ·
+            - strong [ref=e36]: "Datos técnicos:"
+            - text: dirección IP, tipo de navegador y datos de sesión necesarios para el funcionamiento del servicio.
+      - generic [ref=e37]:
+        - heading "3. Finalidad del tratamiento" [level=2] [ref=e38]
+        - paragraph [ref=e39]: "Utilizamos tus datos para:"
+        - list [ref=e40]:
+          - listitem [ref=e41]: · Gestionar tu cuenta y prestarte el servicio de aprendizaje personalizado.
+          - listitem [ref=e42]: · Generar roadmaps de aprendizaje mediante inteligencia artificial.
+          - listitem [ref=e43]: · Proporcionarte acceso al tutor IA y guardar tu historial de conversaciones.
+          - listitem [ref=e44]: · Procesar pagos y gestionar tu suscripción.
+          - listitem [ref=e45]: · Enviarte comunicaciones relacionadas con el servicio (confirmaciones, recuperación de contraseña).
+          - listitem [ref=e46]:
+            - text: · Enviarte comunicaciones de marketing,
+            - strong [ref=e47]: únicamente si has dado tu consentimiento expreso
+            - text: durante el registro.
+          - listitem [ref=e48]: · Mejorar el servicio mediante análisis agregado y anónimo del uso.
+      - generic [ref=e49]:
+        - heading "4. Base legal del tratamiento" [level=2] [ref=e50]
+        - list [ref=e51]:
+          - listitem [ref=e52]:
+            - text: ·
+            - strong [ref=e53]: "Ejecución de contrato:"
+            - text: para prestarte el servicio contratado.
+          - listitem [ref=e54]:
+            - text: ·
+            - strong [ref=e55]: "Consentimiento:"
+            - text: para comunicaciones de marketing y para el inicio de sesión con Google.
+          - listitem [ref=e56]:
+            - text: ·
+            - strong [ref=e57]: "Interés legítimo:"
+            - text: para mejorar el servicio y prevenir fraudes.
+          - listitem [ref=e58]:
+            - text: ·
+            - strong [ref=e59]: "Obligación legal:"
+            - text: para el cumplimiento de obligaciones fiscales y legales.
+      - generic [ref=e60]:
+        - heading "5. Terceros proveedores de servicios" [level=2] [ref=e61]
+        - paragraph [ref=e62]: "Para prestar el servicio, compartimos datos con los siguientes proveedores:"
+        - list [ref=e63]:
+          - listitem [ref=e64]:
+            - text: ·
+            - strong [ref=e65]: "Anthropic (Claude AI):"
+            - text: "utilizado para generar los roadmaps de aprendizaje. Los datos enviados incluyen el tema, nivel e idioma solicitado. Política de privacidad:"
+            - link "anthropic.com/privacy" [ref=e66] [cursor=pointer]:
+              - /url: https://www.anthropic.com/privacy
+            - text: .
+          - listitem [ref=e67]:
+            - text: ·
+            - strong [ref=e68]: "DeepSeek:"
+            - text: "utilizado para el tutor IA de conversación. Los datos enviados incluyen las preguntas del usuario y el contexto de la lección. Política de privacidad:"
+            - link "deepseek.com/privacy" [ref=e69] [cursor=pointer]:
+              - /url: https://www.deepseek.com/privacy
+            - text: .
+          - listitem [ref=e70]:
+            - text: ·
+            - strong [ref=e71]: "Stripe:"
+            - text: "procesador de pagos. Gestiona íntegramente los datos de pago. Política de privacidad:"
+            - link "stripe.com/privacy" [ref=e72] [cursor=pointer]:
+              - /url: https://stripe.com/es/privacy
+            - text: .
+          - listitem [ref=e73]:
+            - text: ·
+            - strong [ref=e74]: "YouTube (Google):"
+            - text: "utilizamos la API de YouTube para mostrar vídeos educativos. Política de privacidad:"
+            - link "policies.google.com/privacy" [ref=e75] [cursor=pointer]:
+              - /url: https://policies.google.com/privacy
+            - text: .
+          - listitem [ref=e76]:
+            - text: ·
+            - strong [ref=e77]: "Google OAuth:"
+            - text: opcionalmente, para iniciar sesión con tu cuenta de Google.
+        - paragraph [ref=e78]: Todos estos proveedores están sujetos a sus propias políticas de privacidad y, en el caso de los ubicados fuera del Espacio Económico Europeo, ofrecen garantías adecuadas de transferencia internacional de datos.
+      - generic [ref=e79]:
+        - heading "6. Conservación de los datos" [level=2] [ref=e80]
+        - paragraph [ref=e81]: Conservamos tus datos mientras mantengas una cuenta activa en RoadmapIA. Si eliminas tu cuenta, tus datos personales serán eliminados en un plazo máximo de 30 días, salvo que exista obligación legal de conservarlos (por ejemplo, datos fiscales relacionados con pagos, que se conservan durante 7 años conforme a la legislación española).
+      - generic [ref=e82]:
+        - heading "7. Tus derechos (RGPD)" [level=2] [ref=e83]
+        - paragraph [ref=e84]: "Conforme al Reglamento General de Protección de Datos (RGPD), tienes los siguientes derechos:"
+        - list [ref=e85]:
+          - listitem [ref=e86]:
+            - text: ·
+            - strong [ref=e87]: "Acceso:"
+            - text: solicitar una copia de los datos que tenemos sobre ti.
+          - listitem [ref=e88]:
+            - text: ·
+            - strong [ref=e89]: "Rectificación:"
+            - text: corregir datos incorrectos o incompletos.
+          - listitem [ref=e90]:
+            - text: ·
+            - strong [ref=e91]: "Supresión:"
+            - text: solicitar la eliminación de tus datos ("derecho al olvido").
+          - listitem [ref=e92]:
+            - text: ·
+            - strong [ref=e93]: "Portabilidad:"
+            - text: recibir tus datos en formato estructurado y legible.
+          - listitem [ref=e94]:
+            - text: ·
+            - strong [ref=e95]: "Oposición:"
+            - text: oponerte al tratamiento para fines de marketing.
+          - listitem [ref=e96]:
+            - text: ·
+            - strong [ref=e97]: "Limitación:"
+            - text: solicitar la restricción del tratamiento en determinados casos.
+        - paragraph [ref=e98]:
+          - text: Para ejercer cualquiera de estos derechos, escríbenos a
+          - link "soporte@roadmapia.com" [ref=e99] [cursor=pointer]:
+            - /url: mailto:soporte@roadmapia.com
+          - text: . Responderemos en un plazo máximo de 30 días. También puedes presentar una reclamación ante la
+          - link "Agencia Española de Protección de Datos (AEPD)" [ref=e100] [cursor=pointer]:
+            - /url: https://www.aepd.es
+          - text: .
+      - generic [ref=e101]:
+        - heading "8. Cookies" [level=2] [ref=e102]
+        - paragraph [ref=e103]: "RoadmapIA utiliza únicamente las siguientes cookies:"
+        - list [ref=e104]:
+          - listitem [ref=e105]:
+            - text: ·
+            - strong [ref=e106]:
+              - text: Cookie de sesión (
+              - code [ref=e107]: access_token
+              - text: "):"
+            - text: cookie técnica necesaria para mantener tu sesión iniciada. No se puede desactivar sin perder el acceso al servicio.
+          - listitem [ref=e108]:
+            - text: ·
+            - strong [ref=e109]: "Cookies de terceros:"
+            - text: los vídeos embebidos de YouTube pueden instalar cookies de Google. Consulta la política de cookies de Google para más información.
+        - paragraph [ref=e110]: No utilizamos cookies de seguimiento ni publicidad comportamental propias.
+      - generic [ref=e111]:
+        - heading "9. Seguridad" [level=2] [ref=e112]
+        - paragraph [ref=e113]: Aplicamos medidas técnicas y organizativas adecuadas para proteger tus datos, incluyendo cifrado de contraseñas con bcrypt, comunicaciones HTTPS y acceso restringido a los datos del servidor.
+      - generic [ref=e114]:
+        - heading "10. Cambios en esta política" [level=2] [ref=e115]
+        - paragraph [ref=e116]: Podemos actualizar esta política de privacidad ocasionalmente. Te notificaremos por correo electrónico ante cambios significativos. La fecha de la última actualización siempre aparecerá en la parte superior de esta página.
+      - generic [ref=e117]:
+        - heading "11. Contacto" [level=2] [ref=e118]
+        - paragraph [ref=e119]:
+          - text: "Para cualquier consulta sobre privacidad:"
+          - link "soporte@roadmapia.com" [ref=e120] [cursor=pointer]:
+            - /url: mailto:soporte@roadmapia.com
+  - contentinfo [ref=e121]:
+    - generic [ref=e122]:
+      - generic [ref=e123]: 🧠 RoadmapIA
+      - paragraph [ref=e124]:
+        - text: Aprende cualquier cosa con un roadmap personalizado de IA.
+        - text: Tutor experto incluido · Vídeos de YouTube reales · Progreso medible.
+      - generic [ref=e125]:
+        - link "✨ Powered by Claude AI" [ref=e126] [cursor=pointer]:
+          - /url: https://claude.ai
+        - link "Built with Anthropic" [ref=e127] [cursor=pointer]:
+          - /url: https://anthropic.com
+          - text: Built with
+          - strong [ref=e128]: Anthropic
+      - generic [ref=e129]:
+        - text: © 2025 RoadmapIA — Todos los derechos reservados ·
+        - link "Privacidad" [ref=e130] [cursor=pointer]:
+          - /url: /privacidad
+        - text: ·
+        - link "Términos" [ref=e131] [cursor=pointer]:
+          - /url: /terminos
+  - button "Soporte" [ref=e133] [cursor=pointer]:
+    - generic [ref=e134]: 💬
+    - generic [ref=e135]: "1"

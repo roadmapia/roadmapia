@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}{{ contenido.titulo }} — RoadmapIA{% endblock %}
+{% block content %}
+<div class="rm-page">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.25rem">
+    <a href="/dashboard" style="font-size:0.8rem;color:var(--muted)">← Volver</a>
+    {% if porcentaje == 100 %}
+      {% if user.plan == 'pro' %}
+      <a href="/roadmaps/{{ roadmap.id }}/certificado" class="btn btn-success" style="padding:0.4rem 1rem;font-size:0.82rem">
+        🏆 Ver mi certificado
+      </a>
+      {% else %}
+      <a href="/pricing" class="btn btn-secondary" style="padding:0.4rem 1rem;font-size:0.82rem;border-color:rgba(255,193,7,0.3);color:#ffd54f" title="Disponible en el plan Pro">
+        🏆 Obtener certificado <span style="font-size:0.7rem;opacity:0.7">— Pro</span>
+      </a>
+      {% endif %}
+    {% endif %}
+  </div>
+
+  <div class="rm-header">
+    <h1>{{ contenido.titulo }}</h1>
+    <p>{{ contenido.descripcion }}</p>
+    <div class="rm-meta">
+      <span class="rm-meta-tag">📅 {{ contenido.duracion_semanas }} semanas</span>
+      <span class="rm-meta-tag">📚 {{ total_lecciones }} lecciones</span>
+      <span class="rm-meta-tag">⏱ {{ roadmap.horas_semana }}h/semana</span>
+      <span class="rm-meta-tag">🎯 {{ roadmap.nivel.capitalize() }}</span>
+    </div>
+    <div class="rm-prog-row">
+      <span>Progreso global</span>
+      <strong>{{ porcentaje }}% · {{ completadas }}/{{ total_lecciones }}</strong>
+    </div>
+    <div class="progress-bar-wrap" style="height:6px">
+      <div class="progress-bar-fill" style="width:{{ porcentaje }}%"></div>
+    </div>
+  </div>
+
+  {% for fase in contenido.fases %}
+  <div class="fase">
+    <div class="fase-hdr" onclick="toggleFase('fb{{ loop.index }}','fa{{ loop.index }}')">
+      <div class="fase-hdr-l">
+        <div class="fase-num-badge">{{ loop.index }}</div>
+        <div>
+          <h3>{{ fase.titulo }}</h3>
+          <div class="fase-weeks">📅 Semanas {{ fase.semanas }} · {{ fase.lecciones|length }} lecciones</div>
+        </div>
+      </div>
+      <span class="fase-arrow" id="fa{{ loop.index }}">▾</span>
+    </div>
+    <div class="fase-body" id="fb{{ loop.index }}">
+      <p class="fase-desc">{{ fase.descripcion }}</p>
+      {% for leccion in fase.lecciones %}
+      {% set prog = progreso_map.get(leccion.id) %}
+      {% set done = prog and prog.completada %}
+      <div class="lesson-row {% if done %}done{% endif %}">
+        <div class="li-info">
+          <div class="lt">{{ leccion.id }}. {{ leccion.titulo }}</div>
+          <div class="ld">{{ leccion.descripcion[:85] }}{% if leccion.descripcion|length > 85 %}…{% endif %}</div>
+        </div>
+        <div class="li-right">
+          <span>{% if done %}✅{% else %}📖{% endif %}</span>
+          <a href="/roadmaps/{{ roadmap.id }}/leccion/{{ leccion.id }}"
+             class="btn {% if done %}btn-secondary{% else %}btn-primary{% endif %}"
+             style="padding:0.35rem 0.8rem;font-size:0.78rem">
+            {% if done %}Revisar{% else %}Ir →{% endif %}
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+function toggleFase(bodyId, arrowId) {
+  const b = document.getElementById(bodyId);
+  const a = document.getElementById(arrowId);
+  const hidden = b.style.display === 'none';
+  b.style.display = hidden ? 'block' : 'none';
+  a.style.transform = hidden ? '' : 'rotate(-90deg)';
+}
+</script>
+{% endblock %}

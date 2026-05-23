@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}RoadmapIA — Aprende con IA{% endblock %}</title>
+
+  <!-- SEO básico -->
+  <meta name="description" content="{% block description %}Aprende cualquier cosa con un roadmap personalizado de inteligencia artificial. Tutor IA incluido.{% endblock %}" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="{% block canonical %}https://roadmapia.com{% endblock %}" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{% block og_title %}RoadmapIA — Aprende con IA{% endblock %}" />
+  <meta property="og:description" content="Genera tu roadmap de aprendizaje personalizado con IA en segundos." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_ES" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>" />
+
+  <!-- Fuente -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/static/css/tailwind.css" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+
+  {% block head %}{% endblock %}
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="navbar-brand" href="/">🧠 RoadmapIA</a>
+
+  <div class="navbar-links" id="navbar-links">
+    {% if user %}
+      <a href="/dashboard" class="{% if request.url.path == '/dashboard' %}nav-active{% endif %}">Dashboard</a>
+      <a href="/cuenta" class="{% if request.url.path.startswith('/cuenta') %}nav-active{% endif %}">Cuenta</a>
+      <a href="/certificaciones" class="{% if request.url.path == '/certificaciones' %}nav-active{% endif %}">Certificaciones</a>
+    {% else %}
+      <a href="/">Inicio</a>
+      <a href="/pricing">Planes</a>
+      <a href="/blog">Blog</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/#sobre-nosotros">Sobre nosotros</a>
+      <a href="/soporte">Soporte</a>
+    {% endif %}
+  </div>
+
+  <div class="navbar-right" id="navbar-right">
+    {% if user %}
+      <span class="badge badge-{{ user.plan }}">{{ user.plan.capitalize() }}</span>
+      <a href="/auth/logout" class="btn btn-secondary" style="padding:0.38rem 0.9rem;font-size:0.82rem;">Salir</a>
+    {% else %}
+      <a href="/auth/login" class="navbar-login">Iniciar sesión</a>
+      <a href="/auth/register" class="btn navbar-cta">🚀 Empieza gratis</a>
+    {% endif %}
+  </div>
+
+  <button class="hamburger" id="hamburger" aria-label="Menú" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+{% block content %}{% endblock %}
+
+<footer class="footer">
+  {% if user %}
+  <!-- Footer para usuarios logueados -->
+  <div class="footer-logged">
+    <div class="footer-logo">🧠 RoadmapIA</div>
+    <p class="footer-logged-desc">
+      Aprende cualquier cosa con un roadmap personalizado de IA.<br>
+      Tutor experto incluido · Vídeos de YouTube reales · Progreso medible.
+    </p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:0.6rem;flex-wrap:wrap">
+      <a href="https://claude.ai" target="_blank" rel="noopener" class="footer-badge footer-badge-claude" style="display:inline-flex!important;align-items:center;height:24px;padding:0 0.75rem;border-radius:99px;font-size:0.72rem;font-weight:700;text-decoration:none;background:rgba(124,111,255,0.08);border:1px solid rgba(124,111,255,0.18);color:#7c6fff;white-space:nowrap;box-sizing:border-box">✨ Powered by Claude AI</a>
+      <a href="https://anthropic.com" target="_blank" rel="noopener" class="footer-badge footer-badge-anthropic" style="display:inline-flex!important;align-items:center;height:24px;padding:0 0.75rem;border-radius:99px;font-size:0.72rem;font-weight:700;text-decoration:none;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:#6b6b8a;white-space:nowrap;box-sizing:border-box;gap:0.3rem">Built with <strong style="color:#f0f0f8;font-weight:700">Anthropic</strong></a>
+    </div>
+    <span class="footer-logged-copy">© 2025 RoadmapIA — Todos los derechos reservados · <a href="/privacidad">Privacidad</a> · <a href="/terminos">Términos</a></span>
+  </div>
+  {% else %}
+  <!-- Footer completo para visitantes -->
+  <div class="footer-main">
+    <div class="footer-brand">
+      <div class="footer-logo">🧠 RoadmapIA</div>
+      <p>Aprende cualquier cosa con un roadmap personalizado de IA. Tutor incluido.</p>
+      <a href="https://claude.ai" target="_blank" rel="noopener" class="footer-badge footer-badge-claude">✨ Powered by Claude AI</a>
+    </div>
+    <div class="footer-links-group">
+      <div class="footer-col">
+        <div class="footer-col-title">Producto</div>
+        <a href="/">Inicio</a>
+        <a href="/pricing">Precios</a>
+        <a href="/blog">Blog</a>
+        <a href="/auth/register">Empezar gratis</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Cuenta</div>
+        <a href="/auth/login">Iniciar sesión</a>
+        <a href="/auth/register">Crear cuenta</a>
+        <a href="/dashboard">Dashboard</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 RoadmapIA — Todos los derechos reservados</span>
+    <span class="footer-bottom-links">
+      <a href="/privacidad">Privacidad</a> · <a href="/terminos">Términos</a>
+    </span>
+  </div>
+  {% endif %}
+</footer>
+
+<!-- ===== MODAL RESEÑA ===== -->
+<div class="modal-overlay" id="modal-resena" style="display:none">
+  <div class="modal-box review-modal" onclick="event.stopPropagation()">
+    <div class="review-modal-stars">⭐⭐⭐⭐⭐</div>
+    <h3>¡Enhorabuena! 🎉</h3>
+    <p>Has completado otra lección. Tu opinión nos ayuda a mejorar y a que más personas descubran RoadmapIA.</p>
+    <div class="review-modal-bonus">
+      <div class="review-bonus-icon">🎁</div>
+      <div>
+        <strong>Regalo por tu reseña</strong>
+        <span>+5 preguntas al tutor IA cada día, para siempre</span>
+      </div>
+    </div>
+    <p class="review-modal-sub">Solo te llevará 1 minuto en Trustpilot. ¡Muchas gracias!</p>
+    <div class="modal-actions" style="justify-content:center;flex-direction:column;gap:0.5rem">
+      <button id="btn-resena-trustpilot" class="btn btn-primary btn-lg" onclick="abrirTrustpilotYMarcar()">
+        ⭐ Dejar mi reseña en Trustpilot
+      </button>
+      <button class="btn btn-secondary" onclick="cerrarModalResena(true)" style="font-size:0.78rem;padding:0.4rem 1rem">
+        Ahora no, continuar aprendiendo
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SOPORTE FLOTANTE ===== -->
+<div class="support-widget" id="support-widget">
+  <div class="support-panel" id="support-panel">
+    <div class="support-header">
+      <div class="support-header-left">
+        <div class="support-avatar">🤖</div>
+        <div>
+          <div class="support-title">Soporte RoadmapIA</div>
+          <div class="support-online">● En línea</div>
+        </div>
+      </div>
+      <button class="support-close" onclick="toggleSupport()" aria-label="Cerrar">✕</button>
+    </div>
+    {% if user %}
+    <!-- USUARIO LOGUEADO: directo al mensaje -->
+    <div class="support-body" id="support-view-faqs">
+      <div class="support-welcome">
+        <p>¡Hola, {{ user.nombre.split()[0] }}! 👋</p>
+        <p class="support-sub">¿En qué podemos ayudarte? Escríbenos y te respondemos en menos de 24h.</p>
+      </div>
+      <form class="support-form" id="support-form" onsubmit="submitSupportForm(event)">
+        <input type="hidden" id="sf-nombre" value="{{ user.nombre }}" />
+        <input type="hidden" id="sf-email" value="{{ user.email }}" />
+        <div class="support-form-group">
+          <label>Tu consulta</label>
+          <textarea id="sf-mensaje" rows="4" placeholder="Describe tu duda o problema…" required></textarea>
+        </div>
+        <button type="submit" class="support-submit-btn">Enviar consulta →</button>
+      </form>
+    </div>
+    {% else %}
+    <!-- USUARIO NO LOGUEADO: FAQs + formulario completo -->
+    <!-- VISTA 1: FAQs -->
+    <div class="support-body" id="support-view-faqs">
+      <div class="support-welcome">
+        <p>¡Hola! 👋 ¿En qué puedo ayudarte?</p>
+        <p class="support-sub">Selecciona una pregunta o contacta con nosotros.</p>
+      </div>
+      <div class="support-faqs" id="support-faqs-list">
+        <button class="support-faq-btn" onclick="selectFaq(this)" data-answer="El plan gratuito incluye 1 roadmap al mes y 10 mensajes al día con el tutor IA. Sin tarjeta de crédito.">¿Qué incluye el plan gratis?</button>
+        <button class="support-faq-btn" onclick="selectFaq(this)" data-answer="¡Sí! Puedes cancelar en cualquier momento desde tu cuenta. El plan permanece activo hasta el fin del período pagado y no hay penalizaciones.">¿Puedo cancelar la suscripción?</button>
+        <button class="support-faq-btn" onclick="selectFaq(this)" data-answer="No, tus roadmaps existentes siempre permanecen accesibles sin importar tu plan. Tu progreso nunca se pierde.">¿Se borran mis roadmaps si cancelo?</button>
+        <button class="support-faq-btn" onclick="selectFaq(this)" data-answer="Aceptamos todas las tarjetas de crédito y débito a través de Stripe, el procesador de pagos más seguro del mercado.">¿Qué métodos de pago aceptáis?</button>
+        <button class="support-faq-btn" onclick="selectFaq(this)" data-answer="La IA usa tus horas disponibles y nivel actual para diseñar un plan realista. Puedes indicar desde 2 hasta más de 10 horas por semana.">¿Cómo se personaliza el roadmap?</button>
+      </div>
+    </div>
+
+    <!-- VISTA 2: Respuesta FAQ -->
+    <div class="support-body" id="support-view-answer" style="display:none">
+      <button class="support-back-btn" onclick="showFaqs()">← Volver</button>
+      <div class="support-answer-box" id="support-answer-text"></div>
+      <div class="support-answer-footer">
+        <p class="support-sub">¿No resuelve tu duda?</p>
+        <button class="support-faq-btn" onclick="showContactForm()">✉️ Contactar con soporte</button>
+      </div>
+    </div>
+
+    <!-- VISTA 3: Formulario de contacto -->
+    <div class="support-body" id="support-view-form" style="display:none">
+      <button class="support-back-btn" onclick="showFaqs()">← Volver</button>
+      <p style="font-size:0.82rem;font-weight:700;margin-bottom:0.85rem">Envíanos tu consulta</p>
+      <form class="support-form" id="support-form" onsubmit="submitSupportForm(event)">
+        <div class="support-form-group">
+          <label>Nombre</label>
+          <input type="text" id="sf-nombre" placeholder="Tu nombre" required />
+        </div>
+        <div class="support-form-group">
+          <label>Email</label>
+          <input type="email" id="sf-email" placeholder="tu@email.com" required />
+        </div>
+        <div class="support-form-group">
+          <label>¿En qué podemos ayudarte?</label>
+          <textarea id="sf-mensaje" rows="3" placeholder="Describe tu consulta…" required></textarea>
+        </div>
+        <button type="submit" class="support-submit-btn">Enviar consulta →</button>
+      </form>
+    </div>
+    {% endif %}
+
+    <!-- VISTA 4: Confirmación enviado -->
+    <div class="support-body" id="support-view-sent" style="display:none">
+      <div class="support-sent-box">
+        <div class="support-sent-icon">✅</div>
+        <p><strong>¡Mensaje enviado!</strong></p>
+        <p class="support-sub">Te responderemos en menos de 24 horas a tu email.</p>
+        <button class="support-faq-btn" style="margin-top:0.75rem" onclick="showFaqs()">Volver al inicio</button>
+      </div>
+    </div>
+
+    {% if not user %}
+    <div class="support-footer" id="support-main-footer">
+      <button class="support-contact" onclick="showContactForm()">✉️ Contactar con soporte</button>
+    </div>
+    {% endif %}
+  </div>
+  <button class="support-bubble" id="support-bubble" onclick="toggleSupport()" aria-label="Soporte">
+    <span class="support-bubble-icon">💬</span>
+    <span class="support-badge" id="support-badge">1</span>
+  </button>
+</div>
+
+<script src="/static/js/main.js"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

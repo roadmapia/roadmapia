@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}Planes — RoadmapIA{% endblock %}
+{% block content %}
+<div class="pricing-wrap">
+  <div class="section-label" style="display:inline-block;margin-bottom:0.75rem">Precios</div>
+  <h1>Elige tu plan</h1>
+  <p class="sub">Gratis con anuncios · Sin tarjeta de crédito · Cancela cuando quieras</p>
+
+  <div class="plans-grid">
+    <div class="plan">
+      <div class="plan-label">Gratuito</div>
+      <div class="plan-price">0€<small>/mes</small></div>
+      <p class="plan-tagline">Para probar la plataforma</p>
+      <div class="plan-sep"></div>
+      <ul class="plan-features">
+        <li><span class="y">✓</span> 1 roadmap por mes</li>
+        <li><span class="y">✓</span> 10 mensajes tutor/día</li>
+        <li><span class="y">✓</span> Todos los temas</li>
+        <li><span class="n">✗</span> Sin anuncios</li>
+        <li><span class="n">✗</span> Certificado de finalización</li>
+      </ul>
+      {% if user and user.plan == "free" %}
+      <button class="btn btn-secondary" style="width:100%" disabled>Plan actual</button>
+      {% elif not user %}
+      <a href="/auth/register" class="btn btn-secondary" style="width:100%">Empezar gratis</a>
+      {% else %}
+      <button class="btn btn-secondary" style="width:100%" disabled>Plan inferior</button>
+      {% endif %}
+    </div>
+
+    <div class="plan hot">
+      <div class="plan-top-badge">⭐ Más popular</div>
+      <div class="plan-label">Básico</div>
+      <div class="plan-price">7€<small>/mes</small></div>
+      <p class="plan-tagline">Para aprendices comprometidos</p>
+      <div class="plan-sep"></div>
+      <ul class="plan-features">
+        <li><span class="y">✓</span> 5 roadmaps por mes</li>
+        <li><span class="y">✓</span> 50 mensajes tutor/día</li>
+        <li><span class="y">✓</span> Sin anuncios</li>
+        <li><span class="y">✓</span> Todos los temas</li>
+        <li><span class="n">✗</span> Certificado de finalización</li>
+      </ul>
+      {% if user and user.plan == "basic" %}
+      <button class="btn btn-secondary" style="width:100%" disabled>Plan actual</button>
+      {% elif user %}
+      <button id="btn-basic" class="btn btn-primary" style="width:100%" onclick="iniciarPago('basic')">Suscribirse · 7€/mes</button>
+      {% else %}
+      <a href="/auth/register" class="btn btn-primary" style="width:100%">Empezar →</a>
+      {% endif %}
+    </div>
+
+    <div class="plan">
+      <div class="plan-label">Pro</div>
+      <div class="plan-price" style="color:var(--green)">17€<small>/mes</small></div>
+      <p class="plan-tagline">Para los más ambiciosos</p>
+      <div class="plan-sep"></div>
+      <ul class="plan-features">
+        <li><span class="y">✓</span> Roadmaps ilimitados</li>
+        <li><span class="y">✓</span> Mensajes ilimitados</li>
+        <li><span class="y">✓</span> Sin anuncios</li>
+        <li><span class="y">✓</span> Certificado de finalización</li>
+        <li><span class="y">✓</span> Soporte prioritario</li>
+      </ul>
+      {% if user and user.plan == "pro" %}
+      <button class="btn btn-secondary" style="width:100%" disabled>Plan actual</button>
+      {% elif user %}
+      <button id="btn-pro" class="btn btn-success" style="width:100%" onclick="iniciarPago('pro')">Suscribirse · 17€/mes</button>
+      {% else %}
+      <a href="/auth/register" class="btn btn-success" style="width:100%">Empezar →</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="faq-wrap">
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <strong>¿Puedo cancelar cuando quiera?</strong>
+      <p>Sí, sin permanencia ni penalizaciones. Cancelas y el plan sigue activo hasta fin del período pagado.</p>
+    </div>
+    <div class="faq-item">
+      <strong>¿Mis roadmaps se borran si cancelo?</strong>
+      <p>No. Tus roadmaps existentes permanecen accesibles siempre, independientemente del plan.</p>
+    </div>
+    <div class="faq-item">
+      <strong>¿Se resetean los contadores cada mes?</strong>
+      <p>Sí. El límite de roadmaps se resetea el día 1 y el de mensajes del tutor cada día a medianoche.</p>
+    </div>
+    <div class="faq-item">
+      <strong>¿Qué métodos de pago aceptáis?</strong>
+      <p>Todas las tarjetas de crédito y débito a través de Stripe, el procesador más seguro del mercado.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

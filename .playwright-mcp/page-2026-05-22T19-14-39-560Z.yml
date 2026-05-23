@@ -1,0 +1,115 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "🧠 RoadmapIA" [ref=e3] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e4]:
+      - link "Inicio" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - link "Planes" [ref=e6] [cursor=pointer]:
+        - /url: /pricing
+      - link "Blog" [ref=e7] [cursor=pointer]:
+        - /url: /blog
+      - link "FAQ" [ref=e8] [cursor=pointer]:
+        - /url: /#faq
+      - link "Sobre nosotros" [ref=e9] [cursor=pointer]:
+        - /url: /#sobre-nosotros
+      - link "Soporte" [ref=e10] [cursor=pointer]:
+        - /url: /soporte
+    - generic [ref=e11]:
+      - link "Iniciar sesión" [ref=e12] [cursor=pointer]:
+        - /url: /auth/login
+      - link "🚀 Empieza gratis" [ref=e13] [cursor=pointer]:
+        - /url: /auth/register
+  - generic [ref=e14]:
+    - generic [ref=e15]:
+      - generic [ref=e16]: Soporte
+      - heading "¿En qué podemos ayudarte?" [level=1] [ref=e17]
+      - paragraph [ref=e18]: Rellena el formulario y te respondemos en menos de 24 horas en tu email.
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - heading "Envíanos tu consulta" [level=2] [ref=e21]
+        - generic [ref=e22]:
+          - generic [ref=e23]:
+            - generic [ref=e24]: Nombre
+            - textbox "Nombre" [ref=e25]:
+              - /placeholder: Tu nombre
+          - generic [ref=e26]:
+            - generic [ref=e27]: Email
+            - textbox "Email" [ref=e28]:
+              - /placeholder: tu@email.com
+          - generic [ref=e29]:
+            - generic [ref=e30]: Asunto
+            - combobox "Asunto" [ref=e31]:
+              - option "Consulta general" [selected]
+              - option "Problema técnico"
+              - option "Facturación y pagos"
+              - option "Cancelar suscripción"
+              - option "Sugerencia de mejora"
+              - option "Otro"
+          - generic [ref=e32]:
+            - generic [ref=e33]: ¿Cuál es tu consulta?
+            - textbox "¿Cuál es tu consulta?" [ref=e34]:
+              - /placeholder: Describe tu duda o problema con el mayor detalle posible…
+          - button "Enviar consulta →" [ref=e35] [cursor=pointer]
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - generic [ref=e38]: ⏱️
+          - generic [ref=e39]:
+            - strong [ref=e40]: Tiempo de respuesta
+            - text: Menos de 24 horas en días laborables
+        - generic [ref=e41]:
+          - generic [ref=e42]: ✉️
+          - generic [ref=e43]:
+            - strong [ref=e44]: Email directo
+            - text: soporte@roadmapia.com
+        - generic [ref=e45]:
+          - generic [ref=e46]: 🔒
+          - generic [ref=e47]:
+            - strong [ref=e48]: Privacidad garantizada
+            - text: Tus datos solo se usan para responderte
+        - generic [ref=e49]:
+          - generic [ref=e50]: Preguntas frecuentes
+          - link "¿Qué incluye el plan gratuito? →" [ref=e51] [cursor=pointer]:
+            - /url: /#faq
+          - link "¿Puedo cancelar en cualquier momento? →" [ref=e52] [cursor=pointer]:
+            - /url: /#faq
+          - link "¿Cómo funciona el tutor IA? →" [ref=e53] [cursor=pointer]:
+            - /url: /#faq
+          - link "Ver todos los planes →" [ref=e54] [cursor=pointer]:
+            - /url: /pricing
+  - contentinfo [ref=e55]:
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - generic [ref=e58]: 🧠 RoadmapIA
+        - paragraph [ref=e59]: Aprende cualquier cosa con un roadmap personalizado de IA. Tutor incluido.
+        - generic [ref=e60]: ✨ Powered by Claude AI
+      - generic [ref=e61]:
+        - generic [ref=e62]:
+          - generic [ref=e63]: Producto
+          - link "Inicio" [ref=e64] [cursor=pointer]:
+            - /url: /
+          - link "Precios" [ref=e65] [cursor=pointer]:
+            - /url: /pricing
+          - link "Blog" [ref=e66] [cursor=pointer]:
+            - /url: /blog
+          - link "Empezar gratis" [ref=e67] [cursor=pointer]:
+            - /url: /auth/register
+        - generic [ref=e68]:
+          - generic [ref=e69]: Cuenta
+          - link "Iniciar sesión" [ref=e70] [cursor=pointer]:
+            - /url: /auth/login
+          - link "Crear cuenta" [ref=e71] [cursor=pointer]:
+            - /url: /auth/register
+          - link "Dashboard" [ref=e72] [cursor=pointer]:
+            - /url: /dashboard
+    - generic [ref=e73]:
+      - generic [ref=e74]: © 2025 RoadmapIA — Todos los derechos reservados
+      - generic [ref=e75]:
+        - link "Privacidad" [ref=e76] [cursor=pointer]:
+          - /url: "#"
+        - text: ·
+        - link "Términos" [ref=e77] [cursor=pointer]:
+          - /url: "#"
+  - button "Soporte" [ref=e79] [cursor=pointer]:
+    - generic [ref=e80]: 💬
+    - generic [ref=e81]: "1"

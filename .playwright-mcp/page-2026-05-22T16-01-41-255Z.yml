@@ -1,0 +1,38 @@
+- generic [ref=e1]:
+  - navigation [ref=e2]:
+    - link "LearnAI" [ref=e3] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e4]:
+      - link "Planes" [ref=e5] [cursor=pointer]:
+        - /url: /pricing
+      - link "Iniciar sesión" [ref=e6] [cursor=pointer]:
+        - /url: /auth/login
+      - link "Empezar gratis" [ref=e7] [cursor=pointer]:
+        - /url: /auth/register
+  - generic [ref=e9]:
+    - generic [ref=e10]: LearnAI
+    - heading "Crea tu cuenta" [level=1] [ref=e11]
+    - paragraph [ref=e12]: Empieza a aprender gratis, sin tarjeta de crédito.
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e15]: Nombre
+        - textbox "Nombre" [active] [ref=e16]:
+          - /placeholder: Tu nombre
+      - generic [ref=e17]:
+        - generic [ref=e18]: Email
+        - textbox "Email" [ref=e19]:
+          - /placeholder: tu@email.com
+      - generic [ref=e20]:
+        - generic [ref=e21]: Contraseña
+        - textbox "Contraseña" [ref=e22]:
+          - /placeholder: Mínimo 6 caracteres
+      - button "Crear cuenta gratis →" [ref=e23] [cursor=pointer]
+    - generic [ref=e25]:
+      - text: ¿Ya tienes cuenta?
+      - link "Inicia sesión" [ref=e26] [cursor=pointer]:
+        - /url: /auth/login
+  - contentinfo [ref=e27]:
+    - paragraph [ref=e28]:
+      - text: © 2025 LearnAI · Aprende cualquier cosa con IA ·
+      - link "Ver planes" [ref=e29] [cursor=pointer]:
+        - /url: /pricing

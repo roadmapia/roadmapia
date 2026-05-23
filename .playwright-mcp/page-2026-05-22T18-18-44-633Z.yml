@@ -1,0 +1,734 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - region "Skip to Content":
+      - link "Skip to Content" [ref=e5] [cursor=pointer]:
+        - /url: "#heading"
+        - text: Skip to Content
+        - img [ref=e6]
+    - banner [ref=e9]:
+      - navigation "Main" [ref=e11]:
+        - list [ref=e12]:
+          - listitem [ref=e13]:
+            - generic [ref=e17]: Loading menu bar
+    - main [ref=e19]:
+      - generic [ref=e20]:
+        - img
+        - generic [ref=e21]:
+          - generic [ref=e23]:
+            - heading "Develop your /skills" [level=1] [ref=e26]:
+              - generic [ref=e27]: Develop your
+              - generic [ref=e29]: /skills
+            - generic [ref=e30]:
+              - generic [ref=e31]:
+                - generic [ref=e32]:
+                  - img [ref=e35]
+                  - img [ref=e37]
+                  - img [ref=e39]
+                  - img [ref=e41]
+                  - img [ref=e43]
+                - generic [ref=e44]:
+                  - tooltip [ref=e45]: Pause animation
+                  - button "Pause animation" [ref=e48] [cursor=pointer]:
+                    - img [ref=e49]
+              - generic [ref=e54]:
+                - generic [ref=e55]:
+                  - list [ref=e58]:
+                    - listitem [ref=e59]:
+                      - button "Sign up with Google" [ref=e61] [cursor=pointer]:
+                        - img "Google" [ref=e62]
+                        - generic [ref=e69]: Sign up with Google
+                  - generic [ref=e70]:
+                    - img [ref=e71]
+                    - generic [ref=e73]: OR
+                    - img [ref=e74]
+                  - link "More ways to sign up" [ref=e76] [cursor=pointer]:
+                    - /url: /register
+                - paragraph [ref=e77]: Grow in your career and unlock new opportunities by learning in-demand skills in AI, data, coding, cybersecurity, and more.
+          - generic [ref=e80]:
+            - generic [ref=e81]: Our learners work at
+            - list [ref=e82]:
+              - listitem [ref=e83]:
+                - img "Meta" [ref=e84]
+              - listitem [ref=e85]:
+                - img "Microsoft" [ref=e86]
+              - listitem [ref=e87]:
+                - img "Google" [ref=e88]
+              - listitem [ref=e89]:
+                - img "Electronic Arts" [ref=e90]
+              - listitem [ref=e91]:
+                - img "Apple" [ref=e92]
+              - listitem [ref=e93]:
+                - img "Instagram" [ref=e94]
+              - listitem [ref=e95]:
+                - img "Spotify" [ref=e96]
+              - listitem [ref=e97]:
+                - img "Reddit" [ref=e98]
+              - listitem [ref=e99]:
+                - img "IBM" [ref=e100]
+      - link "Transform your team with Codecademy Teams training Help everyone on your team build job-ready skills with a plan that offers flexible content assignment, progress tracking, and more." [ref=e102] [cursor=pointer]:
+        - /url: /business
+        - generic [ref=e104]:
+          - img
+          - generic [ref=e105]:
+            - generic [ref=e106]:
+              - img [ref=e107]
+              - generic [ref=e110]:
+                - generic [ref=e111]: Transform your team with Codecademy Teams training
+                - generic [ref=e112]: Help everyone on your team build job-ready skills with a plan that offers flexible content assignment, progress tracking, and more.
+            - img [ref=e114]
+      - generic [ref=e117]:
+        - generic:
+          - img
+        - generic [ref=e119]:
+          - heading "Build skills that stand out" [level=2] [ref=e120]
+          - generic [ref=e122]:
+            - tablist [ref=e123]:
+              - tab "Top subjects" [selected] [ref=e124] [cursor=pointer]:
+                - generic [ref=e125]: Top subjects
+              - tab "Certification prep" [ref=e126] [cursor=pointer]:
+                - generic [ref=e127]: Certification prep
+            - tabpanel "Top subjects" [ref=e129]:
+              - list [ref=e130]:
+                - listitem [ref=e131]:
+                  - link "Visit Code foundations subject hub" [ref=e132] [cursor=pointer]:
+                    - /url: /catalog/subject/code-foundations
+                    - generic [ref=e133]:
+                      - img [ref=e134]
+                      - generic "Visit Code foundations subject hub" [ref=e137]: Code foundations
+                - listitem [ref=e138]:
+                  - link "Visit Python language hub" [ref=e139] [cursor=pointer]:
+                    - /url: /catalog/language/python
+                    - generic [ref=e140]:
+                      - img [ref=e141]
+                      - generic "Visit Python language hub" [ref=e144]: Python
+                - listitem [ref=e145]:
+                  - link "Visit HTML & CSS language hub" [ref=e146] [cursor=pointer]:
+                    - /url: /catalog/language/html-css
+                    - generic [ref=e147]:
+                      - img [ref=e148]
+                      - generic "Visit HTML & CSS language hub" [ref=e151]: HTML & CSS
+                - listitem [ref=e152]:
+                  - link "Visit Data science subject hub" [ref=e153] [cursor=pointer]:
+                    - /url: /catalog/subject/data-science
+                    - generic [ref=e154]:
+                      - img [ref=e155]
+                      - generic "Visit Data science subject hub" [ref=e158]: Data science
+                - listitem [ref=e159]:
+                  - link "Visit Professional skills subject hub" [ref=e160] [cursor=pointer]:
+                    - /url: /catalog/subject/professional-skills
+                    - generic [ref=e161]:
+                      - img [ref=e162]
+                      - generic "Visit Professional skills subject hub" [ref=e165]: Professional skills
+                - listitem [ref=e166]:
+                  - link "Visit Java language hub" [ref=e167] [cursor=pointer]:
+                    - /url: /catalog/language/java
+                    - generic [ref=e168]:
+                      - img [ref=e169]
+                      - generic "Visit Java language hub" [ref=e172]: Java
+                - listitem [ref=e173]:
+                  - link "Visit Web development subject hub" [ref=e174] [cursor=pointer]:
+                    - /url: /catalog/subject/web-development
+                    - generic [ref=e175]:
+                      - img [ref=e176]
+                      - generic "Visit Web development subject hub" [ref=e179]: Web development
+                - listitem [ref=e180]:
+                  - link "Visit Data analytics subject hub" [ref=e181] [cursor=pointer]:
+                    - /url: /catalog/subject/data-analytics
+                    - generic [ref=e182]:
+                      - img [ref=e183]
+                      - generic "Visit Data analytics subject hub" [ref=e186]: Data analytics
+                - listitem [ref=e187]:
+                  - link "Visit Interview prep subject hub" [ref=e188] [cursor=pointer]:
+                    - /url: /catalog/subject/interview-prep
+                    - generic [ref=e189]:
+                      - img [ref=e190]
+                      - generic "Visit Interview prep subject hub" [ref=e193]: Interview prep
+                - listitem [ref=e194]:
+                  - link "Visit JavaScript language hub" [ref=e195] [cursor=pointer]:
+                    - /url: /catalog/language/javascript
+                    - generic [ref=e196]:
+                      - img [ref=e197]
+                      - generic "Visit JavaScript language hub" [ref=e200]: JavaScript
+                - listitem [ref=e201]:
+                  - link "Visit Web design subject hub" [ref=e202] [cursor=pointer]:
+                    - /url: /catalog/subject/web-design
+                    - generic [ref=e203]:
+                      - img [ref=e204]
+                      - generic "Visit Web design subject hub" [ref=e207]: Web design
+                - listitem [ref=e208]:
+                  - link "Visit Machine learning subject hub" [ref=e209] [cursor=pointer]:
+                    - /url: /catalog/subject/machine-learning
+                    - generic [ref=e210]:
+                      - img [ref=e211]
+                      - generic "Visit Machine learning subject hub" [ref=e214]: Machine learning
+                - listitem [ref=e215]:
+                  - link "Visit Computer science subject hub" [ref=e216] [cursor=pointer]:
+                    - /url: /catalog/subject/computer-science
+                    - generic [ref=e217]:
+                      - img [ref=e218]
+                      - generic "Visit Computer science subject hub" [ref=e221]: Computer science
+                - listitem [ref=e222]:
+                  - link "Visit C++ language hub" [ref=e223] [cursor=pointer]:
+                    - /url: /catalog/language/c-plus-plus
+                    - generic [ref=e224]:
+                      - img [ref=e225]
+                      - generic "Visit C++ language hub" [ref=e228]: C++
+                - listitem [ref=e229]:
+                  - link "Visit Mobile development subject hub" [ref=e230] [cursor=pointer]:
+                    - /url: /catalog/subject/mobile-development
+                    - generic [ref=e231]:
+                      - img [ref=e232]
+                      - generic "Visit Mobile development subject hub" [ref=e235]: Mobile development
+                - listitem [ref=e236]:
+                  - link "Visit AI subject hub" [ref=e237] [cursor=pointer]:
+                    - /url: /catalog/subject/artificial-intelligence
+                    - generic [ref=e238]:
+                      - img [ref=e239]
+                      - generic "Visit AI subject hub" [ref=e242]: AI
+                - listitem [ref=e243]:
+                  - link "Visit IT subject hub" [ref=e244] [cursor=pointer]:
+                    - /url: /catalog/subject/information-technology
+                    - generic [ref=e245]:
+                      - img [ref=e246]
+                      - generic "Visit IT subject hub" [ref=e249]: IT
+                - listitem [ref=e250]:
+                  - link "Visit C# language hub" [ref=e251] [cursor=pointer]:
+                    - /url: /catalog/language/c-sharp
+                    - generic [ref=e252]:
+                      - img [ref=e253]
+                      - generic "Visit C# language hub" [ref=e256]: C#
+                - listitem [ref=e257]:
+                  - link "Visit Game development subject hub" [ref=e258] [cursor=pointer]:
+                    - /url: /catalog/subject/game-development
+                    - generic [ref=e259]:
+                      - img [ref=e260]
+                      - generic "Visit Game development subject hub" [ref=e263]: Game development
+                - listitem [ref=e264]:
+                  - link "Visit Cloud computing subject hub" [ref=e265] [cursor=pointer]:
+                    - /url: /catalog/subject/cloud-computing
+                    - generic [ref=e266]:
+                      - img [ref=e267]
+                      - generic "Visit Cloud computing subject hub" [ref=e270]: Cloud computing
+                - listitem [ref=e271]:
+                  - link "Visit Cybersecurity subject hub" [ref=e272] [cursor=pointer]:
+                    - /url: /catalog/subject/cybersecurity
+                    - generic [ref=e273]:
+                      - img [ref=e274]
+                      - generic "Visit Cybersecurity subject hub" [ref=e277]: Cybersecurity
+                - listitem [ref=e278]:
+                  - link "Visit Go language hub" [ref=e279] [cursor=pointer]:
+                    - /url: /catalog/language/go
+                    - generic [ref=e280]:
+                      - img [ref=e281]
+                      - generic "Visit Go language hub" [ref=e284]: Go
+                - listitem [ref=e285]:
+                  - link "Visit DevOps subject hub" [ref=e286] [cursor=pointer]:
+                    - /url: /catalog/subject/devops
+                    - generic [ref=e287]:
+                      - img [ref=e288]
+                      - generic "Visit DevOps subject hub" [ref=e291]: DevOps
+                - listitem [ref=e292]:
+                  - link "Visit Certification prep hub" [ref=e293] [cursor=pointer]:
+                    - /url: /catalog/certification-prep
+                    - generic [ref=e294]:
+                      - img [ref=e295]
+                      - generic "Visit Certification prep hub" [ref=e298]: Certification prep
+          - link "Learn with AI Builder Learn by building real, working prototypes in seconds with our new AI Builder." [ref=e300] [cursor=pointer]:
+            - /url: /ai-builder
+            - generic [ref=e302]:
+              - img
+              - generic [ref=e303]:
+                - generic [ref=e304]:
+                  - img [ref=e305]
+                  - generic [ref=e308]:
+                    - generic [ref=e309]: Learn with AI Builder
+                    - generic [ref=e310]: Learn by building real, working prototypes in seconds with our new AI Builder.
+                - img [ref=e312]
+          - generic [ref=e315]:
+            - generic [ref=e316]: Looking for something else?
+            - link "Explore the catalog" [ref=e317] [cursor=pointer]:
+              - /url: /catalog
+              - generic [ref=e318]:
+                - generic [ref=e319]: Explore the catalog
+                - img [ref=e320]
+      - generic [ref=e323]:
+        - heading "No matter your goal, we have something for you" [level=2] [ref=e324]
+        - search [ref=e325]:
+          - searchbox "No matter your goal, we have something for you" [ref=e327]
+          - img [ref=e329]
+          - generic [ref=e332]: Results will be updated as you type
+          - link "Not sure? Take our quiz to find what's best for you. Take the quiz" [ref=e333] [cursor=pointer]:
+            - /url: /welcome/find-a-course
+            - generic [ref=e334]:
+              - generic [ref=e335]:
+                - img [ref=e336]
+                - generic [ref=e339]: Not sure? Take our quiz to find what's best for you.
+              - generic [ref=e340]:
+                - generic [ref=e341]: Take the quiz
+                - img [ref=e342]
+        - generic [ref=e345]:
+          - heading "Top courses" [level=3] [ref=e346]
+          - link "Go to the catalog" [ref=e348] [cursor=pointer]:
+            - /url: /catalog
+        - list [ref=e350]:
+          - listitem [ref=e351]:
+            - generic [ref=e355] [cursor=pointer]:
+              - generic [ref=e356]:
+                - 'link "Career path Data Scientist: Machine Learning Specialist" [ref=e357]':
+                  - /url: /learn/paths/data-science
+                  - generic [ref=e359]: Career path
+                  - 'heading "Data Scientist: Machine Learning Specialist" [level=4] [ref=e360]'
+                - generic [ref=e361]: Machine Learning Data Scientists solve problems at scale, make predictions, find patterns, and more! They use Python, SQL, and algorithms.
+              - generic [ref=e362]:
+                - generic [ref=e363]:
+                  - img [ref=e364]
+                  - generic [ref=e367]: Beginner Friendly
+                - generic "95 hours" [ref=e368]
+          - listitem [ref=e369]:
+            - generic [ref=e373] [cursor=pointer]:
+              - generic [ref=e374]:
+                - link "Course Learn Python 3" [ref=e375]:
+                  - /url: /learn/learn-python-3
+                  - generic [ref=e377]: Course
+                  - heading "Learn Python 3" [level=4] [ref=e378]
+                - generic [ref=e379]: Learn the basics of Python 3.12, one of the most powerful, versatile, and in-demand programming languages today.
+              - generic [ref=e380]:
+                - generic [ref=e381]:
+                  - img [ref=e382]
+                  - generic [ref=e385]: Beginner Friendly
+                - generic "24 hours" [ref=e386]
+          - listitem [ref=e387]:
+            - generic [ref=e391] [cursor=pointer]:
+              - generic [ref=e392]:
+                - 'link "Certification path SY0-701: CompTIA Security+" [ref=e393]':
+                  - /url: /learn/ext-paths/sy0-701-comptia-security
+                  - generic [ref=e395]: Certification path
+                  - 'heading "SY0-701: CompTIA Security+" [level=4] [ref=e396]'
+                - generic [ref=e397]: Master IT security basics and prep for the CompTIA Security+ exam with hands-on learning on threats, cryptography, governance, identity management and more.
+              - generic [ref=e398]:
+                - generic [ref=e399]:
+                  - img [ref=e400]
+                  - generic [ref=e403]: Intermediate
+                - generic "14 hours" [ref=e404]
+          - listitem [ref=e405]:
+            - generic [ref=e409] [cursor=pointer]:
+              - generic [ref=e410]:
+                - link "Skill path Code Foundations" [ref=e411]:
+                  - /url: /learn/paths/code-foundations
+                  - generic [ref=e413]: Skill path
+                  - heading "Code Foundations" [level=4] [ref=e414]
+                - generic [ref=e415]: Start your programming journey with an introduction to the world of code and basic concepts.
+              - generic [ref=e416]:
+                - generic [ref=e417]:
+                  - img [ref=e418]
+                  - generic [ref=e421]: Beginner Friendly
+                - generic "4 hours" [ref=e422]
+      - link "Want help figuring out what to learn? Take our quiz to find what's best for you." [ref=e424] [cursor=pointer]:
+        - /url: /welcome/find-a-course
+        - generic [ref=e426]:
+          - img
+          - generic [ref=e427]:
+            - generic [ref=e428]:
+              - img [ref=e429]
+              - generic [ref=e432]:
+                - generic [ref=e433]: Want help figuring out what to learn?
+                - generic [ref=e434]: Take our quiz to find what's best for you.
+            - img [ref=e436]
+      - generic [ref=e442]:
+        - generic [ref=e443]:
+          - generic [ref=e444]: The experience
+          - heading "Designed for progress" [level=2] [ref=e445]
+          - group "Slide navigation" [ref=e446]:
+            - button "go to slide 1" [ref=e447] [cursor=pointer]
+            - button "go to slide 2" [ref=e449] [cursor=pointer]
+            - button "go to slide 3" [ref=e451] [cursor=pointer]
+            - button "go to slide 4" [ref=e453] [cursor=pointer]
+        - region "Value propositions" [ref=e455]:
+          - img
+          - generic [ref=e456]:
+            - generic "slide 1" [ref=e457]:
+              - generic [ref=e458]:
+                - generic [ref=e459]: Turn ambition into action
+                - generic [ref=e460]:
+                  - generic [ref=e461]:
+                    - img [ref=e463]
+                    - generic [ref=e464]: Find guided paths and interactive lessons no matter your skill level
+                  - generic [ref=e465]:
+                    - img [ref=e467]
+                    - generic [ref=e468]: Fuel your growth with in-demand subjects like AI, cloud, data, cybersecurity, and more
+            - generic [ref=e471]:
+              - generic [ref=e472]: Gain hands-on expertise
+              - generic [ref=e473]:
+                - generic [ref=e474]:
+                  - img [ref=e476]
+                  - generic [ref=e477]: Build portfolio-worthy projects that stand out in a competitive job market
+                - generic [ref=e478]:
+                  - img [ref=e480]
+                  - generic [ref=e481]: Grow in your career with prep for industry certifications from AWS, Microsoft, CompTIA, ISC2, and more
+            - generic [ref=e484]:
+              - generic [ref=e485]: Transform your team
+              - generic [ref=e486]:
+                - generic [ref=e487]:
+                  - img [ref=e489]
+                  - generic [ref=e490]: Ensure you're meeting your unique business needs with flexible content assignment
+                - generic [ref=e491]:
+                  - img [ref=e493]
+                  - generic [ref=e494]: Access an exclusive admin dashboard to easily manage and track team progress
+            - generic [ref=e497]:
+              - generic [ref=e498]: Go further together
+              - generic [ref=e500]:
+                - img [ref=e502]
+                - generic [ref=e503]: Get help when you need it, build your network, and learn together with access to exclusive events, clubs, and more in our global learner community
+      - generic [ref=e507]:
+        - img
+      - generic [ref=e510]:
+        - generic [ref=e511]:
+          - generic [ref=e512]: The platform
+          - heading "Learn by doing" [level=2] [ref=e513]
+          - group "Slide navigation" [ref=e514]:
+            - button "go to slide 1" [ref=e515] [cursor=pointer]
+            - button "go to slide 2" [ref=e517] [cursor=pointer]
+            - button "go to slide 3" [ref=e519] [cursor=pointer]
+            - button "go to slide 4" [ref=e521] [cursor=pointer]
+        - region "Platform features" [ref=e524]:
+          - generic "slide 1" [ref=e525]:
+            - generic [ref=e526]:
+              - generic [ref=e527]:
+                - img [ref=e529]
+                - generic [ref=e532]:
+                  - generic [ref=e533]: Step by step guidance
+                  - generic [ref=e534]: Self-paced learning doesn't mean you're on your own. Our courses and paths give you helpful guidance every step of the way.
+              - img "Codecademy platform showing the instruction panel" [ref=e536]
+      - generic [ref=e539]:
+        - img
+      - generic [ref=e541]:
+        - generic [ref=e542]:
+          - heading "Real success from real learners" [level=2] [ref=e543]
+          - generic [ref=e544]: With the right skills, anything’s possible. See how real learners are evolving their careers with Codecademy.
+        - list [ref=e545]:
+          - listitem [ref=e546]:
+            - generic [ref=e547]:
+              - img
+              - generic [ref=e549]:
+                - img "Portrait of Joshua Lange" [ref=e551]
+                - generic [ref=e552]:
+                  - generic [ref=e553]: Quote by Joshua Lange, Research Scientist from Stockholm, Sweden
+                  - generic [ref=e554]:
+                    - img [ref=e555]
+                    - text: I feel like I’ve gained a valuable skill set that looks great on my CV. You don’t have to change careers; you can make your current job better, more efficient, and make your life easier.
+                  - generic [ref=e556]:
+                    - generic [ref=e557]: Joshua Lange
+                    - generic [ref=e558]: Research Scientist
+                    - generic [ref=e559]: Stockholm, Sweden
+          - listitem [ref=e560]:
+            - generic [ref=e561]:
+              - img
+              - generic [ref=e563]:
+                - img "Portrait of Shabana Khatau" [ref=e565]
+                - generic [ref=e566]:
+                  - generic [ref=e567]: Quote by Shabana Khatau, Systems and Applications Advisor from London, England
+                  - generic [ref=e568]:
+                    - img [ref=e569]
+                    - text: I wasted quite a bit of time before learning about Codecademy. Anyone who would come up to me, I would direct them straight to Codecademy. Don’t waste any time on anyone else; just start there.
+                  - generic [ref=e570]:
+                    - generic [ref=e571]: Shabana Khatau
+                    - generic [ref=e572]: Systems and Applications Advisor
+                    - generic [ref=e573]: London, England
+          - listitem [ref=e574]:
+            - generic [ref=e575]:
+              - img
+              - generic [ref=e577]:
+                - img "Portrait of Jimmy Soto" [ref=e579]
+                - generic [ref=e580]:
+                  - generic [ref=e581]: Quote by Jimmy Soto, SOC Security Specialist from Washington, DC - Baltimore
+                  - generic [ref=e582]:
+                    - img [ref=e583]
+                    - text: Codecademy played into the whole gamification aspect because of how user-friendly it is and the completion of courses and modules. Completing a module felt like an achievement, and it helped me have a pathway to dive into cybersecurity, coming from a completely different world.
+                  - generic [ref=e584]:
+                    - generic [ref=e585]: Jimmy Soto
+                    - generic [ref=e586]: SOC Security Specialist
+                    - generic [ref=e587]: Washington, DC - Baltimore
+      - generic [ref=e589]:
+        - img
+        - img "Codecademy Logo" [ref=e590]
+        - generic [ref=e593]: Join the millions learning the tech skills needed to grow in their careers and build the lives they want.
+        - link "Sign up — it's free" [ref=e594] [cursor=pointer]:
+          - /url: /register
+    - contentinfo [ref=e595]:
+      - generic [ref=e596]:
+        - generic [ref=e597]:
+          - generic [ref=e599]:
+            - generic [ref=e600]:
+              - heading "Company" [level=2] [ref=e601]
+              - list [ref=e602]:
+                - listitem [ref=e603]:
+                  - link "About" [ref=e604] [cursor=pointer]:
+                    - /url: /about
+                - listitem [ref=e605]:
+                  - link "Careers" [ref=e606] [cursor=pointer]:
+                    - /url: /about/careers
+                - listitem [ref=e607]:
+                  - link "Affiliates" [ref=e608] [cursor=pointer]:
+                    - /url: /pages/codecademy-affiliate-program
+                - listitem [ref=e609]:
+                  - link "Partnerships" [ref=e610] [cursor=pointer]:
+                    - /url: /pages/partnerships
+                - listitem [ref=e611]:
+                  - list "Social Media" [ref=e612]:
+                    - listitem [ref=e613]:
+                      - link "Follow us on Twitter" [ref=e614] [cursor=pointer]:
+                        - /url: https://twitter.com/Codecademy
+                        - img [ref=e615]
+                    - listitem [ref=e618]:
+                      - link "Like us on Facebook" [ref=e619] [cursor=pointer]:
+                        - /url: https://codecademy.com/users/redirect?redirect_url=https://www.facebook.com/groups/codecademy.community
+                        - img [ref=e620]
+                    - listitem [ref=e623]:
+                      - link "Follow us on Instagram" [ref=e624] [cursor=pointer]:
+                        - /url: https://instagram.com/codecademy
+                        - img [ref=e625]
+                    - listitem [ref=e628]:
+                      - link "Subscribe to Codecademy on YouTube" [ref=e629] [cursor=pointer]:
+                        - /url: https://www.youtube.com/channel/UC5CMtpogD_P3mOoeiDHD5eQ
+                        - img [ref=e630]
+                    - listitem [ref=e633]:
+                      - link "Follow us on TikTok" [ref=e634] [cursor=pointer]:
+                        - /url: https://www.tiktok.com/@codecademy
+                        - img [ref=e635]
+            - generic [ref=e638]:
+              - generic [ref=e639]:
+                - heading "Resources" [level=2] [ref=e640]
+                - list [ref=e641]:
+                  - listitem [ref=e642]:
+                    - link "AI Builder" [ref=e643] [cursor=pointer]:
+                      - /url: /ai-builder
+                  - listitem [ref=e644]:
+                    - link "Articles" [ref=e645] [cursor=pointer]:
+                      - /url: /articles
+                  - listitem [ref=e646]:
+                    - link "Blog" [ref=e647] [cursor=pointer]:
+                      - /url: https://codecademy.com/resources/blog
+                  - listitem [ref=e648]:
+                    - link "Cheatsheets" [ref=e649] [cursor=pointer]:
+                      - /url: /resources/cheatsheets/all
+                  - listitem [ref=e650]:
+                    - link "Code challenges" [ref=e651] [cursor=pointer]:
+                      - /url: /code-challenges
+                  - listitem [ref=e652]:
+                    - link "Docs" [ref=e653] [cursor=pointer]:
+                      - /url: /resources/docs
+                  - listitem [ref=e654]:
+                    - link "Projects" [ref=e655] [cursor=pointer]:
+                      - /url: /projects
+                  - listitem [ref=e656]:
+                    - link "Videos" [ref=e657] [cursor=pointer]:
+                      - /url: /resources/videos
+                  - listitem [ref=e658]:
+                    - link "Workspaces" [ref=e659] [cursor=pointer]:
+                      - /url: https://codecademy.com/pages/workspaces
+              - generic [ref=e660]:
+                - heading "Support" [level=2] [ref=e661]
+                - list [ref=e662]:
+                  - listitem [ref=e663]:
+                    - link "Help Center" [ref=e664] [cursor=pointer]:
+                      - /url: https://help.codecademy.com
+            - generic [ref=e665]:
+              - generic [ref=e666]:
+                - heading "Plans" [level=2] [ref=e667]
+                - list [ref=e668]:
+                  - listitem [ref=e669]:
+                    - link "For individuals" [ref=e670] [cursor=pointer]:
+                      - /url: /pages/paid-plans
+                  - listitem [ref=e671]:
+                    - link "For students" [ref=e672] [cursor=pointer]:
+                      - /url: /student-center
+                  - listitem [ref=e673]:
+                    - link "For business" [ref=e674] [cursor=pointer]:
+                      - /url: /business
+                  - listitem [ref=e675]:
+                    - link "Discounts" [ref=e676] [cursor=pointer]:
+                      - /url: /pages/codecademy-discount-codes
+              - generic [ref=e677]:
+                - heading "Community" [level=2] [ref=e678]
+                - list [ref=e679]:
+                  - listitem [ref=e680]:
+                    - link "Visit community" [ref=e681] [cursor=pointer]:
+                      - /url: https://community.codecademy.com/c/start-here/
+                  - listitem [ref=e682]:
+                    - link "Code Crew" [ref=e683] [cursor=pointer]:
+                      - /url: https://try.codecademy.com/code-crew/
+                  - listitem [ref=e684]:
+                    - link "Events" [ref=e685] [cursor=pointer]:
+                      - /url: /events
+                  - listitem [ref=e686]:
+                    - link "Learner Stories" [ref=e687] [cursor=pointer]:
+                      - /url: https://www.codecademy.com/resources/blog/category/learner-stories
+                  - listitem [ref=e688]:
+                    - button "Refer a friend" [ref=e689] [cursor=pointer]
+            - img "Codecademy from Skillsoft" [ref=e693]
+          - generic [ref=e698]:
+            - generic [ref=e700]:
+              - heading "Subjects" [level=2] [ref=e701]
+              - list [ref=e702]:
+                - listitem [ref=e703]:
+                  - link "AI" [ref=e704] [cursor=pointer]:
+                    - /url: /catalog/subject/artificial-intelligence
+                - listitem [ref=e705]:
+                  - link "Cloud computing" [ref=e706] [cursor=pointer]:
+                    - /url: /catalog/subject/cloud-computing
+                - listitem [ref=e707]:
+                  - link "Code foundations" [ref=e708] [cursor=pointer]:
+                    - /url: /catalog/subject/code-foundations
+                - listitem [ref=e709]:
+                  - link "Computer science" [ref=e710] [cursor=pointer]:
+                    - /url: /catalog/subject/computer-science
+                - listitem [ref=e711]:
+                  - link "Cybersecurity" [ref=e712] [cursor=pointer]:
+                    - /url: /catalog/subject/cybersecurity
+                - listitem [ref=e713]:
+                  - link "Data analytics" [ref=e714] [cursor=pointer]:
+                    - /url: /catalog/subject/data-analytics
+                - listitem [ref=e715]:
+                  - link "Data science" [ref=e716] [cursor=pointer]:
+                    - /url: /catalog/subject/data-science
+                - listitem [ref=e717]:
+                  - link "Data visualization" [ref=e718] [cursor=pointer]:
+                    - /url: /catalog/subject/data-visualization
+                - listitem [ref=e719]:
+                  - link "Developer tools" [ref=e720] [cursor=pointer]:
+                    - /url: /catalog/subject/developer-tools
+                - listitem [ref=e721]:
+                  - link "DevOps" [ref=e722] [cursor=pointer]:
+                    - /url: /catalog/subject/devops
+                - listitem [ref=e723]:
+                  - link "Game development" [ref=e724] [cursor=pointer]:
+                    - /url: /catalog/subject/game-development
+                - listitem [ref=e725]:
+                  - link "IT" [ref=e726] [cursor=pointer]:
+                    - /url: /catalog/subject/information-technology
+                - listitem [ref=e727]:
+                  - link "Machine learning" [ref=e728] [cursor=pointer]:
+                    - /url: /catalog/subject/machine-learning
+                - listitem [ref=e729]:
+                  - link "Math" [ref=e730] [cursor=pointer]:
+                    - /url: /catalog/subject/math
+                - listitem [ref=e731]:
+                  - link "Mobile development" [ref=e732] [cursor=pointer]:
+                    - /url: /catalog/subject/mobile-development
+                - listitem [ref=e733]:
+                  - link "Web design" [ref=e734] [cursor=pointer]:
+                    - /url: /catalog/subject/web-design
+                - listitem [ref=e735]:
+                  - link "Web development" [ref=e736] [cursor=pointer]:
+                    - /url: /catalog/subject/web-development
+            - generic [ref=e738]:
+              - heading "Languages" [level=2] [ref=e739]
+              - list [ref=e740]:
+                - listitem [ref=e741]:
+                  - link "Bash" [ref=e742] [cursor=pointer]:
+                    - /url: /catalog/language/bash
+                - listitem [ref=e743]:
+                  - link "C" [ref=e744] [cursor=pointer]:
+                    - /url: /catalog/language/c
+                - listitem [ref=e745]:
+                  - link "C++" [ref=e746] [cursor=pointer]:
+                    - /url: /catalog/language/c-plus-plus
+                - listitem [ref=e747]:
+                  - link "C#" [ref=e748] [cursor=pointer]:
+                    - /url: /catalog/language/c-sharp
+                - listitem [ref=e749]:
+                  - link "Go" [ref=e750] [cursor=pointer]:
+                    - /url: /catalog/language/go
+                - listitem [ref=e751]:
+                  - link "HTML & CSS" [ref=e752] [cursor=pointer]:
+                    - /url: /catalog/language/html-css
+                - listitem [ref=e753]:
+                  - link "Java" [ref=e754] [cursor=pointer]:
+                    - /url: /catalog/language/java
+                - listitem [ref=e755]:
+                  - link "JavaScript" [ref=e756] [cursor=pointer]:
+                    - /url: /catalog/language/javascript
+                - listitem [ref=e757]:
+                  - link "Kotlin" [ref=e758] [cursor=pointer]:
+                    - /url: /catalog/language/kotlin
+                - listitem [ref=e759]:
+                  - link "PHP" [ref=e760] [cursor=pointer]:
+                    - /url: /catalog/language/php
+                - listitem [ref=e761]:
+                  - link "Python" [ref=e762] [cursor=pointer]:
+                    - /url: /catalog/language/python
+                - listitem [ref=e763]:
+                  - link "R" [ref=e764] [cursor=pointer]:
+                    - /url: /catalog/language/r
+                - listitem [ref=e765]:
+                  - link "Ruby" [ref=e766] [cursor=pointer]:
+                    - /url: /catalog/language/ruby
+                - listitem [ref=e767]:
+                  - link "SQL" [ref=e768] [cursor=pointer]:
+                    - /url: /catalog/language/sql
+                - listitem [ref=e769]:
+                  - link "Swift" [ref=e770] [cursor=pointer]:
+                    - /url: /catalog/language/swift
+            - generic [ref=e771]:
+              - generic [ref=e772]:
+                - heading "Career building" [level=2] [ref=e773]
+                - list [ref=e774]:
+                  - listitem [ref=e775]:
+                    - link "Career paths" [ref=e776] [cursor=pointer]:
+                      - /url: /catalog/all
+                  - listitem [ref=e777]:
+                    - link "Career Center" [ref=e778] [cursor=pointer]:
+                      - /url: /career-center
+                  - listitem [ref=e779]:
+                    - link "Interview prep" [ref=e780] [cursor=pointer]:
+                      - /url: /pages/interview-prep
+                  - listitem [ref=e781]:
+                    - link "Professional certification" [ref=e782] [cursor=pointer]:
+                      - /url: /pages/pro-certifications
+                  - listitem [ref=e783]:
+                    - link "Bootcamps" [ref=e784] [cursor=pointer]:
+                      - /url: /bootcamps
+                  - listitem [ref=e785]: —
+                  - listitem [ref=e786]:
+                    - link "Full catalog" [ref=e787] [cursor=pointer]:
+                      - /url: /catalog/all
+                  - listitem [ref=e788]:
+                    - link "Beta content" [ref=e789] [cursor=pointer]:
+                      - /url: /catalog/subject/beta
+                  - listitem [ref=e790]:
+                    - link "Roadmap" [ref=e791] [cursor=pointer]:
+                      - /url: https://trello.com/b/vAgDXtT6/codecademy-releases-roadmap
+              - generic [ref=e792]:
+                - heading "Mobile" [level=2] [ref=e793]
+                - list [ref=e794]:
+                  - listitem [ref=e795]:
+                    - link "Download on the App Store" [ref=e796] [cursor=pointer]:
+                      - /url: https://itunes.apple.com/us/app/codecademy-go/id1376029326
+                      - img "Download on the App Store" [ref=e797]
+                  - listitem [ref=e798]:
+                    - link "Get it on Google Play" [ref=e799] [cursor=pointer]:
+                      - /url: https://play.google.com/store/apps/details?id=com.ryzac.codecademygo
+                      - img "Get it on Google Play" [ref=e800]
+        - generic [ref=e801]:
+          - list "Legal" [ref=e802]:
+            - listitem [ref=e803]:
+              - link "Privacy Policy" [ref=e804] [cursor=pointer]:
+                - /url: /policy
+              - text: "|"
+            - listitem [ref=e805]:
+              - link "Cookie Policy" [ref=e806] [cursor=pointer]:
+                - /url: /cookie-policy
+              - text: "|"
+            - listitem [ref=e807]:
+              - link "Do Not Sell My Personal Information" [ref=e808] [cursor=pointer]:
+                - /url: https://privacy.codecademy.com
+              - text: "|"
+            - listitem [ref=e809]:
+              - link "Terms" [ref=e810] [cursor=pointer]:
+                - /url: /terms
+              - text: "|"
+          - generic [ref=e811]:
+            - text: Made with
+            - generic "love" [ref=e812]: ❤️
+            - text: in NYC © 2026 Codecademy
+  - alert [ref=e813]

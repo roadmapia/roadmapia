@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+{% block title %}Mi cuenta — RoadmapIA{% endblock %}
+{% block content %}
+<div class="page-wrap" style="max-width:800px">
+
+  <div class="page-top">
+    <div>
+      <h1>Mi cuenta</h1>
+      <p style="color:var(--muted);font-size:0.82rem;margin-top:0.2rem">Gestiona tus datos, seguridad y plan</p>
+    </div>
+  </div>
+
+  {% if success %}<div class="alert alert-success">{{ success }}</div>{% endif %}
+  {% if error %}<div class="alert alert-error">{{ error }}</div>{% endif %}
+
+  <!-- DATOS PERSONALES -->
+  <div class="cuenta-section">
+    <div class="cuenta-section-title">👤 Datos personales</div>
+    <div class="card">
+      <form method="post" action="/cuenta/perfil">
+        <div class="form-group">
+          <label>Nombre completo</label>
+          <input type="text" name="nombre" class="form-control" value="{{ user.nombre }}" required />
+          <span class="form-hint">Se usa en tus certificados de finalización</span>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" class="form-control" value="{{ user.email }}" disabled style="opacity:0.5;cursor:not-allowed" />
+          <span class="form-hint">El email no se puede cambiar por seguridad</span>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- CAMBIAR CONTRASEÑA -->
+  <div class="cuenta-section">
+    <div class="cuenta-section-title">🔒 Cambiar contraseña</div>
+    <div class="card">
+      {% if user.google_id and not has_password %}
+      <div class="alert alert-info">Tu cuenta está vinculada a Google. No tienes contraseña — inicia sesión siempre con Google.</div>
+      {% else %}
+      <form method="post" action="/cuenta/password">
+        <div class="form-group">
+          <label>Contraseña actual</label>
+          <input type="password" name="password_actual" class="form-control" placeholder="Tu contraseña actual" required />
+        </div>
+        <div class="form-group">
+          <label>Nueva contraseña</label>
+          <input type="password" name="password_nueva" class="form-control" placeholder="Mínimo 6 caracteres" required minlength="6" />
+        </div>
+        <div class="form-group">
+          <label>Repetir nueva contraseña</label>
+          <input type="password" name="password_nueva2" class="form-control" placeholder="Repite la nueva contraseña" required minlength="6" />
+        </div>
+        <button type="submit" class="btn btn-primary">Cambiar contraseña</button>
+      </form>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- PLAN ACTUAL -->
+  <div class="cuenta-section">
+    <div class="cuenta-section-title">💳 Mi plan</div>
+    <div class="card">
+      <div class="plan-actual-row">
+        <div>
+          <div class="plan-actual-name">
+            <span class="badge badge-{{ user.plan }}" style="font-size:0.8rem;padding:0.3rem 0.8rem">{{ plan_info.nombre }}</span>
+          </div>
+          <div class="plan-actual-desc" style="margin-top:0.75rem">
+            {% if user.plan == 'free' %}
+              <p>1 roadmap/mes · 10 mensajes/día · Con anuncios</p>
+              <p style="margin-top:0.3rem;color:var(--muted);font-size:0.82rem">Actualiza para eliminar los anuncios y tener más roadmaps.</p>
+            {% elif user.plan == 'basic' %}
+              <p>5 roadmaps/mes · 50 mensajes/día · Sin anuncios</p>
+            {% elif user.plan == 'pro' %}
+              <p>Roadmaps ilimitados · Mensajes ilimitados · Sin anuncios · Certificados</p>
+            {% endif %}
+          </div>
+        </div>
+        <div class="plan-actual-actions">
+          {% if user.plan == 'free' %}
+            <a href="/pricing" class="btn btn-primary">⬆️ Mejorar plan</a>
+          {% elif user.plan == 'basic' %}
+            <a href="/pricing" class="btn btn-primary">⬆️ Ir a Pro</a>
+            <button class="btn btn-danger" onclick="confirmarCancelacion()" style="margin-top:0.5rem">Cancelar suscripción</button>
+          {% elif user.plan == 'pro' %}
+            <button class="btn btn-danger" onclick="confirmarCancelacion()">Cancelar suscripción</button>
+          {% endif %}
+        </div>
+      </div>
+
+      {% if user.plan != 'free' %}
+      <div class="plan-cancel-info">
+        Al cancelar, tu plan seguirá activo hasta el fin del período pagado. Tus roadmaps nunca se borran.
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- REFERIDOS -->
+  <div class="cuenta-section">
+    <div class="cuenta-section-title">🎁 Invita a un amigo</div>
+    <div class="card">
+      <div class="referral-info">
+        <div class="referral-desc">
+          <p>Comparte tu enlace de invitación. Cuando tu amigo se registre, <strong>los dos</strong> recibiréis <strong>1 mes gratis del plan Básico</strong> (7€ de valor).</p>
+        </div>
+        <div class="referral-stats">
+          <div class="referral-stat"><span class="referral-num">{{ user.referidos_count or 0 }}</span><span class="referral-lbl">amigos invitados</span></div>
+          {% if user.plan_bonus_expires %}
+          <div class="referral-stat"><span class="referral-num" style="color:var(--green)">✓</span><span class="referral-lbl">bonus activo hasta {{ user.plan_bonus_expires.strftime('%d/%m/%Y') }}</span></div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="referral-link-box">
+        <label style="font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;display:block">Tu enlace de invitación</label>
+        <div class="referral-link-row">
+          <input type="text" id="referral-url" class="form-control"
+            value="https://roadmapia.com/r/{{ user.referral_code or 'CARGANDO' }}"
+            readonly style="font-size:0.82rem;color:var(--accent)" />
+          <button class="btn btn-primary" onclick="copiarReferral()" style="white-space:nowrap">📋 Copiar</button>
+        </div>
+      </div>
+
+      <div class="referral-share">
+        <span style="font-size:0.75rem;color:var(--muted)">Compartir en:</span>
+        <a href="https://wa.me/?text=Prueba%20RoadmapIA%2C%20la%20plataforma%20de%20aprendizaje%20con%20IA.%20Reg%C3%ADstrate%20gratis%20con%20mi%20enlace%20y%20los%20dos%20nos%20llevamos%201%20mes%20del%20plan%20B%C3%A1sico%3A%20https%3A%2F%2Froadmapia.com%2Fr%2F{{ user.referral_code }}"
+           target="_blank" rel="noopener" class="referral-share-btn referral-wa">💬 WhatsApp</a>
+        <a href="mailto:?subject=Te%20invito%20a%20RoadmapIA&body=Hola%21%20Prueba%20RoadmapIA%2C%20una%20plataforma%20que%20genera%20roadmaps%20de%20aprendizaje%20con%20IA.%20Reg%C3%ADstrate%20con%20mi%20enlace%20y%20los%20dos%20nos%20llevamos%201%20mes%20gratis%20del%20plan%20B%C3%A1sico%3A%20https%3A%2F%2Froadmapia.com%2Fr%2F{{ user.referral_code }}"
+           class="referral-share-btn referral-email">✉️ Email</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ZONA DE PELIGRO -->
+  <div class="cuenta-section">
+    <div class="cuenta-section-title" style="color:var(--red)">⚠️ Zona de peligro</div>
+    <div class="card" style="border-color:rgba(255,82,82,0.2)">
+      <p style="font-size:0.875rem;color:var(--muted);margin-bottom:1rem">Si eliminas tu cuenta, todos tus roadmaps, progreso y datos se borrarán permanentemente.</p>
+      <button class="btn btn-danger" onclick="confirmarEliminar()">Eliminar mi cuenta</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- Modal cancelar suscripción -->
+<div class="modal-overlay" id="modal-cancelar" style="display:none" onclick="cerrarModal('modal-cancelar')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <h3>¿Cancelar suscripción?</h3>
+    <p>Tu plan seguirá activo hasta el fin del período pagado. Después pasarás al plan gratuito.</p>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="cerrarModal('modal-cancelar')">No, mantener</button>
+      <form method="post" action="/payments/cancelar-subscripcion" style="display:inline">
+        <button type="submit" class="btn btn-danger">Sí, cancelar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal eliminar cuenta -->
+<div class="modal-overlay" id="modal-eliminar" style="display:none" onclick="cerrarModal('modal-eliminar')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <h3>⚠️ ¿Eliminar tu cuenta?</h3>
+    <p>Esta acción es <strong>irreversible</strong>. Se borrarán todos tus roadmaps, progreso y datos.</p>
+    <p style="margin-top:0.5rem;font-size:0.82rem;color:var(--muted)">Escribe <strong>ELIMINAR</strong> para confirmar:</p>
+    <input type="text" id="confirm-delete-input" class="form-control" placeholder="ELIMINAR" style="margin:0.75rem 0" />
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="cerrarModal('modal-eliminar')">Cancelar</button>
+      <button class="btn btn-danger" onclick="ejecutarEliminar()">Eliminar cuenta</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function copiarReferral() {
+  const input = document.getElementById('referral-url');
+  navigator.clipboard.writeText(input.value).then(() => {
+    const btn = event.target;
+    const orig = btn.textContent;
+    btn.textContent = '✅ Copiado';
+    setTimeout(() => btn.textContent = orig, 2000);
+  });
+}
+</script>
+<script>
+function confirmarCancelacion() {
+  document.getElementById('modal-cancelar').style.display = 'flex';
+}
+function confirmarEliminar() {
+  document.getElementById('modal-eliminar').style.display = 'flex';
+}
+function cerrarModal(id) {
+  document.getElementById(id).style.display = 'none';
+}
+function ejecutarEliminar() {
+  const val = document.getElementById('confirm-delete-input').value;
+  if (val === 'ELIMINAR') {
+    fetch('/cuenta/eliminar', { method: 'POST' }).then(() => window.location.href = '/');
+  } else {
+    document.getElementById('confirm-delete-input').style.borderColor = 'var(--red)';
+  }
+}
+</script>
+{% endblock %}

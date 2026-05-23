@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block title %}Soporte — RoadmapIA{% endblock %}
+{% block description %}¿Tienes alguna duda o problema? Contacta con el equipo de RoadmapIA y te respondemos en menos de 24 horas.{% endblock %}
+{% block content %}
+<div class="soporte-wrap">
+  <div class="soporte-header">
+    <div class="section-label" style="display:inline-block;margin-bottom:0.5rem">Soporte</div>
+    <h1>¿En qué podemos ayudarte?</h1>
+    <p>Rellena el formulario y te respondemos en menos de 24 horas en tu email.</p>
+  </div>
+
+  <div class="soporte-grid">
+
+    <!-- Formulario -->
+    <div class="soporte-form-card" id="soporte-form-container">
+      <h2>Envíanos tu consulta</h2>
+      <form id="soporte-form" onsubmit="enviarSoporte(event)">
+        <div class="form-group">
+          <label for="s-nombre">Nombre</label>
+          <input type="text" id="s-nombre" class="form-control" placeholder="Tu nombre" required />
+        </div>
+        <div class="form-group">
+          <label for="s-email">Email</label>
+          <input type="email" id="s-email" class="form-control" placeholder="tu@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="s-asunto">Asunto</label>
+          <select id="s-asunto" class="form-control">
+            <option value="Consulta general">Consulta general</option>
+            <option value="Problema técnico">Problema técnico</option>
+            <option value="Facturación y pagos">Facturación y pagos</option>
+            <option value="Cancelar suscripción">Cancelar suscripción</option>
+            <option value="Sugerencia de mejora">Sugerencia de mejora</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="s-mensaje">¿Cuál es tu consulta?</label>
+          <textarea id="s-mensaje" class="form-control" rows="5" placeholder="Describe tu duda o problema con el mayor detalle posible…" required></textarea>
+        </div>
+        <button type="submit" id="soporte-submit" class="btn btn-primary btn-lg" style="width:100%;margin-top:0.5rem">
+          Enviar consulta →
+        </button>
+      </form>
+    </div>
+
+    <!-- Confirmación (oculta hasta envío) -->
+    <div id="soporte-sent" style="display:none" class="soporte-form-card soporte-sent-card">
+      <div class="soporte-sent-icon">✅</div>
+      <h2>¡Mensaje enviado!</h2>
+      <p>Hemos recibido tu consulta. Te responderemos en menos de 24 horas en <strong id="soporte-email-sent"></strong>.</p>
+      <a href="/" class="btn btn-secondary" style="margin-top:1.5rem">Volver al inicio</a>
+    </div>
+
+    <!-- Info lateral -->
+    <div class="soporte-info">
+      <div class="soporte-info-card">
+        <div class="soporte-info-icon">⏱️</div>
+        <div>
+          <strong>Tiempo de respuesta</strong>
+          <span>Menos de 24 horas en días laborables</span>
+        </div>
+      </div>
+      <div class="soporte-info-card">
+        <div class="soporte-info-icon">✉️</div>
+        <div>
+          <strong>Email directo</strong>
+          <span>soporte@roadmapia.com</span>
+        </div>
+      </div>
+      <div class="soporte-info-card">
+        <div class="soporte-info-icon">🔒</div>
+        <div>
+          <strong>Privacidad garantizada</strong>
+          <span>Tus datos solo se usan para responderte</span>
+        </div>
+      </div>
+
+      <div class="soporte-faq-quick">
+        <div class="soporte-faq-title">Preguntas frecuentes</div>
+        <a href="/#faq" class="soporte-faq-link">¿Qué incluye el plan gratuito? →</a>
+        <a href="/#faq" class="soporte-faq-link">¿Puedo cancelar en cualquier momento? →</a>
+        <a href="/#faq" class="soporte-faq-link">¿Cómo funciona el tutor IA? →</a>
+        <a href="/pricing" class="soporte-faq-link">Ver todos los planes →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+<script>
+async function enviarSoporte(e) {
+  e.preventDefault();
+  const nombre  = document.getElementById('s-nombre').value.trim();
+  const email   = document.getElementById('s-email').value.trim();
+  const asunto  = document.getElementById('s-asunto').value;
+  const mensaje = document.getElementById('s-mensaje').value.trim();
+  const btn     = document.getElementById('soporte-submit');
+
+  btn.disabled = true;
+  btn.textContent = 'Enviando…';
+
+  try {
+    const res = await fetch('/api/soporte', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nombre, email, mensaje: `[${asunto}] ${mensaje}` })
+    });
+    const data = await res.json();
+    if (data.ok) {
+      document.getElementById('soporte-form-container').style.display = 'none';
+      document.getElementById('soporte-email-sent').textContent = email;
+      document.getElementById('soporte-sent').style.display = 'flex';
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Enviar consulta →';
+      alert('Error al enviar. Por favor escríbenos directamente a soporte@roadmapia.com');
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Enviar consulta →';
+    alert('Error de conexión. Inténtalo de nuevo.');
+  }
+}
+</script>
+{% endblock %}

@@ -1,0 +1,110 @@
+- generic [ref=e1]:
+  - navigation [ref=e2]:
+    - link "🧠 RoadmapIA" [ref=e3] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e4]:
+      - link "Inicio" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - link "Planes" [ref=e6] [cursor=pointer]:
+        - /url: /pricing
+      - link "Blog" [ref=e7] [cursor=pointer]:
+        - /url: /blog
+      - link "FAQ" [ref=e8] [cursor=pointer]:
+        - /url: /#faq
+      - link "Sobre nosotros" [ref=e9] [cursor=pointer]:
+        - /url: /#sobre-nosotros
+      - link "Soporte" [ref=e10] [cursor=pointer]:
+        - /url: /soporte
+    - generic [ref=e11]:
+      - link "Iniciar sesión" [ref=e12] [cursor=pointer]:
+        - /url: /auth/login
+      - link "🚀 Empieza gratis" [ref=e13] [cursor=pointer]:
+        - /url: /auth/register
+  - generic [ref=e14]:
+    - generic [ref=e16]:
+      - generic [ref=e17]: 🧠 RoadmapIA
+      - heading "Bienvenido de vuelta" [level=1] [ref=e18]
+      - paragraph [ref=e19]: Inicia sesión para continuar aprendiendo.
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - generic [ref=e22]: Email
+          - textbox "Email" [active] [ref=e23]:
+            - /placeholder: tu@email.com
+        - generic [ref=e24]:
+          - generic [ref=e25]: Contraseña
+          - textbox "Contraseña" [ref=e26]:
+            - /placeholder: Tu contraseña
+        - generic [ref=e27]:
+          - generic [ref=e28] [cursor=pointer]:
+            - checkbox "Recordarme" [ref=e29]
+            - text: Recordarme
+          - link "¿Olvidaste tu contraseña?" [ref=e30] [cursor=pointer]:
+            - /url: /auth/recuperar
+        - button "Iniciar sesión →" [ref=e31] [cursor=pointer]
+      - generic [ref=e33]:
+        - text: ¿No tienes cuenta?
+        - link "Créala gratis" [ref=e34] [cursor=pointer]:
+          - /url: /auth/register
+    - generic [ref=e36]:
+      - generic [ref=e37]: ✨ Powered by Claude AI
+      - heading "Todo lo que necesitas para aprender" [level=2] [ref=e38]
+      - list [ref=e39]:
+        - listitem [ref=e40]:
+          - generic [ref=e41]: 🗺️
+          - generic [ref=e42]:
+            - strong [ref=e43]: Roadmaps personalizados
+            - generic [ref=e44]: La IA genera tu plan adaptado a tu nivel y tiempo disponible
+        - listitem [ref=e45]:
+          - generic [ref=e46]: 📺
+          - generic [ref=e47]:
+            - strong [ref=e48]: Vídeos de YouTube
+            - generic [ref=e49]: Recursos reales y curados automáticamente para cada lección
+        - listitem [ref=e50]:
+          - generic [ref=e51]: 💬
+          - generic [ref=e52]:
+            - strong [ref=e53]: Tutor IA 24/7
+            - generic [ref=e54]: Resuelve tus dudas al instante con un tutor experto en el tema
+        - listitem [ref=e55]:
+          - generic [ref=e56]: ✅
+          - generic [ref=e57]:
+            - strong [ref=e58]: Seguimiento de progreso
+            - generic [ref=e59]: Checklists, estadísticas y motivación para no abandonar
+      - generic [ref=e60]:
+        - text: "\"Aprendí Python desde cero en 2 meses. El tutor IA fue clave.\" —"
+        - strong [ref=e61]: Carlos M.
+  - contentinfo [ref=e62]:
+    - generic [ref=e63]:
+      - generic [ref=e64]:
+        - generic [ref=e65]: 🧠 RoadmapIA
+        - paragraph [ref=e66]: Aprende cualquier cosa con un roadmap personalizado de IA. Tutor incluido.
+        - generic [ref=e67]: ✨ Powered by Claude AI
+      - generic [ref=e68]:
+        - generic [ref=e69]:
+          - generic [ref=e70]: Producto
+          - link "Inicio" [ref=e71] [cursor=pointer]:
+            - /url: /
+          - link "Precios" [ref=e72] [cursor=pointer]:
+            - /url: /pricing
+          - link "Blog" [ref=e73] [cursor=pointer]:
+            - /url: /blog
+          - link "Empezar gratis" [ref=e74] [cursor=pointer]:
+            - /url: /auth/register
+        - generic [ref=e75]:
+          - generic [ref=e76]: Cuenta
+          - link "Iniciar sesión" [ref=e77] [cursor=pointer]:
+            - /url: /auth/login
+          - link "Crear cuenta" [ref=e78] [cursor=pointer]:
+            - /url: /auth/register
+          - link "Dashboard" [ref=e79] [cursor=pointer]:
+            - /url: /dashboard
+    - generic [ref=e80]:
+      - generic [ref=e81]: © 2025 RoadmapIA — Todos los derechos reservados
+      - generic [ref=e82]:
+        - link "Privacidad" [ref=e83] [cursor=pointer]:
+          - /url: "#"
+        - text: ·
+        - link "Términos" [ref=e84] [cursor=pointer]:
+          - /url: "#"
+  - button "Soporte" [ref=e86] [cursor=pointer]:
+    - generic [ref=e87]: 💬
+    - generic [ref=e88]: "1"

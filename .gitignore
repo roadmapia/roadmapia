@@ -1,0 +1,46 @@
+# Entorno virtual
+.venv/
+venv/
+env/
+
+# Variables de entorno (API keys - NUNCA subir)
+.env
+
+# Base de datos
+*.db
+*.sqlite
+*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Node / Tailwind
+node_modules/
+
+# Logs
+*.log
+
+# Archivos temporales
+*.png
+*.jpg
+!static/logo-roadmapia-icon.png
+!static/logo-roadmapia-horizontal.png
+static/cert_preview.html
+static/logo_render.html
+static/logo_local.html
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp

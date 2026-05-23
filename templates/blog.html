@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Blog — RoadmapIA · Aprende más sobre aprendizaje con IA{% endblock %}
+{% block description %}Artículos sobre cómo aprender más rápido con inteligencia artificial, roadmaps de aprendizaje y productividad.{% endblock %}
+{% block content %}
+<div class="page-wrap" style="max-width:900px">
+  <div style="margin-bottom:2.5rem">
+    <div class="section-label" style="display:inline-block;margin-bottom:0.5rem">Blog</div>
+    <h1 style="font-size:2rem;font-weight:900;letter-spacing:-0.02em;margin-bottom:0.4rem">Aprende a aprender mejor</h1>
+    <p style="color:var(--muted);font-size:0.95rem">Guías, estrategias y recursos para sacar el máximo partido al aprendizaje con IA.</p>
+  </div>
+
+  <div class="blog-grid">
+    {% for art in articles %}
+    <a href="/blog/{{ art.slug }}" class="blog-card">
+      <div class="blog-card-emoji">{{ art.emoji }}</div>
+      <div class="blog-card-body">
+        <div class="blog-card-meta">
+          <span class="blog-tag">{{ art.categoria }}</span>
+          <span class="blog-time">{{ art.minutos }} min lectura</span>
+        </div>
+        <h2 class="blog-card-title">{{ art.titulo }}</h2>
+        <p class="blog-card-excerpt">{{ art.resumen }}</p>
+        <div class="blog-card-footer">
+          <span class="blog-date">{{ art.fecha }}</span>
+          <span class="blog-read-more">Leer artículo →</span>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

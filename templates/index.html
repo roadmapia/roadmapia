@@ -1,0 +1,509 @@
+{% extends "base.html" %}
+{% block title %}RoadmapIA — Aprende cualquier cosa con inteligencia artificial{% endblock %}
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-2col">
+    <div class="hero-text reveal">
+      <div class="hero-chip">✨ Powered by Claude AI</div>
+      <h1>Aprende cualquier cosa con un <em>roadmap personalizado de IA</em></h1>
+      <p>Dinos qué quieres aprender y generamos tu plan completo con fases, lecciones, vídeos de YouTube y un tutor IA disponible 24/7.</p>
+      <div class="hero-btns">
+        <a href="/auth/register" class="btn btn-primary btn-lg">🚀 Empieza gratis</a>
+        <a href="/pricing" class="btn btn-secondary btn-lg">Ver planes</a>
+      </div>
+      <div class="hero-numbers">
+        <div><div class="num">∞</div><div class="lbl">Temas</div></div>
+        <div><div class="num">24/7</div><div class="lbl">Tutor IA</div></div>
+        <div><div class="num">0€</div><div class="lbl">Para empezar</div></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal reveal-delay">
+      <div class="browser-mockup">
+        <div class="browser-chrome">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-bar">roadmapia.com/dashboard</div>
+        </div>
+        <div class="browser-content">
+          <div class="bm-greeting">👋 Hola, <strong>Carlos</strong></div>
+          <div class="bm-roadmaps">
+            <div class="bm-card">
+              <div class="bm-card-top">
+                <span class="bm-card-title">🐍 Python desde cero</span>
+                <span class="bm-card-pct">65%</span>
+              </div>
+              <div class="bm-bar"><div style="width:65%"></div></div>
+              <div class="bm-card-meta">4/6 fases · 12 lecciones completadas</div>
+            </div>
+            <div class="bm-card">
+              <div class="bm-card-top">
+                <span class="bm-card-title">📸 Fotografía avanzada</span>
+                <span class="bm-card-pct">28%</span>
+              </div>
+              <div class="bm-bar"><div style="width:28%"></div></div>
+              <div class="bm-card-meta">2/7 fases · 5 lecciones completadas</div>
+            </div>
+          </div>
+          <div class="bm-chat">
+            <div class="bm-chat-msg bm-msg-ai">💬 ¿Qué es un decorador en Python?</div>
+            <div class="bm-chat-msg bm-msg-bot">🤖 ¡Buena pregunta! Un decorador es una función que envuelve otra función para extender su comportamiento sin modificar su código.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-banner">
+  <div class="stats-banner-inner">
+    <div class="stat-pill">
+      <span class="stat-pill-num" id="stat-usuarios">—</span>
+      <span class="stat-pill-lbl">usuarios registrados</span>
+    </div>
+    <div class="stat-pill-sep">·</div>
+    <div class="stat-pill">
+      <span class="stat-pill-num" id="stat-roadmaps">—</span>
+      <span class="stat-pill-lbl">roadmaps generados</span>
+    </div>
+    <div class="stat-pill-sep">·</div>
+    <div class="stat-pill">
+      <span class="stat-pill-num">∞</span>
+      <span class="stat-pill-lbl">temas disponibles</span>
+    </div>
+    <div class="stat-pill-sep">·</div>
+    <div class="stat-pill">
+      <span class="stat-pill-num">< 3s</span>
+      <span class="stat-pill-lbl">respuesta del tutor</span>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES ALTERNADAS -->
+<section class="section feat-alt-section">
+  <div class="section-head center reveal">
+    <div class="section-label">Características</div>
+    <h2 class="section-title">Todo lo que necesitas para aprender de verdad</h2>
+    <p class="section-sub">No es otro curso. Es tu sistema de aprendizaje personal, con IA.</p>
+  </div>
+
+  <!-- Feature 1: Roadmap personalizado -->
+  <div class="feat-alt-row reveal">
+    <div class="feat-alt-text">
+      <div class="feat-alt-tag">✦ Roadmap con IA</div>
+      <h3>Tu plan completo en 30 segundos</h3>
+      <p>La IA analiza tu nivel actual, el tema que quieres aprender y las horas que tienes disponibles. El resultado: un plan estructurado con fases, lecciones y recursos reales.</p>
+      <ul class="feat-alt-list">
+        <li>✓ Fases progresivas adaptadas a tu nivel</li>
+        <li>✓ Lecciones con objetivos claros</li>
+        <li>✓ Duración estimada realista</li>
+        <li>✓ Cualquier tema imaginable</li>
+      </ul>
+    </div>
+    <div class="feat-alt-visual">
+      <div class="fav-mockup">
+        <div class="fav-header">
+          <div class="fav-title">🐍 Aprende Python desde cero</div>
+          <div class="fav-progress-row"><span>Progreso</span><strong>42%</strong></div>
+          <div class="fav-bar"><div style="width:42%"></div></div>
+        </div>
+        <div class="fav-phases">
+          <div class="fav-phase fav-done">
+            <div class="fav-phase-num done">✓</div>
+            <div><div class="fav-phase-title">Fase 1 — Fundamentos</div><div class="fav-phase-meta">Semanas 1-2 · 4 lecciones</div></div>
+          </div>
+          <div class="fav-phase fav-active">
+            <div class="fav-phase-num active">2</div>
+            <div><div class="fav-phase-title">Fase 2 — POO y funciones</div><div class="fav-phase-meta">Semanas 3-4 · 5 lecciones</div></div>
+          </div>
+          <div class="fav-phase">
+            <div class="fav-phase-num">3</div>
+            <div><div class="fav-phase-title">Fase 3 — Proyectos reales</div><div class="fav-phase-meta">Semanas 5-8 · 6 lecciones</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 2: Tutor IA (reversed) -->
+  <div class="feat-alt-row feat-alt-rev reveal">
+    <div class="feat-alt-text">
+      <div class="feat-alt-tag">✦ Tutor IA</div>
+      <h3>Un experto que responde en segundos</h3>
+      <p>Cada lección tiene integrado un tutor IA especializado. Pregunta lo que quieras, cuando quieras. Sin esperar. Sin horarios. Sin vergüenza de preguntar "tonterías".</p>
+      <ul class="feat-alt-list">
+        <li>✓ Respuestas contextualizadas a tu lección</li>
+        <li>✓ Explicaciones paso a paso</li>
+        <li>✓ Siempre en español</li>
+        <li>✓ Disponible 24 horas al día</li>
+      </ul>
+    </div>
+    <div class="feat-alt-visual">
+      <div class="fav-chat-mockup">
+        <div class="fav-chat-header"><div class="fav-chat-dot"></div><span>Tutor IA · Python</span></div>
+        <div class="fav-chat-msgs">
+          <div class="fav-msg fav-msg-user">¿Cuándo usar una lista vs un diccionario?</div>
+          <div class="fav-msg fav-msg-bot">Usa una <strong>lista</strong> cuando el orden importa y accedes por posición. Usa un <strong>diccionario</strong> cuando necesitas buscar por nombre clave. Por ejemplo: lista para pasos de un proceso, diccionario para datos de un usuario.</div>
+          <div class="fav-msg fav-msg-user">¿Y los sets?</div>
+          <div class="fav-msg fav-msg-bot">Los <strong>sets</strong> son ideales para eliminar duplicados y hacer operaciones de conjuntos (unión, intersección). Son como listas sin orden y sin repetición.</div>
+        </div>
+        <div class="fav-chat-input">Escribe tu pregunta…</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 3: Progreso -->
+  <div class="feat-alt-row reveal">
+    <div class="feat-alt-text">
+      <div class="feat-alt-tag">✦ Seguimiento</div>
+      <h3>Progreso visible que motiva a continuar</h3>
+      <p>Checklists por lección, barras de progreso por fase y estadísticas globales. Siempre sabes exactamente dónde estás, qué has conseguido y qué te queda.</p>
+      <ul class="feat-alt-list">
+        <li>✓ Checklist de objetivos por lección</li>
+        <li>✓ Porcentaje de completado en tiempo real</li>
+        <li>✓ Certificado de finalización (plan Pro)</li>
+        <li>✓ Historial de aprendizaje permanente</li>
+      </ul>
+    </div>
+    <div class="feat-alt-visual">
+      <div class="fav-progress-mockup">
+        <div class="fav-prog-title">Tu progreso esta semana</div>
+        <div class="fav-prog-bars">
+          <div class="fav-prog-row"><span>Python</span><div class="fav-prog-bar"><div style="width:65%;background:linear-gradient(90deg,#7c6fff,#4f8ef7)"></div></div><span>65%</span></div>
+          <div class="fav-prog-row"><span>Fotografía</span><div class="fav-prog-bar"><div style="width:28%;background:linear-gradient(90deg,#00e676,#00bfa5)"></div></div><span>28%</span></div>
+          <div class="fav-prog-row"><span>Marketing</span><div class="fav-prog-bar"><div style="width:10%;background:linear-gradient(90deg,#ff9800,#f44336)"></div></div><span>10%</span></div>
+        </div>
+        <div class="fav-prog-stats">
+          <div class="fav-prog-stat"><div class="fpn">18</div><div class="fpl">lecciones</div></div>
+          <div class="fav-prog-stat"><div class="fpn">3</div><div class="fpl">roadmaps</div></div>
+          <div class="fav-prog-stat"><div class="fpn">42h</div><div class="fpl">aprendidas</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section class="section" style="padding-top:0">
+  <div class="section-head center">
+    <div class="section-label">Cómo funciona</div>
+    <h2 class="section-title">Tu plan en 3 pasos</h2>
+    <p class="section-sub">De cero a experto con un plan diseñado para ti</p>
+  </div>
+  <div class="steps">
+    <div class="step reveal">
+      <div class="step-icon">✍️</div>
+      <h3>Dinos qué quieres aprender</h3>
+      <p>Escribe el tema, tu nivel y las horas disponibles. Python, fotografía, guitarra… lo que sea.</p>
+    </div>
+    <div class="step reveal reveal-delay">
+      <div class="step-icon">🤖</div>
+      <h3>La IA genera tu plan</h3>
+      <p>En segundos recibes un roadmap con fases, lecciones y vídeos de YouTube reales seleccionados para ti.</p>
+    </div>
+    <div class="step reveal reveal-delay2">
+      <div class="step-icon">💬</div>
+      <h3>Aprende con tu tutor IA</h3>
+      <p>Cada lección tiene un tutor experto que resuelve tus dudas al instante en español.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TABLA COMPARATIVA -->
+<section class="section comparison-section" style="padding-top:0">
+  <div class="section-head center reveal">
+    <div class="section-label">Comparativa</div>
+    <h2 class="section-title">¿Por qué RoadmapIA y no otras opciones?</h2>
+    <p class="section-sub">Comparado con las alternativas más populares</p>
+  </div>
+  <div class="comp-table-wrap reveal">
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Característica</th>
+          <th class="comp-highlight">🧠 RoadmapIA</th>
+          <th>roadmap.sh</th>
+          <th>Coursera</th>
+          <th>YouTube solo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Plan personalizado a tu nivel</td><td class="comp-highlight"><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cp">Parcial</span></td><td><span class="cn">✗</span></td></tr>
+        <tr><td>Tutor IA disponible 24/7</td><td class="comp-highlight"><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cn">✗</span></td><td><span class="cn">✗</span></td></tr>
+        <tr><td>Listo en menos de 1 minuto</td><td class="comp-highlight"><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cn">✗</span></td><td><span class="cn">✗</span></td></tr>
+        <tr><td>Vídeos de YouTube integrados</td><td class="comp-highlight"><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cn">✗</span></td><td><span class="cy">✓</span></td></tr>
+        <tr><td>Cualquier tema imaginable</td><td class="comp-highlight"><span class="cy">✓</span></td><td><span class="cp">Solo devs</span></td><td><span class="cp">Catálogo fijo</span></td><td><span class="cy">✓</span></td></tr>
+        <tr><td>Seguimiento de progreso</td><td class="comp-highlight"><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cy">✓</span></td><td><span class="cn">✗</span></td></tr>
+        <tr><td>Certificado de finalización</td><td class="comp-highlight"><span class="cy">✓ Pro</span></td><td><span class="cn">✗</span></td><td><span class="cy">✓ (caro)</span></td><td><span class="cn">✗</span></td></tr>
+        <tr><td>Precio para empezar</td><td class="comp-highlight"><span class="cy">0€ gratis</span></td><td><span class="cy">Gratis</span></td><td><span class="cn">~40€/mes</span></td><td><span class="cy">Gratis</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ¿POR QUÉ LEARNAI? — PROPUESTA DE VALOR -->
+<section class="section why-section">
+  <div class="section-head center reveal">
+    <div class="section-label">Por qué elegirnos</div>
+    <h2 class="section-title">El aprendizaje que siempre quisiste, por fin posible</h2>
+    <p class="section-sub">RoadmapIA no es otro curso. Es tu plan de aprendizaje personal, generado por IA en segundos.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-vs">
+        <div class="why-old">
+          <div class="why-old-label">❌ Aprendizaje tradicional</div>
+          <ul>
+            <li>Cursos genéricos que no se adaptan a ti</li>
+            <li>Sin tutor disponible cuando tienes dudas</li>
+            <li>Pagas caro por contenido desactualizado</li>
+            <li>Sin estructura ni progresión clara</li>
+            <li>Fácil de abandonar sin seguimiento</li>
+          </ul>
+        </div>
+        <div class="why-new">
+          <div class="why-new-label">✅ Con RoadmapIA</div>
+          <ul>
+            <li>Roadmap 100% personalizado a tu nivel y tiempo</li>
+            <li>Tutor IA que responde en segundos, 24/7</li>
+            <li>Vídeos de YouTube reales y actualizados</li>
+            <li>Fases, lecciones y checklists estructurados</li>
+            <li>Progreso visual y motivación continua</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="features-grid">
+    <div class="feat-card reveal">
+      <div class="feat-icon">⚡</div>
+      <h3>Listo en 30 segundos</h3>
+      <p>Escribe el tema y la IA genera tu plan completo al instante. Sin esperas, sin configuraciones complejas.</p>
+    </div>
+    <div class="feat-card reveal reveal-delay">
+      <div class="feat-icon">🎯</div>
+      <h3>Adaptado a ti</h3>
+      <p>La IA tiene en cuenta tu nivel actual, las horas que puedes dedicar y genera un plan realista y alcanzable.</p>
+    </div>
+    <div class="feat-card reveal reveal-delay">
+      <div class="feat-icon">🧠</div>
+      <h3>Tutor experto siempre activo</h3>
+      <p>Cada lección incluye un tutor IA especializado en el tema. Pregunta lo que quieras, cuando quieras.</p>
+    </div>
+    <div class="feat-card reveal reveal-delay2">
+      <div class="feat-icon">📺</div>
+      <h3>Vídeos reales de YouTube</h3>
+      <p>Sin contenido genérico. La IA busca y selecciona automáticamente los mejores vídeos para cada lección.</p>
+    </div>
+    <div class="feat-card reveal reveal-delay2">
+      <div class="feat-icon">📊</div>
+      <h3>Progreso visible</h3>
+      <p>Checklists por lección, barra de progreso y estadísticas para que siempre sepas dónde estás y qué te queda.</p>
+    </div>
+    <div class="feat-card reveal reveal-delay2">
+      <div class="feat-icon">🔓</div>
+      <h3>Gratis para empezar</h3>
+      <p>1 roadmap completo gratis al mes. Sin tarjeta de crédito. Actualiza solo si quieres más.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIOS -->
+<section class="section" style="padding-top:0">
+  <div class="section-head center reveal">
+    <div class="section-label">Precios</div>
+    <h2 class="section-title">Un plan para cada necesidad</h2>
+    <p class="section-sub">Gratis con anuncios · Sin tarjeta de crédito · Cancela cuando quieras</p>
+  </div>
+  <div class="plans-grid reveal">
+
+    <!-- GRATUITO -->
+    <div class="plan">
+      <div class="plan-label">Gratuito</div>
+      <div class="plan-price">0€<small>/mes</small></div>
+      <p class="plan-tagline">Para probar la plataforma</p>
+      <div class="plan-sep"></div>
+      <ul class="plan-features">
+        <li><span class="y">✓</span> 1 roadmap por mes</li>
+        <li><span class="y">✓</span> 10 mensajes tutor/día</li>
+        <li><span class="y">✓</span> Todos los temas</li>
+        <li><span class="n">✗</span> Sin anuncios</li>
+        <li><span class="n">✗</span> Certificado de finalización</li>
+      </ul>
+      <a href="/auth/register" class="btn btn-secondary" style="width:100%;text-align:center">Empezar gratis</a>
+    </div>
+
+    <!-- BÁSICO -->
+    <div class="plan hot">
+      <div class="plan-top-badge">⭐ Más popular</div>
+      <div class="plan-label">Básico</div>
+      <div class="plan-price">7€<small>/mes</small></div>
+      <p class="plan-tagline">Para aprendices comprometidos</p>
+      <div class="plan-sep"></div>
+      <ul class="plan-features">
+        <li><span class="y">✓</span> 5 roadmaps por mes</li>
+        <li><span class="y">✓</span> 50 mensajes tutor/día</li>
+        <li><span class="y">✓</span> Sin anuncios</li>
+        <li><span class="y">✓</span> Todos los temas</li>
+        <li><span class="n">✗</span> Certificado de finalización</li>
+      </ul>
+      <a href="/auth/register" class="btn btn-primary" style="width:100%;text-align:center">Empezar →</a>
+    </div>
+
+    <!-- PRO -->
+    <div class="plan">
+      <div class="plan-label">Pro</div>
+      <div class="plan-price" style="color:var(--green)">17€<small>/mes</small></div>
+      <p class="plan-tagline">Para los más ambiciosos</p>
+      <div class="plan-sep"></div>
+      <ul class="plan-features">
+        <li><span class="y">✓</span> Roadmaps ilimitados</li>
+        <li><span class="y">✓</span> Mensajes ilimitados</li>
+        <li><span class="y">✓</span> Sin anuncios</li>
+        <li><span class="y">✓</span> Certificado de finalización</li>
+        <li><span class="y">✓</span> Soporte prioritario</li>
+      </ul>
+      <a href="/auth/register" class="btn btn-success" style="width:100%;text-align:center">Empezar →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="section" style="padding-top:0">
+  <div class="section-head center reveal">
+    <div class="section-label">Testimonios</div>
+    <h2 class="section-title">Lo que dicen nuestros usuarios</h2>
+    <p class="section-sub">Miles de personas aprendiendo con IA</p>
+  </div>
+  <div class="testimonials">
+    <div class="testi reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p>Aprendí Python desde cero en 2 meses siguiendo el roadmap. El tutor IA fue clave, me explicaba cada duda al momento.</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,#7c6fff,#4f8ef7)">CM</div>
+        <div><strong>Carlos M.</strong><span>Desarrollador Web · Madrid</span></div>
+      </div>
+    </div>
+    <div class="testi reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p>Nunca había podido mantener constancia aprendiendo idiomas. Con RoadmapIA tengo un plan claro y sé exactamente qué estudiar cada día.</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,#00e676,#00bfa5)">LG</div>
+        <div><strong>Laura G.</strong><span>Profesora · Barcelona</span></div>
+      </div>
+    </div>
+    <div class="testi reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p>El roadmap de fotografía fue mejor que cualquier curso que había comprado antes. Lo mejor es que se adapta a mis horas disponibles.</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,#ff9800,#f44336)">AP</div>
+        <div><strong>Andrés P.</strong><span>Fotógrafo · Valencia</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-landing" id="faq" style="padding-top:0">
+  <div class="section-head center reveal">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Preguntas frecuentes</h2>
+    <p class="section-sub">Todo lo que necesitas saber antes de empezar</p>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-land-item reveal" onclick="toggleFaqItem(this)">
+      <div class="faq-land-q"><span>¿Qué incluye el plan gratuito?</span><span class="faq-arrow">▾</span></div>
+      <div class="faq-land-a">El plan gratuito incluye 1 roadmap completo al mes, 10 mensajes diarios con el tutor IA, acceso a todos los temas y vídeos de YouTube integrados. No hace falta tarjeta de crédito.</div>
+    </div>
+    <div class="faq-land-item reveal" onclick="toggleFaqItem(this)">
+      <div class="faq-land-q"><span>¿Cómo genera la IA mi roadmap?</span><span class="faq-arrow">▾</span></div>
+      <div class="faq-land-a">Usamos Claude (de Anthropic), uno de los modelos de IA más avanzados del mundo. Analizamos tu nivel actual, el tema elegido y las horas disponibles para diseñar un plan realista con fases, lecciones y recursos reales.</div>
+    </div>
+    <div class="faq-land-item reveal" onclick="toggleFaqItem(this)">
+      <div class="faq-land-q"><span>¿Puedo cancelar en cualquier momento?</span><span class="faq-arrow">▾</span></div>
+      <div class="faq-land-a">Sí, sin permanencia ni penalizaciones. Si cancelas, el plan permanece activo hasta el fin del período pagado. Tus roadmaps nunca se borran.</div>
+    </div>
+    <div class="faq-land-item reveal reveal-delay" onclick="toggleFaqItem(this)">
+      <div class="faq-land-q"><span>¿Los vídeos son realmente de YouTube?</span><span class="faq-arrow">▾</span></div>
+      <div class="faq-land-a">Sí. Para cada lección buscamos automáticamente en YouTube los vídeos más relevantes. Los embebemos directamente para que puedas verlos sin salir de la plataforma.</div>
+    </div>
+    <div class="faq-land-item reveal reveal-delay" onclick="toggleFaqItem(this)">
+      <div class="faq-land-q"><span>¿Cuántos temas puedo aprender?</span><span class="faq-arrow">▾</span></div>
+      <div class="faq-land-a">Todos los que quieras. RoadmapIA funciona para cualquier tema: programación, idiomas, diseño, música, fotografía, marketing, finanzas, cocina… si existe en YouTube, RoadmapIA puede enseñarlo.</div>
+    </div>
+    <div class="faq-land-item reveal reveal-delay" onclick="toggleFaqItem(this)">
+      <div class="faq-land-q"><span>¿Qué diferencia hay entre los planes?</span><span class="faq-arrow">▾</span></div>
+      <div class="faq-land-a">El plan gratuito limita a 1 roadmap/mes y 10 mensajes/día. El plan Básico (7€/mes) permite 5 roadmaps y 50 mensajes, sin anuncios. El plan Pro (17€/mes) es completamente ilimitado con exportación PDF.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE NOSOTROS -->
+<section class="section about-section" id="sobre-nosotros" style="padding-top:0">
+  <div class="about-card reveal">
+    <div class="about-left">
+      <div class="section-label">Sobre nosotros</div>
+      <h2 class="section-title" style="text-align:left;margin-bottom:1rem">Construido por alguien que también aprendió solo</h2>
+      <p>Sabemos lo frustrante que es intentar aprender algo nuevo sin saber por dónde empezar. Horas buscando en YouTube, sin estructura, sin guía, abandonando a mitad de camino.</p>
+      <p style="margin-top:0.75rem">Por eso creamos RoadmapIA: para que en 30 segundos tengas el mismo plan de aprendizaje que tiene un estudiante con un tutor privado, pero accesible para todos.</p>
+      <p style="margin-top:0.75rem">Usamos la IA más avanzada del mundo (Claude, de Anthropic) para garantizar que cada roadmap sea útil, estructurado y realista.</p>
+      <div class="about-values">
+        <div class="about-val"><span>🎯</span> Aprendizaje que funciona</div>
+        <div class="about-val"><span>💡</span> IA al servicio del estudiante</div>
+        <div class="about-val"><span>🌍</span> Accesible para todos</div>
+      </div>
+    </div>
+    <div class="about-right">
+      <div class="about-stat-grid">
+        <div class="about-stat">
+          <div class="about-stat-num">+50</div>
+          <div class="about-stat-lbl">Temas disponibles</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">24/7</div>
+          <div class="about-stat-lbl">Tutor disponible</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">30s</div>
+          <div class="about-stat-lbl">Para tener tu plan</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">0€</div>
+          <div class="about-stat-lbl">Para empezar</div>
+        </div>
+      </div>
+      <div class="about-powered">
+        <div class="about-powered-label">Tecnología que usamos</div>
+        <div class="about-tech-list">
+          <span class="about-tech">🧠 Claude AI</span>
+          <span class="about-tech">📺 YouTube API</span>
+          <span class="about-tech">⚡ FastAPI</span>
+          <span class="about-tech">🔒 Stripe</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section reveal">
+  <div class="cta-inner">
+    <div class="cta-chip">🎯 Comienza hoy</div>
+    <h2>Tu próximo gran aprendizaje empieza aquí</h2>
+    <p>Únete a miles de personas que ya aprenden con IA. Tu primer roadmap es gratis.</p>
+    <div class="hero-btns" style="justify-content:center;margin-top:2rem">
+      <a href="/auth/register" class="btn btn-primary btn-lg">🚀 Crear mi roadmap gratis</a>
+      <a href="/pricing" class="btn btn-secondary btn-lg">Ver planes</a>
+    </div>
+    <div class="cta-trust">
+      <span>✓ Sin tarjeta de crédito</span>
+      <span>✓ Cancela cuando quieras</span>
+      <span>✓ 1 roadmap gratis para siempre</span>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — RoadmapIA{% endblock %}
+{% block content %}
+
+{# ── Macro: emoji automático por tema ── #}
+{% macro tema_emoji(tema) %}
+  {%- set t = tema.lower() -%}
+  {%- if 'python' in t -%}🐍
+  {%- elif 'javascript' in t or 'js' in t or 'react' in t or 'vue' in t or 'node' in t -%}⚡
+  {%- elif 'java' in t and 'script' not in t -%}☕
+  {%- elif 'web' in t or 'html' in t or 'css' in t or 'frontend' in t -%}🌐
+  {%- elif 'foto' in t or 'cámara' in t or 'camara' in t -%}📸
+  {%- elif 'video' in t or 'edición' in t or 'edicion' in t or 'davinci' in t or 'premiere' in t -%}🎬
+  {%- elif 'música' in t or 'musica' in t or 'guitarra' in t or 'piano' in t or 'canto' in t -%}🎸
+  {%- elif 'diseño' in t or 'design' in t or 'figma' in t or 'ux' in t or 'ui' in t -%}🎨
+  {%- elif 'marketing' in t or 'seo' in t or 'publicidad' in t -%}📢
+  {%- elif 'inglés' in t or 'ingles' in t or 'idioma' in t or 'francés' in t or 'alemán' in t -%}🌍
+  {%- elif 'data' in t or 'datos' in t or 'excel' in t or 'sql' in t -%}📊
+  {%- elif 'ia' in t or 'machine' in t or 'inteligencia' in t -%}🤖
+  {%- elif 'finanzas' in t or 'inversión' in t or 'bolsa' in t -%}💰
+  {%- elif 'cocina' in t or 'chef' in t or 'gastronomía' in t -%}🍳
+  {%- elif 'deporte' in t or 'fitness' in t or 'gym' in t -%}💪
+  {%- elif 'youtube' in t or 'miniatura' in t or 'contenido' in t -%}▶️
+  {%- else -%}🗺️
+  {%- endif %}
+{% endmacro %}
+
+<div class="page-wrap">
+  <div class="page-top">
+    <div>
+      <h1>Hola, <span>{{ user.nombre.split()[0] }}</span> 👋</h1>
+      <p style="color:var(--muted);font-size:0.82rem;margin-top:0.2rem">
+        Plan: <span class="badge badge-{{ user.plan }}">{{ plan_info.nombre }}</span>
+      </p>
+    </div>
+    <a href="/roadmaps/nuevo" class="btn btn-primary">+ Nuevo roadmap</a>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-box">
+      <div class="ico">📚</div>
+      <div>
+        <div class="val">{{ roadmaps|length }}</div>
+        <div class="lbl">Roadmaps totales</div>
+      </div>
+    </div>
+    <div class="stat-box">
+      <div class="ico">📅</div>
+      <div>
+        <div class="val">{{ user.roadmaps_este_mes }}/{% if plan_info.roadmaps_mes == -1 %}∞{% else %}{{ plan_info.roadmaps_mes }}{% endif %}</div>
+        <div class="lbl">Este mes</div>
+      </div>
+    </div>
+    <div class="stat-box">
+      <div class="ico">✅</div>
+      <div>
+        <div class="val">{{ roadmaps|selectattr('porcentaje','equalto',100)|list|length }}</div>
+        <div class="lbl">Completados</div>
+      </div>
+    </div>
+    <div class="stat-box">
+      <div class="ico">💬</div>
+      <div>
+        <div class="val">{{ user.mensajes_hoy }}/{% if plan_info.mensajes_tutor_dia == -1 %}∞{% else %}{{ plan_info.mensajes_tutor_dia }}{% endif %}</div>
+        <div class="lbl">Mensajes hoy</div>
+      </div>
+    </div>
+  </div>
+
+  {% if user.plan == "free" %}
+  <div class="upgrade-bar">
+    <div><strong>¿Quieres más?</strong><p>Plan Básico: 5 roadmaps/mes, 50 mensajes/día, sin anuncios · 7€/mes</p></div>
+    <a href="/pricing" class="btn btn-primary">Ver planes →</a>
+  </div>
+  <div class="ad-banner">📢 Publicidad · Actualiza para eliminarlos</div>
+  {% endif %}
+
+  {% if roadmaps %}
+  <div class="rm-grid">
+    {% for item in roadmaps %}
+    {%- set pct = item.porcentaje -%}
+    {%- set estado = 'done' if pct == 100 else ('active' if pct > 0 else 'idle') -%}
+    <div class="rm-card rm-card-{{ estado }}">
+
+      <!-- Barra superior de color -->
+      <div class="rm-card-bar"></div>
+
+      <!-- Cabecera: emoji + título + badge estado -->
+      <div class="rm-card-head">
+        <div class="rm-card-info">
+          <h3>{{ tema_emoji(item.roadmap.tema) }} {{ item.roadmap.tema }}</h3>
+          <div class="rm-state-badge rm-state-{{ estado }}">
+            {%- if estado == 'done' %}✓ Completado
+            {%- elif estado == 'active' %}● En progreso
+            {%- else %}○ Sin empezar{% endif %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="rm-tags">
+        <span class="rm-tag">{{ item.roadmap.nivel.capitalize() }}</span>
+        <span class="rm-tag">⏱ {{ item.roadmap.horas_semana }}h/sem</span>
+        <span class="rm-tag">{{ item.roadmap.fecha_creacion.strftime('%d/%m/%y') }}</span>
+      </div>
+
+      <!-- Progreso -->
+      <div class="rm-progress">
+        <div class="row">
+          <span>Progreso</span>
+          <strong>{{ pct }}% · {{ item.completadas }}/{{ item.total }} lec.</strong>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" style="width:{{ pct }}%"></div>
+        </div>
+      </div>
+
+      <!-- Acciones -->
+      <div class="rm-actions">
+        <a href="/roadmaps/{{ item.roadmap.id }}" class="btn {% if estado == 'done' %}btn-secondary{% elif estado == 'active' %}btn-primary{% else %}btn-primary{% endif %}" style="flex:1">
+          {% if estado == 'idle' %}▶ Empezar
+          {% elif estado == 'done' %}↩ Revisar
+          {% else %}▶ Continuar{% endif %}
+        </a>
+        <button onclick="eliminarRoadmap({{ item.roadmap.id }})" class="btn btn-danger" style="padding:0.5rem 0.7rem" title="Eliminar">🗑</button>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% else %}
+  <div class="empty-box">
+    <div class="e-ico">🗺️</div>
+    <h2>Aún no tienes roadmaps</h2>
+    <p>Crea tu primer plan de aprendizaje personalizado con IA.</p>
+    <a href="/roadmaps/nuevo" class="btn btn-primary btn-lg">🚀 Crear mi primer roadmap</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

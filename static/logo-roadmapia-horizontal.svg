@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" width="360" height="80">
+  <defs>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"  stop-color="#ffffff"/>
+      <stop offset="40%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#7c6fff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="360" height="80" rx="14" fill="#090913"/>
+
+  <!-- Emoji cerebro -->
+  <text x="18" y="54" font-size="36">🧠</text>
+
+  <!-- Texto RoadmapIA con gradiente blanco → morado -->
+  <text x="62" y="52"
+        font-family="Inter, -apple-system, Arial, sans-serif"
+        font-size="30" font-weight="800"
+        letter-spacing="-0.5"
+        fill="url(#textGrad)">RoadmapIA</text>
+</svg>

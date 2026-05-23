@@ -1,0 +1,838 @@
+- generic [active] [ref=e1]:
+  - region "We value your privacy" [ref=e2]:
+    - generic [ref=e5]:
+      - heading "We value your privacy" [level=2] [ref=e6]
+      - generic [ref=e7]:
+        - paragraph [ref=e9]: We use cookies to enhance your browsing experience, serve personalised ads or content, and analyse our traffic. By clicking "Accept All", you consent to our use of cookies.
+        - generic [ref=e10]:
+          - button "Customise" [ref=e11] [cursor=pointer]
+          - button "Reject All" [ref=e12] [cursor=pointer]
+          - button "Accept All" [ref=e13] [cursor=pointer]
+  - navigation [ref=e16]:
+    - generic [ref=e17]:
+      - link "Roadmap Logo" [ref=e18] [cursor=pointer]:
+        - /url: /
+        - img [ref=e19]
+      - navigation "Main" [ref=e22]:
+        - list [ref=e24]:
+          - listitem [ref=e25]:
+            - button "Open Navigation Dropdown" [ref=e26] [cursor=pointer]:
+              - img [ref=e27]
+          - listitem [ref=e28]:
+            - button "Open Navigation Dropdown" [ref=e29] [cursor=pointer]:
+              - text: Roadmaps
+              - img [ref=e30]
+          - listitem [ref=e32]:
+            - button "Open Navigation Dropdown" [ref=e33] [cursor=pointer]:
+              - text: AI Tutor
+              - img [ref=e34]
+          - listitem [ref=e36]:
+            - link "Upgrade to Pro" [ref=e37] [cursor=pointer]:
+              - /url: /premium
+              - img [ref=e38]
+              - text: Upgrade to Pro
+    - generic [ref=e40]:
+      - link "Login" [ref=e41] [cursor=pointer]:
+        - /url: /login
+      - link "Sign Up" [ref=e42] [cursor=pointer]:
+        - /url: /signup
+        - generic [ref=e43]: Sign Up
+  - main [ref=e44]:
+    - generic [ref=e46]:
+      - heading "Developer Roadmaps" [level=1] [ref=e47]
+      - paragraph [ref=e48]: roadmap.sh is a community effort to create roadmaps, guides and other educational content to help guide developers in picking up a path and guide their learnings.
+    - generic [ref=e50]:
+      - heading "Role-based Roadmaps" [level=2] [ref=e51]
+      - list [ref=e52]:
+        - listitem [ref=e53]:
+          - link "Frontend Add to favorites" [ref=e54] [cursor=pointer]:
+            - /url: /frontend
+            - text: Frontend
+            - button "Add to favorites" [ref=e55]:
+              - img [ref=e56]
+        - listitem [ref=e58]:
+          - link "Backend Add to favorites" [ref=e59] [cursor=pointer]:
+            - /url: /backend
+            - text: Backend
+            - button "Add to favorites" [ref=e60]:
+              - img [ref=e61]
+        - listitem [ref=e63]:
+          - link "Full Stack Add to favorites" [ref=e64] [cursor=pointer]:
+            - /url: /full-stack
+            - text: Full Stack
+            - button "Add to favorites" [ref=e65]:
+              - img [ref=e66]
+        - listitem [ref=e68]:
+          - link "DevOps Add to favorites" [ref=e69] [cursor=pointer]:
+            - /url: /devops
+            - text: DevOps
+            - button "Add to favorites" [ref=e70]:
+              - img [ref=e71]
+        - listitem [ref=e73]:
+          - link "DevSecOps Add to favorites" [ref=e74] [cursor=pointer]:
+            - /url: /devsecops
+            - text: DevSecOps
+            - button "Add to favorites" [ref=e75]:
+              - img [ref=e76]
+        - listitem [ref=e78]:
+          - link "Data Analyst Add to favorites" [ref=e79] [cursor=pointer]:
+            - /url: /data-analyst
+            - text: Data Analyst
+            - button "Add to favorites" [ref=e80]:
+              - img [ref=e81]
+        - listitem [ref=e83]:
+          - link "AI Engineer Add to favorites" [ref=e84] [cursor=pointer]:
+            - /url: /ai-engineer
+            - text: AI Engineer
+            - button "Add to favorites" [ref=e85]:
+              - img [ref=e86]
+        - listitem [ref=e88]:
+          - link "AI and Data Scientist Add to favorites" [ref=e89] [cursor=pointer]:
+            - /url: /ai-data-scientist
+            - text: AI and Data Scientist
+            - button "Add to favorites" [ref=e90]:
+              - img [ref=e91]
+        - listitem [ref=e93]:
+          - link "Data Engineer Add to favorites" [ref=e94] [cursor=pointer]:
+            - /url: /data-engineer
+            - text: Data Engineer
+            - button "Add to favorites" [ref=e95]:
+              - img [ref=e96]
+        - listitem [ref=e98]:
+          - link "Android Add to favorites" [ref=e99] [cursor=pointer]:
+            - /url: /android
+            - text: Android
+            - button "Add to favorites" [ref=e100]:
+              - img [ref=e101]
+        - listitem [ref=e103]:
+          - link "Machine Learning Add to favorites" [ref=e104] [cursor=pointer]:
+            - /url: /machine-learning
+            - text: Machine Learning
+            - button "Add to favorites" [ref=e105]:
+              - img [ref=e106]
+        - listitem [ref=e108]:
+          - link "PostgreSQL Add to favorites" [ref=e109] [cursor=pointer]:
+            - /url: /postgresql-dba
+            - text: PostgreSQL
+            - button "Add to favorites" [ref=e110]:
+              - img [ref=e111]
+        - listitem [ref=e113]:
+          - link "iOS Add to favorites" [ref=e114] [cursor=pointer]:
+            - /url: /ios
+            - text: iOS
+            - button "Add to favorites" [ref=e115]:
+              - img [ref=e116]
+        - listitem [ref=e118]:
+          - link "Blockchain Add to favorites" [ref=e119] [cursor=pointer]:
+            - /url: /blockchain
+            - text: Blockchain
+            - button "Add to favorites" [ref=e120]:
+              - img [ref=e121]
+        - listitem [ref=e123]:
+          - link "QA Add to favorites" [ref=e124] [cursor=pointer]:
+            - /url: /qa
+            - text: QA
+            - button "Add to favorites" [ref=e125]:
+              - img [ref=e126]
+        - listitem [ref=e128]:
+          - link "Software Architect Add to favorites" [ref=e129] [cursor=pointer]:
+            - /url: /software-architect
+            - text: Software Architect
+            - button "Add to favorites" [ref=e130]:
+              - img [ref=e131]
+        - listitem [ref=e133]:
+          - link "Cyber Security Add to favorites" [ref=e134] [cursor=pointer]:
+            - /url: /cyber-security
+            - text: Cyber Security
+            - button "Add to favorites" [ref=e135]:
+              - img [ref=e136]
+        - listitem [ref=e138]:
+          - link "UX Design Add to favorites" [ref=e139] [cursor=pointer]:
+            - /url: /ux-design
+            - text: UX Design
+            - button "Add to favorites" [ref=e140]:
+              - img [ref=e141]
+        - listitem [ref=e143]:
+          - link "Technical Writer Add to favorites" [ref=e144] [cursor=pointer]:
+            - /url: /technical-writer
+            - text: Technical Writer
+            - button "Add to favorites" [ref=e145]:
+              - img [ref=e146]
+        - listitem [ref=e148]:
+          - link "Game Developer Add to favorites" [ref=e149] [cursor=pointer]:
+            - /url: /game-developer
+            - text: Game Developer
+            - button "Add to favorites" [ref=e150]:
+              - img [ref=e151]
+        - listitem [ref=e153]:
+          - link "Server Side Game Developer Add to favorites" [ref=e154] [cursor=pointer]:
+            - /url: /server-side-game-developer
+            - text: Server Side Game Developer
+            - button "Add to favorites" [ref=e155]:
+              - img [ref=e156]
+        - listitem [ref=e158]:
+          - link "MLOps Add to favorites" [ref=e159] [cursor=pointer]:
+            - /url: /mlops
+            - text: MLOps
+            - button "Add to favorites" [ref=e160]:
+              - img [ref=e161]
+        - listitem [ref=e163]:
+          - link "Product Manager Add to favorites" [ref=e164] [cursor=pointer]:
+            - /url: /product-manager
+            - text: Product Manager
+            - button "Add to favorites" [ref=e165]:
+              - img [ref=e166]
+        - listitem [ref=e168]:
+          - link "Engineering Manager Add to favorites" [ref=e169] [cursor=pointer]:
+            - /url: /engineering-manager
+            - text: Engineering Manager
+            - button "Add to favorites" [ref=e170]:
+              - img [ref=e171]
+        - listitem [ref=e173]:
+          - link "Developer Relations Add to favorites" [ref=e174] [cursor=pointer]:
+            - /url: /devrel
+            - text: Developer Relations
+            - button "Add to favorites" [ref=e175]:
+              - img [ref=e176]
+        - listitem [ref=e178]:
+          - link "BI Analyst Add to favorites" [ref=e179] [cursor=pointer]:
+            - /url: /bi-analyst
+            - text: BI Analyst
+            - button "Add to favorites" [ref=e180]:
+              - img [ref=e181]
+        - listitem [ref=e183]:
+          - link "Network Engineer Add to favorites New" [ref=e184] [cursor=pointer]:
+            - /url: /network-engineer
+            - text: Network Engineer
+            - button "Add to favorites" [ref=e185]:
+              - img [ref=e186]
+            - generic [ref=e188]: New
+        - listitem [ref=e192]:
+          - button "Create your own Roadmap" [ref=e193] [cursor=pointer]:
+            - img [ref=e194]
+            - text: Create your own Roadmap
+    - generic [ref=e196]:
+      - heading "Skill-based Roadmaps" [level=2] [ref=e197]
+      - list [ref=e198]:
+        - listitem [ref=e199]:
+          - link "SQL Add to favorites" [ref=e200] [cursor=pointer]:
+            - /url: /sql
+            - text: SQL
+            - button "Add to favorites" [ref=e201]:
+              - img [ref=e202]
+        - listitem [ref=e204]:
+          - link "Computer Science Add to favorites" [ref=e205] [cursor=pointer]:
+            - /url: /computer-science
+            - text: Computer Science
+            - button "Add to favorites" [ref=e206]:
+              - img [ref=e207]
+        - listitem [ref=e209]:
+          - link "React Add to favorites" [ref=e210] [cursor=pointer]:
+            - /url: /react
+            - text: React
+            - button "Add to favorites" [ref=e211]:
+              - img [ref=e212]
+        - listitem [ref=e214]:
+          - link "Vue Add to favorites" [ref=e215] [cursor=pointer]:
+            - /url: /vue
+            - text: Vue
+            - button "Add to favorites" [ref=e216]:
+              - img [ref=e217]
+        - listitem [ref=e219]:
+          - link "Angular Add to favorites" [ref=e220] [cursor=pointer]:
+            - /url: /angular
+            - text: Angular
+            - button "Add to favorites" [ref=e221]:
+              - img [ref=e222]
+        - listitem [ref=e224]:
+          - link "JavaScript Add to favorites" [ref=e225] [cursor=pointer]:
+            - /url: /javascript
+            - text: JavaScript
+            - button "Add to favorites" [ref=e226]:
+              - img [ref=e227]
+        - listitem [ref=e229]:
+          - link "TypeScript Add to favorites" [ref=e230] [cursor=pointer]:
+            - /url: /typescript
+            - text: TypeScript
+            - button "Add to favorites" [ref=e231]:
+              - img [ref=e232]
+        - listitem [ref=e234]:
+          - link "Node.js Add to favorites" [ref=e235] [cursor=pointer]:
+            - /url: /nodejs
+            - text: Node.js
+            - button "Add to favorites" [ref=e236]:
+              - img [ref=e237]
+        - listitem [ref=e239]:
+          - link "Python Add to favorites" [ref=e240] [cursor=pointer]:
+            - /url: /python
+            - text: Python
+            - button "Add to favorites" [ref=e241]:
+              - img [ref=e242]
+        - listitem [ref=e244]:
+          - link "System Design Add to favorites" [ref=e245] [cursor=pointer]:
+            - /url: /system-design
+            - text: System Design
+            - button "Add to favorites" [ref=e246]:
+              - img [ref=e247]
+        - listitem [ref=e249]:
+          - link "Java Add to favorites" [ref=e250] [cursor=pointer]:
+            - /url: /java
+            - text: Java
+            - button "Add to favorites" [ref=e251]:
+              - img [ref=e252]
+        - listitem [ref=e254]:
+          - link "ASP.NET Core Add to favorites" [ref=e255] [cursor=pointer]:
+            - /url: /aspnet-core
+            - text: ASP.NET Core
+            - button "Add to favorites" [ref=e256]:
+              - img [ref=e257]
+        - listitem [ref=e259]:
+          - link "API Design Add to favorites" [ref=e260] [cursor=pointer]:
+            - /url: /api-design
+            - text: API Design
+            - button "Add to favorites" [ref=e261]:
+              - img [ref=e262]
+        - listitem [ref=e264]:
+          - link "Spring Boot Add to favorites" [ref=e265] [cursor=pointer]:
+            - /url: /spring-boot
+            - text: Spring Boot
+            - button "Add to favorites" [ref=e266]:
+              - img [ref=e267]
+        - listitem [ref=e269]:
+          - link "Flutter Add to favorites" [ref=e270] [cursor=pointer]:
+            - /url: /flutter
+            - text: Flutter
+            - button "Add to favorites" [ref=e271]:
+              - img [ref=e272]
+        - listitem [ref=e274]:
+          - link "C++ Add to favorites" [ref=e275] [cursor=pointer]:
+            - /url: /cpp
+            - text: C++
+            - button "Add to favorites" [ref=e276]:
+              - img [ref=e277]
+        - listitem [ref=e279]:
+          - link "Rust Add to favorites" [ref=e280] [cursor=pointer]:
+            - /url: /rust
+            - text: Rust
+            - button "Add to favorites" [ref=e281]:
+              - img [ref=e282]
+        - listitem [ref=e284]:
+          - link "Go Roadmap Add to favorites" [ref=e285] [cursor=pointer]:
+            - /url: /golang
+            - text: Go Roadmap
+            - button "Add to favorites" [ref=e286]:
+              - img [ref=e287]
+        - listitem [ref=e289]:
+          - link "Design and Architecture Add to favorites" [ref=e290] [cursor=pointer]:
+            - /url: /software-design-architecture
+            - text: Design and Architecture
+            - button "Add to favorites" [ref=e291]:
+              - img [ref=e292]
+        - listitem [ref=e294]:
+          - link "GraphQL Add to favorites" [ref=e295] [cursor=pointer]:
+            - /url: /graphql
+            - text: GraphQL
+            - button "Add to favorites" [ref=e296]:
+              - img [ref=e297]
+        - listitem [ref=e299]:
+          - link "React Native Add to favorites" [ref=e300] [cursor=pointer]:
+            - /url: /react-native
+            - text: React Native
+            - button "Add to favorites" [ref=e301]:
+              - img [ref=e302]
+        - listitem [ref=e304]:
+          - link "Design System Add to favorites" [ref=e305] [cursor=pointer]:
+            - /url: /design-system
+            - text: Design System
+            - button "Add to favorites" [ref=e306]:
+              - img [ref=e307]
+        - listitem [ref=e309]:
+          - link "Prompt Engineering Add to favorites" [ref=e310] [cursor=pointer]:
+            - /url: /prompt-engineering
+            - text: Prompt Engineering
+            - button "Add to favorites" [ref=e311]:
+              - img [ref=e312]
+        - listitem [ref=e314]:
+          - link "MongoDB Add to favorites" [ref=e315] [cursor=pointer]:
+            - /url: /mongodb
+            - text: MongoDB
+            - button "Add to favorites" [ref=e316]:
+              - img [ref=e317]
+        - listitem [ref=e319]:
+          - link "Linux Add to favorites" [ref=e320] [cursor=pointer]:
+            - /url: /linux
+            - text: Linux
+            - button "Add to favorites" [ref=e321]:
+              - img [ref=e322]
+        - listitem [ref=e324]:
+          - link "Kubernetes Add to favorites" [ref=e325] [cursor=pointer]:
+            - /url: /kubernetes
+            - text: Kubernetes
+            - button "Add to favorites" [ref=e326]:
+              - img [ref=e327]
+        - listitem [ref=e329]:
+          - link "Docker Add to favorites" [ref=e330] [cursor=pointer]:
+            - /url: /docker
+            - text: Docker
+            - button "Add to favorites" [ref=e331]:
+              - img [ref=e332]
+        - listitem [ref=e334]:
+          - link "AWS Add to favorites" [ref=e335] [cursor=pointer]:
+            - /url: /aws
+            - text: AWS
+            - button "Add to favorites" [ref=e336]:
+              - img [ref=e337]
+        - listitem [ref=e339]:
+          - link "Terraform Add to favorites" [ref=e340] [cursor=pointer]:
+            - /url: /terraform
+            - text: Terraform
+            - button "Add to favorites" [ref=e341]:
+              - img [ref=e342]
+        - listitem [ref=e344]:
+          - link "Data Structures & Algorithms Add to favorites" [ref=e345] [cursor=pointer]:
+            - /url: /datastructures-and-algorithms
+            - text: Data Structures & Algorithms
+            - button "Add to favorites" [ref=e346]:
+              - img [ref=e347]
+        - listitem [ref=e349]:
+          - link "Redis Add to favorites" [ref=e350] [cursor=pointer]:
+            - /url: /redis
+            - text: Redis
+            - button "Add to favorites" [ref=e351]:
+              - img [ref=e352]
+        - listitem [ref=e354]:
+          - link "Git and GitHub Add to favorites" [ref=e355] [cursor=pointer]:
+            - /url: /git-github
+            - text: Git and GitHub
+            - button "Add to favorites" [ref=e356]:
+              - img [ref=e357]
+        - listitem [ref=e359]:
+          - link "PHP Add to favorites" [ref=e360] [cursor=pointer]:
+            - /url: /php
+            - text: PHP
+            - button "Add to favorites" [ref=e361]:
+              - img [ref=e362]
+        - listitem [ref=e364]:
+          - link "Cloudflare Add to favorites" [ref=e365] [cursor=pointer]:
+            - /url: /cloudflare
+            - text: Cloudflare
+            - button "Add to favorites" [ref=e366]:
+              - img [ref=e367]
+        - listitem [ref=e369]:
+          - link "AI Red Teaming Add to favorites" [ref=e370] [cursor=pointer]:
+            - /url: /ai-red-teaming
+            - text: AI Red Teaming
+            - button "Add to favorites" [ref=e371]:
+              - img [ref=e372]
+        - listitem [ref=e374]:
+          - link "AI Agents Add to favorites" [ref=e375] [cursor=pointer]:
+            - /url: /ai-agents
+            - text: AI Agents
+            - button "Add to favorites" [ref=e376]:
+              - img [ref=e377]
+        - listitem [ref=e379]:
+          - link "Next.js Add to favorites" [ref=e380] [cursor=pointer]:
+            - /url: /nextjs
+            - text: Next.js
+            - button "Add to favorites" [ref=e381]:
+              - img [ref=e382]
+        - listitem [ref=e384]:
+          - link "Code Review Add to favorites" [ref=e385] [cursor=pointer]:
+            - /url: /code-review
+            - text: Code Review
+            - button "Add to favorites" [ref=e386]:
+              - img [ref=e387]
+        - listitem [ref=e389]:
+          - link "Kotlin Add to favorites" [ref=e390] [cursor=pointer]:
+            - /url: /kotlin
+            - text: Kotlin
+            - button "Add to favorites" [ref=e391]:
+              - img [ref=e392]
+        - listitem [ref=e394]:
+          - link "HTML Add to favorites" [ref=e395] [cursor=pointer]:
+            - /url: /html
+            - text: HTML
+            - button "Add to favorites" [ref=e396]:
+              - img [ref=e397]
+        - listitem [ref=e399]:
+          - link "CSS Add to favorites" [ref=e400] [cursor=pointer]:
+            - /url: /css
+            - text: CSS
+            - button "Add to favorites" [ref=e401]:
+              - img [ref=e402]
+        - listitem [ref=e404]:
+          - link "Swift & Swift UI Add to favorites" [ref=e405] [cursor=pointer]:
+            - /url: /swift-ui
+            - text: Swift & Swift UI
+            - button "Add to favorites" [ref=e406]:
+              - img [ref=e407]
+        - listitem [ref=e409]:
+          - link "Shell / Bash Add to favorites" [ref=e410] [cursor=pointer]:
+            - /url: /shell-bash
+            - text: Shell / Bash
+            - button "Add to favorites" [ref=e411]:
+              - img [ref=e412]
+        - listitem [ref=e414]:
+          - link "Laravel Add to favorites" [ref=e415] [cursor=pointer]:
+            - /url: /laravel
+            - text: Laravel
+            - button "Add to favorites" [ref=e416]:
+              - img [ref=e417]
+        - listitem [ref=e419]:
+          - link "Elasticsearch Add to favorites" [ref=e420] [cursor=pointer]:
+            - /url: /elasticsearch
+            - text: Elasticsearch
+            - button "Add to favorites" [ref=e421]:
+              - img [ref=e422]
+        - listitem [ref=e424]:
+          - link "WordPress Add to favorites" [ref=e425] [cursor=pointer]:
+            - /url: /wordpress
+            - text: WordPress
+            - button "Add to favorites" [ref=e426]:
+              - img [ref=e427]
+        - listitem [ref=e429]:
+          - link "Django Add to favorites" [ref=e430] [cursor=pointer]:
+            - /url: /django
+            - text: Django
+            - button "Add to favorites" [ref=e431]:
+              - img [ref=e432]
+        - listitem [ref=e434]:
+          - link "Ruby Add to favorites" [ref=e435] [cursor=pointer]:
+            - /url: /ruby
+            - text: Ruby
+            - button "Add to favorites" [ref=e436]:
+              - img [ref=e437]
+        - listitem [ref=e439]:
+          - link "Ruby on Rails Add to favorites" [ref=e440] [cursor=pointer]:
+            - /url: /ruby-on-rails
+            - text: Ruby on Rails
+            - button "Add to favorites" [ref=e441]:
+              - img [ref=e442]
+        - listitem [ref=e444]:
+          - link "Claude Code Add to favorites" [ref=e445] [cursor=pointer]:
+            - /url: /claude-code
+            - text: Claude Code
+            - button "Add to favorites" [ref=e446]:
+              - img [ref=e447]
+        - listitem [ref=e449]:
+          - link "Vibe Coding Add to favorites" [ref=e450] [cursor=pointer]:
+            - /url: /vibe-coding
+            - text: Vibe Coding
+            - button "Add to favorites" [ref=e451]:
+              - img [ref=e452]
+        - listitem [ref=e454]:
+          - link "Scala Add to favorites" [ref=e455] [cursor=pointer]:
+            - /url: /scala
+            - text: Scala
+            - button "Add to favorites" [ref=e456]:
+              - img [ref=e457]
+        - listitem [ref=e459]:
+          - link "OpenClaw Add to favorites" [ref=e460] [cursor=pointer]:
+            - /url: /openclaw
+            - text: OpenClaw
+            - button "Add to favorites" [ref=e461]:
+              - img [ref=e462]
+        - listitem [ref=e464]:
+          - link "LeetCode Add to favorites New" [ref=e465] [cursor=pointer]:
+            - /url: /leetcode
+            - text: LeetCode
+            - button "Add to favorites" [ref=e466]:
+              - img [ref=e467]
+            - generic [ref=e469]: New
+        - listitem [ref=e473]:
+          - button "Create your own Roadmap" [ref=e474] [cursor=pointer]:
+            - img [ref=e475]
+            - text: Create your own Roadmap
+    - generic [ref=e477]:
+      - heading "Project Ideas" [level=2] [ref=e478]
+      - list [ref=e479]:
+        - listitem [ref=e480]:
+          - link "Frontend" [ref=e481] [cursor=pointer]:
+            - /url: /frontend/projects
+            - text: Frontend
+        - listitem [ref=e482]:
+          - link "Backend" [ref=e483] [cursor=pointer]:
+            - /url: /backend/projects
+            - text: Backend
+        - listitem [ref=e484]:
+          - link "DevOps" [ref=e485] [cursor=pointer]:
+            - /url: /devops/projects
+            - text: DevOps
+    - generic [ref=e487]:
+      - heading "Best Practices" [level=2] [ref=e488]
+      - list [ref=e489]:
+        - listitem [ref=e490]:
+          - link "AWS Add to favorites" [ref=e491] [cursor=pointer]:
+            - /url: /aws-best-practices
+            - text: AWS
+            - button "Add to favorites" [ref=e492]:
+              - img [ref=e493]
+        - listitem [ref=e495]:
+          - link "API Security Add to favorites" [ref=e496] [cursor=pointer]:
+            - /url: /api-security-best-practices
+            - text: API Security
+            - button "Add to favorites" [ref=e497]:
+              - img [ref=e498]
+        - listitem [ref=e500]:
+          - link "Backend Performance Add to favorites" [ref=e501] [cursor=pointer]:
+            - /url: /backend-performance-best-practices
+            - text: Backend Performance
+            - button "Add to favorites" [ref=e502]:
+              - img [ref=e503]
+        - listitem [ref=e505]:
+          - link "Frontend Performance Add to favorites" [ref=e506] [cursor=pointer]:
+            - /url: /frontend-performance-best-practices
+            - text: Frontend Performance
+            - button "Add to favorites" [ref=e507]:
+              - img [ref=e508]
+        - listitem [ref=e510]:
+          - link "Code Review Add to favorites" [ref=e511] [cursor=pointer]:
+            - /url: /code-review-best-practices
+            - text: Code Review
+            - button "Add to favorites" [ref=e512]:
+              - img [ref=e513]
+    - generic [ref=e516]:
+      - heading "Guides" [level=2] [ref=e517]
+      - generic [ref=e518]:
+        - 'link "Claude Code vs Cursor: Which AI Coding Tool To ChooseNew · May Textual" [ref=e519] [cursor=pointer]':
+          - /url: /claude-code/vs-cursor
+          - generic [ref=e520]:
+            - text: "Claude Code vs Cursor: Which AI Coding Tool To Choose"
+            - generic [ref=e521]:
+              - text: New
+              - generic [ref=e522]: · May
+          - generic [ref=e523]: Textual
+        - 'link "Python not Operator: The Complete Guide to Logical NegationNew · May Textual" [ref=e524] [cursor=pointer]':
+          - /url: /python/not-operator
+          - generic [ref=e525]:
+            - text: "Python not Operator: The Complete Guide to Logical Negation"
+            - generic [ref=e526]:
+              - text: New
+              - generic [ref=e527]: · May
+          - generic [ref=e528]: Textual
+        - 'link "Python Print New Line: Methods, Examples, and Best PracticesNew · May Textual" [ref=e529] [cursor=pointer]':
+          - /url: /python/print-new-line
+          - generic [ref=e530]:
+            - text: "Python Print New Line: Methods, Examples, and Best Practices"
+            - generic [ref=e531]:
+              - text: New
+              - generic [ref=e532]: · May
+          - generic [ref=e533]: Textual
+        - 'link "Python Exponent: 5 Methods for Exponentiation + ApplicationsNew · May Textual" [ref=e534] [cursor=pointer]':
+          - /url: /python/exponent
+          - generic [ref=e535]:
+            - text: "Python Exponent: 5 Methods for Exponentiation + Applications"
+            - generic [ref=e536]:
+              - text: New
+              - generic [ref=e537]: · May
+          - generic [ref=e538]: Textual
+        - 'link "Python Modulo Operator (%): Complete Guide with Examples Textual" [ref=e539] [cursor=pointer]':
+          - /url: /python/modulo
+          - generic [ref=e540]: "Python Modulo Operator (%): Complete Guide with Examples"
+          - generic [ref=e541]: Textual
+        - 'link "Python Division: Operators, Floor Division, and Examples Textual" [ref=e542] [cursor=pointer]':
+          - /url: /python/division
+          - generic [ref=e543]: "Python Division: Operators, Floor Division, and Examples"
+          - generic [ref=e544]: Textual
+        - 'link "Vibe coding tutorial: Build your first app with Claude Code Textual" [ref=e545] [cursor=pointer]':
+          - /url: /vibe-coding/tutorial
+          - generic [ref=e546]: "Vibe coding tutorial: Build your first app with Claude Code"
+          - generic [ref=e547]: Textual
+        - link "Top 60+ Angular Interview Questions (and answers) Question" [ref=e548] [cursor=pointer]:
+          - /url: /questions/angular
+          - generic [ref=e549]: Top 60+ Angular Interview Questions (and answers)
+          - generic [ref=e550]: Question
+        - link "Top 60+ Spring Boot Interview Questions and Answers Question" [ref=e551] [cursor=pointer]:
+          - /url: /questions/spring-boot
+          - generic [ref=e552]: Top 60+ Spring Boot Interview Questions and Answers
+          - generic [ref=e553]: Question
+        - link "Top 50 Kubernetes Interview Questions and Answers Question" [ref=e554] [cursor=pointer]:
+          - /url: /questions/kubernetes
+          - generic [ref=e555]: Top 50 Kubernetes Interview Questions and Answers
+          - generic [ref=e556]: Question
+        - link "30 C++ Interview Questions and Answers (+Quiz!) Question" [ref=e557] [cursor=pointer]:
+          - /url: /questions/cpp
+          - generic [ref=e558]: 30 C++ Interview Questions and Answers (+Quiz!)
+          - generic [ref=e559]: Question
+        - link "Top 30 System Design Interview Questions (+ Quiz!) Question" [ref=e560] [cursor=pointer]:
+          - /url: /questions/system-design
+          - generic [ref=e561]: Top 30 System Design Interview Questions (+ Quiz!)
+          - generic [ref=e562]: Question
+        - link "Top 37 REST API Interview Questions (and Answers) Question" [ref=e563] [cursor=pointer]:
+          - /url: /questions/rest-api
+          - generic [ref=e564]: Top 37 REST API Interview Questions (and Answers)
+          - generic [ref=e565]: Question
+        - link "Top 20 Python Interview Questions and Answers Question" [ref=e566] [cursor=pointer]:
+          - /url: /questions/python
+          - generic [ref=e567]: Top 20 Python Interview Questions and Answers
+          - generic [ref=e568]: Question
+      - link "View All Guides →" [ref=e569] [cursor=pointer]:
+        - /url: /guides
+  - generic [ref=e571]:
+    - paragraph [ref=e572]:
+      - img "Rocket" [ref=e573]
+      - text: Actively Maintained
+    - paragraph [ref=e574]: We are always improving our content, adding new resources and adding features to enhance your learning experience.
+    - list [ref=e577]:
+      - listitem [ref=e578]:
+        - link "28 Apr, 2026 OpenClaw, LeetCode and Newsletters" [ref=e579] [cursor=pointer]:
+          - /url: /changelog#69f0af5eb7d294b1fb65ee1b
+          - generic [ref=e580]: 28 Apr, 2026
+          - generic [ref=e582]: OpenClaw, LeetCode and Newsletters
+      - listitem [ref=e583]:
+        - link "26 Mar, 2026 Scala Roadmap, AI Engineer Review" [ref=e584] [cursor=pointer]:
+          - /url: /changelog#69c4edd431e228f31bc86f88
+          - generic [ref=e585]: 26 Mar, 2026
+          - generic [ref=e587]: Scala Roadmap, AI Engineer Review
+      - listitem [ref=e588]:
+        - link "27 Feb, 2026 Claude Code, Vibe Coding and AI in Guides" [ref=e589] [cursor=pointer]:
+          - /url: /changelog#69a182543258582713dc18e3
+          - generic [ref=e590]: 27 Feb, 2026
+          - generic [ref=e592]: Claude Code, Vibe Coding and AI in Guides
+      - listitem [ref=e593]:
+        - link "31 Jan, 2026 Ruby, Rails, Django and Reviews" [ref=e594] [cursor=pointer]:
+          - /url: /changelog#697d43d19d704efe2cb0a73c
+          - generic [ref=e595]: 31 Jan, 2026
+          - generic [ref=e597]: Ruby, Rails, Django and Reviews
+      - listitem [ref=e598]:
+        - link "31 Dec, 2025 Elasticsearch, WordPress, DevsecOps and AI in Guides" [ref=e599] [cursor=pointer]:
+          - /url: /changelog#6954fc483eeddc26d7c37794
+          - generic [ref=e600]: 31 Dec, 2025
+          - generic [ref=e602]: Elasticsearch, WordPress, DevsecOps and AI in Guides
+      - listitem [ref=e603]:
+        - link "18 Nov, 2025 Swift & SwiftUI, Shell/Bash, Laravel and Feedback Button" [ref=e604] [cursor=pointer]:
+          - /url: /changelog#691c2b597c7d1fa20e765dce
+          - generic [ref=e605]: 18 Nov, 2025
+          - generic [ref=e607]: Swift & SwiftUI, Shell/Bash, Laravel and Feedback Button
+      - listitem [ref=e608]:
+        - link "18 Oct, 2025 HTML, CSS and livestream session" [ref=e609] [cursor=pointer]:
+          - /url: /changelog#691c29c97c7d1fa20e765db1
+          - generic [ref=e610]: 18 Oct, 2025
+          - generic [ref=e612]: HTML, CSS and livestream session
+      - listitem [ref=e613]:
+        - link "23 Sep, 2025 Kotlin, NextJS and BI Analyst Roadmaps" [ref=e614] [cursor=pointer]:
+          - /url: /changelog#68d1d44a166b018f83df59db
+          - generic [ref=e615]: 23 Sep, 2025
+          - generic [ref=e617]: Kotlin, NextJS and BI Analyst Roadmaps
+      - listitem [ref=e618]:
+        - link "22 Aug, 2025 Data Engineering, Machine Learning Roadmap and more." [ref=e619] [cursor=pointer]:
+          - /url: /changelog#68a893cec353ee02ff4733e0
+          - generic [ref=e620]: 22 Aug, 2025
+          - generic [ref=e622]: Data Engineering, Machine Learning Roadmap and more.
+      - listitem [ref=e623]:
+        - link "23 Jul, 2025 AI Quiz Summaries, New Go Roadmap, and YouTube Videos" [ref=e624] [cursor=pointer]:
+          - /url: /changelog#68a60922f231f0fec7d76f46
+          - generic [ref=e625]: 23 Jul, 2025
+          - generic [ref=e627]: AI Quiz Summaries, New Go Roadmap, and YouTube Videos
+    - generic [ref=e628]:
+      - link "View Full Changelog" [ref=e629] [cursor=pointer]:
+        - /url: /changelog
+      - button "Subscribe for Notifications" [ref=e630] [cursor=pointer]:
+        - img [ref=e631]
+        - text: Subscribe for Notifications
+  - generic [ref=e635]:
+    - paragraph [ref=e636]: Join the Community
+    - paragraph [ref=e637]:
+      - text: roadmap.sh is the
+      - link "6th most starred project on GitHub" [ref=e638] [cursor=pointer]:
+        - /url: https://github.com/search?o=desc&q=stars%3A%3E100000&s=stars&type=Repositories
+      - text: and is visited by hundreds of thousands of developers every month.
+    - generic [ref=e639]:
+      - generic [ref=e640]:
+        - paragraph [ref=e641]:
+          - generic [ref=e642]: Rank
+          - text: out of 28M!
+        - generic [ref=e643]:
+          - paragraph [ref=e644]: 355K
+          - paragraph [ref=e645]: GitHub Stars
+        - 'link "Star us on GitHub Help us reach #1" [ref=e646] [cursor=pointer]':
+          - /url: https://github.com/kamranahmedse/developer-roadmap
+          - generic [ref=e647]:
+            - img [ref=e648]
+            - generic [ref=e650]: Star us on GitHub
+          - generic [ref=e651]: "Help us reach #1"
+      - generic [ref=e652]:
+        - paragraph [ref=e653]:
+          - generic [ref=e654]: +90k
+          - text: every month
+        - generic [ref=e655]:
+          - paragraph [ref=e656]: +2.8M
+          - paragraph [ref=e657]: Registered Users
+        - link "Register yourself Commit to your growth" [ref=e658] [cursor=pointer]:
+          - /url: /signup
+          - generic [ref=e659]:
+            - img [ref=e660]
+            - generic [ref=e665]: Register yourself
+          - generic [ref=e666]: Commit to your growth
+      - generic [ref=e667]:
+        - paragraph [ref=e668]:
+          - generic [ref=e669]: +2k
+          - text: every month
+        - generic [ref=e670]:
+          - paragraph [ref=e671]: 48K
+          - paragraph [ref=e672]: Discord Members
+        - link "Join on Discord Join the community" [ref=e673] [cursor=pointer]:
+          - /url: https://roadmap.sh/discord
+          - generic [ref=e674]:
+            - img [ref=e675]
+            - generic [ref=e678]: Join on Discord
+          - generic [ref=e679]: Join the community
+  - generic [ref=e681]:
+    - paragraph [ref=e682]:
+      - link "Roadmaps" [ref=e683] [cursor=pointer]:
+        - /url: /roadmaps
+      - link "Guides" [ref=e684] [cursor=pointer]:
+        - /url: /guides
+      - link "FAQs" [ref=e685] [cursor=pointer]:
+        - /url: /about
+      - link "YouTube" [ref=e686] [cursor=pointer]:
+        - /url: https://youtube.com/theroadmap?sub_confirmation=1
+    - generic [ref=e687]:
+      - generic [ref=e688]:
+        - paragraph [ref=e689]:
+          - link "roadmap.sh" [ref=e690] [cursor=pointer]:
+            - /url: /
+            - img [ref=e691]
+            - generic [ref=e694]: roadmap.sh
+          - generic [ref=e695]: by
+          - link "@nilbuild" [ref=e696] [cursor=pointer]:
+            - /url: https://x.com/nilbuild
+        - paragraph [ref=e697]: Community created roadmaps, best practices, projects, articles, resources and journeys to help you choose your path and grow in your career.
+        - paragraph [ref=e699]:
+          - text: © roadmap.sh·
+          - link "Terms" [ref=e700] [cursor=pointer]:
+            - /url: /terms
+          - text: ·
+          - link "Privacy" [ref=e701] [cursor=pointer]:
+            - /url: /privacy
+          - text: ·
+          - link "Follow on LinkedIn" [ref=e702] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/roadmapsh
+            - img [ref=e703]
+          - link "Subscribe to YouTube channel" [ref=e706] [cursor=pointer]:
+            - /url: https://youtube.com/theroadmap?sub_confirmation=1
+            - img [ref=e707]
+          - link "Follow on Twitter" [ref=e709] [cursor=pointer]:
+            - /url: https://twitter.com/roadmapsh
+            - img [ref=e710]
+          - link "Follow on Blusky" [ref=e712] [cursor=pointer]:
+            - /url: http://roadmapsh.bsky.social/
+            - img [ref=e713]
+      - generic [ref=e715]:
+        - link "ThewNewStack" [ref=e716] [cursor=pointer]:
+          - /url: https://thenewstack.io
+          - img "ThewNewStack" [ref=e717]
+        - paragraph [ref=e718]: The top DevOps resource for Kubernetes, cloud-native computing, and large-scale development and deployment.
+        - paragraph [ref=e720]:
+          - link "DevOps" [ref=e721] [cursor=pointer]:
+            - /url: https://thenewstack.io/category/devops?utm_source=roadmap.sh&utm_medium=Referral&utm_campaign=Footer
+          - text: ·
+          - link "Kubernetes" [ref=e722] [cursor=pointer]:
+            - /url: https://thenewstack.io/category/kubernetes?utm_source=roadmap.sh&utm_medium=Referral&utm_campaign=Footer
+          - text: ·
+          - link "Cloud-Native" [ref=e723] [cursor=pointer]:
+            - /url: https://thenewstack.io/category/cloud-native?utm_source=roadmap.sh&utm_medium=Referral&utm_campaign=Footer
+    - button "Cookie Settings" [ref=e725] [cursor=pointer]:
+      - img [ref=e726]
+      - text: Cookie Settings
+  - region "Notifications alt+T"

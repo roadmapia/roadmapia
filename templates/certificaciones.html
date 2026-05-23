@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Mis certificaciones — RoadmapIA{% endblock %}
+{% block content %}
+<div class="page-wrap" style="max-width:900px">
+  <div class="page-top">
+    <div>
+      <h1>🏆 Mis certificaciones</h1>
+      <p style="color:var(--muted);font-size:0.82rem;margin-top:0.2rem">Roadmaps completados al 100%</p>
+    </div>
+  </div>
+
+  {% if not es_pro %}
+  <div class="alert alert-info" style="margin-bottom:2rem">
+    🏆 Los certificados de finalización son exclusivos del <strong>plan Pro</strong>.
+    <a href="/pricing" style="color:var(--accent);font-weight:700;margin-left:0.5rem">Ver planes →</a>
+  </div>
+  {% endif %}
+
+  {% if completados %}
+  <div class="rm-grid">
+    {% for item in completados %}
+    <div class="rm-card cert-card">
+      <div class="cert-card-badge">✅ Completado</div>
+      <h3>{{ item.roadmap.tema }}</h3>
+      <div class="rm-tags">
+        <span class="rm-tag">{{ item.roadmap.nivel.capitalize() }}</span>
+        <span class="rm-tag">⏱ {{ item.roadmap.horas_semana }}h/sem</span>
+        <span class="rm-tag">{{ item.total }} lecciones</span>
+      </div>
+      <div class="rm-progress" style="margin-top:0.5rem">
+        <div class="row"><span>Progreso</span><strong>100% · Todo completado ✓</strong></div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="cert-card-footer">
+        <span style="font-size:0.72rem;color:var(--muted)">Completado el {{ item.fecha_completado }}</span>
+        {% if es_pro %}
+        <a href="/roadmaps/{{ item.roadmap.id }}/certificado" class="btn btn-success" style="padding:0.4rem 0.9rem;font-size:0.82rem">
+          🏆 Ver certificado
+        </a>
+        {% else %}
+        <a href="/pricing" class="btn btn-secondary" style="padding:0.4rem 0.9rem;font-size:0.82rem;opacity:0.7" title="Plan Pro requerido">
+          🔒 Certificado Pro
+        </a>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% else %}
+  <div class="empty-box">
+    <div class="e-ico">🏆</div>
+    <h2>Aún no tienes roadmaps completados</h2>
+    <p>Cuando completes todas las lecciones de un roadmap al 100% aparecerá aquí tu certificado.</p>
+    <a href="/dashboard" class="btn btn-primary btn-lg" style="margin-top:1.5rem">📚 Ir a mis roadmaps</a>
+  </div>
+  {% endif %}
+
+</div>
+{% endblock %}
