@@ -44,3 +44,8 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# Playwright test artifacts
+.playwright-mcp/
+review.mjs
+review2.mjs
