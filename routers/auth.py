@@ -12,6 +12,7 @@ from database.database import get_db
 from database.models import User, PasswordResetToken
 from core.auth import hash_password, verify_password, verify_password_safe, create_access_token, get_current_user_from_token
 from core.email import send_email, reset_password_email
+from core.rate_limit import is_allowed, get_client_ip
 from typing import Optional
 
 load_dotenv()
@@ -74,6 +75,11 @@ async def register(
             "recaptcha_site_key": RECAPTCHA_SITE_KEY,
             "google_client_id": GOOGLE_CLIENT_ID,
         })
+
+    # Rate limit: 5 registros por IP por minuto
+    ip = get_client_ip(request)
+    if not is_allowed(f"register:{ip}", max_calls=5, window_secs=60):
+        return error("Demasiados intentos. Espera 1 minuto antes de intentarlo de nuevo.")
 
     if not acepta_terminos:
         return error("Debes aceptar los términos y la política de privacidad para registrarte.")
@@ -150,6 +156,11 @@ async def login(
             "google_client_id": GOOGLE_CLIENT_ID,
         })
 
+    # Rate limit: 5 intentos por IP por minuto
+    ip = get_client_ip(request)
+    if not is_allowed(f"login:{ip}", max_calls=5, window_secs=60):
+        return error("Demasiados intentos. Espera 1 minuto antes de intentarlo de nuevo.")
+
     user = db.query(User).filter(User.email == email, User.activo == True).first()
     # verify_password_safe siempre ejecuta bcrypt aunque el usuario no exista (anti timing-attack)
     pwd_ok = verify_password_safe(password, user.password_hash if user else None)
@@ -192,6 +203,14 @@ async def recuperar(
     email: str = Form(...),
     db: Session = Depends(get_db)
 ):
+    # Rate limit: 3 intentos por IP por minuto (evitar spam de emails)
+    ip = get_client_ip(request)
+    if not is_allowed(f"recuperar:{ip}", max_calls=3, window_secs=60):
+        return templates.TemplateResponse("recuperar.html", {
+            "request": request,
+            "error": "Demasiados intentos. Espera 1 minuto antes de intentarlo de nuevo."
+        })
+
     # Siempre mostramos el mismo mensaje para no revelar si el email existe
     msg_ok = "Si ese email está registrado recibirás un enlace en unos minutos."
 
