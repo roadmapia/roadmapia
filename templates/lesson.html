@@ -74,11 +74,11 @@
         <div class="chat-name">Tutor IA</div>
         <div class="chat-status">Online</div>
       </div>
-      <div class="chat-count">
-        {% if plan_info.mensajes_tutor_dia == -1 %}
+      <div class="chat-count" id="chat-count">
+        {% if plan_info.mensajes_tutor_mes == -1 %}
           ∞ {% if contenido.idioma == 'en' %}messages{% else %}mensajes{% endif %}
         {% else %}
-          {{ user.mensajes_hoy }}/{{ plan_info.mensajes_tutor_dia }} {% if contenido.idioma == 'en' %}today{% else %}hoy{% endif %}
+          <span id="msgs-restantes">{{ mensajes_restantes }}</span>/{{ plan_info.mensajes_tutor_mes + (user.mensajes_bonus_resena or 0) }} {% if contenido.idioma == 'en' %}this month{% else %}este mes{% endif %}
         {% endif %}
       </div>
     </div>
@@ -87,8 +87,8 @@
         {% if contenido.idioma == 'en' %}Ask me anything about this lesson 💬{% else %}Pregúntame lo que necesites sobre esta lección 💬{% endif %}
       </div>
     </div>
-    {% if plan_info.mensajes_tutor_dia != -1 and user.mensajes_hoy >= plan_info.mensajes_tutor_dia %}
-    <div class="chat-limit">⚠️ Límite diario. <a href="/pricing">Actualiza →</a></div>
+    {% if plan_info.mensajes_tutor_mes != -1 and mensajes_restantes == 0 %}
+    <div class="chat-limit">⚠️ Límite mensual alcanzado. <a href="/pricing">Actualiza →</a></div>
     {% else %}
     <form class="chat-form" id="chat-form">
       <textarea id="chat-input" class="chat-input" rows="2" placeholder="{% if contenido.idioma == 'en' %}Type your question…{% else %}Escribe tu pregunta…{% endif %}"></textarea>

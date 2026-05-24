@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Lección bloqueada — RoadmapIA{% endblock %}
+{% block content %}
+<div class="lesson-wrap" style="display:block">
+  <div class="lesson-body" style="max-width:640px;margin:0 auto">
+    <div class="l-breadcrumb">
+      <a href="/roadmaps/{{ roadmap.id }}">← Volver al roadmap</a>
+    </div>
+
+    <div style="text-align:center;padding:3rem 1rem">
+      <div style="font-size:4rem;margin-bottom:1rem">🔒</div>
+      <h2 style="margin-bottom:0.5rem">Lección bloqueada</h2>
+      <p style="color:var(--muted);margin-bottom:0.5rem">
+        <strong>{{ leccion.titulo }}</strong>
+      </p>
+      <p style="color:var(--muted);font-size:0.92rem;margin-bottom:2rem">
+        Las últimas lecciones de cada roadmap están disponibles a partir del plan Básico.
+        Mejora tu plan para desbloquearlas y completar tu aprendizaje.
+      </p>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:2rem;text-align:left;max-width:400px;margin-left:auto;margin-right:auto">
+        <div style="font-weight:700;margin-bottom:0.75rem;font-size:0.95rem">✨ Plan Básico — 7€/mes</div>
+        <ul style="list-style:none;padding:0;margin:0;font-size:0.88rem;color:var(--muted);display:flex;flex-direction:column;gap:0.4rem">
+          <li>✅ Todas las lecciones desbloqueadas</li>
+          <li>✅ 3 roadmaps al mes</li>
+          <li>✅ 150 mensajes al tutor/mes</li>
+          <li>✅ Sin anuncios</li>
+        </ul>
+      </div>
+
+      <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap">
+        <a href="/pricing" class="btn btn-primary">🚀 Ver planes y mejorar</a>
+        <a href="/roadmaps/{{ roadmap.id }}" class="btn btn-secondary">← Volver al roadmap</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -151,7 +151,11 @@ async def enviar_mensaje(
     user.mensajes_hoy += 1
     db.commit()
 
-    return JSONResponse({"respuesta": respuesta})
+    from core.plans import PLANS, get_limite_mensajes
+    limite = get_limite_mensajes(user)
+    restantes = -1 if limite == -1 else max(0, limite - user.mensajes_hoy)
+
+    return JSONResponse({"respuesta": respuesta, "mensajes_restantes": restantes})
 
 
 @router.get("/{roadmap_id}/{leccion_id}/historial")

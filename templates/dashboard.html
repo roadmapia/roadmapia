@@ -61,15 +61,15 @@
     <div class="stat-box">
       <div class="ico">💬</div>
       <div>
-        <div class="val">{{ user.mensajes_hoy }}/{% if plan_info.mensajes_tutor_dia == -1 %}∞{% else %}{{ plan_info.mensajes_tutor_dia }}{% endif %}</div>
-        <div class="lbl">Mensajes hoy</div>
+        <div class="val">{{ user.mensajes_hoy }}/{% if plan_info.mensajes_tutor_mes == -1 %}∞{% else %}{{ plan_info.mensajes_tutor_mes + (user.mensajes_bonus_resena or 0) }}{% endif %}</div>
+        <div class="lbl">Mensajes este mes</div>
       </div>
     </div>
   </div>
 
   {% if user.plan == "free" %}
   <div class="upgrade-bar">
-    <div><strong>¿Quieres más?</strong><p>Plan Básico: 5 roadmaps/mes, 50 mensajes/día, sin anuncios · 7€/mes</p></div>
+    <div><strong>¿Quieres más?</strong><p>Plan Básico: 3 roadmaps/mes, 150 mensajes/mes, sin anuncios · 7€/mes</p></div>
     <a href="/pricing" class="btn btn-primary">Ver planes →</a>
   </div>
   <div class="ad-banner">📢 Publicidad · Actualiza para eliminarlos</div>

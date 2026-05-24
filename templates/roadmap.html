@@ -60,6 +60,12 @@
     </div>
   </div>
 
+  {# Calcular IDs de lecciones bloqueadas para plan free #}
+  {% set todas = [] %}
+  {% for fase in contenido.fases %}{% for lec in fase.lecciones %}{% set _ = todas.append(lec.id) %}{% endfor %}{% endfor %}
+  {% set n_bloqueadas = (user.plan == 'free') | int * 2 %}
+  {% set ids_bloqueadas = todas[-n_bloqueadas:] if n_bloqueadas > 0 and todas|length > n_bloqueadas else [] %}
+
   {% for fase in contenido.fases %}
   <div class="fase">
     <div class="fase-hdr" onclick="toggleFase('fb{{ loop.index }}','fa{{ loop.index }}')">
@@ -77,18 +83,25 @@
       {% for leccion in fase.lecciones %}
       {% set prog = progreso_map.get(leccion.id) %}
       {% set done = prog and prog.completada %}
-      <div class="lesson-row {% if done %}done{% endif %}">
+      {% set bloqueada = leccion.id in ids_bloqueadas %}
+      <div class="lesson-row {% if done %}done{% elif bloqueada %}locked{% endif %}">
         <div class="li-info">
-          <div class="lt">{{ leccion.id }}. {{ leccion.titulo }}</div>
+          <div class="lt">{% if bloqueada %}🔒 {% endif %}{{ leccion.id }}. {{ leccion.titulo }}</div>
           <div class="ld">{{ leccion.descripcion[:85] }}{% if leccion.descripcion|length > 85 %}…{% endif %}</div>
         </div>
         <div class="li-right">
+          {% if bloqueada %}
+          <a href="/pricing" class="btn btn-secondary" style="padding:0.35rem 0.8rem;font-size:0.78rem;border-color:rgba(255,193,7,0.3);color:#ffd54f">
+            🔒 Pro
+          </a>
+          {% else %}
           <span>{% if done %}✅{% else %}📖{% endif %}</span>
           <a href="/roadmaps/{{ roadmap.id }}/leccion/{{ leccion.id }}"
              class="btn {% if done %}btn-secondary{% else %}btn-primary{% endif %}"
              style="padding:0.35rem 0.8rem;font-size:0.78rem">
             {% if done %}Revisar{% else %}Ir →{% endif %}
           </a>
+          {% endif %}
         </div>
       </div>
       {% endfor %}

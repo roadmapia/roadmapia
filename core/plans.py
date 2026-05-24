@@ -7,25 +7,31 @@ PLANS = {
         "nombre": "Gratuito",
         "precio": 0,
         "roadmaps_mes": 1,
-        "mensajes_tutor_dia": 5,   # 5 base + 5 bonus reseña = 10 (igual que antes)
+        "roadmaps_avanzados_mes": -1,   # sin límite de nivel
+        "mensajes_tutor_mes": 20,        # 20 base + 5 bonus reseña = 25
         "anuncios": True,
-        "certificado": False
+        "certificado": False,
+        "lecciones_bloqueadas": 2,       # últimas N lecciones bloqueadas
     },
     "basic": {
         "nombre": "Básico",
         "precio": 7,
-        "roadmaps_mes": 5,
-        "mensajes_tutor_dia": 50,
+        "roadmaps_mes": 3,
+        "roadmaps_avanzados_mes": 1,    # máx 1 roadmap avanzado/mes
+        "mensajes_tutor_mes": 150,
         "anuncios": False,
-        "certificado": False
+        "certificado": False,
+        "lecciones_bloqueadas": 0,
     },
     "pro": {
         "nombre": "Pro",
         "precio": 17,
         "roadmaps_mes": -1,
-        "mensajes_tutor_dia": -1,
+        "roadmaps_avanzados_mes": -1,
+        "mensajes_tutor_mes": -1,
         "anuncios": False,
-        "certificado": True
+        "certificado": True,
+        "lecciones_bloqueadas": 0,
     }
 }
 
@@ -73,8 +79,8 @@ def reset_counters_if_needed(user, db):
         user.plan_bonus_expires = None
         changed = True
 
-    # Resetear mensajes del tutor cada día
-    if user.fecha_reset_mensajes != today:
+    # Resetear mensajes del tutor cada mes (mismo criterio que roadmaps)
+    if user.fecha_reset_mensajes.month != today.month or user.fecha_reset_mensajes.year != today.year:
         user.mensajes_hoy = 0
         user.fecha_reset_mensajes = today
         changed = True
@@ -92,8 +98,10 @@ def reset_counters_if_needed(user, db):
     return user
 
 
-def can_create_roadmap(user, db) -> tuple[bool, str]:
-    """Retorna (puede_crear, mensaje_error)."""
+def can_create_roadmap(user, db, nivel: str = "principiante") -> tuple[bool, str]:
+    """Retorna (puede_crear, mensaje_error). Comprueba límite total y límite de nivel avanzado."""
+    from database.models import Roadmap
+    from datetime import date
     user = reset_counters_if_needed(user, db)
     plan = PLANS[user.plan]
     limite = plan["roadmaps_mes"]
@@ -104,13 +112,26 @@ def can_create_roadmap(user, db) -> tuple[bool, str]:
     if user.roadmaps_este_mes >= limite:
         return False, f"Has alcanzado el límite de {limite} roadmap(s) este mes con tu plan {plan['nombre']}."
 
+    # Límite de roadmaps avanzados por mes (sólo aplica a plan basic)
+    limite_avanzados = plan.get("roadmaps_avanzados_mes", -1)
+    if limite_avanzados != -1 and nivel == "avanzado":
+        today = date.today()
+        avanzados_mes = db.query(Roadmap).filter(
+            Roadmap.user_id == user.id,
+            Roadmap.nivel == "avanzado",
+            Roadmap.activo == True,
+            Roadmap.fecha_creacion >= today.replace(day=1)
+        ).count()
+        if avanzados_mes >= limite_avanzados:
+            return False, f"Tu plan {plan['nombre']} solo permite {limite_avanzados} roadmap avanzado por mes."
+
     return True, ""
 
 
 def get_limite_mensajes(user) -> int:
-    """Devuelve el límite diario real sumando el bonus de reseña."""
+    """Devuelve el límite mensual real sumando el bonus de reseña."""
     plan = PLANS[user.plan]
-    base = plan["mensajes_tutor_dia"]
+    base = plan["mensajes_tutor_mes"]
     if base == -1:
         return -1
     bonus = getattr(user, 'mensajes_bonus_resena', 0) or 0
@@ -127,6 +148,6 @@ def can_send_tutor_message(user, db) -> tuple[bool, str]:
 
     if user.mensajes_hoy >= limite:
         plan_nombre = PLANS[user.plan]["nombre"]
-        return False, f"Has alcanzado el límite de {limite} mensajes diarios con tu plan {plan_nombre}."
+        return False, f"Has alcanzado el límite de {limite} mensajes este mes con tu plan {plan_nombre}."
 
     return True, ""

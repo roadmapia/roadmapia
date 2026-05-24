@@ -14,9 +14,9 @@
       <div class="plan-sep"></div>
       <ul class="plan-features">
         <li><span class="y">✓</span> 1 roadmap por mes</li>
-        <li><span class="y">✓</span> 10 mensajes tutor/día</li>
+        <li><span class="y">✓</span> 20 mensajes tutor/mes</li>
         <li><span class="y">✓</span> Todos los temas</li>
-        <li><span class="n">✗</span> Sin anuncios</li>
+        <li><span class="n">✗</span> Últimas 2 lecciones bloqueadas</li>
         <li><span class="n">✗</span> Certificado de finalización</li>
       </ul>
       {% if user and user.plan == "free" %}
@@ -35,16 +35,16 @@
       <p class="plan-tagline">Para aprendices comprometidos</p>
       <div class="plan-sep"></div>
       <ul class="plan-features">
-        <li><span class="y">✓</span> 5 roadmaps por mes</li>
-        <li><span class="y">✓</span> 50 mensajes tutor/día</li>
+        <li><span class="y">✓</span> 3 roadmaps por mes</li>
+        <li><span class="y">✓</span> 150 mensajes tutor/mes</li>
         <li><span class="y">✓</span> Sin anuncios</li>
-        <li><span class="y">✓</span> Todos los temas</li>
+        <li><span class="y">✓</span> Todas las lecciones desbloqueadas</li>
         <li><span class="n">✗</span> Certificado de finalización</li>
       </ul>
       {% if user and user.plan == "basic" %}
       <button class="btn btn-secondary" style="width:100%" disabled>Plan actual</button>
       {% elif user %}
-      <button id="btn-basic" class="btn btn-primary" style="width:100%" onclick="iniciarPago('basic')">Suscribirse · 7€/mes</button>
+      <button id="btn-basic" class="btn btn-primary" style="width:100%" onclick="iniciarPago('basic')">Empezar · 7€/mes</button>
       {% else %}
       <a href="/auth/register" class="btn btn-primary" style="width:100%">Empezar →</a>
       {% endif %}

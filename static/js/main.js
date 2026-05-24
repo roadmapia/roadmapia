@@ -131,6 +131,18 @@ function initChat(roadmapId, leccionId) {
         errEl.style.color = 'var(--red)';
       } else {
         addMessage('assistant', data.respuesta);
+        // Actualizar contador de mensajes restantes
+        if (data.mensajes_restantes !== undefined && data.mensajes_restantes !== -1) {
+          const el = document.getElementById('msgs-restantes');
+          if (el) el.textContent = data.mensajes_restantes;
+          if (data.mensajes_restantes === 0) {
+            // Ocultar formulario y mostrar aviso de límite
+            const chatForm = document.getElementById('chat-form');
+            if (chatForm) {
+              chatForm.outerHTML = '<div class="chat-limit">⚠️ Límite mensual alcanzado. <a href="/pricing">Actualiza →</a></div>';
+            }
+          }
+        }
       }
     } catch (e) {
       messagesEl.removeChild(typingEl);

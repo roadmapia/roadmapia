@@ -9,7 +9,7 @@ from sqlalchemy.orm import Session
 from database.database import get_db, SessionLocal
 from database.models import Roadmap, LessonProgress, RoadmapCache
 from core.ai_generator import generate_roadmap
-from core.plans import can_create_roadmap, PLANS
+from core.plans import can_create_roadmap, PLANS, reset_counters_if_needed
 from core.auth import get_current_user_from_token
 from core.youtube import enrich_roadmap_with_youtube
 
@@ -143,7 +143,7 @@ async def crear_roadmap(
     if idioma not in IDIOMAS_VALIDOS:
         idioma = "es"
 
-    puede, mensaje = can_create_roadmap(user, db)
+    puede, mensaje = can_create_roadmap(user, db, nivel)
     if not puede:
         return templates.TemplateResponse("new_roadmap.html", {
             "request": request, "user": user,
@@ -296,15 +296,33 @@ async def ver_leccion(roadmap_id: int, leccion_id: str, request: Request, db: Se
         raise HTTPException(status_code=404, detail="Roadmap no encontrado")
 
     contenido = json.loads(roadmap.contenido)
-    leccion = None
-    for fase in contenido.get("fases", []):
-        for lec in fase["lecciones"]:
-            if lec["id"] == leccion_id:
-                leccion = lec
-                break
+
+    # Recopilar todas las lecciones en orden para saber cuáles son las últimas
+    todas_lecciones = [
+        lec
+        for fase in contenido.get("fases", [])
+        for lec in fase["lecciones"]
+    ]
+    leccion = next((l for l in todas_lecciones if l["id"] == leccion_id), None)
 
     if not leccion:
         raise HTTPException(status_code=404, detail="Lección no encontrada")
+
+    # Bloquear las últimas N lecciones para usuarios del plan free
+    plan_info = PLANS[user.plan]
+    lecciones_bloqueadas = plan_info.get("lecciones_bloqueadas", 0)
+    if lecciones_bloqueadas > 0 and len(todas_lecciones) > lecciones_bloqueadas:
+        ids_bloqueadas = {l["id"] for l in todas_lecciones[-lecciones_bloqueadas:]}
+        if leccion_id in ids_bloqueadas:
+            return templates.TemplateResponse("lesson_locked.html", {
+                "request": request,
+                "user": user,
+                "roadmap": roadmap,
+                "leccion": leccion,
+            })
+
+    # Resetear contador mensual si es necesario (para mostrar dato fresco)
+    reset_counters_if_needed(user, db)
 
     progreso = db.query(LessonProgress).filter(
         LessonProgress.roadmap_id == roadmap_id,
@@ -314,9 +332,6 @@ async def ver_leccion(roadmap_id: int, leccion_id: str, request: Request, db: Se
 
     checklist_estado = json.loads(progreso.checklist) if progreso else [False] * len(leccion.get("checklist", []))
 
-    from core.plans import PLANS
-    plan_info = PLANS[user.plan]
-
     return templates.TemplateResponse("lesson.html", {
         "request": request,
         "user": user,
@@ -325,7 +340,11 @@ async def ver_leccion(roadmap_id: int, leccion_id: str, request: Request, db: Se
         "leccion": leccion,
         "progreso": progreso,
         "checklist_estado": checklist_estado,
-        "plan_info": plan_info
+        "plan_info": plan_info,
+        "mensajes_restantes": (
+            -1 if plan_info["mensajes_tutor_mes"] == -1
+            else max(0, plan_info["mensajes_tutor_mes"] + (user.mensajes_bonus_resena or 0) - user.mensajes_hoy)
+        )
     })
 
 
