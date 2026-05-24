@@ -1,6 +1,31 @@
 {% extends "base.html" %}
-{% block title %}{{ contenido.titulo }} — RoadmapIA{% endblock %}
+{% block title %}{% if estado == "generando" %}Generando tu roadmap…{% else %}{{ contenido.titulo }}{% endif %} — RoadmapIA{% endblock %}
 {% block content %}
+
+{% if estado == "generando" %}
+<div class="rm-page" style="min-height:60vh;display:flex;align-items:center;justify-content:center">
+  <div style="text-align:center;max-width:480px;padding:2rem">
+    <div class="gen-spinner"></div>
+    <h2 style="margin:1.5rem 0 0.5rem;font-size:1.4rem">Generando tu roadmap de <span style="color:var(--accent)">{{ roadmap.tema }}</span></h2>
+    <p style="color:var(--muted);font-size:0.92rem;margin-bottom:1.5rem">La IA está diseñando tu plan personalizado. Esto puede tardar hasta 60 segundos.</p>
+    <div id="gen-msg" style="color:var(--accent);font-size:0.9rem;font-weight:600;min-height:1.4em"></div>
+    <div style="margin-top:1.5rem;background:var(--surface);border-radius:8px;height:6px;overflow:hidden">
+      <div id="gen-bar" style="height:100%;width:5%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:8px;transition:width 2s ease"></div>
+    </div>
+  </div>
+</div>
+{% elif estado == "error" %}
+<div class="rm-page">
+  <a href="/dashboard" style="font-size:0.8rem;color:var(--muted)">← Volver</a>
+  <div style="text-align:center;padding:3rem 1rem">
+    <div style="font-size:3rem;margin-bottom:1rem">❌</div>
+    <h2>Error al generar el roadmap</h2>
+    <p style="color:var(--muted);margin-bottom:1.5rem">Hubo un problema al generar tu roadmap. Por favor intenta de nuevo.</p>
+    <a href="/roadmaps/nuevo" class="btn btn-primary">Intentar de nuevo</a>
+  </div>
+</div>
+{% else %}
+
 <div class="rm-page">
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.25rem">
     <a href="/dashboard" style="font-size:0.8rem;color:var(--muted)">← Volver</a>
@@ -71,6 +96,7 @@
   </div>
   {% endfor %}
 </div>
+{% endif %}
 {% endblock %}
 {% block scripts %}
 <script>
@@ -81,5 +107,54 @@ function toggleFase(bodyId, arrowId) {
   b.style.display = hidden ? 'block' : 'none';
   a.style.transform = hidden ? '' : 'rotate(-90deg)';
 }
+
+{% if estado == "generando" %}
+// Mensajes y barra de progreso animados
+const mensajes = [
+  "🧠 Analizando el tema con IA...",
+  "📚 Diseñando las fases de aprendizaje...",
+  "🎯 Adaptando el contenido a tu nivel...",
+  "🎬 Buscando vídeos de YouTube...",
+  "✨ Finalizando tu roadmap personalizado...",
+  "⏳ Casi listo, un momento más..."
+];
+let msgIdx = 0;
+const msgEl = document.getElementById('gen-msg');
+const barEl = document.getElementById('gen-bar');
+const barSteps = [10, 25, 40, 60, 75, 88];
+
+function nextMsg() {
+  msgEl.style.opacity = 0;
+  setTimeout(() => {
+    msgEl.textContent = mensajes[msgIdx];
+    barEl.style.width = barSteps[msgIdx] + '%';
+    msgEl.style.opacity = 1;
+    if (msgIdx < mensajes.length - 1) msgIdx++;
+  }, 300);
+}
+msgEl.style.transition = 'opacity 0.3s';
+nextMsg();
+const msgTimer = setInterval(nextMsg, 8000);
+
+// Polling al servidor cada 3 segundos
+async function checkEstado() {
+  try {
+    const r = await fetch('/api/roadmaps/{{ roadmap.id }}/estado');
+    const data = await r.json();
+    if (data.estado === 'listo') {
+      clearInterval(msgTimer);
+      barEl.style.width = '100%';
+      msgEl.textContent = '✅ ¡Roadmap listo!';
+      setTimeout(() => window.location.reload(), 800);
+    } else if (data.estado === 'error') {
+      clearInterval(msgTimer);
+      msgEl.textContent = '❌ Error al generar. Redirigiendo...';
+      setTimeout(() => window.location.reload(), 1500);
+    }
+  } catch(e) { /* red, reintentamos */ }
+}
+const pollTimer = setInterval(checkEstado, 3000);
+checkEstado(); // primera comprobación inmediata
+{% endif %}
 </script>
 {% endblock %}

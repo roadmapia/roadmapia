@@ -32,18 +32,20 @@ def init_db():
     Base.metadata.create_all(bind=engine)
     # Migraciones suaves: añadir columnas nuevas si no existen
     with engine.connect() as conn:
-        for col, definition in [
-            ("acepta_marketing", "BOOLEAN DEFAULT 0"),
-            ("google_id", "VARCHAR"),
-            ("referral_code", "VARCHAR"),
-            ("referred_by_id", "INTEGER"),
-            ("plan_bonus_expires", "DATETIME"),
-            ("referidos_count", "INTEGER DEFAULT 0"),
-            ("resena_completada", "BOOLEAN DEFAULT 0"),
-            ("mensajes_bonus_resena", "INTEGER DEFAULT 0"),
+        for table, col, definition in [
+            ("users", "acepta_marketing", "BOOLEAN DEFAULT 0"),
+            ("users", "google_id", "VARCHAR"),
+            ("users", "referral_code", "VARCHAR"),
+            ("users", "referred_by_id", "INTEGER"),
+            ("users", "plan_bonus_expires", "DATETIME"),
+            ("users", "referidos_count", "INTEGER DEFAULT 0"),
+            ("users", "resena_completada", "BOOLEAN DEFAULT 0"),
+            ("users", "mensajes_bonus_resena", "INTEGER DEFAULT 0"),
+            ("roadmaps", "estado", "VARCHAR DEFAULT 'listo'"),
+            ("roadmaps", "error_msg", "TEXT"),
         ]:
             try:
-                conn.execute(text(f"ALTER TABLE users ADD COLUMN {col} {definition}"))
+                conn.execute(text(f"ALTER TABLE {table} ADD COLUMN {col} {definition}"))
                 conn.commit()
             except Exception:
                 pass  # columna ya existe

@@ -1,12 +1,12 @@
 import json
 import unicodedata
 from datetime import datetime, timedelta
-from fastapi import APIRouter, Depends, Request, Form, HTTPException
-from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi import APIRouter, Depends, Request, Form, HTTPException, BackgroundTasks
+from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 
-from database.database import get_db
+from database.database import get_db, SessionLocal
 from database.models import Roadmap, LessonProgress, RoadmapCache
 from core.ai_generator import generate_roadmap
 from core.plans import can_create_roadmap, PLANS
@@ -89,9 +89,44 @@ NIVELES_VALIDOS = {"principiante", "intermedio", "avanzado"}
 IDIOMAS_VALIDOS = {"es", "en"}
 
 
+async def _generar_roadmap_background(roadmap_id: int, tema: str, nivel: str, horas_semana: float, idioma: str, tema_norm: str):
+    """Genera el roadmap en background y actualiza la BD cuando termina."""
+    db = SessionLocal()
+    try:
+        # Generar con IA
+        contenido = await generate_roadmap(tema, nivel, horas_semana, idioma)
+
+        # Guardar en cache
+        nuevo_cache = RoadmapCache(
+            tema_normalizado=tema_norm,
+            nivel=nivel,
+            idioma=idioma,
+            contenido=json.dumps(contenido, ensure_ascii=False)
+        )
+        db.add(nuevo_cache)
+
+        # Actualizar roadmap
+        roadmap = db.query(Roadmap).filter(Roadmap.id == roadmap_id).first()
+        if roadmap:
+            roadmap.contenido = json.dumps(contenido, ensure_ascii=False)
+            roadmap.estado = "listo"
+        db.commit()
+        print(f"✅ Roadmap {roadmap_id} generado en background")
+    except Exception as e:
+        print(f"❌ Error generando roadmap {roadmap_id}: {e}")
+        roadmap = db.query(Roadmap).filter(Roadmap.id == roadmap_id).first()
+        if roadmap:
+            roadmap.estado = "error"
+            roadmap.error_msg = str(e)[:500]
+        db.commit()
+    finally:
+        db.close()
+
+
 @router.post("/roadmaps/nuevo")
 async def crear_roadmap(
     request: Request,
+    background_tasks: BackgroundTasks,
     tema: str = Form(...),
     nivel: str = Form(...),
     horas_semana: float = Form(...),
@@ -117,60 +152,79 @@ async def crear_roadmap(
 
     tema_norm = normalizar_tema(tema)
 
-    try:
-        # 1. Buscar en cache
-        cached = db.query(RoadmapCache).filter(
-            RoadmapCache.tema_normalizado == tema_norm,
-            RoadmapCache.nivel == nivel,
-            RoadmapCache.idioma == idioma
-        ).first()
+    # Buscar en cache
+    cached = db.query(RoadmapCache).filter(
+        RoadmapCache.tema_normalizado == tema_norm,
+        RoadmapCache.nivel == nivel,
+        RoadmapCache.idioma == idioma
+    ).first()
 
-        if cached:
-            contenido = json.loads(cached.contenido)
-            # 2. ¿Necesitan los vídeos actualizarse? (más de 90 días)
-            if datetime.utcnow() - cached.fecha_videos > timedelta(days=CACHE_VIDEO_DAYS):
-                print(f"🔄 Refrescando vídeos de cache: {tema_norm} / {nivel} / {idioma}")
-                try:
-                    contenido = await enrich_roadmap_with_youtube(contenido)
-                    cached.contenido = json.dumps(contenido, ensure_ascii=False)
-                    cached.fecha_videos = datetime.utcnow()
-                    db.commit()
-                except Exception as e:
-                    print(f"⚠️ Error al refrescar vídeos: {e}")
-                    # Usamos el contenido existente si falla el refresco
-        else:
-            # 3. Generar nuevo roadmap y guardar en cache
-            contenido = await generate_roadmap(tema, nivel, horas_semana, idioma)
-            nuevo_cache = RoadmapCache(
-                tema_normalizado=tema_norm,
-                nivel=nivel,
-                idioma=idioma,
-                contenido=json.dumps(contenido, ensure_ascii=False)
-            )
-            db.add(nuevo_cache)
-            db.flush()  # guardar cache antes de continuar
+    if cached:
+        # Cache disponible: generación rápida (síncrona)
+        contenido = json.loads(cached.contenido)
+        if datetime.utcnow() - cached.fecha_videos > timedelta(days=CACHE_VIDEO_DAYS):
+            try:
+                contenido = await enrich_roadmap_with_youtube(contenido)
+                cached.contenido = json.dumps(contenido, ensure_ascii=False)
+                cached.fecha_videos = datetime.utcnow()
+                db.commit()
+            except Exception as e:
+                print(f"⚠️ Error al refrescar vídeos: {e}")
 
-    except Exception as e:
-        return templates.TemplateResponse("new_roadmap.html", {
-            "request": request, "user": user,
-            "puede_crear": True,
-            "error": f"Error al generar el roadmap: {str(e)}"
-        })
+        roadmap = Roadmap(
+            user_id=user.id,
+            tema=tema,
+            nivel=nivel,
+            horas_semana=horas_semana,
+            contenido=json.dumps(contenido, ensure_ascii=False),
+            estado="listo"
+        )
+        db.add(roadmap)
+        user.roadmaps_este_mes += 1
+        db.commit()
+        db.refresh(roadmap)
+        return RedirectResponse(url=f"/roadmaps/{roadmap.id}", status_code=302)
 
-    roadmap = Roadmap(
-        user_id=user.id,
-        tema=tema,
-        nivel=nivel,
-        horas_semana=horas_semana,
-        contenido=json.dumps(contenido, ensure_ascii=False)
-    )
-    db.add(roadmap)
+    else:
+        # Sin cache: generación lenta → background task con spinner
+        roadmap = Roadmap(
+            user_id=user.id,
+            tema=tema,
+            nivel=nivel,
+            horas_semana=horas_semana,
+            contenido="{}",
+            estado="generando"
+        )
+        db.add(roadmap)
+        user.roadmaps_este_mes += 1
+        db.commit()
+        db.refresh(roadmap)
 
-    user.roadmaps_este_mes += 1
-    db.commit()
-    db.refresh(roadmap)
+        background_tasks.add_task(
+            _generar_roadmap_background,
+            roadmap.id, tema, nivel, horas_semana, idioma, tema_norm
+        )
+        return RedirectResponse(url=f"/roadmaps/{roadmap.id}", status_code=302)
 
-    return RedirectResponse(url=f"/roadmaps/{roadmap.id}", status_code=302)
+
+@router.get("/api/roadmaps/{roadmap_id}/estado")
+async def estado_roadmap(roadmap_id: int, request: Request, db: Session = Depends(get_db)):
+    """Endpoint de polling para conocer el estado de generación de un roadmap."""
+    user = get_user(request, db)
+    if not user:
+        raise HTTPException(status_code=401, detail="No autenticado")
+
+    roadmap = db.query(Roadmap).filter(
+        Roadmap.id == roadmap_id,
+        Roadmap.user_id == user.id
+    ).first()
+    if not roadmap:
+        raise HTTPException(status_code=404, detail="Roadmap no encontrado")
+
+    return JSONResponse({
+        "estado": roadmap.estado or "listo",
+        "error": roadmap.error_msg
+    })
 
 
 @router.get("/roadmaps/{roadmap_id}", response_class=HTMLResponse)
@@ -187,7 +241,22 @@ async def ver_roadmap(roadmap_id: int, request: Request, db: Session = Depends(g
     if not roadmap:
         raise HTTPException(status_code=404, detail="Roadmap no encontrado")
 
-    contenido = json.loads(roadmap.contenido)
+    estado = roadmap.estado or "listo"
+    contenido = json.loads(roadmap.contenido) if roadmap.contenido and roadmap.contenido != "{}" else {}
+
+    # Si está generando, mostrar spinner sin calcular progreso
+    if estado == "generando":
+        return templates.TemplateResponse("roadmap.html", {
+            "request": request,
+            "user": user,
+            "roadmap": roadmap,
+            "contenido": {},
+            "estado": "generando",
+            "progreso_map": {},
+            "porcentaje": 0,
+            "completadas": 0,
+            "total_lecciones": 0
+        })
 
     # Obtener progreso
     progreso_db = db.query(LessonProgress).filter(
@@ -205,6 +274,7 @@ async def ver_roadmap(roadmap_id: int, request: Request, db: Session = Depends(g
         "user": user,
         "roadmap": roadmap,
         "contenido": contenido,
+        "estado": estado,
         "progreso_map": progreso_map,
         "porcentaje": porcentaje,
         "completadas": completadas,

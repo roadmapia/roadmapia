@@ -44,6 +44,8 @@ class Roadmap(Base):
     nivel = Column(String, nullable=False)
     horas_semana = Column(Integer, nullable=False)
     contenido = Column(Text, nullable=False)  # JSON generado por IA
+    estado = Column(String, default="listo")  # "generando", "listo", "error"
+    error_msg = Column(Text, nullable=True)
     fecha_creacion = Column(DateTime, default=datetime.utcnow)
     activo = Column(Boolean, default=True)
 

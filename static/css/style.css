@@ -1953,3 +1953,15 @@ select.form-control option { background: var(--surface2); }
   .comp-table { min-width: 420px; }
   .navbar-brand { font-size: 1rem !important; }
 }
+
+/* ── GENERACIÓN ASÍNCRONA — SPINNER ── */
+.gen-spinner {
+  width: 72px; height: 72px;
+  border: 4px solid rgba(124,111,255,0.15);
+  border-top-color: var(--accent);
+  border-right-color: var(--accent2);
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: gen-spin 1s linear infinite;
+}
+@keyframes gen-spin { to { transform: rotate(360deg); } }
