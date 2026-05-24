@@ -1,85 +1,83 @@
-import httpx
-import os
 import asyncio
-from dotenv import load_dotenv
+import yt_dlp
 
-load_dotenv()
 
-YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY", "")
-YOUTUBE_SEARCH_URL = "https://www.googleapis.com/youtube/v3/search"
+def _search_video_sync(query: str, idioma: str = "es") -> dict:
+    """Búsqueda síncrona con yt-dlp (se ejecuta en thread pool)."""
+    lang_hint = "en" if idioma == "en" else "es"
+    ydl_opts = {
+        "quiet": True,
+        "no_warnings": True,
+        "extract_flat": True,
+    }
+    try:
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            result = ydl.extract_info(
+                f"ytsearch1:{query} {lang_hint}",
+                download=False
+            )
+            if result and result.get("entries"):
+                video = result["entries"][0]
+                video_id = video["id"]
+                return {
+                    "url": f"https://www.youtube.com/watch?v={video_id}",
+                    "embed": f"https://www.youtube.com/embed/{video_id}?rel=0&modestbranding=1",
+                    "titulo_real": video.get("title", ""),
+                }
+    except Exception as e:
+        print(f"⚠️ yt-dlp error para '{query}': {e}")
+
+    # Fallback: enlace de búsqueda
+    return {
+        "url": f"https://www.youtube.com/results?search_query={query.replace(' ', '+')}",
+        "embed": None,
+    }
 
 
 async def search_youtube_video(query: str, idioma: str = "es") -> dict:
-    """Busca un vídeo real en YouTube y retorna URL de watch y embed."""
-    if not YOUTUBE_API_KEY:
-        return {
-            "url": f"https://www.youtube.com/results?search_query={query.replace(' ', '+')}",
-            "embed": None
-        }
-
-    try:
-        async with httpx.AsyncClient(timeout=8.0) as client:
-            response = await client.get(YOUTUBE_SEARCH_URL, params={
-                "part": "snippet",
-                "q": query,
-                "type": "video",
-                "maxResults": 1,
-                "key": YOUTUBE_API_KEY,
-                "relevanceLanguage": idioma,   # "es" o "en"
-                "videoEmbeddable": "true"
-            })
-            data = response.json()
-
-        if data.get("items"):
-            video_id = data["items"][0]["id"]["videoId"]
-            titulo = data["items"][0]["snippet"]["title"]
-            return {
-                "url": f"https://www.youtube.com/watch?v={video_id}",
-                "embed": f"https://www.youtube.com/embed/{video_id}?rel=0&modestbranding=1",
-                "titulo_real": titulo
-            }
-    except Exception as e:
-        print(f"⚠️ YouTube API error para '{query}': {e}")
-
-    # Fallback si falla
-    return {
-        "url": f"https://www.youtube.com/results?search_query={query.replace(' ', '+')}",
-        "embed": None
-    }
+    """Busca un vídeo en YouTube con yt-dlp (sin API key, sin quota)."""
+    loop = asyncio.get_event_loop()
+    return await loop.run_in_executor(None, _search_video_sync, query, idioma)
 
 
 async def enrich_roadmap_with_youtube(roadmap: dict) -> dict:
     """Enriquece el roadmap reemplazando URLs de búsqueda con vídeos reales."""
-    if not YOUTUBE_API_KEY:
+    idioma = roadmap.get("idioma", "es")
+
+    # Recopilar todos los recursos que aún no tienen embed
+    resource_refs = [
+        recurso
+        for fase in roadmap.get("fases", [])
+        for leccion in fase.get("lecciones", [])
+        for recurso in leccion.get("recursos", [])
+        if not recurso.get("embed")
+    ]
+
+    if not resource_refs:
         return roadmap
 
-    idioma = roadmap.get("idioma", "es")  # usa el idioma del roadmap
+    # Limitar concurrencia para no saturar YouTube (máx 5 simultáneas)
+    semaphore = asyncio.Semaphore(5)
 
-    # Recopilar todos los recursos a buscar
-    resource_refs = []
-    tasks = []
+    async def search_with_limit(query, lang):
+        async with semaphore:
+            return await search_youtube_video(query, lang)
 
-    for fase in roadmap.get("fases", []):
-        for leccion in fase.get("lecciones", []):
-            for recurso in leccion.get("recursos", []):
-                tasks.append(search_youtube_video(recurso["texto"], idioma))
-                resource_refs.append(recurso)
+    print(f"🎬 Buscando {len(resource_refs)} vídeos con yt-dlp...")
+    results = await asyncio.gather(
+        *[search_with_limit(r["texto"], idioma) for r in resource_refs],
+        return_exceptions=True
+    )
 
-    if not tasks:
-        return roadmap
-
-    # Ejecutar todas las búsquedas en paralelo
-    print(f"🎬 Buscando {len(tasks)} vídeos en YouTube...")
-    results = await asyncio.gather(*tasks, return_exceptions=True)
-
-    # Actualizar los recursos con las URLs reales
+    encontrados = 0
     for recurso, result in zip(resource_refs, results):
         if isinstance(result, dict):
             recurso["url"] = result["url"]
             if result.get("embed"):
                 recurso["embed"] = result["embed"]
+                encontrados += 1
             if result.get("titulo_real"):
                 recurso["titulo_real"] = result["titulo_real"]
 
-    print(f"✅ YouTube: {sum(1 for r in results if isinstance(r, dict) and r.get('embed'))} vídeos encontrados")
+    print(f"✅ yt-dlp: {encontrados}/{len(resource_refs)} vídeos encontrados")
     return roadmap
