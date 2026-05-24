@@ -103,7 +103,8 @@ Available time per week: {tiempo_str}
 
 Generate the complete roadmap in JSON as specified. Include at least 3 phases with 3-4 lessons each.
 All content (titles, descriptions, checklist items, exercises) must be in English.
-Resource URLs should be real YouTube search queries in English."""
+Resource URLs should be real YouTube search queries in English.
+IMPORTANT: Keep descriptions concise (max 120 characters each) to stay within token limits."""
     else:
         user_message = f"""El usuario quiere aprender: {tema}
 Nivel actual: {nivel}
@@ -111,11 +112,12 @@ Tiempo disponible por semana: {tiempo_str}
 
 Genera el roadmap completo en JSON como se ha especificado. Incluye al menos 3 fases con 3-4 lecciones cada una.
 Todo el contenido (títulos, descripciones, checklist, ejercicios) debe estar en español.
-Las URLs de recursos deben ser búsquedas reales de YouTube en español."""
+Las URLs de recursos deben ser búsquedas reales de YouTube en español.
+IMPORTANTE: Mantén las descripciones concisas (máximo 120 caracteres cada una) para no superar el límite de tokens."""
 
     message = await client.messages.create(
         model="claude-sonnet-4-6",
-        max_tokens=8192,
+        max_tokens=16000,
         system=system_prompt,
         messages=[{"role": "user", "content": user_message}]
     )
