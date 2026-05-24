@@ -41,10 +41,10 @@ def verify_password_safe(plain: str, hashed: Optional[str]) -> bool:
     return pwd_context.verify(plain, hashed)
 
 
-def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -> str:
+def create_access_token(data: dict, expires_delta: Optional[timedelta] = None, token_version: int = 0) -> str:
     to_encode = data.copy()
     expire = datetime.utcnow() + (expires_delta or timedelta(days=ACCESS_TOKEN_EXPIRE_DAYS))
-    to_encode.update({"exp": expire})
+    to_encode.update({"exp": expire, "ver": token_version})
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
 
@@ -63,7 +63,15 @@ def get_current_user_from_token(token: str, db: Session):
     user_id = payload.get("sub")
     if not user_id:
         return None
-    return db.query(User).filter(User.id == int(user_id), User.activo == True).first()
+    user = db.query(User).filter(User.id == int(user_id), User.activo == True).first()
+    if not user:
+        return None
+    # Verificar versión del token — si el usuario cambió contraseña, ver != token_version
+    token_ver = payload.get("ver", 0)
+    user_ver = user.token_version or 0
+    if token_ver != user_ver:
+        return None  # Token revocado
+    return user
 
 
 def get_current_user(

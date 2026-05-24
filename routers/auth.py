@@ -93,8 +93,8 @@ async def register(
     if existing:
         return error("Ya existe una cuenta con ese email.")
 
-    if len(password) < 6:
-        return error("La contraseña debe tener al menos 6 caracteres.")
+    if len(password) < 8:
+        return error("La contraseña debe tener al menos 8 caracteres.")
 
     # Buscar referidor
     referidor = None
@@ -121,7 +121,7 @@ async def register(
         aplicar_bonus_referido(user, db)         # nuevo usuario: 1 mes gratis
         referidor.referidos_count = (referidor.referidos_count or 0) + 1
         aplicar_bonus_referido(referidor, db)    # referidor: también 1 mes gratis
-        print(f"🎁 Referido activado: {referidor.email} → {user.email} (ambos +1 mes Basic)")
+        print(f"🎁 Referido activado: user#{referidor.id} → user#{user.id} (ambos +1 mes Basic)")
 
     token = create_access_token({"sub": str(user.id)})
     response = RedirectResponse(url="/dashboard", status_code=status.HTTP_302_FOUND)
@@ -292,14 +292,15 @@ async def reset_password(
             "error": "Las contraseñas no coinciden."
         })
 
-    if len(password) < 6:
+    if len(password) < 8:
         return templates.TemplateResponse("reset_password.html", {
             "request": request, "token": token,
-            "error": "La contraseña debe tener al menos 6 caracteres."
+            "error": "La contraseña debe tener al menos 8 caracteres."
         })
 
     user = token_obj.user
     user.password_hash = hash_password(password)
+    user.token_version = (user.token_version or 0) + 1  # invalidar tokens viejos
     token_obj.usado = True
     db.commit()
 

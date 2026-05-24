@@ -18,6 +18,7 @@
     <div class="cuenta-section-title">👤 Datos personales</div>
     <div class="card">
       <form method="post" action="/cuenta/perfil">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
         <div class="form-group">
           <label>Nombre completo</label>
           <input type="text" name="nombre" class="form-control" value="{{ user.nombre }}" required />
@@ -41,17 +42,18 @@
       <div class="alert alert-info">Tu cuenta está vinculada a Google. No tienes contraseña — inicia sesión siempre con Google.</div>
       {% else %}
       <form method="post" action="/cuenta/password">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
         <div class="form-group">
           <label>Contraseña actual</label>
           <input type="password" name="password_actual" class="form-control" placeholder="Tu contraseña actual" required />
         </div>
         <div class="form-group">
           <label>Nueva contraseña</label>
-          <input type="password" name="password_nueva" class="form-control" placeholder="Mínimo 6 caracteres" required minlength="6" />
+          <input type="password" name="password_nueva" class="form-control" placeholder="Mínimo 8 caracteres" required minlength="8" />
         </div>
         <div class="form-group">
           <label>Repetir nueva contraseña</label>
-          <input type="password" name="password_nueva2" class="form-control" placeholder="Repite la nueva contraseña" required minlength="6" />
+          <input type="password" name="password_nueva2" class="form-control" placeholder="Repite la nueva contraseña" required minlength="8" />
         </div>
         <button type="submit" class="btn btn-primary">Cambiar contraseña</button>
       </form>

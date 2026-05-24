@@ -43,6 +43,7 @@ def init_db():
             ("users", "mensajes_bonus_resena", "INTEGER DEFAULT 0"),
             ("roadmaps", "estado", "VARCHAR DEFAULT 'listo'"),
             ("roadmaps", "error_msg", "TEXT"),
+            ("users", "token_version", "INTEGER DEFAULT 0"),
         ]:
             try:
                 conn.execute(text(f"ALTER TABLE {table} ADD COLUMN {col} {definition}"))

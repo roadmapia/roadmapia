@@ -8,6 +8,7 @@ from sqlalchemy.orm import Session
 from database.database import init_db, get_db
 from database.models import User, Roadmap
 from routers import auth, roadmaps, progress, tutor, payments
+from core.csrf import generate_csrf_token, validate_csrf_token
 
 
 @asynccontextmanager
@@ -35,9 +36,8 @@ async def index(request: Request):
 
 
 @app.get("/pricing", response_class=HTMLResponse)
-async def pricing(request: Request):
+async def pricing(request: Request, db: Session = Depends(get_db)):
     from core.auth import get_current_user_from_token
-    db = next(get_db())
     token = request.cookies.get("access_token")
     user = get_current_user_from_token(token, db) if token else None
     return templates.TemplateResponse("pricing.html", {"request": request, "user": user})
@@ -57,37 +57,43 @@ async def stats(db: Session = Depends(get_db)):
 
 
 @app.get("/cuenta", response_class=HTMLResponse)
-async def cuenta(request: Request, success: str = None, error: str = None):
+async def cuenta(request: Request, db: Session = Depends(get_db)):
     from core.auth import get_current_user_from_token
-    from core.plans import PLANS
-    db = next(get_db())
+    from core.plans import PLANS, get_plan_efectivo, generar_referral_code
     token = request.cookies.get("access_token")
     user = get_current_user_from_token(token, db) if token else None
     if not user:
         return RedirectResponse(url="/auth/login")
-    from core.plans import get_plan_efectivo, generar_referral_code
     plan_info = PLANS[get_plan_efectivo(user)]
     # Generar código referido si no tiene
     if not user.referral_code:
         user.referral_code = generar_referral_code()
         db.commit()
     has_password = user.password_hash and len(user.password_hash) > 0
+    csrf_token = generate_csrf_token(user.id)
     return templates.TemplateResponse("cuenta.html", {
         "request": request, "user": user, "plan_info": plan_info,
         "has_password": has_password,
+        "csrf_token": csrf_token,
         "success": request.query_params.get("success"),
         "error": request.query_params.get("error"),
     })
 
 
 @app.post("/cuenta/perfil")
-async def actualizar_perfil(request: Request, nombre: str = Form(...)):
+async def actualizar_perfil(
+    request: Request,
+    nombre: str = Form(...),
+    csrf_token: str = Form(""),
+    db: Session = Depends(get_db)
+):
     from core.auth import get_current_user_from_token
-    db = next(get_db())
     token = request.cookies.get("access_token")
     user = get_current_user_from_token(token, db) if token else None
     if not user:
         return RedirectResponse(url="/auth/login")
+    if not validate_csrf_token(csrf_token, user.id):
+        return RedirectResponse(url="/cuenta?error=Token+de+seguridad+inválido.+Recarga+la+página.", status_code=302)
     if not nombre.strip():
         return RedirectResponse(url="/cuenta?error=El+nombre+no+puede+estar+vacío", status_code=302)
     user.nombre = nombre.strip()
@@ -96,15 +102,16 @@ async def actualizar_perfil(request: Request, nombre: str = Form(...)):
 
 
 @app.post("/cuenta/password")
-async def cambiar_password(request: Request):
+async def cambiar_password(request: Request, db: Session = Depends(get_db)):
     from core.auth import get_current_user_from_token, verify_password, hash_password
-    from fastapi import Form as FForm
-    db = next(get_db())
     token = request.cookies.get("access_token")
     user = get_current_user_from_token(token, db) if token else None
     if not user:
         return RedirectResponse(url="/auth/login")
     form = await request.form()
+    csrf_token = form.get("csrf_token", "")
+    if not validate_csrf_token(csrf_token, user.id):
+        return RedirectResponse(url="/cuenta?error=Token+de+seguridad+inválido.+Recarga+la+página.", status_code=302)
     actual = form.get("password_actual", "")
     nueva = form.get("password_nueva", "")
     nueva2 = form.get("password_nueva2", "")
@@ -112,17 +119,17 @@ async def cambiar_password(request: Request):
         return RedirectResponse(url="/cuenta?error=La+contraseña+actual+es+incorrecta", status_code=302)
     if nueva != nueva2:
         return RedirectResponse(url="/cuenta?error=Las+contraseñas+nuevas+no+coinciden", status_code=302)
-    if len(nueva) < 6:
-        return RedirectResponse(url="/cuenta?error=La+contraseña+debe+tener+al+menos+6+caracteres", status_code=302)
+    if len(nueva) < 8:
+        return RedirectResponse(url="/cuenta?error=La+contraseña+debe+tener+al+menos+8+caracteres", status_code=302)
     user.password_hash = hash_password(nueva)
+    user.token_version = (user.token_version or 0) + 1  # invalidar tokens viejos
     db.commit()
     return RedirectResponse(url="/cuenta?success=Contraseña+cambiada+correctamente", status_code=302)
 
 
 @app.post("/cuenta/eliminar")
-async def eliminar_cuenta(request: Request):
+async def eliminar_cuenta(request: Request, db: Session = Depends(get_db)):
     from core.auth import get_current_user_from_token
-    db = next(get_db())
     token = request.cookies.get("access_token")
     user = get_current_user_from_token(token, db) if token else None
     if not user:
@@ -135,11 +142,10 @@ async def eliminar_cuenta(request: Request):
 
 
 @app.get("/certificaciones", response_class=HTMLResponse)
-async def certificaciones(request: Request):
+async def certificaciones(request: Request, db: Session = Depends(get_db)):
     import json
     from core.auth import get_current_user_from_token
     from database.models import Roadmap, LessonProgress
-    db = next(get_db())
     token = request.cookies.get("access_token")
     user = get_current_user_from_token(token, db) if token else None
     if not user:
@@ -179,7 +185,7 @@ async def marcar_resena(request: Request, db: Session = Depends(get_db)):
         user.resena_completada = True
         user.mensajes_bonus_resena = 5
         db.commit()
-        print(f"⭐ Reseña completada: {user.email} → +5 mensajes/día")
+        print(f"⭐ Reseña completada: user#{user.id} → +5 mensajes/día")
     return JSONResponse({"ok": True, "bonus": user.mensajes_bonus_resena})
 
 
@@ -190,27 +196,24 @@ async def referral_redirect(code: str):
 
 
 @app.get("/privacidad", response_class=HTMLResponse)
-async def privacidad(request: Request):
+async def privacidad(request: Request, db: Session = Depends(get_db)):
     from core.auth import get_current_user_from_token
-    db = next(get_db())
     token = request.cookies.get("access_token")
     user = get_current_user_from_token(token, db) if token else None
     return templates.TemplateResponse("privacidad.html", {"request": request, "user": user})
 
 
 @app.get("/terminos", response_class=HTMLResponse)
-async def terminos(request: Request):
+async def terminos(request: Request, db: Session = Depends(get_db)):
     from core.auth import get_current_user_from_token
-    db = next(get_db())
     token = request.cookies.get("access_token")
     user = get_current_user_from_token(token, db) if token else None
     return templates.TemplateResponse("terminos.html", {"request": request, "user": user})
 
 
 @app.get("/soporte", response_class=HTMLResponse)
-async def soporte(request: Request):
+async def soporte(request: Request, db: Session = Depends(get_db)):
     from core.auth import get_current_user_from_token
-    db = next(get_db())
     token = request.cookies.get("access_token")
     user = get_current_user_from_token(token, db) if token else None
     return templates.TemplateResponse("soporte.html", {"request": request, "user": user})
@@ -353,14 +356,13 @@ BLOG_SLUGS_VALIDOS = {
 }
 
 @app.get("/blog/{slug}", response_class=HTMLResponse)
-async def blog_post(slug: str, request: Request):
+async def blog_post(slug: str, request: Request, db: Session = Depends(get_db)):
     import re
     from core.auth import get_current_user_from_token
     # Validar slug contra whitelist y patrón seguro
     if slug not in BLOG_SLUGS_VALIDOS or not re.match(r"^[a-z0-9-]+$", slug):
         from fastapi import HTTPException
         raise HTTPException(status_code=404, detail="Artículo no encontrado")
-    db = next(get_db())
     token = request.cookies.get("access_token")
     user = get_current_user_from_token(token, db) if token else None
     return templates.TemplateResponse(f"blog/{slug}.html", {"request": request, "user": user})

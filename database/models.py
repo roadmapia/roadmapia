@@ -29,6 +29,7 @@ class User(Base):
     referidos_count = Column(Integer, default=0)
     resena_completada = Column(Boolean, default=False)      # ha dejado reseña en Trustpilot
     mensajes_bonus_resena = Column(Integer, default=0)      # +5 si dejó reseña
+    token_version = Column(Integer, default=0)              # se incrementa al cambiar contraseña → invalida tokens viejos
 
     roadmaps = relationship("Roadmap", back_populates="user", cascade="all, delete-orphan")
     progreso = relationship("LessonProgress", back_populates="user", cascade="all, delete-orphan")
