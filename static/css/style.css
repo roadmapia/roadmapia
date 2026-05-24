@@ -417,6 +417,9 @@ select.form-control option { background: var(--surface2); }
 .lesson-row:hover { border-color: rgba(124,111,255,0.25); }
 .lesson-row.done { border-color: rgba(0,230,118,0.18); }
 .lesson-row.done .lt { text-decoration: line-through; color: var(--muted); }
+.lesson-row.locked { opacity: 0.55; border-color: rgba(255,193,7,0.15); background: rgba(255,193,7,0.03); cursor: not-allowed; }
+.lesson-row.locked .lt { color: var(--muted); white-space: normal; }
+.lesson-row.locked .ld { white-space: normal; }
 .li-info { flex: 1; min-width: 0; }
 .lt { font-size: 0.875rem; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ld { font-size: 0.75rem; color: var(--muted); margin-top: 0.1rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -1936,8 +1939,19 @@ select.form-control option { background: var(--surface2); }
   /* BOTONES */
   .btn-lg { padding: 0.65rem 1.25rem !important; font-size: 0.875rem !important; }
 
-  /* SUPPORT WIDGET */
+  /* NUEVO ROADMAP / FORM PAGE — reducir margen superior y añadir espacio inferior para el widget flotante */
+  .form-page { margin: 1.25rem auto !important; padding-bottom: 6rem !important; }
+
+  /* PÁGINAS CON CONTENIDO SCROLLABLE — espacio inferior para widget flotante */
+  .rm-page, .page-wrap, .pricing-wrap, .lesson-wrap, .soporte-wrap { padding-bottom: 5rem !important; }
+
+  /* SUPPORT WIDGET — más pequeño en móvil */
   .support-panel { width: 290px !important; }
+  .support-widget { bottom: 1rem !important; right: 1rem !important; }
+  .support-bubble { width: 48px !important; height: 48px !important; font-size: 1.2rem !important; }
+
+  /* STAT BOX — etiqueta más pequeña para que quepa en 2 columnas */
+  .stat-box .lbl { font-size: 0.65rem !important; }
 
   /* CERTIFICATE */
   .cert-body { padding: 2rem 1.5rem !important; }
