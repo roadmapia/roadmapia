@@ -298,9 +298,8 @@ async def google_login(request: Request):
     if not GOOGLE_CLIENT_ID:
         raise HTTPException(status_code=400, detail="Google OAuth no configurado")
     from urllib.parse import urlencode
-    # Generar state anti-CSRF
+    # Generar state anti-CSRF (se guarda en cookie httpOnly, no en sesión)
     state = secrets.token_urlsafe(16)
-    request.session["oauth_state"] = state if hasattr(request, "session") else state
     params = {
         "client_id": GOOGLE_CLIENT_ID,
         "redirect_uri": GOOGLE_REDIRECT_URI,
