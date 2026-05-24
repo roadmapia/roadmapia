@@ -227,13 +227,58 @@ async def blog(request: Request):
     user = get_current_user_from_token(token, db) if token else None
     articles = [
         {
+            "slug": "como-aprender-marketing-digital-desde-cero",
+            "titulo": "Cómo aprender marketing digital desde cero en 2026",
+            "resumen": "SEO, redes sociales, email marketing y publicidad: qué aprender, en qué orden y cómo conseguir experiencia real sin tener clientes todavía.",
+            "emoji": "📈",
+            "categoria": "Marketing",
+            "minutos": 7,
+            "fecha": "24 de mayo, 2026"
+        },
+        {
+            "slug": "cuanto-tiempo-lleva-aprender-a-programar",
+            "titulo": "¿Cuánto tiempo lleva aprender a programar? La respuesta honesta",
+            "resumen": "Sin exageraciones de bootcamps ni promesas imposibles. Tiempos reales según el lenguaje, tu objetivo y tu dedicación diaria.",
+            "emoji": "⏱️",
+            "categoria": "Programación",
+            "minutos": 6,
+            "fecha": "22 de mayo, 2026"
+        },
+        {
+            "slug": "habilidades-digitales-que-aprender-en-2026",
+            "titulo": "Las mejores habilidades digitales que aprender en 2026",
+            "resumen": "Cuáles tienen más demanda ahora mismo, cuánto tiempo necesitas para cada una y cuál encaja mejor con tu perfil profesional.",
+            "emoji": "💡",
+            "categoria": "Productividad",
+            "minutos": 6,
+            "fecha": "20 de mayo, 2026"
+        },
+        {
+            "slug": "como-aprender-ingles-solo",
+            "titulo": "Cómo aprender inglés solo: plan paso a paso para 2026",
+            "resumen": "De cero a conversacional sin academia y sin gastar dinero. El método, los recursos gratuitos y el plan semanal exacto que realmente funciona.",
+            "emoji": "🇬🇧",
+            "categoria": "Idiomas",
+            "minutos": 8,
+            "fecha": "19 de mayo, 2026"
+        },
+        {
+            "slug": "roadmap-diseno-ux-desde-cero",
+            "titulo": "Roadmap para aprender diseño UX desde cero en 2026",
+            "resumen": "Qué estudiar primero, herramientas esenciales, cómo construir un portfolio y cómo conseguir tu primer trabajo sin experiencia previa.",
+            "emoji": "🎨",
+            "categoria": "Diseño",
+            "minutos": 7,
+            "fecha": "18 de mayo, 2026"
+        },
+        {
             "slug": "como-aprender-python-desde-cero",
-            "titulo": "Cómo aprender Python desde cero en 2025: la guía definitiva",
+            "titulo": "Cómo aprender Python desde cero en 2026: la guía definitiva",
             "resumen": "Python es el lenguaje más demandado del mercado. Te explicamos por dónde empezar, qué recursos usar y cómo estructurar tu aprendizaje para llegar al nivel profesional.",
             "emoji": "🐍",
             "categoria": "Programación",
             "minutos": 8,
-            "fecha": "15 de mayo, 2025"
+            "fecha": "15 de mayo, 2026"
         },
         {
             "slug": "aprender-con-ia-vs-cursos-tradicionales",
@@ -242,7 +287,7 @@ async def blog(request: Request):
             "emoji": "🤖",
             "categoria": "Aprendizaje",
             "minutos": 6,
-            "fecha": "10 de mayo, 2025"
+            "fecha": "10 de mayo, 2026"
         },
         {
             "slug": "roadmap-de-aprendizaje-que-es-y-por-que-necesitas-uno",
@@ -251,7 +296,7 @@ async def blog(request: Request):
             "emoji": "🗺️",
             "categoria": "Productividad",
             "minutos": 5,
-            "fecha": "5 de mayo, 2025"
+            "fecha": "5 de mayo, 2026"
         },
     ]
     return templates.TemplateResponse("blog.html", {"request": request, "user": user, "articles": articles})
@@ -353,6 +398,11 @@ BLOG_SLUGS_VALIDOS = {
     "como-aprender-python-desde-cero",
     "aprender-con-ia-vs-cursos-tradicionales",
     "roadmap-de-aprendizaje-que-es-y-por-que-necesitas-uno",
+    "roadmap-diseno-ux-desde-cero",
+    "como-aprender-ingles-solo",
+    "habilidades-digitales-que-aprender-en-2026",
+    "cuanto-tiempo-lleva-aprender-a-programar",
+    "como-aprender-marketing-digital-desde-cero",
 }
 
 @app.get("/blog/{slug}", response_class=HTMLResponse)
