@@ -37,11 +37,16 @@
         <!-- Nivel -->
         <div class="form-group">
           <label for="nivel" id="label-nivel">Nivel actual</label>
-          <select id="nivel" name="nivel" class="form-control" required>
+          <select id="nivel" name="nivel" class="form-control" required onchange="checkNivelFree(this)">
             <option value="principiante">🌱 Principiante — no sé nada del tema</option>
             <option value="intermedio">⚡ Intermedio — tengo conocimientos básicos</option>
             <option value="avanzado">🔥 Avanzado — quiero profundizar</option>
           </select>
+          {% if user and user.plan == 'free' %}
+          <div id="aviso-avanzado" style="display:none;margin-top:0.5rem;padding:0.6rem 0.9rem;background:rgba(255,193,7,0.08);border:1px solid rgba(255,193,7,0.3);border-radius:8px;font-size:0.82rem;color:#ffd54f">
+            ⚠️ El nivel avanzado requiere plan Básico o Pro. <a href="/pricing" style="color:#ffd54f;font-weight:700">Ver planes →</a>
+          </div>
+          {% endif %}
         </div>
 
         <!-- Tiempo disponible -->
@@ -162,6 +167,12 @@ function selectLang(lang) {
   nivel.options[0].text = t.opt1;
   nivel.options[1].text = t.opt2;
   nivel.options[2].text = t.opt3;
+}
+
+function checkNivelFree(sel) {
+  const aviso = document.getElementById('aviso-avanzado');
+  if (!aviso) return;
+  aviso.style.display = sel.value === 'avanzado' ? 'block' : 'none';
 }
 
 // Calcular horas_semana al enviar

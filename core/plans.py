@@ -7,7 +7,7 @@ PLANS = {
         "nombre": "Gratuito",
         "precio": 0,
         "roadmaps_mes": 1,
-        "roadmaps_avanzados_mes": -1,   # sin límite de nivel
+        "roadmaps_avanzados_mes": 0,    # no puede crear roadmaps avanzados
         "mensajes_tutor_mes": 20,        # 20 base + 5 bonus reseña = 25
         "anuncios": True,
         "certificado": False,
@@ -112,9 +112,11 @@ def can_create_roadmap(user, db, nivel: str = "principiante") -> tuple[bool, str
     if user.roadmaps_este_mes >= limite:
         return False, f"Has alcanzado el límite de {limite} roadmap(s) este mes con tu plan {plan['nombre']}."
 
-    # Límite de roadmaps avanzados por mes (sólo aplica a plan basic)
+    # Límite de roadmaps avanzados por mes
     limite_avanzados = plan.get("roadmaps_avanzados_mes", -1)
     if limite_avanzados != -1 and nivel == "avanzado":
+        if limite_avanzados == 0:
+            return False, f"El plan {plan['nombre']} no permite crear roadmaps de nivel avanzado. Mejora tu plan para acceder a este nivel."
         today = date.today()
         avanzados_mes = db.query(Roadmap).filter(
             Roadmap.user_id == user.id,
