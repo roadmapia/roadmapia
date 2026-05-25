@@ -13,9 +13,6 @@ _is_sqlite = "sqlite" in DATABASE_URL
 engine = create_engine(
     DATABASE_URL,
     connect_args={"check_same_thread": False} if _is_sqlite else {},
-    # WAL mode: múltiples lectores simultáneos + escrituras sin bloquear lecturas
-    # Crítico para soportar generaciones concurrentes sin "database is locked"
-    **( {"connect_args": {"check_same_thread": False}} if _is_sqlite else {} )
 )
 
 if _is_sqlite:
