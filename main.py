@@ -41,6 +41,12 @@ def _get_blog_slugs_validos() -> set:
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     init_db()
+
+    # Arrancar la cola de generación con prioridad por plan
+    from core.generation_queue import generation_queue
+    from core.ai_generator import generate_roadmap_progressive
+    await generation_queue.start(generate_roadmap_progressive)
+
     yield
 
 

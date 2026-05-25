@@ -40,8 +40,49 @@ async def search_youtube_video(query: str, idioma: str = "es") -> dict:
     return await loop.run_in_executor(None, _search_video_sync, query, idioma)
 
 
+async def enrich_fase_with_youtube(fase: dict, idioma: str = "es") -> dict:
+    """
+    Enriquece UNA SOLA FASE con vídeos reales.
+    Usado para generación progresiva (módulo a módulo).
+    """
+    resource_refs = [
+        recurso
+        for leccion in fase.get("lecciones", [])
+        for recurso in leccion.get("recursos", [])
+        if not recurso.get("embed")
+    ]
+
+    if not resource_refs:
+        return fase
+
+    semaphore = asyncio.Semaphore(5)
+
+    async def search_with_limit(query, lang):
+        async with semaphore:
+            return await search_youtube_video(query, lang)
+
+    print(f"🎬 [Fase '{fase.get('titulo','?')}'] Buscando {len(resource_refs)} vídeos...")
+    results = await asyncio.gather(
+        *[search_with_limit(r["texto"], idioma) for r in resource_refs],
+        return_exceptions=True
+    )
+
+    encontrados = 0
+    for recurso, result in zip(resource_refs, results):
+        if isinstance(result, dict):
+            recurso["url"] = result["url"]
+            if result.get("embed"):
+                recurso["embed"] = result["embed"]
+                encontrados += 1
+            if result.get("titulo_real"):
+                recurso["titulo_real"] = result["titulo_real"]
+
+    print(f"✅ yt-dlp fase: {encontrados}/{len(resource_refs)} vídeos encontrados")
+    return fase
+
+
 async def enrich_roadmap_with_youtube(roadmap: dict) -> dict:
-    """Enriquece el roadmap reemplazando URLs de búsqueda con vídeos reales."""
+    """Enriquece el roadmap completo reemplazando URLs de búsqueda con vídeos reales."""
     idioma = roadmap.get("idioma", "es")
 
     # Recopilar todos los recursos que aún no tienen embed

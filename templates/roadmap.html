@@ -1,34 +1,97 @@
 {% extends "base.html" %}
-{% block title %}{% if estado == "generando" %}Generando tu roadmap…{% else %}{{ contenido.titulo }}{% endif %} — RoadmapIA{% endblock %}
+{% block title %}
+  {% if estado in ["en_cola","generando","parcial"] %}
+    {% if estado == "en_cola" %}En cola…
+    {% elif estado == "parcial" %}{{ contenido.titulo }} — Cargando módulos…
+    {% else %}Generando tu roadmap…
+    {% endif %}
+  {% else %}{{ contenido.titulo }}{% endif %} — RoadmapIA
+{% endblock %}
 {% block content %}
 
-{% if estado == "generando" %}
+{# ══════════════════════════════════════════════════════════════ EN COLA ══ #}
+{% if estado == "en_cola" %}
+<div class="rm-page" style="min-height:60vh;display:flex;align-items:center;justify-content:center">
+  <div style="text-align:center;max-width:520px;padding:2rem">
+    <div style="font-size:3rem;margin-bottom:1rem">⏳</div>
+    <h2 style="margin:0 0 0.5rem;font-size:1.4rem">
+      Tu roadmap de <span style="color:var(--accent)">{{ roadmap.tema }}</span> está en cola
+    </h2>
+    <p style="color:var(--muted);font-size:0.92rem;margin-bottom:1.5rem">
+      Hay otros usuarios siendo atendidos. Espera un momento, tu turno llegará pronto.
+    </p>
+
+    {# Barra de posición #}
+    <div style="background:var(--surface);border-radius:12px;padding:1.25rem;margin-bottom:1.5rem;border:1px solid rgba(255,255,255,0.06)">
+      <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;font-size:0.85rem;color:var(--muted)">
+        <span>Tu posición en cola</span>
+        <span id="cola-plan" style="color:
+          {% if user.plan == 'pro' %}#a78bfa
+          {% elif user.plan == 'basic' %}#34d399
+          {% else %}var(--muted){% endif %}">
+          {{ user.plan|capitalize }}
+          {% if user.plan == 'pro' %} 🥇{% elif user.plan == 'basic' %} 🥈{% endif %}
+        </span>
+      </div>
+      <div style="font-size:2.5rem;font-weight:700;color:var(--accent);line-height:1" id="cola-posicion">—</div>
+      <div style="font-size:0.8rem;color:var(--muted);margin-top:0.3rem" id="cola-detalle">Consultando...</div>
+    </div>
+
+    <div id="gen-msg" style="color:var(--accent);font-size:0.9rem;font-weight:600;min-height:1.4em">⏳ Esperando tu turno...</div>
+
+    {% if user.plan == 'free' %}
+    <div style="margin-top:1.5rem;padding:1rem;background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.2);border-radius:8px;font-size:0.82rem;color:var(--muted)">
+      💡 Los usuarios <strong style="color:#a78bfa">Pro</strong> y <strong style="color:#34d399">Basic</strong> tienen prioridad en la cola.
+      <a href="/pricing" style="color:var(--accent);margin-left:0.3rem">Mejorar plan →</a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{# ════════════════════════════════════════════════════════════ GENERANDO ══ #}
+{% elif estado == "generando" %}
 <div class="rm-page" style="min-height:60vh;display:flex;align-items:center;justify-content:center">
   <div style="text-align:center;max-width:480px;padding:2rem">
     <div class="gen-spinner"></div>
-    <h2 style="margin:1.5rem 0 0.5rem;font-size:1.4rem">Generando tu roadmap de <span style="color:var(--accent)">{{ roadmap.tema }}</span></h2>
-    <p style="color:var(--muted);font-size:0.92rem;margin-bottom:1.5rem">La IA está diseñando tu plan personalizado. Esto puede tardar hasta 60 segundos.</p>
+    <h2 style="margin:1.5rem 0 0.5rem;font-size:1.4rem">
+      Generando tu roadmap de <span style="color:var(--accent)">{{ roadmap.tema }}</span>
+    </h2>
+    <p style="color:var(--muted);font-size:0.92rem;margin-bottom:1.5rem">
+      La IA está diseñando tu plan personalizado. Ya casi está, aguanta un momento.
+    </p>
     <div id="gen-msg" style="color:var(--accent);font-size:0.9rem;font-weight:600;min-height:1.4em"></div>
     <div style="margin-top:1.5rem;background:var(--surface);border-radius:8px;height:6px;overflow:hidden">
       <div id="gen-bar" style="height:100%;width:5%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:8px;transition:width 2s ease"></div>
     </div>
   </div>
 </div>
+
+{# ══════════════════════════════════════════════════════════════════ ERROR ══ #}
 {% elif estado == "error" %}
 <div class="rm-page">
   <a href="/dashboard" style="font-size:0.8rem;color:var(--muted)">← Volver</a>
   <div style="text-align:center;padding:3rem 1rem">
     <div style="font-size:3rem;margin-bottom:1rem">❌</div>
     <h2>Error al generar el roadmap</h2>
-    <p style="color:var(--muted);margin-bottom:1.5rem">Hubo un problema al generar tu roadmap. Por favor intenta de nuevo.</p>
+    <p style="color:var(--muted);margin-bottom:0.5rem">Hubo un problema al generar tu roadmap. Por favor inténtalo de nuevo.</p>
+    {% if roadmap.error_msg %}
+    <p style="color:var(--muted);font-size:0.8rem;margin-bottom:1.5rem;font-family:monospace">{{ roadmap.error_msg }}</p>
+    {% endif %}
     <a href="/roadmaps/nuevo" class="btn btn-primary">Intentar de nuevo</a>
   </div>
 </div>
+
+{# ══════════════════════════════════ PARCIAL o LISTO (roadmap visible) ══ #}
 {% else %}
 
 <div class="rm-page">
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.25rem">
     <a href="/dashboard" style="font-size:0.8rem;color:var(--muted)">← Volver</a>
+    {% if estado == "parcial" %}
+    <span style="font-size:0.8rem;color:var(--accent);display:flex;align-items:center;gap:0.4rem">
+      <span class="mini-spinner"></span> Cargando módulos restantes…
+    </span>
+    {% endif %}
     {% if porcentaje == 100 %}
       {% if user.plan == 'pro' %}
       <a href="/roadmaps/{{ roadmap.id }}/certificado" class="btn btn-success" style="padding:0.4rem 1rem;font-size:0.82rem">
@@ -67,19 +130,75 @@
   {% set ids_bloqueadas = todas[-n_bloqueadas:] if n_bloqueadas > 0 and todas|length > n_bloqueadas else [] %}
 
   {% for fase in contenido.fases %}
+  {% set fase_key = "fase" ~ loop.index %}
+  {% set fase_estado = modulos_estado.get(fase_key, "listo") if modulos_estado else "listo" %}
+
   <div class="fase">
     <div class="fase-hdr" onclick="toggleFase('fb{{ loop.index }}','fa{{ loop.index }}')">
       <div class="fase-hdr-l">
         <div class="fase-num-badge">{{ loop.index }}</div>
         <div>
-          <h3>{{ fase.titulo }}</h3>
+          <h3>
+            {{ fase.titulo }}
+            {% if fase_estado == "generando" %}
+              <span style="font-size:0.7rem;color:var(--accent);font-weight:400;margin-left:0.5rem">
+                <span class="mini-spinner"></span> buscando vídeos…
+              </span>
+            {% elif fase_estado == "pendiente" %}
+              <span style="font-size:0.7rem;color:var(--muted);font-weight:400;margin-left:0.5rem">
+                ⏳ pendiente
+              </span>
+            {% endif %}
+          </h3>
           <div class="fase-weeks">📅 Semanas {{ fase.semanas }} · {{ fase.lecciones|length }} lecciones</div>
         </div>
       </div>
       <span class="fase-arrow" id="fa{{ loop.index }}">▾</span>
     </div>
+
     <div class="fase-body" id="fb{{ loop.index }}">
       <p class="fase-desc">{{ fase.descripcion }}</p>
+
+      {% if fase_estado == "pendiente" %}
+      {# Skeleton para módulos que aún no tienen vídeos #}
+      <div style="opacity:0.5;pointer-events:none">
+        {% for leccion in fase.lecciones %}
+        <div class="lesson-row" style="filter:blur(1px)">
+          <div class="li-info">
+            <div class="lt">{{ leccion.id }}. {{ leccion.titulo }}</div>
+            <div class="ld">{{ leccion.descripcion[:85] }}{% if leccion.descripcion|length > 85 %}…{% endif %}</div>
+          </div>
+          <div class="li-right">
+            <span class="btn btn-secondary" style="padding:0.35rem 0.8rem;font-size:0.78rem;cursor:not-allowed">⏳</span>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <p style="text-align:center;color:var(--muted);font-size:0.82rem;padding:0.5rem 0">
+        🔄 Este módulo se está preparando en segundo plano…
+      </p>
+
+      {% elif fase_estado == "generando" %}
+      {# Skeleton con spinner para el módulo que se está procesando ahora mismo #}
+      <div style="opacity:0.6;pointer-events:none">
+        {% for leccion in fase.lecciones %}
+        <div class="lesson-row" style="filter:blur(0.5px)">
+          <div class="li-info">
+            <div class="lt">{{ leccion.id }}. {{ leccion.titulo }}</div>
+            <div class="ld">{{ leccion.descripcion[:85] }}{% if leccion.descripcion|length > 85 %}…{% endif %}</div>
+          </div>
+          <div class="li-right">
+            <span class="btn btn-secondary" style="padding:0.35rem 0.8rem;font-size:0.78rem;cursor:not-allowed">🎬</span>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <p style="text-align:center;color:var(--accent);font-size:0.82rem;padding:0.5rem 0">
+        <span class="mini-spinner"></span> Buscando vídeos para este módulo…
+      </p>
+
+      {% else %}
+      {# Módulo listo — mostrar normal #}
       {% for leccion in fase.lecciones %}
       {% set prog = progreso_map.get(leccion.id) %}
       {% set done = prog and prog.completada %}
@@ -105,13 +224,28 @@
         </div>
       </div>
       {% endfor %}
+      {% endif %}
+
     </div>
   </div>
   {% endfor %}
 </div>
 {% endif %}
 {% endblock %}
+
 {% block scripts %}
+<style>
+.mini-spinner {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border: 2px solid rgba(99,102,241,0.3);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  vertical-align: middle;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
 <script>
 function toggleFase(bodyId, arrowId) {
   const b = document.getElementById(bodyId);
@@ -121,14 +255,44 @@ function toggleFase(bodyId, arrowId) {
   a.style.transform = hidden ? '' : 'rotate(-90deg)';
 }
 
-{% if estado == "generando" %}
-// Mensajes y barra de progreso animados
+{% if estado == "en_cola" %}
+// ── Polling para estado EN COLA ─────────────────────────────────────────────
+const posEl    = document.getElementById('cola-posicion');
+const detalleEl = document.getElementById('cola-detalle');
+const msgEl    = document.getElementById('gen-msg');
+
+async function checkEstadoCola() {
+  try {
+    const r    = await fetch('/api/roadmaps/{{ roadmap.id }}/estado');
+    const data = await r.json();
+
+    if (data.estado === 'en_cola') {
+      posEl.textContent    = '#' + data.posicion;
+      detalleEl.textContent = data.activos + ' generándose ahora · ' + data.cola + ' en espera';
+      msgEl.textContent    = '⏳ Esperando tu turno...';
+    } else if (data.estado === 'generando') {
+      posEl.textContent    = '🚀';
+      detalleEl.textContent = '¡Tu roadmap se está generando ahora mismo!';
+      msgEl.textContent    = '🧠 La IA está diseñando tu plan...';
+      setTimeout(() => window.location.reload(), 2000);
+    } else if (data.estado === 'parcial' || data.estado === 'listo') {
+      window.location.reload();
+    } else if (data.estado === 'error') {
+      window.location.reload();
+    }
+  } catch(e) { /* red, reintentamos */ }
+}
+setInterval(checkEstadoCola, 3000);
+checkEstadoCola();
+
+{% elif estado == "generando" %}
+// ── Polling para estado GENERANDO ───────────────────────────────────────────
 const mensajes = [
   "🧠 Analizando el tema con IA...",
   "📚 Diseñando las fases de aprendizaje...",
   "🎯 Adaptando el contenido a tu nivel...",
-  "🎬 Buscando vídeos de YouTube...",
-  "✨ Finalizando tu roadmap personalizado...",
+  "🎬 Buscando vídeos del primer módulo...",
+  "✨ Finalizando el primer módulo...",
   "⏳ Casi listo, un momento más..."
 ];
 let msgIdx = 0;
@@ -139,9 +303,9 @@ const barSteps = [10, 25, 40, 60, 75, 88];
 function nextMsg() {
   msgEl.style.opacity = 0;
   setTimeout(() => {
-    msgEl.textContent = mensajes[msgIdx];
-    barEl.style.width = barSteps[msgIdx] + '%';
-    msgEl.style.opacity = 1;
+    msgEl.textContent    = mensajes[msgIdx];
+    barEl.style.width    = barSteps[msgIdx] + '%';
+    msgEl.style.opacity  = 1;
     if (msgIdx < mensajes.length - 1) msgIdx++;
   }, 300);
 }
@@ -149,15 +313,14 @@ msgEl.style.transition = 'opacity 0.3s';
 nextMsg();
 const msgTimer = setInterval(nextMsg, 8000);
 
-// Polling al servidor cada 3 segundos
 async function checkEstado() {
   try {
-    const r = await fetch('/api/roadmaps/{{ roadmap.id }}/estado');
+    const r    = await fetch('/api/roadmaps/{{ roadmap.id }}/estado');
     const data = await r.json();
-    if (data.estado === 'listo') {
+    if (data.estado === 'parcial' || data.estado === 'listo') {
       clearInterval(msgTimer);
       barEl.style.width = '100%';
-      msgEl.textContent = '✅ ¡Roadmap listo!';
+      msgEl.textContent = '✅ ¡Primer módulo listo!';
       setTimeout(() => window.location.reload(), 800);
     } else if (data.estado === 'error') {
       clearInterval(msgTimer);
@@ -167,7 +330,35 @@ async function checkEstado() {
   } catch(e) { /* red, reintentamos */ }
 }
 const pollTimer = setInterval(checkEstado, 3000);
-checkEstado(); // primera comprobación inmediata
+checkEstado();
+
+{% elif estado == "parcial" %}
+// ── Polling para estado PARCIAL (módulos cargando en background) ─────────────
+let prevModulos = {{ modulos_estado | tojson if modulos_estado else '{}' }};
+
+async function checkParcial() {
+  try {
+    const r    = await fetch('/api/roadmaps/{{ roadmap.id }}/estado');
+    const data = await r.json();
+
+    if (data.estado === 'listo') {
+      // Todo completado → recargar para mostrar todos los módulos
+      window.location.reload();
+      return;
+    }
+
+    if (data.modulos_estado) {
+      // ¿Algún módulo pasó a "listo" desde la última comprobación?
+      const nuevos = data.modulos_estado;
+      const hayCambio = Object.keys(nuevos).some(k => nuevos[k] !== prevModulos[k]);
+      if (hayCambio) {
+        prevModulos = nuevos;
+        window.location.reload();
+      }
+    }
+  } catch(e) { /* red, reintentamos */ }
+}
+setInterval(checkParcial, 4000);
 {% endif %}
 </script>
 {% endblock %}

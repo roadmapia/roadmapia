@@ -1,7 +1,7 @@
 import json
 import unicodedata
 from datetime import datetime, timedelta
-from fastapi import APIRouter, Depends, Request, Form, HTTPException, BackgroundTasks
+from fastapi import APIRouter, Depends, Request, Form, HTTPException
 from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
@@ -9,6 +9,7 @@ from sqlalchemy.orm import Session
 from database.database import get_db, SessionLocal
 from database.models import Roadmap, LessonProgress, RoadmapCache
 from core.ai_generator import generate_roadmap
+from core.generation_queue import generation_queue
 from core.plans import can_create_roadmap, PLANS, reset_counters_if_needed
 from core.auth import get_current_user_from_token
 from core.youtube import enrich_roadmap_with_youtube
@@ -47,7 +48,10 @@ async def dashboard(request: Request, db: Session = Depends(get_db)):
     # Calcular progreso de cada roadmap
     roadmaps_con_progreso = []
     for rm in roadmaps:
-        contenido = json.loads(rm.contenido)
+        try:
+            contenido = json.loads(rm.contenido) if rm.contenido and rm.contenido != "{}" else {}
+        except Exception:
+            contenido = {}
         total_lecciones = sum(len(fase["lecciones"]) for fase in contenido.get("fases", []))
         completadas = db.query(LessonProgress).filter(
             LessonProgress.roadmap_id == rm.id,
@@ -58,7 +62,8 @@ async def dashboard(request: Request, db: Session = Depends(get_db)):
             "roadmap": rm,
             "porcentaje": porcentaje,
             "completadas": completadas,
-            "total": total_lecciones
+            "total": total_lecciones,
+            "estado": rm.estado or "listo",
         })
 
     plan_info = PLANS[user.plan]
@@ -89,44 +94,9 @@ NIVELES_VALIDOS = {"principiante", "intermedio", "avanzado"}
 IDIOMAS_VALIDOS = {"es", "en"}
 
 
-async def _generar_roadmap_background(roadmap_id: int, tema: str, nivel: str, horas_semana: float, idioma: str, tema_norm: str):
-    """Genera el roadmap en background y actualiza la BD cuando termina."""
-    db = SessionLocal()
-    try:
-        # Generar con IA
-        contenido = await generate_roadmap(tema, nivel, horas_semana, idioma)
-
-        # Guardar en cache
-        nuevo_cache = RoadmapCache(
-            tema_normalizado=tema_norm,
-            nivel=nivel,
-            idioma=idioma,
-            contenido=json.dumps(contenido, ensure_ascii=False)
-        )
-        db.add(nuevo_cache)
-
-        # Actualizar roadmap
-        roadmap = db.query(Roadmap).filter(Roadmap.id == roadmap_id).first()
-        if roadmap:
-            roadmap.contenido = json.dumps(contenido, ensure_ascii=False)
-            roadmap.estado = "listo"
-        db.commit()
-        print(f"✅ Roadmap {roadmap_id} generado en background")
-    except Exception as e:
-        print(f"❌ Error generando roadmap {roadmap_id}: {e}")
-        roadmap = db.query(Roadmap).filter(Roadmap.id == roadmap_id).first()
-        if roadmap:
-            roadmap.estado = "error"
-            roadmap.error_msg = str(e)[:500]
-        db.commit()
-    finally:
-        db.close()
-
-
 @router.post("/roadmaps/nuevo")
 async def crear_roadmap(
     request: Request,
-    background_tasks: BackgroundTasks,
     tema: str = Form(...),
     nivel: str = Form(...),
     horas_semana: float = Form(...),
@@ -152,7 +122,7 @@ async def crear_roadmap(
 
     tema_norm = normalizar_tema(tema)
 
-    # Buscar en cache
+    # ── ¿Hay cache? → entrega instantánea ─────────────────────────────────────
     cached = db.query(RoadmapCache).filter(
         RoadmapCache.tema_normalizado == tema_norm,
         RoadmapCache.nivel == nivel,
@@ -160,22 +130,20 @@ async def crear_roadmap(
     ).first()
 
     if cached:
-        # Cache disponible: generación rápida (síncrona)
         contenido = json.loads(cached.contenido)
         if datetime.utcnow() - cached.fecha_videos > timedelta(days=CACHE_VIDEO_DAYS):
             try:
                 contenido = await enrich_roadmap_with_youtube(contenido)
-                cached.contenido = json.dumps(contenido, ensure_ascii=False)
+                cached.contenido    = json.dumps(contenido, ensure_ascii=False)
                 cached.fecha_videos = datetime.utcnow()
                 db.commit()
             except Exception as e:
                 print(f"⚠️ Error al refrescar vídeos: {e}")
 
         roadmap = Roadmap(
-            user_id=user.id,
-            tema=tema,
-            nivel=nivel,
-            horas_semana=horas_semana,
+            user_id=user.id, tema=tema, nivel=nivel,
+            horas_semana=horas_semana, idioma=idioma,
+            tema_normalizado=tema_norm,
             contenido=json.dumps(contenido, ensure_ascii=False),
             estado="listo"
         )
@@ -185,31 +153,36 @@ async def crear_roadmap(
         db.refresh(roadmap)
         return RedirectResponse(url=f"/roadmaps/{roadmap.id}", status_code=302)
 
-    else:
-        # Sin cache: generación lenta → background task con spinner
-        roadmap = Roadmap(
-            user_id=user.id,
-            tema=tema,
-            nivel=nivel,
-            horas_semana=horas_semana,
-            contenido="{}",
-            estado="generando"
-        )
-        db.add(roadmap)
-        user.roadmaps_este_mes += 1
-        db.commit()
-        db.refresh(roadmap)
+    # ── Sin cache → cola de generación progresiva ──────────────────────────────
+    roadmap = Roadmap(
+        user_id=user.id, tema=tema, nivel=nivel,
+        horas_semana=horas_semana, idioma=idioma,
+        tema_normalizado=tema_norm,
+        contenido="{}",
+        estado="en_cola"
+    )
+    db.add(roadmap)
+    user.roadmaps_este_mes += 1
+    db.commit()
+    db.refresh(roadmap)
 
-        background_tasks.add_task(
-            _generar_roadmap_background,
-            roadmap.id, tema, nivel, horas_semana, idioma, tema_norm
-        )
-        return RedirectResponse(url=f"/roadmaps/{roadmap.id}", status_code=302)
+    posicion = await generation_queue.enqueue(roadmap.id, user.plan)
+    if posicion is None:
+        # Cola llena — rechazar con gracia
+        roadmap.estado    = "error"
+        roadmap.error_msg = "El servidor está muy ocupado en este momento. Por favor inténtalo en unos minutos."
+        user.roadmaps_este_mes -= 1
+        db.commit()
+
+    return RedirectResponse(url=f"/roadmaps/{roadmap.id}", status_code=302)
 
 
 @router.get("/api/roadmaps/{roadmap_id}/estado")
 async def estado_roadmap(roadmap_id: int, request: Request, db: Session = Depends(get_db)):
-    """Endpoint de polling para conocer el estado de generación de un roadmap."""
+    """
+    Endpoint de polling para conocer el estado de generación de un roadmap.
+    Devuelve: estado, posicion (en cola), modulos_estado, error.
+    """
     user = get_user(request, db)
     if not user:
         raise HTTPException(status_code=401, detail="No autenticado")
@@ -221,10 +194,23 @@ async def estado_roadmap(roadmap_id: int, request: Request, db: Session = Depend
     if not roadmap:
         raise HTTPException(status_code=404, detail="Roadmap no encontrado")
 
-    return JSONResponse({
-        "estado": roadmap.estado or "listo",
-        "error": roadmap.error_msg
-    })
+    estado = roadmap.estado or "listo"
+    response: dict = {"estado": estado, "error": roadmap.error_msg}
+
+    # Para estados de cola/generación, enriquecer con info de posición
+    if estado in ("en_cola", "generando"):
+        info = await generation_queue.get_info(roadmap_id)
+        response.update({
+            "posicion": info.get("posicion", 0),
+            "activos":  info.get("activos", 0),
+            "cola":     info.get("cola", 0),
+        })
+
+    # Para generación progresiva, incluir estado de módulos
+    if estado in ("parcial", "listo") and roadmap.modulos_estado:
+        response["modulos_estado"] = json.loads(roadmap.modulos_estado)
+
+    return JSONResponse(response)
 
 
 @router.get("/roadmaps/{roadmap_id}", response_class=HTMLResponse)
@@ -244,21 +230,24 @@ async def ver_roadmap(roadmap_id: int, request: Request, db: Session = Depends(g
     estado = roadmap.estado or "listo"
     contenido = json.loads(roadmap.contenido) if roadmap.contenido and roadmap.contenido != "{}" else {}
 
-    # Si está generando, mostrar spinner sin calcular progreso
-    if estado == "generando":
+    # Estados de espera — mostrar pantalla de cola/spinner sin calcular progreso
+    if estado in ("en_cola", "generando"):
         return templates.TemplateResponse("roadmap.html", {
             "request": request,
             "user": user,
             "roadmap": roadmap,
             "contenido": {},
-            "estado": "generando",
+            "estado": estado,
+            "modulos_estado": {},
             "progreso_map": {},
             "porcentaje": 0,
             "completadas": 0,
-            "total_lecciones": 0
+            "total_lecciones": 0,
         })
 
-    # Obtener progreso
+    # Estado parcial o listo — mostrar roadmap (puede tener módulos pendientes)
+    modulos_estado = json.loads(roadmap.modulos_estado) if roadmap.modulos_estado else {}
+
     progreso_db = db.query(LessonProgress).filter(
         LessonProgress.roadmap_id == roadmap_id,
         LessonProgress.user_id == user.id
@@ -275,10 +264,11 @@ async def ver_roadmap(roadmap_id: int, request: Request, db: Session = Depends(g
         "roadmap": roadmap,
         "contenido": contenido,
         "estado": estado,
+        "modulos_estado": modulos_estado,
         "progreso_map": progreso_map,
         "porcentaje": porcentaje,
         "completadas": completadas,
-        "total_lecciones": total_lecciones
+        "total_lecciones": total_lecciones,
     })
 
 

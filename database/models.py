@@ -44,8 +44,11 @@ class Roadmap(Base):
     tema = Column(String, nullable=False)
     nivel = Column(String, nullable=False)
     horas_semana = Column(Integer, nullable=False)
-    contenido = Column(Text, nullable=False)  # JSON generado por IA
-    estado = Column(String, default="listo")  # "generando", "listo", "error"
+    idioma = Column(String, default="es")                   # "es" | "en"
+    tema_normalizado = Column(String, nullable=True)        # para búsqueda de caché
+    contenido = Column(Text, nullable=False)                # JSON generado por IA
+    estado = Column(String, default="listo")                # "en_cola"|"generando"|"parcial"|"listo"|"error"
+    modulos_estado = Column(Text, nullable=True)            # JSON: {"fase1":"listo","fase2":"pendiente",...}
     error_msg = Column(Text, nullable=True)
     fecha_creacion = Column(DateTime, default=datetime.utcnow)
     activo = Column(Boolean, default=True)

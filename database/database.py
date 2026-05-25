@@ -8,10 +8,26 @@ load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./learnai.db")
 
+_is_sqlite = "sqlite" in DATABASE_URL
+
 engine = create_engine(
     DATABASE_URL,
-    connect_args={"check_same_thread": False} if "sqlite" in DATABASE_URL else {}
+    connect_args={"check_same_thread": False} if _is_sqlite else {},
+    # WAL mode: múltiples lectores simultáneos + escrituras sin bloquear lecturas
+    # Crítico para soportar generaciones concurrentes sin "database is locked"
+    **( {"connect_args": {"check_same_thread": False}} if _is_sqlite else {} )
 )
+
+if _is_sqlite:
+    from sqlalchemy import event
+
+    @event.listens_for(engine, "connect")
+    def _set_sqlite_pragma(dbapi_conn, _record):
+        cursor = dbapi_conn.cursor()
+        cursor.execute("PRAGMA journal_mode=WAL")     # escrituras no bloquean lecturas
+        cursor.execute("PRAGMA synchronous=NORMAL")   # más rápido, suficientemente seguro
+        cursor.execute("PRAGMA busy_timeout=5000")    # espera 5s antes de dar "locked"
+        cursor.close()
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
@@ -44,6 +60,10 @@ def init_db():
             ("roadmaps", "estado", "VARCHAR DEFAULT 'listo'"),
             ("roadmaps", "error_msg", "TEXT"),
             ("users", "token_version", "INTEGER DEFAULT 0"),
+            # ── Nuevas columnas para cola + generación progresiva ──────────────
+            ("roadmaps", "idioma", "VARCHAR DEFAULT 'es'"),
+            ("roadmaps", "tema_normalizado", "VARCHAR"),
+            ("roadmaps", "modulos_estado", "TEXT"),
         ]:
             try:
                 conn.execute(text(f"ALTER TABLE {table} ADD COLUMN {col} {definition}"))
