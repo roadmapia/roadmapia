@@ -1,0 +1,1792 @@
+[
+  {
+    "id": 1,
+    "usado": true,
+    "fecha_uso": "2026-05-25",
+    "tema": "aprender cerámica desde cero en casa",
+    "keyword_principal": "aprender cerámica desde cero",
+    "keywords_secundarias": [
+      "cerámica en casa principiantes",
+      "torno de cerámica",
+      "modelado arcilla en casa"
+    ],
+    "titulo": "Cómo aprender cerámica desde cero en casa: guía completa 2026",
+    "slug": "como-aprender-ceramica-desde-cero-en-casa",
+    "resumen": "Descubre cómo iniciarte en la cerámica sin necesitar un taller profesional: materiales básicos, técnicas para principiantes y cómo progresar desde casa.",
+    "categoria": "Hobbies",
+    "emoji": "🏺",
+    "minutos": 7
+  },
+  {
+    "id": 2,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender japonés desde cero siendo adulto",
+    "keyword_principal": "aprender japonés desde cero adultos",
+    "keywords_secundarias": [
+      "hiragana katakana principiantes",
+      "japonés autodidacta",
+      "cuánto tiempo aprender japonés"
+    ],
+    "titulo": "Cómo aprender japonés desde cero siendo adulto: guía 2026",
+    "slug": "como-aprender-japones-desde-cero-adultos",
+    "resumen": "El método honesto para aprender japonés sin vivir en Japón: cuánto tarda de verdad, qué apps funcionan y cómo estructurar tu estudio.",
+    "categoria": "Idiomas",
+    "emoji": "🇯🇵",
+    "minutos": 8
+  },
+  {
+    "id": 3,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender prompt engineering para trabajar con IA",
+    "keyword_principal": "aprender prompt engineering",
+    "keywords_secundarias": [
+      "prompts ChatGPT avanzados",
+      "prompt engineering trabajo",
+      "ingeniería de prompts desde cero"
+    ],
+    "titulo": "Cómo aprender prompt engineering para trabajar con IA en 2026",
+    "slug": "como-aprender-prompt-engineering",
+    "resumen": "Prompt engineering es la habilidad más demandada de 2026. Aprende a comunicarte con la IA de forma que multiplique tu productividad profesional.",
+    "categoria": "IA y Tecnología",
+    "emoji": "🤖",
+    "minutos": 7
+  },
+  {
+    "id": 4,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender contabilidad básica siendo autónomo",
+    "keyword_principal": "contabilidad básica para autónomos",
+    "keywords_secundarias": [
+      "facturación autónomo España",
+      "IVA IRPF autónomo",
+      "llevar la contabilidad solo"
+    ],
+    "titulo": "Contabilidad básica para autónomos: aprende sin ser contable",
+    "slug": "contabilidad-basica-para-autonomos",
+    "resumen": "Todo lo que necesitas saber sobre IVA, IRPF, facturas y libros de registro sin necesidad de contratar un gestor desde el primer día.",
+    "categoria": "Finanzas",
+    "emoji": "📊",
+    "minutos": 8
+  },
+  {
+    "id": 5,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender acuarela desde cero en casa",
+    "keyword_principal": "aprender acuarela desde cero",
+    "keywords_secundarias": [
+      "acuarela principiantes materiales",
+      "técnica acuarela básica",
+      "pintura acuarela autodidacta"
+    ],
+    "titulo": "Cómo aprender acuarela desde cero: guía para principiantes 2026",
+    "slug": "como-aprender-acuarela-desde-cero",
+    "resumen": "La acuarela es uno de los medios artísticos más accesibles para empezar. Descubre qué materiales realmente necesitas y cómo aprender sin frustrarte.",
+    "categoria": "Arte",
+    "emoji": "🎨",
+    "minutos": 6
+  },
+  {
+    "id": 6,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender n8n automatización de tareas sin programar",
+    "keyword_principal": "aprender n8n desde cero",
+    "keywords_secundarias": [
+      "n8n tutorial español",
+      "automatización tareas n8n",
+      "n8n vs Zapier"
+    ],
+    "titulo": "Cómo aprender n8n: automatiza tu trabajo sin saber programar",
+    "slug": "como-aprender-n8n-automatizacion",
+    "resumen": "n8n es la herramienta de automatización más potente para no programadores. Aprende a conectar apps y eliminar tareas repetitivas de tu flujo de trabajo.",
+    "categoria": "Productividad",
+    "emoji": "⚙️",
+    "minutos": 7
+  },
+  {
+    "id": 7,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a hablar en público siendo introvertido",
+    "keyword_principal": "hablar en público para introvertidos",
+    "keywords_secundarias": [
+      "miedo hablar en público",
+      "oratoria introvertidos",
+      "superar vergüenza hablar"
+    ],
+    "titulo": "Hablar en público siendo introvertido: guía práctica 2026",
+    "slug": "hablar-en-publico-para-introvertidos",
+    "resumen": "Los mejores comunicadores del mundo son introvertidos. Descubre cómo aprovechar tu naturaleza reflexiva para hablar con confianza ante cualquier audiencia.",
+    "categoria": "Habilidades Blandas",
+    "emoji": "🎤",
+    "minutos": 7
+  },
+  {
+    "id": 8,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender coreano para fans del K-drama",
+    "keyword_principal": "aprender coreano desde cero",
+    "keywords_secundarias": [
+      "hangul para principiantes",
+      "coreano básico kdrama",
+      "aprender coreano autodidacta"
+    ],
+    "titulo": "Cómo aprender coreano desde cero: guía para fans del K-drama",
+    "slug": "como-aprender-coreano-desde-cero",
+    "resumen": "Aprender el alfabeto coreano lleva solo 2 horas. Te contamos el camino más rápido para pasar de entender k-dramas a hablar coreano real.",
+    "categoria": "Idiomas",
+    "emoji": "🇰🇷",
+    "minutos": 7
+  },
+  {
+    "id": 9,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender Power BI desde cero sin ser informático",
+    "keyword_principal": "aprender Power BI desde cero",
+    "keywords_secundarias": [
+      "Power BI tutorial español",
+      "Power BI para principiantes",
+      "dashboards Power BI"
+    ],
+    "titulo": "Cómo aprender Power BI desde cero sin ser informático",
+    "slug": "como-aprender-power-bi-desde-cero",
+    "resumen": "Power BI es la herramienta de análisis de datos más usada en empresas españolas. Aprende a crear dashboards profesionales aunque no tengas base técnica.",
+    "categoria": "Datos",
+    "emoji": "📊",
+    "minutos": 7
+  },
+  {
+    "id": 10,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a hacer pan artesanal desde cero en casa",
+    "keyword_principal": "aprender hacer pan artesanal",
+    "keywords_secundarias": [
+      "pan masa madre principiantes",
+      "pan artesanal sin amasadora",
+      "fermentación pan casero"
+    ],
+    "titulo": "Cómo aprender a hacer pan artesanal en casa: guía para principiantes",
+    "slug": "como-aprender-hacer-pan-artesanal",
+    "resumen": "Hacer pan en casa es más sencillo de lo que parece. Aprende desde el pan básico hasta la masa madre con las técnicas que realmente funcionan.",
+    "categoria": "Gastronomía",
+    "emoji": "🍞",
+    "minutos": 6
+  },
+  {
+    "id": 11,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender Excel avanzado para recursos humanos",
+    "keyword_principal": "Excel para recursos humanos",
+    "keywords_secundarias": [
+      "Excel RRHH funciones",
+      "tablas dinámicas RRHH",
+      "Excel nóminas gestión personal"
+    ],
+    "titulo": "Excel para Recursos Humanos: aprende las funciones esenciales",
+    "slug": "excel-para-recursos-humanos",
+    "resumen": "Las funciones de Excel que todo profesional de RRHH necesita dominar: desde nóminas y turnos hasta informes de rotación y análisis de personal.",
+    "categoria": "Trabajo y Empresa",
+    "emoji": "📋",
+    "minutos": 7
+  },
+  {
+    "id": 12,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender fotografía de producto para e-commerce desde cero",
+    "keyword_principal": "fotografía de producto para e-commerce",
+    "keywords_secundarias": [
+      "fotos producto Amazon",
+      "fotografía producto smartphone",
+      "iluminación fotos producto"
+    ],
+    "titulo": "Fotografía de producto para e-commerce: aprende desde cero",
+    "slug": "fotografia-producto-ecommerce-desde-cero",
+    "resumen": "Fotos profesionales de producto sin gastar en fotógrafo. Aprende a fotografiar con buena iluminación, fondos limpios y edición que convierte.",
+    "categoria": "Fotografía",
+    "emoji": "📸",
+    "minutos": 7
+  },
+  {
+    "id": 13,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a invertir en ETFs desde cero en España",
+    "keyword_principal": "aprender invertir ETFs desde cero",
+    "keywords_secundarias": [
+      "ETFs España principiantes",
+      "fondos indexados vs ETFs",
+      "invertir ETFs Hacienda"
+    ],
+    "titulo": "Cómo invertir en ETFs desde cero en España: guía 2026",
+    "slug": "como-invertir-etfs-desde-cero-espana",
+    "resumen": "Los ETFs son el producto de inversión más recomendado por los expertos para el pequeño inversor. Aprende qué son, cuáles elegir y cómo empezar en España.",
+    "categoria": "Finanzas",
+    "emoji": "💰",
+    "minutos": 8
+  },
+  {
+    "id": 14,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender meditación mindfulness desde cero",
+    "keyword_principal": "aprender meditación desde cero",
+    "keywords_secundarias": [
+      "meditación principiantes en casa",
+      "mindfulness para ansiedad",
+      "técnica meditación básica"
+    ],
+    "titulo": "Cómo aprender meditación desde cero: guía práctica para principiantes",
+    "slug": "como-aprender-meditacion-desde-cero",
+    "resumen": "La meditación no requiere horas ni gurú. Aprende las técnicas básicas que realmente reducen el estrés y cómo convertirlo en hábito en 21 días.",
+    "categoria": "Bienestar",
+    "emoji": "🧘",
+    "minutos": 6
+  },
+  {
+    "id": 15,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender SQL desde cero para no programadores",
+    "keyword_principal": "aprender SQL desde cero",
+    "keywords_secundarias": [
+      "SQL para principiantes español",
+      "bases de datos SQL básico",
+      "consultas SQL sin programar"
+    ],
+    "titulo": "Cómo aprender SQL desde cero si no eres programador: guía 2026",
+    "slug": "como-aprender-sql-desde-cero-no-programadores",
+    "resumen": "SQL es la habilidad que más te diferencia en cualquier trabajo de oficina. Aprende a consultar bases de datos en semanas aunque no hayas programado nunca.",
+    "categoria": "Datos",
+    "emoji": "🗃️",
+    "minutos": 7
+  },
+  {
+    "id": 16,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a hacer joyas y bisutería desde cero",
+    "keyword_principal": "aprender joyería artesanal desde cero",
+    "keywords_secundarias": [
+      "bisutería casera principiantes",
+      "joyería artesanal herramientas",
+      "vender joyas handmade"
+    ],
+    "titulo": "Cómo aprender joyería artesanal desde cero: guía completa",
+    "slug": "como-aprender-joyeria-artesanal-desde-cero",
+    "resumen": "Hacer tus propias joyas es una habilidad que puedes aprender en casa. Descubre las técnicas básicas, los materiales mínimos y cómo empezar a vender.",
+    "categoria": "Hobbies",
+    "emoji": "💍",
+    "minutos": 6
+  },
+  {
+    "id": 17,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender producción musical en casa sin estudios",
+    "keyword_principal": "producción musical en casa desde cero",
+    "keywords_secundarias": [
+      "DAW para principiantes",
+      "beat making para empezar",
+      "producción musical sin instrumento"
+    ],
+    "titulo": "Producción musical en casa desde cero: guía para principiantes 2026",
+    "slug": "produccion-musical-en-casa-desde-cero",
+    "resumen": "Nunca ha sido tan barato y accesible hacer música desde casa. Aprende qué software usar, cómo empezar sin saber música y los primeros pasos prácticos.",
+    "categoria": "Música",
+    "emoji": "🎵",
+    "minutos": 7
+  },
+  {
+    "id": 18,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender Notion desde cero para estudiantes universitarios",
+    "keyword_principal": "Notion para estudiantes universitarios",
+    "keywords_secundarias": [
+      "Notion apuntes universidad",
+      "Notion plantilla estudio",
+      "organizar estudios con Notion"
+    ],
+    "titulo": "Cómo usar Notion para la universidad: guía completa para estudiantes",
+    "slug": "notion-para-estudiantes-universitarios",
+    "resumen": "Notion puede transformar cómo estudias, organizas proyectos y gestionas tu vida universitaria. Aprende a configurarlo desde cero con plantillas que funcionan.",
+    "categoria": "Productividad",
+    "emoji": "📝",
+    "minutos": 7
+  },
+  {
+    "id": 19,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender yoga desde cero en casa sin profesor",
+    "keyword_principal": "aprender yoga desde cero en casa",
+    "keywords_secundarias": [
+      "yoga principiantes en casa",
+      "rutina yoga matinal",
+      "tipos de yoga para empezar"
+    ],
+    "titulo": "Cómo aprender yoga desde cero en casa: guía para principiantes",
+    "slug": "como-aprender-yoga-desde-cero-en-casa",
+    "resumen": "Aprender yoga en casa es perfectamente posible con la orientación correcta. Descubre qué estilo elegir, cómo evitar lesiones y cómo crear una rutina real.",
+    "categoria": "Bienestar",
+    "emoji": "🧘",
+    "minutos": 6
+  },
+  {
+    "id": 20,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender copywriting para redes sociales desde cero",
+    "keyword_principal": "aprender copywriting redes sociales",
+    "keywords_secundarias": [
+      "copywriting Instagram principiantes",
+      "escribir textos que venden",
+      "copywriting para RRSS"
+    ],
+    "titulo": "Cómo aprender copywriting para redes sociales desde cero",
+    "slug": "como-aprender-copywriting-redes-sociales",
+    "resumen": "El copywriting es la diferencia entre un post ignorado y uno que convierte. Aprende las técnicas básicas para escribir textos que enganchen y vendan.",
+    "categoria": "Marketing",
+    "emoji": "✍️",
+    "minutos": 7
+  },
+  {
+    "id": 21,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a crear un podcast desde cero sin equipo caro",
+    "keyword_principal": "cómo crear un podcast desde cero",
+    "keywords_secundarias": [
+      "equipo podcast principiantes",
+      "publicar podcast gratis",
+      "editar podcast Audacity"
+    ],
+    "titulo": "Cómo crear un podcast desde cero sin gastar mucho dinero",
+    "slug": "como-crear-podcast-desde-cero",
+    "resumen": "Lanzar un podcast no requiere equipo profesional ni grandes inversiones. Aprende qué necesitas realmente, cómo grabarlo y dónde publicarlo gratis.",
+    "categoria": "Comunicación",
+    "emoji": "🎙️",
+    "minutos": 7
+  },
+  {
+    "id": 22,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender programación con Python siendo biólogo",
+    "keyword_principal": "Python para biólogos",
+    "keywords_secundarias": [
+      "Python bioinformática principiantes",
+      "análisis datos biología Python",
+      "scripting biología Python"
+    ],
+    "titulo": "Python para biólogos: cómo aprender programación desde cero",
+    "slug": "python-para-biologos-desde-cero",
+    "resumen": "Python es la herramienta más usada en bioinformática y análisis de datos. Aprende desde cero con ejemplos del mundo biológico sin formación técnica previa.",
+    "categoria": "Ciencia",
+    "emoji": "🔬",
+    "minutos": 7
+  },
+  {
+    "id": 23,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a leer partituras para adultos principiantes",
+    "keyword_principal": "aprender a leer partituras adultos",
+    "keywords_secundarias": [
+      "solfeo para adultos desde cero",
+      "leer notas musicales principiantes",
+      "teoría musical básica adultos"
+    ],
+    "titulo": "Cómo aprender a leer partituras siendo adulto: guía desde cero",
+    "slug": "como-aprender-leer-partituras-adultos",
+    "resumen": "Leer partituras de adulto es perfectamente posible con el método correcto. Aprende las notas, el ritmo y el solfeo básico en semanas, no en años.",
+    "categoria": "Música",
+    "emoji": "🎼",
+    "minutos": 6
+  },
+  {
+    "id": 24,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a vender en Amazon desde cero en España",
+    "keyword_principal": "vender en Amazon desde cero España",
+    "keywords_secundarias": [
+      "Amazon FBA España principiantes",
+      "marketplace Amazon vendedor",
+      "montar tienda Amazon España"
+    ],
+    "titulo": "Cómo vender en Amazon desde cero en España: guía completa 2026",
+    "slug": "como-vender-en-amazon-desde-cero-espana",
+    "resumen": "Amazon es el mayor marketplace de España. Aprende paso a paso cómo abrir tu cuenta de vendedor, listar productos y conseguir tus primeras ventas.",
+    "categoria": "E-commerce",
+    "emoji": "📦",
+    "minutos": 8
+  },
+  {
+    "id": 25,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender ilustración digital con Procreate desde cero",
+    "keyword_principal": "aprender Procreate desde cero",
+    "keywords_secundarias": [
+      "Procreate para principiantes",
+      "dibujo digital iPad",
+      "ilustración digital Procreate tutorial"
+    ],
+    "titulo": "Cómo aprender Procreate desde cero: guía completa de ilustración digital",
+    "slug": "como-aprender-procreate-desde-cero",
+    "resumen": "Procreate ha democratizado la ilustración digital. Aprende desde los pinceles básicos hasta técnicas profesionales aunque nunca hayas dibujado digitalmente.",
+    "categoria": "Arte",
+    "emoji": "🎨",
+    "minutos": 7
+  },
+  {
+    "id": 26,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender huerto urbano en casa o en balcón",
+    "keyword_principal": "huerto urbano desde cero",
+    "keywords_secundarias": [
+      "huerto en balcón principiantes",
+      "cultivar verduras casa",
+      "huerto urbano sin jardín"
+    ],
+    "titulo": "Cómo montar tu huerto urbano desde cero: guía para principiantes",
+    "slug": "como-montar-huerto-urbano-desde-cero",
+    "resumen": "Tener tu propio huerto sin jardín ni experiencia es más sencillo de lo que crees. Aprende qué plantar, en qué orden y los errores que arruinan la cosecha.",
+    "categoria": "Hobbies",
+    "emoji": "🌱",
+    "minutos": 6
+  },
+  {
+    "id": 27,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender edición de vídeo con DaVinci Resolve gratis",
+    "keyword_principal": "aprender DaVinci Resolve desde cero",
+    "keywords_secundarias": [
+      "DaVinci Resolve tutorial español",
+      "editar vídeo DaVinci principiantes",
+      "DaVinci Resolve gratis funciones"
+    ],
+    "titulo": "Cómo aprender DaVinci Resolve desde cero: edición de vídeo gratis",
+    "slug": "como-aprender-davinci-resolve-desde-cero",
+    "resumen": "DaVinci Resolve es el software de edición profesional que usan Hollywood. Y es gratis. Aprende a editar vídeo con él desde cero hasta un nivel profesional.",
+    "categoria": "Vídeo",
+    "emoji": "🎬",
+    "minutos": 7
+  },
+  {
+    "id": 28,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender árabe moderno estándar desde cero",
+    "keyword_principal": "aprender árabe desde cero",
+    "keywords_secundarias": [
+      "árabe estándar moderno principiantes",
+      "alfabeto árabe principiantes",
+      "aprender árabe autodidacta"
+    ],
+    "titulo": "Cómo aprender árabe desde cero: guía completa para hispanohablantes",
+    "slug": "como-aprender-arabe-desde-cero",
+    "resumen": "El árabe es el quinto idioma más hablado del mundo y el más demandado en organismos internacionales. Descubre si es tan difícil como dicen y cómo empezar.",
+    "categoria": "Idiomas",
+    "emoji": "🌙",
+    "minutos": 8
+  },
+  {
+    "id": 29,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender Blender para modelado 3D desde cero",
+    "keyword_principal": "aprender Blender desde cero",
+    "keywords_secundarias": [
+      "Blender tutorial español principiantes",
+      "modelado 3D gratis Blender",
+      "Blender para animación 3D"
+    ],
+    "titulo": "Cómo aprender Blender desde cero: modelado 3D gratis paso a paso",
+    "slug": "como-aprender-blender-desde-cero",
+    "resumen": "Blender es el software de modelado 3D más potente y completamente gratuito. Aprende desde los controles básicos hasta tu primera animación 3D.",
+    "categoria": "Diseño 3D",
+    "emoji": "🎮",
+    "minutos": 7
+  },
+  {
+    "id": 30,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a negociar sueldo y contratos siendo empleado",
+    "keyword_principal": "cómo negociar el sueldo",
+    "keywords_secundarias": [
+      "negociar salario entrevista trabajo",
+      "pedir aumento de sueldo",
+      "técnicas negociación laboral"
+    ],
+    "titulo": "Cómo negociar tu sueldo y conseguir lo que vales: guía práctica",
+    "slug": "como-negociar-sueldo-trabajo",
+    "resumen": "La mayoría de personas nunca negocia su sueldo y pierde miles de euros al año. Aprende las técnicas concretas para pedir más y conseguirlo.",
+    "categoria": "Habilidades Blandas",
+    "emoji": "💼",
+    "minutos": 7
+  },
+  {
+    "id": 31,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a hacer conservas caseras desde cero",
+    "keyword_principal": "hacer conservas caseras desde cero",
+    "keywords_secundarias": [
+      "conservas al baño maría principiantes",
+      "conservas caseras seguras",
+      "mermeladas conservas en casa"
+    ],
+    "titulo": "Cómo hacer conservas caseras desde cero: guía segura para principiantes",
+    "slug": "como-hacer-conservas-caseras-desde-cero",
+    "resumen": "Las conservas caseras te permiten aprovechar la temporada y ahorrar. Aprende las técnicas seguras, los errores que causar intoxicación y recetas para empezar.",
+    "categoria": "Gastronomía",
+    "emoji": "🫙",
+    "minutos": 6
+  },
+  {
+    "id": 32,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a programar siendo mayor de 40 años",
+    "keyword_principal": "aprender programación con 40 años",
+    "keywords_secundarias": [
+      "programar siendo mayor principiante",
+      "aprender código después de los 40",
+      "programación tardía adulto"
+    ],
+    "titulo": "Cómo aprender a programar con 40 años: la guía honesta",
+    "slug": "como-aprender-programar-con-40-anos",
+    "resumen": "Aprender a programar con 40 o más años es perfectamente posible. Lo que cambia es el método. Descubre qué lenguaje elegir y cómo estructurar tu aprendizaje.",
+    "categoria": "Programación",
+    "emoji": "💻",
+    "minutos": 7
+  },
+  {
+    "id": 33,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender Arduino desde cero para principiantes",
+    "keyword_principal": "aprender Arduino desde cero",
+    "keywords_secundarias": [
+      "Arduino para principiantes sin programar",
+      "proyectos Arduino fáciles",
+      "Arduino kit principiante"
+    ],
+    "titulo": "Cómo aprender Arduino desde cero: proyectos para principiantes 2026",
+    "slug": "como-aprender-arduino-desde-cero",
+    "resumen": "Arduino es la plataforma perfecta para aprender electrónica y programación al mismo tiempo. Aprende qué kit necesitas y los primeros proyectos que enseñan más.",
+    "categoria": "Tecnología",
+    "emoji": "🤖",
+    "minutos": 7
+  },
+  {
+    "id": 34,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a tejer punto y ganchillo desde cero",
+    "keyword_principal": "aprender a tejer desde cero",
+    "keywords_secundarias": [
+      "punto de aguja principiantes",
+      "ganchillo para adultos principiantes",
+      "tejer a mano paso a paso"
+    ],
+    "titulo": "Cómo aprender a tejer punto y ganchillo desde cero: guía completa",
+    "slug": "como-aprender-a-tejer-desde-cero",
+    "resumen": "Tejer es el hobby que más auge tiene entre adultos jóvenes. Aprende si es mejor empezar con el punto o el ganchillo y los materiales que de verdad necesitas.",
+    "categoria": "Hobbies",
+    "emoji": "🧶",
+    "minutos": 6
+  },
+  {
+    "id": 35,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender Lightroom desde cero para editar fotos",
+    "keyword_principal": "aprender Lightroom desde cero",
+    "keywords_secundarias": [
+      "Lightroom tutorial español principiantes",
+      "editar fotos Lightroom básico",
+      "Lightroom Classic vs mobile"
+    ],
+    "titulo": "Cómo aprender Lightroom desde cero: edita fotos como un profesional",
+    "slug": "como-aprender-lightroom-desde-cero",
+    "resumen": "Lightroom es el estándar en edición fotográfica y más sencillo de lo que parece. Aprende los ajustes básicos que transforman cualquier foto en minutos.",
+    "categoria": "Fotografía",
+    "emoji": "📷",
+    "minutos": 7
+  },
+  {
+    "id": 36,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender italiano desde cero en casa de forma autodidacta",
+    "keyword_principal": "aprender italiano desde cero",
+    "keywords_secundarias": [
+      "italiano autodidacta principiantes",
+      "recursos gratis italiano español",
+      "cuánto tiempo aprender italiano"
+    ],
+    "titulo": "Cómo aprender italiano desde cero en casa: guía autodidacta 2026",
+    "slug": "como-aprender-italiano-desde-cero",
+    "resumen": "Para los hispanohablantes, el italiano es uno de los idiomas más rápidos de aprender. Descubre el método más eficiente y los recursos gratuitos que funcionan.",
+    "categoria": "Idiomas",
+    "emoji": "🇮🇹",
+    "minutos": 7
+  },
+  {
+    "id": 37,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a hacer sushi en casa paso a paso",
+    "keyword_principal": "aprender hacer sushi en casa",
+    "keywords_secundarias": [
+      "sushi casero principiantes",
+      "arroz sushi como hacer",
+      "utensilios sushi principiante"
+    ],
+    "titulo": "Cómo hacer sushi en casa desde cero: guía paso a paso para principiantes",
+    "slug": "como-hacer-sushi-en-casa-desde-cero",
+    "resumen": "Hacer sushi en casa es más accesible de lo que parece. Aprende qué utensilios son imprescindibles, cómo preparar el arroz perfecto y los rollos para empezar.",
+    "categoria": "Gastronomía",
+    "emoji": "🍱",
+    "minutos": 6
+  },
+  {
+    "id": 38,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender VBA para Excel automatizar tareas repetitivas",
+    "keyword_principal": "aprender VBA Excel desde cero",
+    "keywords_secundarias": [
+      "macros Excel principiantes",
+      "VBA tutorial español",
+      "automatizar Excel sin programar"
+    ],
+    "titulo": "Cómo aprender VBA para Excel y automatizar tareas repetitivas",
+    "slug": "como-aprender-vba-excel-desde-cero",
+    "resumen": "Las macros de Excel pueden ahorrarte horas de trabajo a la semana. Aprende VBA desde cero aunque nunca hayas programado y empieza a automatizar hoy.",
+    "categoria": "Productividad",
+    "emoji": "⚡",
+    "minutos": 7
+  },
+  {
+    "id": 39,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a dibujar manga anime desde cero",
+    "keyword_principal": "aprender a dibujar manga desde cero",
+    "keywords_secundarias": [
+      "dibujar anime para principiantes",
+      "cómo dibujar personajes manga",
+      "manga fundamentos principiantes"
+    ],
+    "titulo": "Cómo aprender a dibujar manga desde cero: guía para principiantes",
+    "slug": "como-aprender-dibujar-manga-desde-cero",
+    "resumen": "El manga tiene reglas de estilo propias que lo hacen más accesible de lo que parece. Aprende los fundamentos de las proporciones, expresiones y perspectiva manga.",
+    "categoria": "Arte",
+    "emoji": "✏️",
+    "minutos": 7
+  },
+  {
+    "id": 40,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender primeros auxilios básicos en casa",
+    "keyword_principal": "aprender primeros auxilios básicos",
+    "keywords_secundarias": [
+      "RCP básico adulto",
+      "primeros auxilios certificado online",
+      "qué hacer emergencia médica"
+    ],
+    "titulo": "Cómo aprender primeros auxilios básicos: lo que todos deberíamos saber",
+    "slug": "como-aprender-primeros-auxilios-basicos",
+    "resumen": "Saber RCP y actuación en emergencias puede salvar una vida. Aprende los protocolos básicos de primeros auxilios que todo adulto debería dominar.",
+    "categoria": "Salud",
+    "emoji": "🩺",
+    "minutos": 6
+  },
+  {
+    "id": 41,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a monetizar un canal de YouTube desde cero",
+    "keyword_principal": "monetizar canal YouTube desde cero",
+    "keywords_secundarias": [
+      "cuánto se gana YouTube España",
+      "requisitos monetización YouTube",
+      "canal YouTube pequeño ganar dinero"
+    ],
+    "titulo": "Cómo monetizar un canal de YouTube desde cero en 2026",
+    "slug": "como-monetizar-canal-youtube-desde-cero",
+    "resumen": "Ganar dinero en YouTube no es solo para los grandes canales. Aprende las distintas formas de monetización y cuál se adapta mejor a tu nicho y tamaño de canal.",
+    "categoria": "Creación de contenido",
+    "emoji": "📺",
+    "minutos": 8
+  },
+  {
+    "id": 42,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a diseñar logos desde cero sin ser diseñador",
+    "keyword_principal": "diseñar logo desde cero principiante",
+    "keywords_secundarias": [
+      "crear logo gratis Canva",
+      "diseño logotipo sin diseñar",
+      "logo profesional sin estudios"
+    ],
+    "titulo": "Cómo diseñar un logo profesional desde cero sin ser diseñador",
+    "slug": "como-disenar-logo-desde-cero",
+    "resumen": "Diseñar tu propio logo es posible con las herramientas correctas y entendiendo los principios básicos del diseño. Aprende a crear una identidad visual que funcione.",
+    "categoria": "Diseño",
+    "emoji": "🎯",
+    "minutos": 7
+  },
+  {
+    "id": 43,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a hacer jabones artesanales en casa",
+    "keyword_principal": "hacer jabones artesanales desde cero",
+    "keywords_secundarias": [
+      "jabón casero cold process",
+      "jabón artesanal materiales",
+      "jabonería artesanal principiantes"
+    ],
+    "titulo": "Cómo hacer jabones artesanales en casa: guía para principiantes",
+    "slug": "como-hacer-jabones-artesanales-en-casa",
+    "resumen": "Hacer tu propio jabón artesanal te permite controlar ingredientes, ahorrar dinero y crear algo que también puedes vender. Aprende las técnicas básicas de forma segura.",
+    "categoria": "Hobbies",
+    "emoji": "🧼",
+    "minutos": 6
+  },
+  {
+    "id": 44,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender marketing de afiliados desde cero en España",
+    "keyword_principal": "marketing de afiliados desde cero España",
+    "keywords_secundarias": [
+      "afiliados Amazon España",
+      "ganar dinero afiliados blog",
+      "marketing afiliación principiantes"
+    ],
+    "titulo": "Cómo empezar en marketing de afiliados desde cero en España",
+    "slug": "marketing-afiliados-desde-cero-espana",
+    "resumen": "El marketing de afiliados es una de las formas más accesibles de generar ingresos online. Aprende cómo funciona, qué plataformas usar y cómo conseguir las primeras comisiones.",
+    "categoria": "Marketing",
+    "emoji": "💸",
+    "minutos": 7
+  },
+  {
+    "id": 45,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender carpintería básica desde cero en casa",
+    "keyword_principal": "aprender carpintería desde cero",
+    "keywords_secundarias": [
+      "carpintería principiantes herramientas",
+      "madera DIY principiante",
+      "proyectos carpintería básica"
+    ],
+    "titulo": "Cómo aprender carpintería básica desde cero: guía para principiantes",
+    "slug": "como-aprender-carpinteria-desde-cero",
+    "resumen": "La carpintería es una habilidad práctica que te ahorra dinero y conecta con el trabajo manual. Aprende qué herramientas necesitas realmente y los proyectos para empezar.",
+    "categoria": "Hobbies",
+    "emoji": "🪵",
+    "minutos": 7
+  },
+  {
+    "id": 46,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender ruso desde cero siendo hispanohablante",
+    "keyword_principal": "aprender ruso desde cero",
+    "keywords_secundarias": [
+      "alfabeto cirílico principiantes",
+      "ruso autodidacta español",
+      "cuánto cuesta aprender ruso"
+    ],
+    "titulo": "Cómo aprender ruso desde cero siendo hispanohablante: guía honesta",
+    "slug": "como-aprender-ruso-desde-cero",
+    "resumen": "El ruso asusta por el cirílico, pero el alfabeto se aprende en una semana. Descubre cuánto tarda de verdad y el método más eficiente para hispanos.",
+    "categoria": "Idiomas",
+    "emoji": "🇷🇺",
+    "minutos": 7
+  },
+  {
+    "id": 47,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a gestionar proyectos con Scrum desde cero",
+    "keyword_principal": "aprender Scrum desde cero",
+    "keywords_secundarias": [
+      "metodología Scrum principiantes",
+      "Scrum Master certificación",
+      "Agile vs Scrum diferencias"
+    ],
+    "titulo": "Cómo aprender Scrum desde cero: gestión de proyectos ágil para todos",
+    "slug": "como-aprender-scrum-desde-cero",
+    "resumen": "Scrum es el método de gestión de proyectos más usado en empresas tecnológicas. Aprende los conceptos básicos y cómo aplicarlos aunque no seas del sector tech.",
+    "categoria": "Gestión",
+    "emoji": "📌",
+    "minutos": 7
+  },
+  {
+    "id": 48,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender pianon para adultos principiantes desde cero",
+    "keyword_principal": "aprender piano adulto principiante",
+    "keywords_secundarias": [
+      "piano desde cero adulto mayor",
+      "piano digital principiante comprar",
+      "cuánto tarda aprender piano"
+    ],
+    "titulo": "Cómo aprender piano siendo adulto principiante: la guía definitiva",
+    "slug": "como-aprender-piano-adulto-principiante",
+    "resumen": "Nunca es tarde para aprender piano. Descubre qué instrumento comprar, cómo estructurar la práctica diaria y cuánto tiempo llevará llegar a tocar las primeras canciones.",
+    "categoria": "Música",
+    "emoji": "🎹",
+    "minutos": 7
+  },
+  {
+    "id": 49,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender astronomía amateur con telescopio desde cero",
+    "keyword_principal": "aprender astronomía amateur desde cero",
+    "keywords_secundarias": [
+      "telescopio principiante qué comprar",
+      "observación estrellas principiantes",
+      "astronomía hobby desde cero"
+    ],
+    "titulo": "Cómo iniciarse en la astronomía amateur: guía para principiantes",
+    "slug": "como-aprender-astronomia-amateur-desde-cero",
+    "resumen": "La astronomía amateur es uno de los hobbies más enriquecedores. Aprende qué telescopio comprar como principiante, qué observar primero y cómo progresar.",
+    "categoria": "Ciencia",
+    "emoji": "🔭",
+    "minutos": 7
+  },
+  {
+    "id": 50,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender coctelería básica en casa para principiantes",
+    "keyword_principal": "aprender coctelería desde cero",
+    "keywords_secundarias": [
+      "cócteles fáciles en casa",
+      "utensilios coctelería básica",
+      "bartender principiante"
+    ],
+    "titulo": "Cómo aprender coctelería básica en casa: guía para principiantes",
+    "slug": "como-aprender-cocteleria-basica-en-casa",
+    "resumen": "La coctelería en casa es más accesible de lo que parece. Aprende qué utensilios necesitas, las técnicas básicas y los cócteles imprescindibles para empezar.",
+    "categoria": "Gastronomía",
+    "emoji": "🍹",
+    "minutos": 6
+  },
+  {
+    "id": 51,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender R para estadística y análisis de datos desde cero",
+    "keyword_principal": "aprender R estadística desde cero",
+    "keywords_secundarias": [
+      "R para principiantes estadística",
+      "R vs Python análisis datos",
+      "RStudio tutorial español"
+    ],
+    "titulo": "Cómo aprender R para estadística desde cero: guía práctica 2026",
+    "slug": "como-aprender-r-estadistica-desde-cero",
+    "resumen": "R es el lenguaje estándar en investigación estadística y ciencia de datos. Aprende desde cero aunque no tengas base matemática avanzada.",
+    "categoria": "Datos",
+    "emoji": "📈",
+    "minutos": 7
+  },
+  {
+    "id": 52,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender Google Sheets para gestionar proyectos y equipos",
+    "keyword_principal": "Google Sheets para gestión proyectos",
+    "keywords_secundarias": [
+      "Google Sheets avanzado funciones",
+      "gestión proyectos Google Sheets plantilla",
+      "Sheets vs Excel gestión"
+    ],
+    "titulo": "Cómo usar Google Sheets para gestionar proyectos y equipos",
+    "slug": "google-sheets-para-gestion-proyectos",
+    "resumen": "Google Sheets va mucho más allá de las hojas de cálculo básicas. Aprende a usarlo como herramienta real de gestión de proyectos, tareas y seguimiento de equipo.",
+    "categoria": "Productividad",
+    "emoji": "📊",
+    "minutos": 6
+  },
+  {
+    "id": 53,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a hacer droopshipping en España desde cero",
+    "keyword_principal": "dropshipping España desde cero",
+    "keywords_secundarias": [
+      "cómo empezar dropshipping España",
+      "dropshipping Shopify España",
+      "proveedores dropshipping España"
+    ],
+    "titulo": "Cómo empezar con el dropshipping en España: guía completa 2026",
+    "slug": "como-empezar-dropshipping-espana",
+    "resumen": "El dropshipping es el modelo de e-commerce sin stock. Aprende cómo funciona en España, qué proveedores usar y cómo evitar los errores que arruinan a principiantes.",
+    "categoria": "E-commerce",
+    "emoji": "🛒",
+    "minutos": 8
+  },
+  {
+    "id": 54,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a hacer videos para TikTok e Instagram Reels",
+    "keyword_principal": "crear videos TikTok Reels desde cero",
+    "keywords_secundarias": [
+      "vídeos cortos principiantes",
+      "editar TikTok principiante",
+      "contenido Reels viral"
+    ],
+    "titulo": "Cómo crear vídeos para TikTok e Instagram Reels: guía desde cero",
+    "slug": "como-crear-videos-tiktok-reels-desde-cero",
+    "resumen": "El vídeo corto es el formato con más alcance orgánico en 2026. Aprende a grabar, editar y publicar desde tu móvil sin equipo profesional.",
+    "categoria": "Creación de contenido",
+    "emoji": "🎥",
+    "minutos": 7
+  },
+  {
+    "id": 55,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender tai chi desde cero para adultos mayores",
+    "keyword_principal": "aprender tai chi desde cero adultos",
+    "keywords_secundarias": [
+      "tai chi beneficios adultos mayores",
+      "tai chi en casa principiantes",
+      "tai chi para el equilibrio"
+    ],
+    "titulo": "Cómo aprender tai chi desde cero: guía para adultos y mayores",
+    "slug": "como-aprender-tai-chi-desde-cero",
+    "resumen": "El tai chi mejora el equilibrio, reduce el estrés y previene caídas. Aprende cómo empezar en casa y los estilos más accesibles para personas de cualquier edad.",
+    "categoria": "Bienestar",
+    "emoji": "🌊",
+    "minutos": 6
+  },
+  {
+    "id": 56,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender ciberseguridad básica para trabajadores remotos",
+    "keyword_principal": "ciberseguridad básica para trabajadores remotos",
+    "keywords_secundarias": [
+      "seguridad informática en casa",
+      "proteger datos trabajo remoto",
+      "contraseñas seguras empleados"
+    ],
+    "titulo": "Ciberseguridad básica para trabajadores remotos: lo que debes saber",
+    "slug": "ciberseguridad-basica-trabajadores-remotos",
+    "resumen": "Trabajar desde casa multiplica los riesgos de seguridad. Aprende los conceptos esenciales para proteger tu trabajo y los datos de tu empresa sin ser experto.",
+    "categoria": "Tecnología",
+    "emoji": "🔒",
+    "minutos": 7
+  },
+  {
+    "id": 57,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender pastelería francesa básica desde cero en casa",
+    "keyword_principal": "pastelería francesa desde cero",
+    "keywords_secundarias": [
+      "croissants caseros principiantes",
+      "macarons receta básica",
+      "técnicas pastelería francesa"
+    ],
+    "titulo": "Cómo aprender pastelería francesa básica en casa: guía para principiantes",
+    "slug": "como-aprender-pasteleria-francesa-desde-cero",
+    "resumen": "La pastelería francesa parece intimidante, pero hay un orden lógico para aprenderla. Empieza por las técnicas base antes de intentar croissants o macarons.",
+    "categoria": "Gastronomía",
+    "emoji": "🥐",
+    "minutos": 7
+  },
+  {
+    "id": 58,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender apicultura y cría de abejas desde cero",
+    "keyword_principal": "aprender apicultura desde cero",
+    "keywords_secundarias": [
+      "cómo empezar con abejas colmena",
+      "apicultura urbana principiantes",
+      "materiales apicultura básico"
+    ],
+    "titulo": "Cómo iniciarse en la apicultura desde cero: guía para principiantes",
+    "slug": "como-aprender-apicultura-desde-cero",
+    "resumen": "La apicultura está en auge entre quienes buscan conexión con la naturaleza y producir su propia miel. Aprende qué necesitas, cómo empezar y cómo evitar los errores.",
+    "categoria": "Hobbies",
+    "emoji": "🐝",
+    "minutos": 7
+  },
+  {
+    "id": 59,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender email marketing con Mailchimp desde cero",
+    "keyword_principal": "email marketing Mailchimp desde cero",
+    "keywords_secundarias": [
+      "Mailchimp tutorial español principiantes",
+      "newsletter desde cero",
+      "email marketing para pequeño negocio"
+    ],
+    "titulo": "Email marketing con Mailchimp desde cero: guía práctica 2026",
+    "slug": "email-marketing-mailchimp-desde-cero",
+    "resumen": "El email marketing sigue siendo el canal con mayor retorno de inversión. Aprende a crear tu primera campaña, hacer crecer tu lista y medir resultados con Mailchimp.",
+    "categoria": "Marketing",
+    "emoji": "📧",
+    "minutos": 7
+  },
+  {
+    "id": 60,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a hacer animación 2D desde cero",
+    "keyword_principal": "aprender animación 2D desde cero",
+    "keywords_secundarias": [
+      "animación 2D software gratis",
+      "frame by frame animación principiantes",
+      "animación para YouTube desde cero"
+    ],
+    "titulo": "Cómo aprender animación 2D desde cero: guía para principiantes 2026",
+    "slug": "como-aprender-animacion-2d-desde-cero",
+    "resumen": "La animación 2D tiene más demanda que nunca gracias al contenido digital. Aprende qué software usar, los principios básicos de animación y cómo crear tu primer corto.",
+    "categoria": "Animación",
+    "emoji": "🎞️",
+    "minutos": 7
+  },
+  {
+    "id": 61,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender portugués brasileño desde cero",
+    "keyword_principal": "aprender portugués brasileño desde cero",
+    "keywords_secundarias": [
+      "diferencia portugués Brasil Portugal",
+      "portugués brasileño autodidacta",
+      "apps aprender portugués"
+    ],
+    "titulo": "Cómo aprender portugués brasileño desde cero: la guía definitiva",
+    "slug": "como-aprender-portugues-brasileno-desde-cero",
+    "resumen": "El portugués de Brasil es el idioma que más hispanohablantes aprenden. Descubre por qué, cuánto tiempo lleva y el camino más corto hacia la fluidez.",
+    "categoria": "Idiomas",
+    "emoji": "🇧🇷",
+    "minutos": 7
+  },
+  {
+    "id": 62,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a crear bots de Telegram con Python",
+    "keyword_principal": "crear bot Telegram Python desde cero",
+    "keywords_secundarias": [
+      "bot Telegram tutorial español",
+      "python-telegram-bot principiantes",
+      "automatizar Telegram con bot"
+    ],
+    "titulo": "Cómo crear un bot de Telegram con Python desde cero",
+    "slug": "como-crear-bot-telegram-python",
+    "resumen": "Los bots de Telegram son herramientas muy útiles para automatizar notificaciones, comandos y flujos de trabajo. Aprende a crear el tuyo con Python aunque seas principiante.",
+    "categoria": "Programación",
+    "emoji": "🤖",
+    "minutos": 7
+  },
+  {
+    "id": 63,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a escribir correos profesionales en inglés",
+    "keyword_principal": "correos profesionales en inglés",
+    "keywords_secundarias": [
+      "email business English formal",
+      "cómo escribir email formal inglés",
+      "frases email profesional inglés"
+    ],
+    "titulo": "Cómo escribir correos profesionales en inglés: guía completa con ejemplos",
+    "slug": "como-escribir-correos-profesionales-en-ingles",
+    "resumen": "El email en inglés tiene normas de formalidad muy distintas al español. Aprende las fórmulas, estructuras y frases que hacen que tus correos suenen profesionales.",
+    "categoria": "Idiomas",
+    "emoji": "📨",
+    "minutos": 6
+  },
+  {
+    "id": 64,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a usar el smartphone para personas mayores",
+    "keyword_principal": "enseñar smartphone a personas mayores",
+    "keywords_secundarias": [
+      "móvil para abuelos paso a paso",
+      "apps útiles personas mayores",
+      "aprender usar Android iPhone mayor"
+    ],
+    "titulo": "Cómo aprender a usar el smartphone siendo mayor: guía paso a paso",
+    "slug": "aprender-usar-smartphone-personas-mayores",
+    "resumen": "Guía pensada para personas mayores que quieren dominar su smartphone o para familiares que quieren ayudarles. Desde llamadas hasta WhatsApp, sin jerga técnica.",
+    "categoria": "Tecnología",
+    "emoji": "📱",
+    "minutos": 6
+  },
+  {
+    "id": 65,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a hacer punto de cruz moderno",
+    "keyword_principal": "punto de cruz moderno principiantes",
+    "keywords_secundarias": [
+      "punto de cruz contemporáneo",
+      "bordado punto de cruz minimalista",
+      "punto de cruz para adultos"
+    ],
+    "titulo": "Cómo aprender punto de cruz moderno: de principiante a intermedio",
+    "slug": "como-aprender-punto-de-cruz-moderno",
+    "resumen": "El punto de cruz ha vuelto con fuerza con diseños modernos y minimalistas. Aprende los materiales básicos, cómo leer patrones y los primeros proyectos para engancharte.",
+    "categoria": "Hobbies",
+    "emoji": "🧵",
+    "minutos": 6
+  },
+  {
+    "id": 66,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a hacer webapps sin programar con no-code",
+    "keyword_principal": "crear app web sin programar no-code",
+    "keywords_secundarias": [
+      "Bubble.io principiantes",
+      "no-code herramientas apps",
+      "crear app web gratis sin código"
+    ],
+    "titulo": "Cómo crear una app web sin programar: guía no-code 2026",
+    "slug": "crear-app-web-sin-programar-no-code",
+    "resumen": "Las herramientas no-code permiten crear aplicaciones web reales sin escribir una línea de código. Aprende cuáles usar según tu proyecto y cómo empezar.",
+    "categoria": "Tecnología",
+    "emoji": "🛠️",
+    "minutos": 7
+  },
+  {
+    "id": 67,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender serigrafía en casa para estampar ropa",
+    "keyword_principal": "aprender serigrafía desde cero en casa",
+    "keywords_secundarias": [
+      "serigrafía casera materiales",
+      "estampado ropa casero serigrafía",
+      "screen printing principiante"
+    ],
+    "titulo": "Cómo aprender serigrafía en casa desde cero: guía para principiantes",
+    "slug": "como-aprender-serigrafia-en-casa",
+    "resumen": "La serigrafía casera te permite estampar ropa, bolsas y telas con diseños propios. Aprende el proceso completo con materiales accesibles y sin equipo industrial.",
+    "categoria": "Hobbies",
+    "emoji": "👕",
+    "minutos": 7
+  },
+  {
+    "id": 68,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender chino mandarín desde cero para hispanohablantes",
+    "keyword_principal": "aprender chino mandarín desde cero",
+    "keywords_secundarias": [
+      "chino mandarín principiantes español",
+      "pinyin para principiantes",
+      "cuánto cuesta aprender chino"
+    ],
+    "titulo": "Cómo aprender chino mandarín desde cero: la guía más honesta",
+    "slug": "como-aprender-chino-mandarin-desde-cero",
+    "resumen": "El chino mandarín es el idioma más hablado del mundo. Aprende cuánto tiempo lleva de verdad, cómo funciona el sistema tonal y el método más eficiente para hispanohablantes.",
+    "categoria": "Idiomas",
+    "emoji": "🇨🇳",
+    "minutos": 8
+  },
+  {
+    "id": 69,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender desarrollo de videojuegos con Unity desde cero",
+    "keyword_principal": "aprender Unity desde cero",
+    "keywords_secundarias": [
+      "Unity para principiantes español",
+      "crear videojuego Unity sin experiencia",
+      "Unity vs Unreal principiante"
+    ],
+    "titulo": "Cómo aprender Unity desde cero: crea tu primer videojuego",
+    "slug": "como-aprender-unity-desde-cero",
+    "resumen": "Unity es el motor de videojuegos más usado para juegos indie. Aprende qué conocimientos previos necesitas, cómo empezar y cuánto tiempo lleva crear tu primer juego.",
+    "categoria": "Programación",
+    "emoji": "🎮",
+    "minutos": 7
+  },
+  {
+    "id": 70,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a hacer fermentados caseros: kombucha y kéfir",
+    "keyword_principal": "hacer fermentados caseros desde cero",
+    "keywords_secundarias": [
+      "kombucha casera principiantes",
+      "kéfir de agua leche en casa",
+      "fermentados probióticos beneficios"
+    ],
+    "titulo": "Cómo hacer fermentados caseros: kombucha, kéfir y más desde cero",
+    "slug": "como-hacer-fermentados-caseros-desde-cero",
+    "resumen": "Los fermentados caseros son más fáciles de hacer de lo que parecen y tienen beneficios reales. Aprende kombucha, kéfir y chucrut con las técnicas seguras.",
+    "categoria": "Gastronomía",
+    "emoji": "🫙",
+    "minutos": 7
+  },
+  {
+    "id": 71,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender Python para periodistas y análisis de datos",
+    "keyword_principal": "Python para periodistas de datos",
+    "keywords_secundarias": [
+      "periodismo de datos herramientas",
+      "análisis datos periodismo Python",
+      "visualización datos periodismo"
+    ],
+    "titulo": "Python para periodistas: análisis de datos sin ser programador",
+    "slug": "python-para-periodistas-analisis-datos",
+    "resumen": "El periodismo de datos ha democratizado Python entre los profesionales de la comunicación. Aprende las herramientas específicas que usan los mejores data journalists.",
+    "categoria": "Datos",
+    "emoji": "📰",
+    "minutos": 7
+  },
+  {
+    "id": 72,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender Airtable para gestión de proyectos y datos",
+    "keyword_principal": "aprender Airtable desde cero",
+    "keywords_secundarias": [
+      "Airtable tutorial español principiantes",
+      "Airtable vs Notion vs Trello",
+      "base de datos Airtable gratis"
+    ],
+    "titulo": "Cómo aprender Airtable desde cero: la base de datos sin código",
+    "slug": "como-aprender-airtable-desde-cero",
+    "resumen": "Airtable combina lo mejor de una hoja de cálculo y una base de datos sin necesitar programación. Aprende a crear tu primera base y automatizar flujos de trabajo.",
+    "categoria": "Productividad",
+    "emoji": "🗂️",
+    "minutos": 6
+  },
+  {
+    "id": 73,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender técnicas de memoria y estudio eficaz",
+    "keyword_principal": "técnicas de memoria para estudiar",
+    "keywords_secundarias": [
+      "método Feynman aprendizaje",
+      "spaced repetition Anki",
+      "técnica Pomodoro estudiar"
+    ],
+    "titulo": "Técnicas de memoria para estudiar más en menos tiempo: guía completa",
+    "slug": "tecnicas-memoria-para-estudiar-mejor",
+    "resumen": "Las técnicas de memoria y estudio eficaz están respaldadas por ciencia. Aprende el método Feynman, la repetición espaciada y el palacio de la memoria aplicados al estudio real.",
+    "categoria": "Aprendizaje",
+    "emoji": "🧠",
+    "minutos": 7
+  },
+  {
+    "id": 74,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a crear webs con Webflow sin programar",
+    "keyword_principal": "crear web con Webflow desde cero",
+    "keywords_secundarias": [
+      "Webflow tutorial español",
+      "Webflow vs WordPress",
+      "diseño web Webflow sin código"
+    ],
+    "titulo": "Cómo crear una web profesional con Webflow sin saber programar",
+    "slug": "como-crear-web-con-webflow-sin-programar",
+    "resumen": "Webflow permite crear webs con código visual sin saber HTML ni CSS. Aprende cuándo tiene sentido usarlo y cómo crear un sitio profesional desde cero.",
+    "categoria": "Diseño Web",
+    "emoji": "🌐",
+    "minutos": 7
+  },
+  {
+    "id": 75,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender tipografía para diseñadores desde cero",
+    "keyword_principal": "aprender tipografía para diseño",
+    "keywords_secundarias": [
+      "tipografía para principiantes diseño",
+      "fuentes diseño gráfico reglas",
+      "combinación tipografías diseño web"
+    ],
+    "titulo": "Cómo aprender tipografía para diseñadores: guía desde cero",
+    "slug": "como-aprender-tipografia-para-disenadores",
+    "resumen": "La tipografía es el elemento más infravalorado del diseño. Aprende los principios básicos, cómo combinar fuentes y las reglas que separan el diseño amateur del profesional.",
+    "categoria": "Diseño",
+    "emoji": "🔤",
+    "minutos": 6
+  },
+  {
+    "id": 76,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a hacer origami desde formas básicas a avanzadas",
+    "keyword_principal": "aprender origami desde cero",
+    "keywords_secundarias": [
+      "origami para principiantes adultos",
+      "origami modular paso a paso",
+      "origami japonés papiroflexia"
+    ],
+    "titulo": "Cómo aprender origami desde cero: guía de principiante a avanzado",
+    "slug": "como-aprender-origami-desde-cero",
+    "resumen": "El origami entrena la concentración y la psicomotricidad. Aprende las bases de los pliegues fundamentales antes de intentar figuras complejas y el orden lógico para progresar.",
+    "categoria": "Hobbies",
+    "emoji": "🦢",
+    "minutos": 6
+  },
+  {
+    "id": 77,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender Google Apps Script para automatizar Google Workspace",
+    "keyword_principal": "aprender Google Apps Script desde cero",
+    "keywords_secundarias": [
+      "Apps Script tutorial español",
+      "automatizar Gmail Sheets Script",
+      "Google Apps Script principiante"
+    ],
+    "titulo": "Cómo aprender Google Apps Script: automatiza Google Workspace",
+    "slug": "como-aprender-google-apps-script",
+    "resumen": "Google Apps Script te permite automatizar Gmail, Sheets, Calendar y más con JavaScript básico. Aprende a crear tus primeros scripts aunque no sepas programar.",
+    "categoria": "Productividad",
+    "emoji": "⚡",
+    "minutos": 7
+  },
+  {
+    "id": 78,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender encuadernación artesanal de libros desde cero",
+    "keyword_principal": "aprender encuadernación artesanal",
+    "keywords_secundarias": [
+      "encuadernación libros en casa",
+      "bookbinding principiantes materiales",
+      "restaurar libros encuadernación"
+    ],
+    "titulo": "Cómo aprender encuadernación artesanal de libros desde cero",
+    "slug": "como-aprender-encuadernacion-artesanal",
+    "resumen": "La encuadernación artesanal es un oficio ancestral que puedes aprender en casa. Descubre las técnicas básicas, los materiales necesarios y tus primeros proyectos.",
+    "categoria": "Hobbies",
+    "emoji": "📚",
+    "minutos": 6
+  },
+  {
+    "id": 79,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a invertir en bolsa para principiantes en España",
+    "keyword_principal": "invertir en bolsa principiantes España",
+    "keywords_secundarias": [
+      "cómo comprar acciones España",
+      "broker España principiante",
+      "bolsa para dummies España 2026"
+    ],
+    "titulo": "Cómo invertir en bolsa siendo principiante en España: guía 2026",
+    "slug": "como-invertir-en-bolsa-principiantes-espana",
+    "resumen": "La bolsa no es solo para ricos ni expertos. Aprende los conceptos básicos, qué broker elegir en España y cómo empezar con pequeñas cantidades de forma segura.",
+    "categoria": "Finanzas",
+    "emoji": "📈",
+    "minutos": 8
+  },
+  {
+    "id": 80,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a hacer velas artesanales en casa",
+    "keyword_principal": "hacer velas artesanales desde cero",
+    "keywords_secundarias": [
+      "velas de soja caseras principiantes",
+      "fragancias velas artesanales",
+      "negocio velas artesanales"
+    ],
+    "titulo": "Cómo hacer velas artesanales en casa: guía completa para principiantes",
+    "slug": "como-hacer-velas-artesanales-en-casa",
+    "resumen": "Las velas artesanales son uno de los hobbies con más salida comercial. Aprende qué cera usar, cómo añadir fragancias y los primeros diseños que sorprenden.",
+    "categoria": "Hobbies",
+    "emoji": "🕯️",
+    "minutos": 6
+  },
+  {
+    "id": 81,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender permacultura y diseño de jardines sostenibles",
+    "keyword_principal": "aprender permacultura desde cero",
+    "keywords_secundarias": [
+      "diseño permacultura principiantes",
+      "jardín sostenible permacultura",
+      "permacultura en ciudad"
+    ],
+    "titulo": "Cómo aprender permacultura desde cero: diseña un jardín sostenible",
+    "slug": "como-aprender-permacultura-desde-cero",
+    "resumen": "La permacultura es más que un método de jardinería: es una forma de pensar el espacio y los recursos. Aprende los principios básicos y cómo aplicarlos aunque vivas en ciudad.",
+    "categoria": "Naturaleza",
+    "emoji": "🌿",
+    "minutos": 7
+  },
+  {
+    "id": 82,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender flamenco desde cero sin haber bailado nunca",
+    "keyword_principal": "aprender flamenco desde cero",
+    "keywords_secundarias": [
+      "clases flamenco online principiantes",
+      "flamenco para adultos sin experiencia",
+      "aprender sevillanas desde cero"
+    ],
+    "titulo": "Cómo aprender flamenco desde cero: guía para adultos sin experiencia",
+    "slug": "como-aprender-flamenco-desde-cero",
+    "resumen": "El flamenco es uno de los bailes más expresivos y con más identidad cultural. Aprende por dónde empezar, qué diferencia a los estilos y cómo progresar desde casa.",
+    "categoria": "Danza",
+    "emoji": "💃",
+    "minutos": 7
+  },
+  {
+    "id": 83,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a escribir y publicar un ebook desde cero",
+    "keyword_principal": "cómo escribir y publicar un ebook",
+    "keywords_secundarias": [
+      "ebook Amazon KDP desde cero",
+      "autopublicación digital ebook",
+      "escribir ebook que vende"
+    ],
+    "titulo": "Cómo escribir y publicar un ebook desde cero en 2026",
+    "slug": "como-escribir-publicar-ebook-desde-cero",
+    "resumen": "Publicar un ebook ya no requiere editorial ni intermediarios. Aprende el proceso completo: de la idea a la venta en Amazon KDP o tu propia tienda.",
+    "categoria": "Escritura",
+    "emoji": "📖",
+    "minutos": 7
+  },
+  {
+    "id": 84,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a hacer cursos online y venderlos desde cero",
+    "keyword_principal": "crear cursos online y venderlos",
+    "keywords_secundarias": [
+      "crear curso online Teachable Kajabi",
+      "vender cursos por internet España",
+      "curso online plataforma propia"
+    ],
+    "titulo": "Cómo crear y vender cursos online desde cero en 2026",
+    "slug": "como-crear-vender-cursos-online",
+    "resumen": "Los cursos online son uno de los negocios digitales con mejores márgenes. Aprende qué tema elegir, qué plataforma usar y cómo conseguir tus primeras ventas.",
+    "categoria": "E-learning",
+    "emoji": "🎓",
+    "minutos": 8
+  },
+  {
+    "id": 85,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a programar para niños con Scratch desde casa",
+    "keyword_principal": "programación para niños con Scratch",
+    "keywords_secundarias": [
+      "Scratch programación infantil",
+      "enseñar programar niños en casa",
+      "Scratch proyectos para niños"
+    ],
+    "titulo": "Cómo enseñar programación a niños con Scratch: guía para padres",
+    "slug": "programacion-ninos-scratch-desde-casa",
+    "resumen": "Scratch es la herramienta más efectiva para que niños aprendan lógica y programación jugando. Descubre cómo usarla en casa y los proyectos que más enganchan.",
+    "categoria": "Programación",
+    "emoji": "👾",
+    "minutos": 6
+  },
+  {
+    "id": 86,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a componer música electrónica con Ableton Live",
+    "keyword_principal": "aprender Ableton Live desde cero",
+    "keywords_secundarias": [
+      "Ableton Live tutorial español principiantes",
+      "música electrónica DAW principiante",
+      "Ableton Live primera canción"
+    ],
+    "titulo": "Cómo aprender Ableton Live desde cero: produce música electrónica",
+    "slug": "como-aprender-ableton-live-desde-cero",
+    "resumen": "Ableton Live es el estándar en producción de música electrónica. Aprende la interfaz, los instrumentos virtuales y cómo crear tu primera canción completa.",
+    "categoria": "Música",
+    "emoji": "🎛️",
+    "minutos": 7
+  },
+  {
+    "id": 87,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a hacer resina epoxi artesanal desde cero",
+    "keyword_principal": "resina epoxi artesanal desde cero",
+    "keywords_secundarias": [
+      "resina epoxi principiantes materiales",
+      "manualidades resina principiante",
+      "arte en resina epoxi"
+    ],
+    "titulo": "Cómo aprender a trabajar con resina epoxi: guía para principiantes",
+    "slug": "como-aprender-resina-epoxi-artesanal",
+    "resumen": "La resina epoxi permite crear objetos decorativos únicos y tiene mucha salida en el mercado artesanal. Aprende a usarla de forma segura y los proyectos para empezar.",
+    "categoria": "Hobbies",
+    "emoji": "💎",
+    "minutos": 6
+  },
+  {
+    "id": 88,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a hacer turismo rural sostenible como actividad",
+    "keyword_principal": "cómo aprender fotografía de viaje desde cero",
+    "keywords_secundarias": [
+      "fotografía de viajes principiantes",
+      "fotos de viaje smartphone",
+      "editar fotos de viaje móvil"
+    ],
+    "titulo": "Fotografía de viaje desde cero: captura tus aventuras como un profesional",
+    "slug": "fotografia-de-viaje-desde-cero",
+    "resumen": "La fotografía de viaje no requiere cámara cara. Aprende composición, luz natural y edición básica para que tus fotos de viaje cuenten una historia real.",
+    "categoria": "Fotografía",
+    "emoji": "✈️",
+    "minutos": 7
+  },
+  {
+    "id": 89,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a hacer mapas mentales para estudiar y crear",
+    "keyword_principal": "hacer mapas mentales para estudiar",
+    "keywords_secundarias": [
+      "mapas mentales técnica estudio",
+      "mind mapping herramientas gratis",
+      "mapa mental vs esquema"
+    ],
+    "titulo": "Cómo hacer mapas mentales para estudiar y organizar ideas",
+    "slug": "como-hacer-mapas-mentales-para-estudiar",
+    "resumen": "Los mapas mentales activan más zonas del cerebro que los esquemas lineales. Aprende la técnica correcta, qué herramientas usar y cómo aplicarlos al estudio real.",
+    "categoria": "Productividad",
+    "emoji": "🗺️",
+    "minutos": 6
+  },
+  {
+    "id": 90,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a hacer podcasting en español para empresas",
+    "keyword_principal": "podcast para empresas desde cero",
+    "keywords_secundarias": [
+      "podcast corporativo España",
+      "branded podcast marketing",
+      "estrategia podcast empresa"
+    ],
+    "titulo": "Cómo crear un podcast para tu empresa desde cero en 2026",
+    "slug": "como-crear-podcast-para-empresa",
+    "resumen": "El podcast corporativo es la apuesta de marketing más rentable para empresas medianas. Aprende cómo definir la estrategia, grabar y publicar sin equipo especializado.",
+    "categoria": "Marketing",
+    "emoji": "🎙️",
+    "minutos": 7
+  },
+  {
+    "id": 91,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a tocar la zampoña desde cero",
+    "keyword_principal": "como aprender zampoña",
+    "keywords_secundarias": [],
+    "titulo": "Cómo aprender zampoña desde cero: guía completa",
+    "slug": "como-aprender-zampona-desde-cero",
+    "resumen": "Descubre cómo aprender a tocar la zampoña en casa: técnica, postura y ejercicios básicos para principiantes sin experiencia musical.",
+    "categoria": "Música",
+    "emoji": "🎶",
+    "minutos": 7,
+    "fuente": "google-suggest",
+    "razon_oportunidad": "Ninguna plataforma grande (Coursera, Udemy, Domestika) tiene contenido específico para zampoña en español; es un nicho muy desatendido.",
+    "competidores": "ninguno"
+  },
+  {
+    "id": 92,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender lenguaje de signos desde cero gratis",
+    "keyword_principal": "aprender lenguaje de signos gratis",
+    "keywords_secundarias": [],
+    "titulo": "Aprender lenguaje de signos gratis: recursos y pasos",
+    "slug": "aprender-lenguaje-de-signos-gratis",
+    "resumen": "Los mejores recursos gratuitos para aprender lengua de signos española desde cero: apps, vídeos y comunidades para principiantes.",
+    "categoria": "Idiomas",
+    "emoji": "🤟",
+    "minutos": 7,
+    "fuente": "google-suggest",
+    "razon_oportunidad": "Coursera y Udemy tienen cursos de ASL (inglés) pero no de LSE (lengua de signos española) con enfoque gratuito y desde cero.",
+    "competidores": "solo inglés"
+  },
+  {
+    "id": 93,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender oratoria en casa sin clases presenciales",
+    "keyword_principal": "como aprender oratoria en casa",
+    "keywords_secundarias": [],
+    "titulo": "Cómo aprender oratoria en casa: guía práctica paso a paso",
+    "slug": "como-aprender-oratoria-en-casa",
+    "resumen": "Técnicas y ejercicios concretos para mejorar tu oratoria desde casa sin necesidad de clases presenciales ni cursos de pago.",
+    "categoria": "Habilidades personales",
+    "emoji": "🎤",
+    "minutos": 7,
+    "fuente": "google-suggest",
+    "razon_oportunidad": "Udemy y Coursera cubren oratoria genérica, pero ninguno tiene una página orientada específicamente al aprendizaje autónomo en casa con ejercicios prácticos.",
+    "competidores": "parcialmente Udemy"
+  },
+  {
+    "id": 94,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a soldar desde cero en casa",
+    "keyword_principal": "cómo aprender a soldar",
+    "keywords_secundarias": [],
+    "titulo": "Cómo aprender a soldar desde cero: guía para principiantes",
+    "slug": "como-aprender-a-soldar-desde-cero",
+    "resumen": "Aprende los tipos de soldadura, herramientas necesarias y técnicas básicas para iniciarte en la soldadura desde cero de forma segura.",
+    "categoria": "Oficios",
+    "emoji": "🔧",
+    "minutos": 7,
+    "fuente": "google-suggest",
+    "razon_oportunidad": "Ninguna de las grandes plataformas educativas en español (Platzi, Domestika, Coursera) tiene contenido específico de iniciación a la soldadura.",
+    "competidores": "ninguno"
+  },
+  {
+    "id": 95,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender finanzas personales desde cero",
+    "keyword_principal": "como aprender finanzas desde cero",
+    "keywords_secundarias": [],
+    "titulo": "Cómo aprender finanzas desde cero: guía para empezar hoy",
+    "slug": "como-aprender-finanzas-desde-cero",
+    "resumen": "Guía práctica para entender finanzas personales desde cero: presupuesto, ahorro, deuda e inversión básica explicados de forma sencilla.",
+    "categoria": "Finanzas",
+    "emoji": "💰",
+    "minutos": 7,
+    "fuente": "google-suggest",
+    "razon_oportunidad": "Coursera y Udemy tienen cursos de finanzas avanzados o universitarios, pero no páginas informacionales orientadas al lector hispanohablante que empieza desde cero.",
+    "competidores": "parcialmente Udemy"
+  },
+  {
+    "id": 96,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender hebreo desde cero en español",
+    "keyword_principal": "como aprender hebreo",
+    "keywords_secundarias": [],
+    "titulo": "Cómo aprender hebreo desde cero: métodos y recursos gratis",
+    "slug": "como-aprender-hebreo-desde-cero",
+    "resumen": "Descubre los mejores métodos, apps y recursos gratuitos para aprender hebreo moderno desde cero si tu lengua materna es el español.",
+    "categoria": "Idiomas",
+    "emoji": "🇮🇱",
+    "minutos": 7,
+    "fuente": "google-suggest",
+    "razon_oportunidad": "Duolingo y Babbel lo cubren como app, pero ninguna plataforma educativa grande tiene una guía informacional en español dedicada a aprender hebreo desde cero.",
+    "competidores": "ninguno"
+  },
+  {
+    "id": 97,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender solfeo desde cero sin conocimientos musicales",
+    "keyword_principal": "aprender solfeo desde cero",
+    "keywords_secundarias": [],
+    "titulo": "Aprender solfeo desde cero: guía práctica para principiantes",
+    "slug": "aprender-solfeo-desde-cero",
+    "resumen": "Todo lo que necesitas para aprender solfeo desde cero: lectura de notas, ritmo y ejercicios básicos sin conocimientos musicales previos.",
+    "categoria": "Música",
+    "emoji": "🎼",
+    "minutos": 7,
+    "fuente": "google-suggest",
+    "razon_oportunidad": "Domestika cubre ilustración y diseño, Udemy tiene cursos de piano o guitarra pero no páginas informacionales dedicadas exclusivamente a solfeo en español.",
+    "competidores": "ninguno"
+  },
+  {
+    "id": 98,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender boxeo en casa desde cero sin equipo",
+    "keyword_principal": "aprender boxeo en casa",
+    "keywords_secundarias": [],
+    "titulo": "Aprender boxeo en casa desde cero: rutinas y técnica básica",
+    "slug": "aprender-boxeo-en-casa-desde-cero",
+    "resumen": "Guía para iniciarte en el boxeo desde casa: postura, guardia, golpes básicos y rutinas de entrenamiento sin necesidad de gimnasio ni equipo.",
+    "categoria": "Deporte",
+    "emoji": "🥊",
+    "minutos": 7,
+    "fuente": "google-suggest",
+    "razon_oportunidad": "Udemy, Platzi y Coursera no tienen cursos ni páginas dedicadas al boxeo en casa para principiantes en español; es un nicho deportivo sin competencia editorial.",
+    "competidores": "ninguno"
+  },
+  {
+    "id": 99,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender griego moderno desde cero en español",
+    "keyword_principal": "como aprender griego moderno",
+    "keywords_secundarias": [],
+    "titulo": "Cómo aprender griego moderno desde cero: guía completa",
+    "slug": "como-aprender-griego-moderno-desde-cero",
+    "resumen": "Los mejores recursos, apps y métodos para aprender griego moderno desde cero si hablas español: por dónde empezar y qué esperar.",
+    "categoria": "Idiomas",
+    "emoji": "🇬🇷",
+    "minutos": 7,
+    "fuente": "google-suggest",
+    "razon_oportunidad": "Es un idioma con búsqueda real pero completamente ignorado por Coursera, Udemy y Platzi en su versión para hispanohablantes que empiezan desde cero.",
+    "competidores": "ninguno"
+  },
+  {
+    "id": 100,
+    "usado": false,
+    "fecha_uso": null,
+    "tema": "aprender a bailar sevillanas desde cero paso a paso",
+    "keyword_principal": "aprender sevillanas paso a paso",
+    "keywords_secundarias": [],
+    "titulo": "Aprender sevillanas paso a paso: guía para principiantes",
+    "slug": "aprender-sevillanas-paso-a-paso",
+    "resumen": "Aprende a bailar sevillanas desde cero con esta guía paso a paso: los cuatro pasos básicos, brazos y compás explicados de forma clara.",
+    "categoria": "Baile",
+    "emoji": "💃",
+    "minutos": 7,
+    "fuente": "google-suggest",
+    "razon_oportunidad": "Domestika cubre diseño y creatividad, Udemy tiene baile genérico, pero ninguna plataforma grande tiene contenido específico de sevillanas para principiantes en español.",
+    "competidores": "ninguno"
+  }
+]

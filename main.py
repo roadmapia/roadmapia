@@ -1,3 +1,6 @@
+import json as _json
+from pathlib import Path as _Path
+
 from fastapi import FastAPI, Request, Depends, Form
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -9,6 +12,30 @@ from database.database import init_db, get_db
 from database.models import User, Roadmap
 from routers import auth, roadmaps, progress, tutor, payments
 from core.csrf import generate_csrf_token, validate_csrf_token
+
+
+# ─── Blog dinámico ────────────────────────────────────────────────────────────
+def _load_blog_registry() -> list:
+    """Carga artículos del blog desde blog_registry.json (sin reiniciar el servidor)."""
+    try:
+        f = _Path(__file__).parent / "blog_registry.json"
+        data = _json.loads(f.read_text(encoding="utf-8"))
+        # Orden cronológico inverso (más recientes primero)
+        articles = data.get("articles", [])
+        return list(reversed(articles))
+    except Exception:
+        return []
+
+
+def _get_blog_slugs_validos() -> set:
+    """Devuelve el conjunto de slugs válidos leyendo el registro en tiempo real."""
+    try:
+        f = _Path(__file__).parent / "blog_registry.json"
+        data = _json.loads(f.read_text(encoding="utf-8"))
+        return {a["slug"] for a in data.get("articles", [])}
+    except Exception:
+        return set()
+# ─────────────────────────────────────────────────────────────────────────────
 
 
 @asynccontextmanager
@@ -28,6 +55,35 @@ app.include_router(roadmaps.router)
 app.include_router(progress.router)
 app.include_router(tutor.router)
 app.include_router(payments.router)
+
+
+@app.get("/sitemap.xml")
+async def sitemap():
+    """
+    Sitemap XML para Google Search Console.
+    Se regenera automáticamente cada vez que el blog agent publica un artículo.
+    """
+    from fastapi.responses import Response
+    sitemap_path = _Path(__file__).parent / "static" / "sitemap.xml"
+    if sitemap_path.exists():
+        return Response(
+            content=sitemap_path.read_text(encoding="utf-8"),
+            media_type="application/xml"
+        )
+    # Si no existe aún, generar uno mínimo al vuelo
+    articles = _load_blog_registry()
+    base = "https://roadmapia.com"
+    today = __import__("datetime").date.today().isoformat()
+    urls = [f"  <url><loc>{base}/</loc><priority>1.0</priority></url>",
+            f"  <url><loc>{base}/blog</loc><priority>0.9</priority></url>"]
+    for a in articles:
+        urls.append(f"  <url><loc>{base}/blog/{a['slug']}</loc>"
+                    f"<lastmod>{a.get('fecha_iso', today)}</lastmod>"
+                    f"<priority>0.7</priority></url>")
+    xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+           + "\n".join(urls) + "\n</urlset>")
+    return Response(content=xml, media_type="application/xml")
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -225,80 +281,7 @@ async def blog(request: Request):
     db = next(get_db())
     token = request.cookies.get("access_token")
     user = get_current_user_from_token(token, db) if token else None
-    articles = [
-        {
-            "slug": "como-aprender-marketing-digital-desde-cero",
-            "titulo": "Cómo aprender marketing digital desde cero en 2026",
-            "resumen": "SEO, redes sociales, email marketing y publicidad: qué aprender, en qué orden y cómo conseguir experiencia real sin tener clientes todavía.",
-            "emoji": "📈",
-            "categoria": "Marketing",
-            "minutos": 7,
-            "fecha": "24 de mayo, 2026"
-        },
-        {
-            "slug": "cuanto-tiempo-lleva-aprender-a-programar",
-            "titulo": "¿Cuánto tiempo lleva aprender a programar? La respuesta honesta",
-            "resumen": "Sin exageraciones de bootcamps ni promesas imposibles. Tiempos reales según el lenguaje, tu objetivo y tu dedicación diaria.",
-            "emoji": "⏱️",
-            "categoria": "Programación",
-            "minutos": 6,
-            "fecha": "22 de mayo, 2026"
-        },
-        {
-            "slug": "habilidades-digitales-que-aprender-en-2026",
-            "titulo": "Las mejores habilidades digitales que aprender en 2026",
-            "resumen": "Cuáles tienen más demanda ahora mismo, cuánto tiempo necesitas para cada una y cuál encaja mejor con tu perfil profesional.",
-            "emoji": "💡",
-            "categoria": "Productividad",
-            "minutos": 6,
-            "fecha": "20 de mayo, 2026"
-        },
-        {
-            "slug": "como-aprender-ingles-solo",
-            "titulo": "Cómo aprender inglés solo: plan paso a paso para 2026",
-            "resumen": "De cero a conversacional sin academia y sin gastar dinero. El método, los recursos gratuitos y el plan semanal exacto que realmente funciona.",
-            "emoji": "🇬🇧",
-            "categoria": "Idiomas",
-            "minutos": 8,
-            "fecha": "19 de mayo, 2026"
-        },
-        {
-            "slug": "roadmap-diseno-ux-desde-cero",
-            "titulo": "Roadmap para aprender diseño UX desde cero en 2026",
-            "resumen": "Qué estudiar primero, herramientas esenciales, cómo construir un portfolio y cómo conseguir tu primer trabajo sin experiencia previa.",
-            "emoji": "🎨",
-            "categoria": "Diseño",
-            "minutos": 7,
-            "fecha": "18 de mayo, 2026"
-        },
-        {
-            "slug": "como-aprender-python-desde-cero",
-            "titulo": "Cómo aprender Python desde cero en 2026: la guía definitiva",
-            "resumen": "Python es el lenguaje más demandado del mercado. Te explicamos por dónde empezar, qué recursos usar y cómo estructurar tu aprendizaje para llegar al nivel profesional.",
-            "emoji": "🐍",
-            "categoria": "Programación",
-            "minutos": 8,
-            "fecha": "15 de mayo, 2026"
-        },
-        {
-            "slug": "aprender-con-ia-vs-cursos-tradicionales",
-            "titulo": "Aprender con IA vs cursos tradicionales: ¿qué funciona mejor?",
-            "resumen": "Comparamos los métodos de aprendizaje online más populares: plataformas de cursos, YouTube, tutores humanos y la nueva generación de tutores IA. ¿Cuál da mejores resultados?",
-            "emoji": "🤖",
-            "categoria": "Aprendizaje",
-            "minutos": 6,
-            "fecha": "10 de mayo, 2026"
-        },
-        {
-            "slug": "roadmap-de-aprendizaje-que-es-y-por-que-necesitas-uno",
-            "titulo": "Qué es un roadmap de aprendizaje y por qué necesitas uno",
-            "resumen": "Aprender sin un plan estructurado es la causa número uno de abandono. Te explicamos qué es un roadmap, cómo crearlo y por qué cambia completamente los resultados.",
-            "emoji": "🗺️",
-            "categoria": "Productividad",
-            "minutos": 5,
-            "fecha": "5 de mayo, 2026"
-        },
-    ]
+    articles = _load_blog_registry()  # Cargado dinámicamente desde blog_registry.json
     return templates.TemplateResponse("blog.html", {"request": request, "user": user, "articles": articles})
 
 
@@ -394,24 +377,13 @@ async def enviar_soporte(request: Request, db: Session = Depends(get_db)):
         return JSONResponse({"ok": False, "error": str(e)}, status_code=500)
 
 
-BLOG_SLUGS_VALIDOS = {
-    "como-aprender-python-desde-cero",
-    "aprender-con-ia-vs-cursos-tradicionales",
-    "roadmap-de-aprendizaje-que-es-y-por-que-necesitas-uno",
-    "roadmap-diseno-ux-desde-cero",
-    "como-aprender-ingles-solo",
-    "habilidades-digitales-que-aprender-en-2026",
-    "cuanto-tiempo-lleva-aprender-a-programar",
-    "como-aprender-marketing-digital-desde-cero",
-}
-
 @app.get("/blog/{slug}", response_class=HTMLResponse)
 async def blog_post(slug: str, request: Request, db: Session = Depends(get_db)):
     import re
+    from fastapi import HTTPException
     from core.auth import get_current_user_from_token
-    # Validar slug contra whitelist y patrón seguro
-    if slug not in BLOG_SLUGS_VALIDOS or not re.match(r"^[a-z0-9-]+$", slug):
-        from fastapi import HTTPException
+    # Validar slug: patrón seguro + whitelist dinámica desde blog_registry.json
+    if not re.match(r"^[a-z0-9-]+$", slug) or slug not in _get_blog_slugs_validos():
         raise HTTPException(status_code=404, detail="Artículo no encontrado")
     token = request.cookies.get("access_token")
     user = get_current_user_from_token(token, db) if token else None
