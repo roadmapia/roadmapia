@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% block title %}Analiza tus habilidades — RoadmapIA{% endblock %}
+{% block content %}
+
+<div style="max-width:720px;margin:0 auto;padding:2rem 1rem">
+
+  {# ── Cabecera ─────────────────────────────────────────────────────────────── #}
+  <div style="margin-bottom:2rem">
+    <a href="/dashboard" style="font-size:0.8rem;color:var(--muted)">← Volver al dashboard</a>
+    <h1 style="margin:1rem 0 0.4rem;font-size:1.6rem">
+      🎯 Analiza tus habilidades
+    </h1>
+    <p style="color:var(--muted);font-size:0.95rem">
+      Cuéntanos qué sabes y te sugerimos los mejores roadmaps para seguir creciendo.
+    </p>
+  </div>
+
+  {# ── Gate Pro ─────────────────────────────────────────────────────────────── #}
+  {% if user.plan != 'pro' %}
+  <div style="background:linear-gradient(135deg,rgba(167,139,250,0.12),rgba(99,102,241,0.08));border:1px solid rgba(167,139,250,0.25);border-radius:16px;padding:2.5rem;text-align:center">
+    <div style="font-size:3rem;margin-bottom:1rem">🔒</div>
+    <h2 style="margin:0 0 0.75rem;font-size:1.3rem">Funcionalidad exclusiva del plan Pro</h2>
+    <p style="color:var(--muted);margin-bottom:1.5rem;font-size:0.95rem;max-width:480px;margin-left:auto;margin-right:auto">
+      El analizador de habilidades usa IA avanzada para mapear lo que ya sabes
+      y encontrar exactamente qué aprender a continuación para maximizar tu potencial.
+    </p>
+    <div style="display:flex;flex-direction:column;gap:0.75rem;max-width:360px;margin:0 auto 2rem">
+      <div style="display:flex;align-items:center;gap:0.75rem;text-align:left;font-size:0.9rem">
+        <span style="color:#a78bfa;font-size:1.1rem">✓</span>
+        <span>Análisis personalizado de tus conocimientos actuales</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.75rem;text-align:left;font-size:0.9rem">
+        <span style="color:#a78bfa;font-size:1.1rem">✓</span>
+        <span>6 roadmaps complementarios seleccionados por IA</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.75rem;text-align:left;font-size:0.9rem">
+        <span style="color:#a78bfa;font-size:1.1rem">✓</span>
+        <span>Justificación de por qué cada tema potencia lo que ya sabes</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.75rem;text-align:left;font-size:0.9rem">
+        <span style="color:#a78bfa;font-size:1.1rem">✓</span>
+        <span>Roadmaps ilimitados + tutor IA sin límite + certificados</span>
+      </div>
+    </div>
+    <a href="/pricing" class="btn btn-primary" style="font-size:1rem;padding:0.75rem 2rem">
+      Mejorar a Pro — 17€/mes
+    </a>
+  </div>
+
+  {% else %}
+
+  {# ── Formulario ───────────────────────────────────────────────────────────── #}
+  <div style="background:var(--surface);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:1.75rem;margin-bottom:2rem">
+    <form method="post" action="/skills/analizar" id="skills-form">
+      <div style="margin-bottom:1.25rem">
+        <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.5rem;color:var(--muted)">
+          ¿Qué conocimientos o habilidades tienes ya? *
+        </label>
+        <textarea
+          name="skills"
+          rows="4"
+          required
+          minlength="10"
+          placeholder="Ej: Python básico, HTML y CSS, algo de SQL, he hecho webs sencillas con Flask, entiendo conceptos básicos de redes..."
+          style="width:100%;padding:0.75rem;background:var(--bg);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:var(--text);font-size:0.9rem;resize:vertical;box-sizing:border-box"
+        >{{ skills }}</textarea>
+        <div style="font-size:0.75rem;color:var(--muted);margin-top:0.35rem">
+          Cuanto más detallado, mejores serán las sugerencias.
+        </div>
+      </div>
+
+      <div style="margin-bottom:1.5rem">
+        <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.5rem;color:var(--muted)">
+          ¿Cuál es tu objetivo? <span style="font-weight:400;opacity:0.6">(opcional)</span>
+        </label>
+        <input
+          type="text"
+          name="objetivo"
+          value="{{ objetivo }}"
+          placeholder="Ej: trabajar como desarrollador backend, montar mi propio negocio online, conseguir un ascenso..."
+          style="width:100%;padding:0.75rem;background:var(--bg);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:var(--text);font-size:0.9rem;box-sizing:border-box"
+        >
+      </div>
+
+      {% if error == 'too_short' %}
+      <div style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:0.75rem 1rem;margin-bottom:1rem;font-size:0.85rem;color:#f87171">
+        ⚠️ Describe tus habilidades con más detalle (mínimo 10 caracteres).
+      </div>
+      {% elif error == 'ai_error' %}
+      <div style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:0.75rem 1rem;margin-bottom:1rem;font-size:0.85rem;color:#f87171">
+        ❌ Hubo un error al analizar tus habilidades. Por favor inténtalo de nuevo.
+      </div>
+      {% endif %}
+
+      <button type="submit" class="btn btn-primary" style="width:100%;padding:0.85rem;font-size:1rem" id="submit-btn">
+        🎯 Analizar mis habilidades
+      </button>
+    </form>
+  </div>
+
+  {# ── Resultados ───────────────────────────────────────────────────────────── #}
+  {% if sugerencias %}
+  <div>
+    <h2 style="font-size:1.1rem;margin-bottom:1.25rem;color:var(--muted)">
+      ✨ Roadmaps recomendados para ti
+    </h2>
+    <div style="display:grid;gap:1rem">
+      {% for s in sugerencias %}
+      <div style="background:var(--surface);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:1.25rem;display:flex;gap:1rem;align-items:flex-start;transition:border-color 0.2s"
+           onmouseover="this.style.borderColor='rgba(99,102,241,0.4)'"
+           onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'">
+
+        <div style="font-size:2rem;line-height:1;flex-shrink:0">{{ s.emoji or '📚' }}</div>
+
+        <div style="flex:1;min-width:0">
+          <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+            <h3 style="margin:0;font-size:1rem;font-weight:600">{{ s.tema }}</h3>
+            <span style="font-size:0.7rem;padding:0.2rem 0.5rem;border-radius:20px;font-weight:600;
+              {% if s.nivel == 'avanzado' %}background:rgba(239,68,68,0.15);color:#f87171
+              {% elif s.nivel == 'intermedio' %}background:rgba(251,191,36,0.15);color:#fbbf24
+              {% else %}background:rgba(52,211,153,0.15);color:#34d399{% endif %}">
+              {{ s.nivel|capitalize }}
+            </span>
+            <span style="font-size:0.75rem;color:var(--muted)">~{{ s.duracion_semanas }} semanas</span>
+          </div>
+          <p style="margin:0 0 0.75rem;font-size:0.85rem;color:var(--muted);line-height:1.5">
+            {{ s.razon }}
+          </p>
+          <a href="/roadmaps/nuevo?tema={{ s.tema | urlencode }}&nivel={{ s.nivel }}"
+             class="btn btn-primary"
+             style="padding:0.4rem 1rem;font-size:0.82rem;display:inline-block">
+            Crear roadmap →
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div style="margin-top:1.5rem;text-align:center">
+      <a href="/skills/analizar" style="font-size:0.85rem;color:var(--muted)">
+        🔄 Analizar otras habilidades
+      </a>
+    </div>
+  </div>
+  {% endif %}
+
+  {% endif %} {# end gate pro #}
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const form = document.getElementById('skills-form');
+const btn  = document.getElementById('submit-btn');
+if (form && btn) {
+  form.addEventListener('submit', () => {
+    btn.disabled = true;
+    btn.textContent = '🧠 Analizando tus habilidades…';
+  });
+}
+
+// Pre-rellenar formulario si hay parámetros en la URL (desde dashboard)
+const params = new URLSearchParams(window.location.search);
+const temaParam = params.get('skills');
+if (temaParam) {
+  const ta = document.querySelector('textarea[name="skills"]');
+  if (ta && !ta.value) ta.value = temaParam;
+}
+</script>
+{% endblock %}

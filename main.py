@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 
 from database.database import init_db, get_db
 from database.models import User, Roadmap
-from routers import auth, roadmaps, progress, tutor, payments
+from routers import auth, roadmaps, progress, tutor, payments, skills
 from core.csrf import generate_csrf_token, validate_csrf_token
 
 
@@ -61,6 +61,7 @@ app.include_router(roadmaps.router)
 app.include_router(progress.router)
 app.include_router(tutor.router)
 app.include_router(payments.router)
+app.include_router(skills.router)
 
 
 @app.get("/sitemap.xml")

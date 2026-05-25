@@ -8,7 +8,7 @@ PLANS = {
         "precio": 0,
         "roadmaps_mes": 1,
         "roadmaps_avanzados_mes": 0,    # no puede crear roadmaps avanzados
-        "mensajes_tutor_mes": 20,        # 20 base + 5 bonus reseña = 25
+        "mensajes_tutor_mes": 5,         # 5 base + 5 bonus reseña = 10 total
         "anuncios": True,
         "certificado": False,
         "lecciones_bloqueadas": 2,       # últimas N lecciones bloqueadas

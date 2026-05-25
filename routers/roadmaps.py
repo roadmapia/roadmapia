@@ -82,11 +82,16 @@ async def nuevo_roadmap_page(request: Request, db: Session = Depends(get_db)):
         return RedirectResponse(url="/auth/login")
 
     puede, mensaje = can_create_roadmap(user, db)
+    # Permite prefill desde el analizador de habilidades (?tema=...&nivel=...)
+    tema_prefill  = request.query_params.get("tema", "")
+    nivel_prefill = request.query_params.get("nivel", "")
     return templates.TemplateResponse("new_roadmap.html", {
         "request": request,
         "user": user,
         "puede_crear": puede,
-        "mensaje_limite": mensaje
+        "mensaje_limite": mensaje,
+        "tema_prefill": tema_prefill,
+        "nivel_prefill": nivel_prefill,
     })
 
 

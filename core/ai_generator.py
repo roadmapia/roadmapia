@@ -272,3 +272,72 @@ def _normalizar(tema: str) -> str:
     nfkd = unicodedata.normalize("NFKD", tema.lower().strip())
     sin_acentos = "".join(c for c in nfkd if not unicodedata.combining(c))
     return " ".join(sin_acentos.split())
+
+
+# ─── Analizador de habilidades (Pro) ─────────────────────────────────────────
+
+async def suggest_complementary_roadmaps(
+    skills: str,
+    objetivo: str = "",
+    idioma: str = "es"
+) -> list[dict]:
+    """
+    Dado lo que el usuario ya sabe (skills) y su objetivo opcional,
+    devuelve una lista de 6 roadmaps complementarios con justificación.
+
+    Cada item: { tema, razon, nivel, duracion_semanas, emoji }
+    """
+    if idioma == "en":
+        prompt = f"""The user already knows: {skills}
+{"Their goal: " + objetivo if objetivo else ""}
+
+Suggest exactly 6 learning roadmaps that complement and expand their existing knowledge.
+Choose topics that:
+- Build on what they already know (not repeat it)
+- Fill skill gaps that professionals in their area typically need
+- Open new career or project opportunities
+
+Respond ONLY with valid JSON array, no extra text:
+[
+  {{
+    "tema": "Topic name (concise, 2-5 words)",
+    "razon": "One sentence explaining exactly why this complements their current skills",
+    "nivel": "principiante|intermedio|avanzado",
+    "duracion_semanas": 8,
+    "emoji": "📊"
+  }}
+]"""
+    else:
+        prompt = f"""El usuario ya sabe: {skills}
+{"Su objetivo: " + objetivo if objetivo else ""}
+
+Sugiere exactamente 6 roadmaps de aprendizaje que complementen y potencien sus conocimientos actuales.
+Elige temas que:
+- Construyan sobre lo que ya sabe (sin repetirlo)
+- Rellenen gaps que los profesionales de su área suelen necesitar
+- Abran nuevas oportunidades laborales o de proyectos
+
+Responde ÚNICAMENTE con un array JSON válido, sin texto adicional:
+[
+  {{
+    "tema": "Nombre del tema (conciso, 2-5 palabras)",
+    "razon": "Una frase explicando exactamente por qué complementa sus conocimientos actuales",
+    "nivel": "principiante|intermedio|avanzado",
+    "duracion_semanas": 8,
+    "emoji": "📊"
+  }}
+]"""
+
+    message = await client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=2000,
+        messages=[{"role": "user", "content": prompt}],
+    )
+
+    content = message.content[0].text.strip()
+    if content.startswith("```"):
+        content = "\n".join(content.split("\n")[1:-1])
+
+    sugerencias = json.loads(content)
+    # Garantizar máximo 6
+    return sugerencias[:6]

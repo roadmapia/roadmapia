@@ -33,7 +33,18 @@
         Plan: <span class="badge badge-{{ user.plan }}">{{ plan_info.nombre }}</span>
       </p>
     </div>
-    <a href="/roadmaps/nuevo" class="btn btn-primary">+ Nuevo roadmap</a>
+    <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+      {% if user.plan == 'pro' %}
+      <a href="/skills/analizar" class="btn btn-secondary" style="border-color:rgba(167,139,250,0.4);color:#a78bfa;font-size:0.85rem">
+        🎯 Analizar habilidades
+      </a>
+      {% else %}
+      <a href="/skills/analizar" class="btn btn-secondary" style="border-color:rgba(167,139,250,0.2);color:var(--muted);font-size:0.85rem" title="Exclusivo del plan Pro">
+        🎯 Analizar habilidades 🔒
+      </a>
+      {% endif %}
+      <a href="/roadmaps/nuevo" class="btn btn-primary">+ Nuevo roadmap</a>
+    </div>
   </div>
 
   <div class="stats-bar">
