@@ -1,4 +1,5 @@
 import json as _json
+import os as _os
 from pathlib import Path as _Path
 
 from fastapi import FastAPI, Request, Depends, Form
@@ -54,6 +55,17 @@ app = FastAPI(title="RoadmapIA", lifespan=lifespan)
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
+
+# ── Variables globales disponibles en todos los templates ─────────────────────
+# ADSENSE_SLOT_BANNER: déjalo vacío hasta que AdSense apruebe la cuenta.
+# Cuando tengas el slot ID, añádelo al .env y los anuncios aparecerán solos
+# en las páginas de usuarios Free (lesson, dashboard, roadmap).
+templates.env.globals.update({
+    "adsense_client_id":  _os.getenv("ADSENSE_CLIENT_ID", "ca-pub-1171202052583518"),
+    "adsense_slot_banner": _os.getenv("ADSENSE_SLOT_BANNER", ""),   # horizontal / auto
+    "adsense_slot_square": _os.getenv("ADSENSE_SLOT_SQUARE", ""),   # cuadrado (futuro)
+})
+# ─────────────────────────────────────────────────────────────────────────────
 
 # Registrar routers
 app.include_router(auth.router)

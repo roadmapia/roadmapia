@@ -53,7 +53,18 @@
     </div>
 
     {% if user.plan == "free" %}
-    <div class="ad-banner">📢 Publicidad · <a href="/pricing">Elimina los anuncios →</a></div>
+    <div class="ad-banner">
+      <span>📢 Publicidad · <a href="/pricing" style="font-size:0.78rem;color:var(--accent)">Eliminar anuncios →</a></span>
+      {% if adsense_slot_banner %}
+      <ins class="adsbygoogle"
+           style="display:block;margin-top:0.5rem"
+           data-ad-client="{{ adsense_client_id }}"
+           data-ad-slot="{{ adsense_slot_banner }}"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      {% endif %}
+    </div>
     {% endif %}
 
     {% if progreso and progreso.completada %}
