@@ -118,22 +118,22 @@
       <span class="stat-pill-num" id="stat-usuarios">—</span>
       <span class="stat-pill-lbl">usuarios registrados</span>
     </div>
-    <div class="stat-pill-sep">·</div>
+    <div class="stat-pill-sep" aria-hidden="true">·</div>
     <div class="stat-pill">
       <span class="stat-pill-num" id="stat-roadmaps">—</span>
       <span class="stat-pill-lbl">roadmaps generados</span>
     </div>
-    <div class="stat-pill-sep">·</div>
+    <div class="stat-pill-sep" aria-hidden="true">·</div>
     <div class="stat-pill">
       <span class="stat-pill-num">Infinitos</span>
       <span class="stat-pill-lbl">temas disponibles</span>
     </div>
-    <div class="stat-pill-sep">·</div>
+    <div class="stat-pill-sep" aria-hidden="true">·</div>
     <div class="stat-pill">
       <span class="stat-pill-num">24/7</span>
       <span class="stat-pill-lbl">Tutor IA</span>
     </div>
-    <div class="stat-pill-sep">·</div>
+    <div class="stat-pill-sep" aria-hidden="true">·</div>
     <div class="stat-pill">
       <span class="stat-pill-num">Gratis</span>
       <span class="stat-pill-lbl">para empezar</span>
@@ -329,11 +329,11 @@
     <table class="comp-table">
       <thead>
         <tr>
-          <th>Característica</th>
-          <th class="comp-highlight">🧠 RoadmapIA</th>
-          <th>roadmap.sh</th>
-          <th>Coursera</th>
-          <th>YouTube solo</th>
+          <th scope="col">Característica</th>
+          <th scope="col" class="comp-highlight">🧠 RoadmapIA</th>
+          <th scope="col">roadmap.sh</th>
+          <th scope="col">Coursera</th>
+          <th scope="col">YouTube solo</th>
         </tr>
       </thead>
       <tbody>
@@ -529,27 +529,27 @@
     <p class="section-sub">Todo lo que necesitas saber antes de empezar</p>
   </div>
   <div class="faq-grid">
-    <div class="faq-land-item reveal" onclick="toggleFaqItem(this)">
+    <div class="faq-land-item reveal" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqItem(this)" onkeydown="if(event.key==='Enter'||event.key===' '){toggleFaqItem(this);event.preventDefault()}">
       <div class="faq-land-q"><span>¿Qué incluye el plan gratuito?</span><span class="faq-arrow">▾</span></div>
       <div class="faq-land-a">El plan gratuito incluye 1 roadmap completo al mes, 5 mensajes con el tutor IA al mes (+5 gratis si dejas una reseña), acceso a todos los temas y vídeos de YouTube integrados. Las últimas 2 lecciones de cada roadmap están bloqueadas para incentivar el paso a un plan de pago. No hace falta tarjeta de crédito.</div>
     </div>
-    <div class="faq-land-item reveal" onclick="toggleFaqItem(this)">
+    <div class="faq-land-item reveal" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqItem(this)" onkeydown="if(event.key==='Enter'||event.key===' '){toggleFaqItem(this);event.preventDefault()}">
       <div class="faq-land-q"><span>¿Cómo genera la IA mi roadmap?</span><span class="faq-arrow">▾</span></div>
       <div class="faq-land-a">Usamos Claude (de Anthropic), uno de los modelos de IA más avanzados del mundo. Analizamos tu nivel actual, el tema elegido y las horas disponibles para diseñar un plan realista con fases, lecciones y recursos reales.</div>
     </div>
-    <div class="faq-land-item reveal" onclick="toggleFaqItem(this)">
+    <div class="faq-land-item reveal" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqItem(this)" onkeydown="if(event.key==='Enter'||event.key===' '){toggleFaqItem(this);event.preventDefault()}">
       <div class="faq-land-q"><span>¿Puedo cancelar en cualquier momento?</span><span class="faq-arrow">▾</span></div>
       <div class="faq-land-a">Sí, sin permanencia ni penalizaciones. Si cancelas, el plan permanece activo hasta el fin del período pagado. Tus roadmaps nunca se borran.</div>
     </div>
-    <div class="faq-land-item reveal reveal-delay" onclick="toggleFaqItem(this)">
+    <div class="faq-land-item reveal reveal-delay" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqItem(this)" onkeydown="if(event.key==='Enter'||event.key===' '){toggleFaqItem(this);event.preventDefault()}">
       <div class="faq-land-q"><span>¿Los vídeos son realmente de YouTube?</span><span class="faq-arrow">▾</span></div>
       <div class="faq-land-a">Sí. Para cada lección buscamos automáticamente en YouTube los vídeos más relevantes. Los embebemos directamente para que puedas verlos sin salir de la plataforma.</div>
     </div>
-    <div class="faq-land-item reveal reveal-delay" onclick="toggleFaqItem(this)">
+    <div class="faq-land-item reveal reveal-delay" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqItem(this)" onkeydown="if(event.key==='Enter'||event.key===' '){toggleFaqItem(this);event.preventDefault()}">
       <div class="faq-land-q"><span>¿Cuántos temas puedo aprender?</span><span class="faq-arrow">▾</span></div>
       <div class="faq-land-a">Todos los que quieras. RoadmapIA funciona para cualquier tema: programación, idiomas, diseño, música, fotografía, marketing, finanzas, cocina… si existe en YouTube, RoadmapIA puede enseñarlo.</div>
     </div>
-    <div class="faq-land-item reveal reveal-delay" onclick="toggleFaqItem(this)">
+    <div class="faq-land-item reveal reveal-delay" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqItem(this)" onkeydown="if(event.key==='Enter'||event.key===' '){toggleFaqItem(this);event.preventDefault()}">
       <div class="faq-land-q"><span>¿Qué diferencia hay entre los planes?</span><span class="faq-arrow">▾</span></div>
       <div class="faq-land-a">El plan gratuito da 1 roadmap/mes y 5 mensajes al tutor. El plan Básico (7€/mes) permite 3 roadmaps y 150 mensajes/mes, sin anuncios. El plan Pro (17€/mes) es completamente ilimitado e incluye el analizador de habilidades IA, prioridad máxima en cola y certificados de finalización.</div>
     </div>
@@ -629,16 +629,15 @@
   var slides = document.querySelectorAll('.hc-slide');
   if (slides.length < 2) return;
   var current = 0;
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Respetar prefers-reduced-motion: no iniciar carousel si el usuario lo prefiere
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   setInterval(function () {
     var prev = current;
     current = (current + 1) % slides.length;
     slides[prev].classList.add('hc-exit');
     slides[prev].classList.remove('hc-active');
     slides[current].classList.add('hc-active');
-    setTimeout(function () {
-      slides[prev].classList.remove('hc-exit');
-    }, reduced ? 400 : 650);
+    setTimeout(function () { slides[prev].classList.remove('hc-exit'); }, 650);
   }, 3800);
 })();
 </script>

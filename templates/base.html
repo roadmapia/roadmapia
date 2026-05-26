@@ -19,25 +19,32 @@
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>" />
 
-  <!-- Fuente — carga asíncrona para no bloquear render -->
+  <!-- Fuente — carga no bloqueante -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" /></noscript>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="/static/css/tailwind.css?v=8" />
-  <link rel="stylesheet" href="/static/css/style.min.css?v=8" />
+  <!-- CSS — preload para LCP -->
+  <link rel="preload" href="/static/css/style.min.css?v=10" as="style" />
+  <link rel="stylesheet" href="/static/css/tailwind.css?v=10" />
+  <link rel="stylesheet" href="/static/css/style.min.css?v=10" />
 
-  <!-- Google AdSense -->
+  <!-- Google AdSense — solo para usuarios Free (no penaliza a Pro/Basic) -->
+  {% if not user or user.plan == 'free' %}
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1171202052583518" crossorigin="anonymous"></script>
+  {% endif %}
 
   {% block head %}{% endblock %}
 </head>
 <body>
 
-<nav class="navbar">
-  <a class="navbar-brand" href="/">🧠 RoadmapIA</a>
+<!-- Skip link accesibilidad (WCAG 2.4.1) -->
+<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+<nav class="navbar" role="navigation" aria-label="Navegación principal">
+  <a class="navbar-brand" href="/"><span aria-hidden="true">🧠</span> RoadmapIA</a>
 
   <div class="navbar-links" id="navbar-links">
     {% if user %}
@@ -64,7 +71,7 @@
     {% endif %}
   </div>
 
-  <button class="hamburger" id="hamburger" aria-label="Menú" onclick="toggleMobileMenu()">
+  <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false" aria-controls="navbar-links" onclick="toggleMobileMenu()">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -122,10 +129,11 @@
 </footer>
 
 <!-- ===== MODAL RESEÑA ===== -->
-<div class="modal-overlay" id="modal-resena" style="display:none">
+<div class="modal-overlay" id="modal-resena" style="display:none"
+     role="dialog" aria-modal="true" aria-labelledby="modal-resena-title">
   <div class="modal-box review-modal" onclick="event.stopPropagation()">
     <div class="review-modal-stars">⭐⭐⭐⭐⭐</div>
-    <h3>¡Enhorabuena! 🎉</h3>
+    <h3 id="modal-resena-title">¡Enhorabuena! 🎉</h3>
     <p>Has completado otra lección. Tu opinión nos ayuda a mejorar y a que más personas descubran RoadmapIA.</p>
     <div class="review-modal-bonus">
       <div class="review-bonus-icon">🎁</div>
@@ -166,12 +174,12 @@
         <p>¡Hola, {{ user.nombre.split()[0] }}! 👋</p>
         <p class="support-sub">¿En qué podemos ayudarte? Escríbenos y te respondemos en menos de 24h.</p>
       </div>
-      <form class="support-form" id="support-form" onsubmit="submitSupportForm(event)">
-        <input type="hidden" id="sf-nombre" value="{{ user.nombre }}" />
-        <input type="hidden" id="sf-email" value="{{ user.email }}" />
+      <form class="support-form" id="support-form-u" onsubmit="submitSupportForm(event, this)">
+        <input type="hidden" name="nombre" value="{{ user.nombre }}" />
+        <input type="hidden" name="email" value="{{ user.email }}" />
         <div class="support-form-group">
-          <label>Tu consulta</label>
-          <textarea id="sf-mensaje" rows="4" placeholder="Describe tu duda o problema…" required></textarea>
+          <label for="sf-mensaje-u">Tu consulta</label>
+          <textarea id="sf-mensaje-u" name="mensaje" rows="4" placeholder="Describe tu duda o problema…" required></textarea>
         </div>
         <button type="submit" class="support-submit-btn">Enviar consulta →</button>
       </form>
@@ -207,18 +215,18 @@
     <div class="support-body" id="support-view-form" style="display:none">
       <button class="support-back-btn" onclick="showFaqs()">← Volver</button>
       <p style="font-size:0.82rem;font-weight:700;margin-bottom:0.85rem">Envíanos tu consulta</p>
-      <form class="support-form" id="support-form" onsubmit="submitSupportForm(event)">
+      <form class="support-form" id="support-form-v" onsubmit="submitSupportForm(event, this)">
         <div class="support-form-group">
-          <label>Nombre</label>
-          <input type="text" id="sf-nombre" placeholder="Tu nombre" required />
+          <label for="sf-nombre-v">Nombre</label>
+          <input type="text" id="sf-nombre-v" name="nombre" placeholder="Tu nombre" required />
         </div>
         <div class="support-form-group">
-          <label>Email</label>
-          <input type="email" id="sf-email" placeholder="tu@email.com" required />
+          <label for="sf-email-v">Email</label>
+          <input type="email" id="sf-email-v" name="email" placeholder="tu@email.com" required />
         </div>
         <div class="support-form-group">
-          <label>¿En qué podemos ayudarte?</label>
-          <textarea id="sf-mensaje" rows="3" placeholder="Describe tu consulta…" required></textarea>
+          <label for="sf-mensaje-v">¿En qué podemos ayudarte?</label>
+          <textarea id="sf-mensaje-v" name="mensaje" rows="3" placeholder="Describe tu consulta…" required></textarea>
         </div>
         <button type="submit" class="support-submit-btn">Enviar consulta →</button>
       </form>
@@ -247,7 +255,7 @@
   </button>
 </div>
 
-<script src="/static/js/main.js"></script>
+<script src="/static/js/main.js" defer></script>
 {% block scripts %}{% endblock %}
 </body>
 </html>

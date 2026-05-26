@@ -23,6 +23,7 @@
         {% if recurso.embed %}
         <div class="video-frame">
           <iframe src="{{ recurso.embed }}"
+            title="{{ recurso.texto }}"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen loading="lazy"></iframe>
         </div>
@@ -103,14 +104,14 @@
     {% else %}
     <form class="chat-form" id="chat-form">
       <textarea id="chat-input" class="chat-input" rows="2" placeholder="{% if contenido.idioma == 'en' %}Type your question…{% else %}Escribe tu pregunta…{% endif %}"></textarea>
-      <button type="submit" id="chat-send" class="chat-btn">➤</button>
+      <button type="submit" id="chat-send" class="chat-btn" aria-label="Enviar mensaje"><span aria-hidden="true">➤</span></button>
     </form>
     {% endif %}
   </div>
 </div>
 {% endblock %}
 {% block head %}
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
 {% endblock %}
 {% block scripts %}
 <script>
