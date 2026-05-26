@@ -14,37 +14,82 @@
         <a href="/pricing" class="btn btn-secondary btn-lg">Ver planes</a>
       </div>
     </div>
-    <div class="hero-visual reveal reveal-delay">
-      <div class="browser-mockup">
-        <div class="browser-chrome">
-          <div class="browser-dots"><span></span><span></span><span></span></div>
-          <div class="browser-bar">roadmapia.com/dashboard</div>
-        </div>
-        <div class="browser-content">
-          <div class="bm-greeting">👋 Hola, <strong>Carlos</strong></div>
-          <div class="bm-roadmaps">
-            <div class="bm-card">
-              <div class="bm-card-top">
-                <span class="bm-card-title">🐍 Python desde cero</span>
-                <span class="bm-card-pct">65%</span>
-              </div>
-              <div class="bm-bar"><div style="width:65%"></div></div>
-              <div class="bm-card-meta">4/6 fases · 12 lecciones completadas</div>
+    <div class="hero-visual reveal reveal-delay" aria-hidden="true">
+      <div class="hero-carousel">
+
+        <!-- Slide 1: Formulario -->
+        <div class="hc-slide hc-active">
+          <div class="browser-mockup">
+            <div class="browser-chrome">
+              <div class="browser-dots"><span></span><span></span><span></span></div>
+              <div class="browser-bar">roadmapia.com/nuevo</div>
             </div>
-            <div class="bm-card">
-              <div class="bm-card-top">
-                <span class="bm-card-title">📸 Fotografía avanzada</span>
-                <span class="bm-card-pct">28%</span>
+            <div class="browser-content">
+              <div class="bm-form-title">🎯 ¿Qué quieres aprender?</div>
+              <div class="bm-input-mock bm-input-active">Machine Learning con Python ✎</div>
+              <div class="bm-selects">
+                <div class="bm-select-mock">📊 Principiante ▾</div>
+                <div class="bm-select-mock">⏱ 1 hora/día ▾</div>
               </div>
-              <div class="bm-bar"><div style="width:28%"></div></div>
-              <div class="bm-card-meta">2/7 fases · 5 lecciones completadas</div>
+              <div class="bm-btn-mock">🚀 Generar mi roadmap</div>
             </div>
           </div>
-          <div class="bm-chat">
-            <div class="bm-chat-msg bm-msg-ai">💬 ¿Qué es un decorador en Python?</div>
-            <div class="bm-chat-msg bm-msg-bot">🤖 ¡Buena pregunta! Un decorador es una función que envuelve otra función para extender su comportamiento sin modificar su código.</div>
+        </div>
+
+        <!-- Slide 2: Generando -->
+        <div class="hc-slide">
+          <div class="browser-mockup">
+            <div class="browser-chrome">
+              <div class="browser-dots"><span></span><span></span><span></span></div>
+              <div class="browser-bar">roadmapia.com/generando</div>
+            </div>
+            <div class="browser-content">
+              <div class="bm-gen-title">🤖 Creando tu roadmap...</div>
+              <div class="bm-gen-step bm-step-done">✅ Analizando el tema</div>
+              <div class="bm-gen-step bm-step-done">✅ Estructurando las fases</div>
+              <div class="bm-gen-step bm-step-active">⚡ Generando lecciones...</div>
+              <div class="bm-gen-step">📺 Buscando vídeos de YouTube</div>
+              <div class="bm-gen-bar-wrap"><div class="bm-gen-bar-fill"></div></div>
+              <div class="bm-gen-pct">68%</div>
+            </div>
           </div>
         </div>
+
+        <!-- Slide 3: Dashboard -->
+        <div class="hc-slide">
+          <div class="browser-mockup">
+            <div class="browser-chrome">
+              <div class="browser-dots"><span></span><span></span><span></span></div>
+              <div class="browser-bar">roadmapia.com/dashboard</div>
+            </div>
+            <div class="browser-content">
+              <div class="bm-greeting">👋 Hola, <strong>Carlos</strong></div>
+              <div class="bm-roadmaps">
+                <div class="bm-card">
+                  <div class="bm-card-top">
+                    <span class="bm-card-title">🤖 Machine Learning</span>
+                    <span class="bm-card-pct">12%</span>
+                  </div>
+                  <div class="bm-bar"><div style="width:12%"></div></div>
+                  <div class="bm-card-meta">1/8 fases · 3 lecciones completadas</div>
+                </div>
+                <div class="bm-card">
+                  <div class="bm-card-top">
+                    <span class="bm-card-title">🐍 Python desde cero</span>
+                    <span class="bm-card-pct">65%</span>
+                  </div>
+                  <div class="bm-bar"><div style="width:65%"></div></div>
+                  <div class="bm-card-meta">4/6 fases · 12 lecciones completadas</div>
+                </div>
+              </div>
+              <div class="bm-chat">
+                <div class="bm-chat-msg bm-msg-ai">💬 ¿Qué es una red neuronal?</div>
+                <div class="bm-chat-msg bm-msg-bot">🤖 Un sistema que aprende patrones a partir de datos, igual que el cerebro humano con neuronas.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -560,4 +605,25 @@
   </div>
 </section>
 
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+  var slides = document.querySelectorAll('.hc-slide');
+  if (slides.length < 2) return;
+  var current = 0;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  setInterval(function () {
+    var prev = current;
+    current = (current + 1) % slides.length;
+    slides[prev].classList.add('hc-exit');
+    slides[prev].classList.remove('hc-active');
+    slides[current].classList.add('hc-active');
+    setTimeout(function () {
+      slides[prev].classList.remove('hc-exit');
+    }, reduced ? 400 : 650);
+  }, 3800);
+})();
+</script>
 {% endblock %}
