@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "css:build": "postcss static/css/src/input.css -o static/css/tailwind.css",
-    "css:watch": "postcss static/css/src/input.css -o static/css/tailwind.css --watch"
+    "css:build": "postcss static/css/src/input.css -o static/css/tailwind.css && npm run css:combine",
+    "css:watch": "postcss static/css/src/input.css -o static/css/tailwind.css --watch",
+    "css:combine": "node -e \"const fs=require('fs');fs.writeFileSync('static/css/app.css', fs.readFileSync('static/css/tailwind.css','utf8')+fs.readFileSync('static/css/style.min.css','utf8'))\""
   },
   "keywords": [],
   "author": "",

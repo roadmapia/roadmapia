@@ -26,10 +26,10 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" /></noscript>
 
-  <!-- CSS — preload para LCP -->
-  <link rel="preload" href="/static/css/style.min.css?v=10" as="style" />
-  <link rel="stylesheet" href="/static/css/tailwind.css?v=10" />
-  <link rel="stylesheet" href="/static/css/style.min.css?v=10" />
+  <!-- CSS — un solo archivo combinado (tailwind + estilos propios) para evitar
+       una segunda solicitud bloqueante en la cadena crítica de renderizado -->
+  <link rel="preload" href="/static/css/app.css?v=11" as="style" />
+  <link rel="stylesheet" href="/static/css/app.css?v=11" />
 
   {% block head %}{% endblock %}
 </head>
