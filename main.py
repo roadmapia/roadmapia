@@ -76,6 +76,29 @@ app.include_router(payments.router)
 app.include_router(skills.router)
 
 
+@app.get("/robots.txt")
+async def robots():
+    """
+    robots.txt — guía a los crawlers hacia el contenido público (home, blog,
+    páginas legales) y evita que gasten presupuesto de rastreo en rutas
+    funcionales (auth, cuenta, dashboard, roadmaps, api) que no deben indexarse.
+    """
+    from fastapi.responses import PlainTextResponse
+    lines = [
+        "User-agent: *",
+        "Disallow: /auth/",
+        "Disallow: /cuenta",
+        "Disallow: /dashboard",
+        "Disallow: /roadmaps/",
+        "Disallow: /certificaciones",
+        "Disallow: /api/",
+        "Disallow: /r/",
+        "",
+        "Sitemap: https://roadmapia.com/sitemap.xml",
+    ]
+    return PlainTextResponse("\n".join(lines))
+
+
 @app.get("/sitemap.xml")
 async def sitemap():
     """
