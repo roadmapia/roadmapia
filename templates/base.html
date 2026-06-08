@@ -31,14 +31,9 @@
   <link rel="stylesheet" href="/static/css/tailwind.css?v=10" />
   <link rel="stylesheet" href="/static/css/style.min.css?v=10" />
 
-  <!-- Google AdSense — solo para usuarios Free (no penaliza a Pro/Basic) -->
-  {% if not user or user.plan == 'free' %}
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1171202052583518" crossorigin="anonymous"></script>
-  {% endif %}
-
   {% block head %}{% endblock %}
 </head>
-<body>
+<body{% if not user or user.plan == 'free' %} data-ads-client="ca-pub-1171202052583518"{% endif %}>
 
 <!-- Skip link accesibilidad (WCAG 2.4.1) -->
 <a href="#main-content" class="skip-link">Saltar al contenido principal</a>

@@ -355,9 +355,37 @@ async function loadStats() {
   } catch (e) { /* silencioso */ }
 }
 
+// ===== ADSENSE — carga diferida (solo Free) =====
+// El script de AdSense es el recurso de terceros más pesado (≈278 KiB, ~190 KiB sin usar
+// en la carga inicial). Se difiere hasta la primera interacción del usuario o, si no
+// interactúa, tras unos segundos de inactividad — así no compite con el render inicial.
+function initLazyAdsense() {
+  const clientId = document.body.dataset.adsClient;
+  if (!clientId) return;
+
+  let loaded = false;
+  const events = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+
+  function load() {
+    if (loaded) return;
+    loaded = true;
+    events.forEach(ev => window.removeEventListener(ev, load));
+    clearTimeout(timer);
+    const s = document.createElement('script');
+    s.async = true;
+    s.crossOrigin = 'anonymous';
+    s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${clientId}`;
+    document.head.appendChild(s);
+  }
+
+  events.forEach(ev => window.addEventListener(ev, load, { passive: true, once: true }));
+  const timer = setTimeout(load, 4000);
+}
+
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
   initNewRoadmapForm();
   initScrollReveal();
   loadStats();
+  initLazyAdsense();
 });
