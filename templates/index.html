@@ -14,7 +14,13 @@
         <a href="/pricing" class="btn btn-secondary btn-lg">Ver planes</a>
       </div>
     </div>
+    <!-- El mockup del carrusel es puramente decorativo (aria-hidden) y está oculto
+         en móvil vía CSS (display:none ≤960px). Se guarda en <template> para que
+         no forme parte del DOM inicial — reduce de forma notable el nº de elementos
+         y el trabajo de parseo/estilo en la carga, sobre todo en móvil — y solo se
+         inserta por JS cuando el viewport es de escritorio. -->
     <div class="hero-visual reveal reveal-delay" aria-hidden="true">
+      <template id="tpl-hero-carousel">
       <div class="hero-carousel">
 
         <!-- Slide 1: Formulario real de nuevo roadmap -->
@@ -107,6 +113,7 @@
         </div>
 
       </div>
+      </template>
     </div>
   </div>
 </section>
@@ -626,6 +633,17 @@
 {% block scripts %}
 <script>
 (function () {
+  // El carrusel del hero es decorativo y está oculto en móvil (display:none ≤960px).
+  // Se inserta desde <template> solo en escritorio, para no inflar el DOM ni el
+  // trabajo de parseo/estilo en la carga inicial — sobre todo en móvil.
+  if (!window.matchMedia('(min-width: 961px)').matches) return;
+
+  var visual = document.querySelector('.hero-visual');
+  var tpl    = document.getElementById('tpl-hero-carousel');
+  if (!visual || !tpl) return;
+  visual.appendChild(tpl.content.cloneNode(true));
+  tpl.remove();
+
   var slides = document.querySelectorAll('.hc-slide');
   if (slides.length < 2) return;
   var current = 0;
